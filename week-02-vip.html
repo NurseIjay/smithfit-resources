@@ -1,0 +1,1193 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== GHL CONTAINER OVERRIDE ===== */
+.sf-rc-wrap{position:relative;width:100vw !important;max-width:100vw !important;margin-left:calc(-50vw + 50%) !important;overflow-x:hidden}
+.row:has(.sf-rc-wrap),.column:has(.sf-rc-wrap),.inner-content:has(.sf-rc-wrap),[class*="col"]:has(.sf-rc-wrap){max-width:100vw !important;width:100vw !important;padding:0 !important;margin-left:calc(-50vw + 50%) !important;overflow:visible !important}
+
+.sf-rc-wrap {
+  /* ===== PRIMITIVE TOKENS ===== */
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-blue-raw: #5a8aac;
+  --sf-blue-soft: #e4eff6;
+  --sf-orange-raw: #d4944a;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+
+  /* ===== SEMANTIC TOKENS ===== */
+  --sf-bg-primary: var(--sf-cream-raw);
+  --sf-bg-secondary: var(--sf-cream-mid);
+  --sf-bg-dark: var(--sf-dark-raw);
+  --sf-bg-card: #ffffff;
+  --sf-text-primary: var(--sf-taupe-raw);
+  --sf-text-secondary: var(--sf-taupe-light);
+  --sf-text-heading: var(--sf-dark-raw);
+  --sf-text-on-dark: var(--sf-cream-raw);
+  --sf-accent: var(--sf-gold-raw);
+  --sf-accent-hover: var(--sf-gold-light);
+  --sf-border: var(--sf-cream-deep);
+  --sf-success: var(--sf-green-raw);
+  --sf-warning: var(--sf-orange-raw);
+  --sf-error: var(--sf-red-raw);
+
+  /* ===== COMPONENT TOKENS ===== */
+  --sf-btn-bg: var(--sf-accent);
+  --sf-btn-text: var(--sf-dark-raw);
+  --sf-btn-shadow: 0 4px 20px rgba(200, 160, 78, 0.4);
+  --sf-btn-hover-shadow: 0 8px 32px rgba(200, 160, 78, 0.55);
+  --sf-card-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+  --sf-card-hover-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+  --sf-card-radius: 16px;
+
+  /* ===== TYPOGRAPHY ===== */
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ===== SPACING ===== */
+  --sf-space-xs: 4px;
+  --sf-space-sm: 8px;
+  --sf-space-md: 16px;
+  --sf-space-lg: 24px;
+  --sf-space-xl: 32px;
+  --sf-space-2xl: 48px;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-text-primary);
+  background: var(--sf-bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== ANIMATIONS ===== */
+@-webkit-keyframes sfFadeUp {
+  0% { opacity: 0; -webkit-transform: translateY(28px); }
+  100% { opacity: 1; -webkit-transform: translateY(0); }
+}
+@keyframes sfFadeUp {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@-webkit-keyframes sfFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes sfFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes sfGoldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes sfGoldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@-webkit-keyframes sfPulse {
+  0% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,.5); }
+  50% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 14px rgba(200,160,78,0); }
+  100% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,0); }
+}
+@keyframes sfPulse {
+  0% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,.5); }
+  50% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 14px rgba(200,160,78,0); }
+  100% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,0); }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.sf-rc-reveal {
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+  -webkit-transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.sf-rc-reveal.sf-rc-in {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* ===== STAGGERED ENTRY ===== */
+.sf-rc-stagger-1 { opacity: 0; -webkit-animation: sfFadeUp 0.7s ease forwards 0.1s; animation: sfFadeUp 0.7s ease forwards 0.1s; }
+.sf-rc-stagger-2 { opacity: 0; -webkit-animation: sfFadeUp 0.7s ease forwards 0.3s; animation: sfFadeUp 0.7s ease forwards 0.3s; }
+.sf-rc-stagger-3 { opacity: 0; -webkit-animation: sfFadeUp 0.7s ease forwards 0.5s; animation: sfFadeUp 0.7s ease forwards 0.5s; }
+.sf-rc-stagger-4 { opacity: 0; -webkit-animation: sfFadeUp 0.7s ease forwards 0.7s; animation: sfFadeUp 0.7s ease forwards 0.7s; }
+
+/* ===== HERO ===== */
+.sf-rc-hero {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+  position: relative;
+  padding: 36px 20px 28px;
+  text-align: center;
+  overflow: hidden;
+}
+.sf-rc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.25) 0%, transparent 55%);
+  pointer-events: none;
+}
+.sf-rc-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.sf-rc-brand {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sf-gold-raw);
+  margin: 0 0 6px;
+}
+.sf-rc-vip-badge {
+  display: inline-block;
+  font-family: var(--sf-sans);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sf-dark-raw);
+  background: linear-gradient(135deg, var(--sf-gold-raw) 0%, var(--sf-gold-soft) 100%);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin: 0 0 14px;
+}
+.sf-rc-week-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-taupe-light);
+  margin: 0 0 6px;
+  display: inline-block;
+  background: rgba(200,160,78,0.12);
+  border: 1px solid rgba(200,160,78,0.25);
+  border-radius: 999px;
+  padding: 5px 16px;
+}
+.sf-rc-title {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1.15;
+  color: var(--sf-cream-raw);
+  margin: 12px 0 8px;
+}
+.sf-rc-theme {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(15px, 3.5vw, 18px);
+  color: var(--sf-gold-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+.sf-rc-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sf-gold-raw), transparent);
+  margin: 14px auto 0;
+  border: none;
+}
+
+/* ===== BODY ===== */
+.sf-rc-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px 16px 8px;
+}
+
+/* ===== RECIPE CARD ===== */
+.sf-rc-card {
+  background: var(--sf-bg-card);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-card-radius);
+  padding: 24px 22px;
+  box-shadow: var(--sf-card-shadow);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 16px;
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sf-rc-card:hover {
+  -webkit-transform: translateY(-4px);
+  transform: translateY(-4px);
+  box-shadow: var(--sf-card-hover-shadow);
+}
+.sf-rc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+.sf-rc-card--gold::before { background: var(--sf-gold-raw); }
+.sf-rc-card--green::before { background: var(--sf-green-raw); }
+.sf-rc-card--blue::before { background: var(--sf-blue-raw); }
+
+.sf-rc-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.sf-rc-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-rc-icon--gold { background: rgba(200,160,78,0.12); }
+.sf-rc-icon--green { background: var(--sf-green-soft); }
+.sf-rc-icon--blue { background: var(--sf-blue-soft); }
+.sf-rc-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.sf-rc-card-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.3;
+}
+.sf-rc-card-label--gold { color: var(--sf-gold-raw); }
+.sf-rc-card-label--green { color: var(--sf-green-raw); }
+.sf-rc-card-label--blue { color: var(--sf-blue-raw); }
+
+.sf-rc-recipe-name {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--sf-text-heading);
+  margin: 0 0 8px;
+}
+
+.sf-rc-ingredients {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--sf-text-secondary);
+  margin: 0 0 12px;
+}
+
+.sf-rc-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.sf-rc-badge {
+  font-family: var(--sf-sans);
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.sf-rc-badge--protein {
+  background: var(--sf-green-soft);
+  color: var(--sf-green-raw);
+}
+.sf-rc-badge--servings {
+  background: var(--sf-cream-mid);
+  color: var(--sf-taupe-light);
+}
+.sf-rc-badge--time {
+  background: var(--sf-blue-soft);
+  color: var(--sf-blue-raw);
+}
+
+.sf-rc-quote {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--sf-text-secondary);
+  margin: 0;
+  line-height: 1.55;
+  padding-top: 12px;
+  border-top: 1px solid var(--sf-border);
+}
+
+/* ===== GAME PLAN CARD (dark) ===== */
+.sf-rc-gameplan {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+  border: 1px solid rgba(200,160,78,0.2);
+  border-radius: var(--sf-card-radius);
+  padding: 24px 22px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 16px;
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sf-rc-gameplan:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(42,33,24,0.25);
+}
+.sf-rc-gameplan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sf-gold-raw), rgba(200,160,78,0.3));
+}
+.sf-rc-gameplan-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.sf-rc-gameplan-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(200,160,78,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-rc-gameplan-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.sf-rc-gameplan-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-gold-raw);
+  margin: 0;
+}
+.sf-rc-gameplan-title {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--sf-cream-raw);
+  margin: 0 0 16px;
+}
+.sf-rc-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sf-rc-timeline li {
+  display: flex;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(200,160,78,0.1);
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(250,246,243,0.85);
+}
+.sf-rc-timeline li:last-child {
+  border-bottom: none;
+}
+.sf-rc-timeline-time {
+  font-weight: 700;
+  color: var(--sf-gold-soft);
+  white-space: nowrap;
+  min-width: 42px;
+}
+.sf-rc-gameplan-closer {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--sf-gold-soft);
+  margin: 16px 0 0;
+  line-height: 1.55;
+  padding-top: 14px;
+  border-top: 1px solid rgba(200,160,78,0.15);
+}
+
+/* ===== SOS STRIP ===== */
+.sf-rc-sos {
+  background: var(--sf-red-soft);
+  border-left: 4px solid var(--sf-red-raw);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.sf-rc-sos-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.sf-rc-sos-label {
+  font-family: var(--sf-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sf-red-raw);
+  margin: 0;
+}
+.sf-rc-sos-text {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--sf-text-primary);
+  margin: 0;
+}
+
+/* ===== VIP DEEP DIVE ===== */
+.sf-rc-vip-dive {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 16px 0;
+}
+.sf-rc-vip-dive-inner {
+  background: var(--sf-bg-card);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-card-radius);
+  padding: 28px 24px;
+  box-shadow: var(--sf-card-shadow);
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sf-rc-vip-dive-inner:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: var(--sf-card-hover-shadow);
+}
+.sf-rc-vip-dive-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sf-gold-raw), var(--sf-gold-soft), var(--sf-gold-raw));
+}
+.sf-rc-vip-dive-label {
+  display: inline-block;
+  font-family: var(--sf-sans);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sf-dark-raw);
+  background: linear-gradient(135deg, var(--sf-gold-raw), var(--sf-gold-soft));
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin: 0 0 14px;
+}
+.sf-rc-vip-dive-title {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: clamp(20px, 4vw, 26px);
+  line-height: 1.2;
+  color: var(--sf-text-heading);
+  margin: 0 0 16px;
+}
+.sf-rc-vip-dive-text {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--sf-text-primary);
+  margin: 0 0 14px;
+}
+.sf-rc-vip-dive-text:last-of-type {
+  margin-bottom: 0;
+}
+.sf-rc-vip-dive-text strong {
+  color: var(--sf-text-heading);
+  font-weight: 600;
+}
+.sf-rc-vip-action {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--sf-border);
+}
+.sf-rc-vip-action-label {
+  font-family: var(--sf-sans);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-gold-raw);
+  margin: 0 0 6px;
+}
+.sf-rc-vip-action-text {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--sf-text-heading);
+  margin: 0;
+}
+
+/* ===== VALUE TRACKER ===== */
+.sf-rc-tracker {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 16px 0;
+}
+.sf-rc-tracker-inner {
+  background: var(--sf-bg-card);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-card-radius);
+  padding: 20px 22px;
+  box-shadow: var(--sf-card-shadow);
+}
+.sf-rc-tracker-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.sf-rc-tracker-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(200,160,78,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-rc-tracker-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.sf-rc-tracker-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-gold-raw);
+  margin: 0;
+}
+.sf-rc-tracker-text {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--sf-text-primary);
+  margin: 0 0 12px;
+}
+.sf-rc-tracker-value {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--sf-gold-raw);
+  display: inline-block;
+}
+.sf-rc-tracker-bar-wrap {
+  background: var(--sf-cream-deep);
+  border-radius: 3px;
+  height: 6px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.sf-rc-tracker-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--sf-gold-raw);
+  -webkit-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+  width: 8%;
+}
+
+/* ===== REFERRAL SECTION (FULL-WIDTH, DOMINANT) ===== */
+.sf-rc-referral {
+  max-width:100%;margin:0;padding:0;
+}
+.sf-rc-referral-inner {
+  background:linear-gradient(135deg,#2a2118 0%,#3a2e22 40%,#2a2118 100%);
+  padding:48px 24px 44px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.sf-rc-referral-inner::before {
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(200,160,78,.3) 0%,transparent 55%);
+  pointer-events:none;
+}
+.sf-rc-referral-inner::after {
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 100%,rgba(200,160,78,.12) 0%,transparent 40%);
+  pointer-events:none;
+}
+.sf-rc-referral-icon {
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(200,160,78,.15);border:2px solid rgba(200,160,78,.3);
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+  -webkit-animation:sfRcFloat 3s ease infinite;
+  animation:sfRcFloat 3s ease infinite;
+}
+@-webkit-keyframes sfRcFloat{0%,100%{-webkit-transform:translateY(0)}50%{-webkit-transform:translateY(-6px)}}
+@keyframes sfRcFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.sf-rc-referral-icon svg {width:28px;height:28px;}
+.sf-rc-referral-headline {
+  font-family:var(--sf-serif);font-weight:800;
+  font-size:clamp(26px,5vw,36px);color:#fff;
+  margin:0 0 6px;line-height:1.15;position:relative;
+}
+.sf-rc-referral-headline em {
+  color:var(--sf-gold-soft);font-family:var(--sf-display);font-style:italic;
+}
+.sf-rc-referral-text {
+  font-family:var(--sf-sans);font-size:16px;font-weight:500;
+  color:#d8cec3;margin:0 auto 28px;line-height:1.6;
+  max-width:460px;position:relative;
+}
+.sf-rc-referral-text strong {
+  color: var(--sf-gold-raw);
+  font-weight: 700;
+}
+
+/* Referral tier grid */
+.sf-rc-referral-grid {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  max-width:560px;margin:0 auto 8px;position:relative;
+}
+.sf-rc-referral-tier {
+  background:rgba(255,255,255,.06);border:1px solid rgba(200,160,78,.2);
+  border-radius:14px;padding:18px 10px;text-align:center;
+  -webkit-transition:all .3s ease;transition:all .3s ease;
+  position:relative;
+}
+.sf-rc-referral-tier:hover {
+  -webkit-transform:translateY(-4px);transform:translateY(-4px);
+  background:rgba(255,255,255,.1);border-color:rgba(200,160,78,.4);
+  box-shadow:0 8px 24px rgba(200,160,78,.15);
+}
+.sf-rc-referral-num {
+  display:block;font-family:var(--sf-serif);font-weight:800;font-size:28px;
+  color:#fff;line-height:1.1;
+}
+.sf-rc-referral-num-label {
+  display:block;font-size:10px;font-weight:600;font-family:var(--sf-sans);
+  letter-spacing:.08em;text-transform:uppercase;color:rgba(200,160,78,.6);
+  margin-top:2px;
+}
+.sf-rc-referral-amt {
+  display:block;font-family:var(--sf-serif);font-weight:800;font-size:22px;
+  color:var(--sf-gold-raw);margin-top:8px;
+}
+
+/* Hero tier (10 referrals) - THE BIG ONE */
+.sf-rc-referral-hero-tier {
+  grid-column:1 / -1;
+  background:linear-gradient(135deg,rgba(200,160,78,.15) 0%,rgba(200,160,78,.05) 100%);
+  border:2px solid var(--sf-gold-raw);
+  border-radius:16px;padding:28px 20px;
+  -webkit-animation:sfRcPulseGold 2s ease infinite;
+  animation:sfRcPulseGold 2s ease infinite;
+  position:relative;overflow:hidden;
+}
+.sf-rc-referral-hero-tier::before {
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(200,160,78,.2) 0%,transparent 70%);
+  pointer-events:none;
+}
+.sf-rc-referral-hero-tier .sf-rc-referral-num {
+  font-size:clamp(36px,7vw,52px);color:var(--sf-gold-soft);
+  text-shadow:0 0 20px rgba(200,160,78,.4);
+}
+.sf-rc-referral-hero-tier .sf-rc-referral-num-label {
+  font-size:12px;color:rgba(200,160,78,.8);
+}
+.sf-rc-referral-hero-tier .sf-rc-referral-amt {
+  font-size:clamp(28px,6vw,42px);color:#fff;
+  text-shadow:0 0 24px rgba(200,160,78,.5);
+  margin-top:10px;
+}
+.sf-rc-referral-hero-subtitle {
+  font-family:var(--sf-display);font-style:italic;
+  font-size:15px;color:var(--sf-gold-soft);
+  margin-top:8px;position:relative;
+}
+@-webkit-keyframes sfRcPulseGold {
+  0%{box-shadow:0 4px 24px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)}
+  50%{box-shadow:0 4px 24px rgba(200,160,78,.4),0 0 0 18px rgba(200,160,78,0)}
+  100%{box-shadow:0 4px 24px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)}
+}
+@keyframes sfRcPulseGold {
+  0%{box-shadow:0 4px 24px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)}
+  50%{box-shadow:0 4px 24px rgba(200,160,78,.4),0 0 0 18px rgba(200,160,78,0)}
+  100%{box-shadow:0 4px 24px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)}
+}
+.sf-rc-referral-kicker {
+  font-family:var(--sf-display);font-style:italic;font-weight:700;
+  font-size:clamp(16px,3vw,20px);color:var(--sf-gold-soft);
+  text-align:center;margin:24px auto 0;line-height:1.5;
+  max-width:400px;position:relative;
+}
+
+/* ===== WHAT'S NEXT ===== */
+.sf-rc-next {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 16px 0;
+}
+.sf-rc-next-inner {
+  background: var(--sf-bg-card);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-card-radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--sf-card-shadow);
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sf-rc-next-inner:hover {
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+  box-shadow: var(--sf-card-hover-shadow);
+}
+.sf-rc-next-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--sf-cream-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-rc-next-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.sf-rc-next-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-taupe-light);
+  margin: 0 0 2px;
+}
+.sf-rc-next-text {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--sf-text-heading);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ===== FOOTER ===== */
+.sf-rc-footer {
+  text-align: center;
+  padding: 12px 16px 28px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.sf-rc-footer-line {
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sf-gold-raw), transparent);
+  margin: 14px auto;
+  border: none;
+}
+.sf-rc-footer-quote {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--sf-text-heading);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+.sf-rc-footer-sig {
+  font-family: var(--sf-sans);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--sf-gold-raw);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .sf-rc-reveal { opacity: 1; -webkit-transform: none; transform: none; }
+  .sf-rc-stagger-1, .sf-rc-stagger-2, .sf-rc-stagger-3, .sf-rc-stagger-4 { opacity: 1; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .sf-rc-hero { padding: 28px 16px 22px; }
+  .sf-rc-body { padding: 16px 12px 8px; }
+  .sf-rc-card { padding: 20px 16px; }
+  .sf-rc-gameplan { padding: 20px 16px; }
+  .sf-rc-recipe-name { font-size: 19px; }
+  .sf-rc-vip-dive { padding: 12px 12px 0; }
+  .sf-rc-vip-dive-inner { padding: 22px 18px; }
+  .sf-rc-tracker { padding: 12px 12px 0; }
+  .sf-rc-tracker-value { font-size: 24px; }
+  .sf-rc-referral { padding: 12px 12px 0; }
+  .sf-rc-referral-inner { padding: 36px 16px 32px; }
+  .sf-rc-referral-grid { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .sf-rc-referral-hero-tier { grid-column: 1 / -1; padding: 24px 16px; }
+  .sf-rc-referral-headline { font-size: 28px; }
+  .sf-rc-next { padding: 12px 12px 0; }
+  .sf-rc-next-inner { flex-direction: column; text-align: center; gap: 10px; }
+  .sf-rc-footer { padding: 8px 12px 24px; }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .sf-rc-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    background: #fff !important;
+    background-image: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sf-rc-hero {
+    background: #2a2118 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sf-rc-gameplan {
+    background: #2a2118 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sf-rc-card:hover,
+  .sf-rc-gameplan:hover,
+  .sf-rc-vip-dive-inner:hover,
+  .sf-rc-referral-inner:hover,
+  .sf-rc-next-inner:hover {
+    -webkit-transform: none;
+    transform: none;
+    box-shadow: var(--sf-card-shadow);
+  }
+  .sf-rc-reveal { opacity: 1 !important; -webkit-transform: none !important; transform: none !important; }
+  .sf-rc-stagger-1, .sf-rc-stagger-2, .sf-rc-stagger-3, .sf-rc-stagger-4 { opacity: 1 !important; }
+}
+</style>
+
+<div class="sf-rc-wrap">
+
+  <!-- HERO -->
+  <div class="sf-rc-hero">
+    <div class="sf-rc-hero-inner">
+      <p class="sf-rc-brand sf-rc-stagger-1">SmithFit</p>
+      <div class="sf-rc-stagger-1"><span class="sf-rc-vip-badge">VIP Playbook</span></div>
+      <span class="sf-rc-week-label sf-rc-stagger-2">Week 2 Resource Card</span>
+      <h1 class="sf-rc-title sf-rc-stagger-2">Batch Cook Sunday</h1>
+      <p class="sf-rc-theme sf-rc-stagger-3">Three recipes. One afternoon. A whole week handled.</p>
+      <hr class="sf-rc-divider sf-rc-stagger-3">
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="sf-rc-body">
+
+    <!-- RECIPE 1: Honey Garlic Chicken -->
+    <div class="sf-rc-card sf-rc-card--gold sf-rc-reveal">
+      <div class="sf-rc-card-head">
+        <div class="sf-rc-icon sf-rc-icon--gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c0 3 2 4 5 4h8c3 0 5-1 5-4"/><path d="M3 15c0-2 3-3 3-6 0-2 1-4 3-5"/><path d="M15 4c2 1 3 3 3 5 0 3 3 4 3 6"/><line x1="9" y1="4" x2="9" y2="2"/><line x1="12" y1="3" x2="12" y2="1"/><line x1="15" y1="4" x2="15" y2="2"/></svg>
+        </div>
+        <p class="sf-rc-card-label sf-rc-card-label--gold">Recipe 1</p>
+      </div>
+      <h3 class="sf-rc-recipe-name">Honey Garlic Chicken Thighs</h3>
+      <p class="sf-rc-ingredients">Chicken thighs + soy sauce + honey + garlic + rice vinegar. 400 F for 25 min.</p>
+      <div class="sf-rc-meta">
+        <span class="sf-rc-badge sf-rc-badge--protein">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+          34g protein
+        </span>
+        <span class="sf-rc-badge sf-rc-badge--servings">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          5 servings
+        </span>
+        <span class="sf-rc-badge sf-rc-badge--time">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          25 min
+        </span>
+      </div>
+      <p class="sf-rc-quote">"Season, toss in a pan, walk away. Come back to 5 days of protein."</p>
+    </div>
+
+    <!-- RECIPE 2: Turkey Taco Meat + Rice -->
+    <div class="sf-rc-card sf-rc-card--green sf-rc-reveal">
+      <div class="sf-rc-card-head">
+        <div class="sf-rc-icon sf-rc-icon--green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4a8c5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L3 23l2-1c4.6-2.25 8.39-2.54 12-1"/><path d="M12.73 3.27a4 4 0 0 1 5 5L11 15l-5 1 1-5z"/></svg>
+        </div>
+        <p class="sf-rc-card-label sf-rc-card-label--green">Recipe 2</p>
+      </div>
+      <h3 class="sf-rc-recipe-name">Turkey Taco Meat + Rice</h3>
+      <p class="sf-rc-ingredients">Ground turkey + taco seasoning + black beans + diced tomatoes. Stovetop 15 min. Serve over rice or in wraps.</p>
+      <div class="sf-rc-meta">
+        <span class="sf-rc-badge sf-rc-badge--protein">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+          28g protein
+        </span>
+        <span class="sf-rc-badge sf-rc-badge--servings">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          6 servings
+        </span>
+        <span class="sf-rc-badge sf-rc-badge--time">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          15 min
+        </span>
+      </div>
+      <p class="sf-rc-quote">"This is the meal that survives shift changes, picky kids, and midnight hunger. Versatile. Reliable."</p>
+    </div>
+
+    <!-- RECIPE 3: Overnight Protein Oat Jars -->
+    <div class="sf-rc-card sf-rc-card--blue sf-rc-reveal">
+      <div class="sf-rc-card-head">
+        <div class="sf-rc-icon sf-rc-icon--blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5a8aac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <p class="sf-rc-card-label sf-rc-card-label--blue">Recipe 3</p>
+      </div>
+      <h3 class="sf-rc-recipe-name">Overnight Protein Oat Jars</h3>
+      <p class="sf-rc-ingredients">Oats + protein powder + milk + chia seeds + cinnamon. Stir in a mason jar. Fridge overnight. Grab and go.</p>
+      <div class="sf-rc-meta">
+        <span class="sf-rc-badge sf-rc-badge--protein">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+          22g protein
+        </span>
+        <span class="sf-rc-badge sf-rc-badge--servings">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          5 jars
+        </span>
+        <span class="sf-rc-badge sf-rc-badge--time">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          10 min
+        </span>
+      </div>
+      <p class="sf-rc-quote">"Prep all 5 in under 10 minutes. Eat cold on the drive to work."</p>
+    </div>
+
+    <!-- THE GAME PLAN -->
+    <div class="sf-rc-gameplan sf-rc-reveal">
+      <div class="sf-rc-gameplan-head">
+        <div class="sf-rc-gameplan-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <p class="sf-rc-gameplan-label">The Game Plan</p>
+      </div>
+      <h3 class="sf-rc-gameplan-title">Your Sunday in 90 Minutes</h3>
+      <ul class="sf-rc-timeline">
+        <li><span class="sf-rc-timeline-time">0:00</span> Season chicken, put in oven</li>
+        <li><span class="sf-rc-timeline-time">0:05</span> Start turkey taco meat on stovetop</li>
+        <li><span class="sf-rc-timeline-time">0:10</span> While both cook, assemble 5 oat jars</li>
+        <li><span class="sf-rc-timeline-time">0:20</span> Turkey done. Portion into containers.</li>
+        <li><span class="sf-rc-timeline-time">0:25</span> Chicken done. Let cool 10 min, then portion.</li>
+        <li><span class="sf-rc-timeline-time">0:35</span> Label containers: Mon / Tue / Wed / Thu / Fri</li>
+      </ul>
+      <p class="sf-rc-gameplan-closer">Done. You just bought yourself a week of not thinking about food.</p>
+    </div>
+
+    <!-- SOS STRIP -->
+    <div class="sf-rc-sos sf-rc-reveal">
+      <div class="sf-rc-sos-head">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c0504d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <p class="sf-rc-sos-label">If You Can Only Do One Thing</p>
+      </div>
+      <p class="sf-rc-sos-text">Make the overnight oat jars. 10 minutes on Sunday. Five grab-and-go breakfasts. That's it.</p>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- ===== VIP EXCLUSIVE RECIPE ===== -->
+  <div class="sf-rc-vip-dive sf-rc-reveal">
+    <div class="sf-rc-vip-dive-inner" style="border-top:3px solid var(--sf-gold-raw);">
+      <span class="sf-rc-vip-dive-label" style="background:var(--sf-gold-raw);color:var(--sf-dark-raw);">VIP Exclusive Recipe</span>
+      <h2 class="sf-rc-vip-dive-title">Mediterranean Chicken Bowl</h2>
+      <p class="sf-rc-vip-dive-text">Grilled chicken (from Sunday batch cook) + quinoa + cucumber + cherry tomatoes + kalamata olives + feta + lemon-tahini drizzle. Arrange in a bowl. Done.</p>
+      <div style="display:flex;gap:12px;margin:12px 0 8px;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;gap:5px;background:rgba(74,140,92,.1);color:#4a8c5c;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;font-family:var(--sf-sans);">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 42g protein
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--sf-gold-hover);color:var(--sf-gold-raw);padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;font-family:var(--sf-sans);">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 10 min assembly
+        </span>
+      </div>
+      <p class="sf-rc-vip-dive-text" style="font-style:italic;color:var(--sf-taupe-light);">This is what happens when your batch cook meets a 10-minute upgrade. Restaurant-quality fuel from your own fridge.</p>
+    </div>
+  </div>
+
+  <!-- ===== VIP DEEP DIVE ===== -->
+  <div class="sf-rc-vip-dive sf-rc-reveal">
+    <div class="sf-rc-vip-dive-inner">
+      <span class="sf-rc-vip-dive-label">VIP Deep Dive</span>
+      <h2 class="sf-rc-vip-dive-title">Batch Cooking for Night Shift Rotators</h2>
+
+      <p class="sf-rc-vip-dive-text">If you rotate between days and nights, the standard "cook Sunday, eat all week" plan falls apart by Wednesday. Your body clock is shifting, your appetite is unpredictable, and reheating a full meal at 3am feels like more effort than it's worth. The fix is simple: <strong>cook twice</strong>. Do your full batch on Sunday like normal, then do a smaller "refresh batch" on Wednesday evening. That second round takes 20 minutes max (just repeat the turkey taco meat and make 2 more oat jars). This keeps your containers fresh through the back half of the week, which matters more than you think when your fridge smells like Tuesday's leftovers on a Friday night shift.</p>
+
+      <p class="sf-rc-vip-dive-text">Cold meals are your secret weapon on nights. Hot food at 3am is harder to manage, requires a microwave (which may or may not be available on your unit), and tends to make you feel sluggish. The overnight oat jars are already cold. The turkey taco meat works great cold in a wrap with some salsa. Even the chicken thighs can be sliced cold on top of a quick salad. Start thinking of your night shift containers as <strong>"ready to eat, no heat required"</strong> and you'll remove one more barrier between you and actually eating well.</p>
+
+      <p class="sf-rc-vip-dive-text">Switch your labeling system too. Instead of labeling by day of the week (Mon/Tue/Wed), label by shift type: <strong>"Day 1 / Day 2 / Night 1 / Night 2 / Flex."</strong> This way, you're grabbing the right container for the right energy demand. Day shift containers can include a bigger portion. Night shift containers should be slightly smaller with a cold snack on the side. The "Flex" container is your chaos backup for the day you forgot to grab one before leaving the house.</p>
+    </div>
+  </div>
+
+  <!-- ===== VIP WEEKLY CHALLENGE ===== -->
+  <div class="sf-rc-vip-dive sf-rc-reveal">
+    <div class="sf-rc-vip-dive-inner" style="background:linear-gradient(135deg,var(--sf-dark-raw) 0%,var(--sf-dark-mid) 100%);border:1px solid rgba(200,160,78,.3);">
+      <span class="sf-rc-vip-dive-label" style="background:var(--sf-gold-raw);color:var(--sf-dark-raw);">VIP Challenge</span>
+      <h2 class="sf-rc-vip-dive-title" style="color:#fff;">The Sunday Photo Challenge</h2>
+      <p class="sf-rc-vip-dive-text" style="color:var(--sf-cream-mid);">This Sunday, do the full batch cook (all 3 recipes from this week's card). When you're done, photograph your container lineup. All of them, labeled, stacked, ready. Post it in the VIP Lounge with #BatchCookSunday. I want to see your setup.</p>
+      <p class="sf-rc-vip-dive-text" style="color:var(--sf-cream-mid);">Bonus: tell us how long it actually took. Most people overestimate by 30 minutes.</p>
+      <div class="sf-rc-vip-action" style="background:rgba(200,160,78,.12);border-top:1px solid rgba(200,160,78,.3);border-bottom:none;">
+        <p class="sf-rc-vip-action-label">Post Your Results</p>
+        <p class="sf-rc-vip-action-text" style="color:var(--sf-cream-mid);font-family:var(--sf-sans);font-style:normal;font-weight:400;font-size:14px;line-height:1.6;">Share your container photo and actual cook time in the VIP Lounge. Tag it #BatchCookSunday so we can celebrate together.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VALUE TRACKER ===== -->
+  <div class="sf-rc-tracker sf-rc-reveal">
+    <div class="sf-rc-tracker-inner">
+      <div class="sf-rc-tracker-head">
+        <div class="sf-rc-tracker-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <p class="sf-rc-tracker-label">Your Value Tracker</p>
+      </div>
+      <p class="sf-rc-tracker-text">Your SmithFit journey so far: <strong>2 resource cards</strong> unlocked.</p>
+      <span class="sf-rc-tracker-value">$94</span>
+      <p style="font-family:var(--sf-sans);font-size:12px;color:var(--sf-taupe-light);margin:2px 0 0;line-height:1.4;">and counting</p>
+      <div class="sf-rc-tracker-bar-wrap">
+        <div class="sf-rc-tracker-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== REFERRAL SECTION (FULL-WIDTH, DOMINANT) ===== -->
+  <div class="sf-rc-referral sf-rc-reveal">
+    <div class="sf-rc-referral-inner">
+      <div class="sf-rc-referral-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h2 class="sf-rc-referral-headline">Get <em>Paid</em> to Share SmithFit</h2>
+      <p class="sf-rc-referral-text">Every nurse you bring in who stays active earns you <strong>$10/mo. Every month. It stacks.</strong></p>
+      <div class="sf-rc-referral-grid">
+        <div class="sf-rc-referral-tier">
+          <span class="sf-rc-referral-num">1</span>
+          <span class="sf-rc-referral-num-label">friend</span>
+          <span class="sf-rc-referral-amt">$10/mo</span>
+        </div>
+        <div class="sf-rc-referral-tier">
+          <span class="sf-rc-referral-num">3</span>
+          <span class="sf-rc-referral-num-label">friends</span>
+          <span class="sf-rc-referral-amt">$30/mo</span>
+        </div>
+        <div class="sf-rc-referral-tier">
+          <span class="sf-rc-referral-num">5</span>
+          <span class="sf-rc-referral-num-label">friends</span>
+          <span class="sf-rc-referral-amt">$60/mo</span>
+        </div>
+        <div class="sf-rc-referral-hero-tier">
+          <span class="sf-rc-referral-num">10</span>
+          <span class="sf-rc-referral-num-label">friends</span>
+          <span class="sf-rc-referral-amt">$110/mo</span>
+          <p class="sf-rc-referral-hero-subtitle">Your membership pays for itself and then some.</p>
+        </div>
+      </div>
+      <p class="sf-rc-referral-kicker">At 7 referrals, SmithFit literally pays you to be healthy.</p>
+    </div>
+  </div>
+
+  <!-- ===== WHAT'S NEXT ===== -->
+  <div class="sf-rc-next sf-rc-reveal">
+    <div class="sf-rc-next-inner">
+      <div class="sf-rc-next-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7a6e62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div>
+        <p class="sf-rc-next-label">Next Week</p>
+        <p class="sf-rc-next-text">The Chaos Day Survival Kit. Four rescue plans for when everything falls apart.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="sf-rc-footer sf-rc-reveal">
+    <hr class="sf-rc-footer-line">
+    <p class="sf-rc-footer-quote">"Meal prep isn't about perfection. It's about giving Future You a fighting chance."</p>
+    <p class="sf-rc-footer-sig">IJ Smith, RN</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.sf-rc-reveal');
+  if (!els.length) return;
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('sf-rc-in');
+          obs.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.12 });
+    for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+  } else {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('sf-rc-in');
+  }
+})();
+</script>

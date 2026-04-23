@@ -1,0 +1,755 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== GHL CONTAINER OVERRIDE ===== */
+.sf-rc-wrap{position:relative;width:100vw !important;max-width:100vw !important;margin-left:calc(-50vw + 50%) !important;overflow-x:hidden}
+.row:has(.sf-rc-wrap),.column:has(.sf-rc-wrap),.inner-content:has(.sf-rc-wrap),[class*="col"]:has(.sf-rc-wrap){max-width:100vw !important;width:100vw !important;padding:0 !important;margin-left:calc(-50vw + 50%) !important;overflow:visible !important}
+
+.sf-rc-wrap {
+  /* ===== PRIMITIVE TOKENS ===== */
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-blue-raw: #5a8aac;
+  --sf-blue-soft: #e4eff6;
+  --sf-orange-raw: #d4944a;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+
+  /* ===== SEMANTIC TOKENS ===== */
+  --sf-bg-primary: var(--sf-cream-raw);
+  --sf-bg-secondary: var(--sf-cream-mid);
+  --sf-bg-dark: var(--sf-dark-raw);
+  --sf-bg-card: #ffffff;
+  --sf-text-primary: var(--sf-taupe-raw);
+  --sf-text-secondary: var(--sf-taupe-light);
+  --sf-text-heading: var(--sf-dark-raw);
+  --sf-text-on-dark: var(--sf-cream-raw);
+  --sf-accent: var(--sf-gold-raw);
+  --sf-accent-hover: var(--sf-gold-light);
+  --sf-border: var(--sf-cream-deep);
+  --sf-success: var(--sf-green-raw);
+  --sf-warning: var(--sf-orange-raw);
+  --sf-error: var(--sf-red-raw);
+
+  /* ===== COMPONENT TOKENS ===== */
+  --sf-card-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+  --sf-card-hover-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+  --sf-card-radius: 16px;
+
+  /* ===== TYPOGRAPHY ===== */
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ===== SPACING ===== */
+  --sf-space-xs: 4px;
+  --sf-space-sm: 8px;
+  --sf-space-md: 16px;
+  --sf-space-lg: 24px;
+  --sf-space-xl: 32px;
+  --sf-space-2xl: 48px;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-text-primary);
+  background: var(--sf-bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== ANIMATIONS ===== */
+@-webkit-keyframes sfFadeUp {
+  0% { opacity: 0; -webkit-transform: translateY(28px); }
+  100% { opacity: 1; -webkit-transform: translateY(0); }
+}
+@keyframes sfFadeUp {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@-webkit-keyframes sfFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes sfFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes sfPulse {
+  0% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,.5); }
+  50% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 14px rgba(200,160,78,0); }
+  100% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,0); }
+}
+@keyframes sfPulse {
+  0% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,.5); }
+  50% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 14px rgba(200,160,78,0); }
+  100% { box-shadow: 0 4px 20px rgba(200,160,78,.4), 0 0 0 0 rgba(200,160,78,0); }
+}
+
+@-webkit-keyframes sfGoldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes sfGoldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.sf-rc-reveal {
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+  -webkit-transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.sf-rc-reveal.sf-rc-in {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* ===== STAGGERED ENTRY ===== */
+.sf-rc-stagger-1 { opacity: 0; -webkit-animation: sfFadeUp 0.7s ease forwards 0.1s; animation: sfFadeUp 0.7s ease forwards 0.1s; }
+.sf-rc-stagger-2 { opacity: 0; -webkit-animation: sfFadeUp 0.7s ease forwards 0.3s; animation: sfFadeUp 0.7s ease forwards 0.3s; }
+.sf-rc-stagger-3 { opacity: 0; -webkit-animation: sfFadeUp 0.7s ease forwards 0.5s; animation: sfFadeUp 0.7s ease forwards 0.5s; }
+
+/* ===== HERO ===== */
+.sf-rc-hero {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+  position: relative;
+  padding: 36px 20px 28px;
+  text-align: center;
+  overflow: hidden;
+}
+.sf-rc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.25) 0%, transparent 55%);
+  pointer-events: none;
+}
+.sf-rc-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.sf-rc-brand {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sf-gold-raw);
+  margin: 0 0 14px;
+}
+.sf-rc-week-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-taupe-light);
+  margin: 0 0 6px;
+  display: inline-block;
+  background: rgba(200,160,78,0.12);
+  border: 1px solid rgba(200,160,78,0.25);
+  border-radius: 999px;
+  padding: 5px 16px;
+}
+.sf-rc-title {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1.15;
+  color: var(--sf-cream-raw);
+  margin: 12px 0 8px;
+}
+.sf-rc-theme {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(15px, 3.5vw, 18px);
+  color: var(--sf-gold-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+.sf-rc-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sf-gold-raw), transparent);
+  margin: 14px auto 0;
+  border: none;
+}
+
+/* ===== BODY ===== */
+.sf-rc-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px 16px 24px;
+}
+
+/* ===== INTRO ===== */
+.sf-rc-intro {
+  font-family: var(--sf-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--sf-text-primary);
+  text-align: center;
+  margin: 0 0 24px;
+  padding: 0 8px;
+}
+
+/* ===== RESCUE CARD ===== */
+.sf-rc-card {
+  background: var(--sf-bg-card);
+  border: 1px solid var(--sf-border);
+  border-left: 4px solid var(--sf-red-raw);
+  border-radius: 0 var(--sf-card-radius) var(--sf-card-radius) 0;
+  padding: 22px 20px;
+  box-shadow: var(--sf-card-shadow);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 14px;
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sf-rc-card:hover {
+  -webkit-transform: translateY(-4px);
+  transform: translateY(-4px);
+  box-shadow: var(--sf-card-hover-shadow);
+}
+
+/* Card header row */
+.sf-rc-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.sf-rc-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--sf-red-soft);
+  border: 2px dashed rgba(192, 80, 77, 0.35);
+}
+.sf-rc-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.sf-rc-card-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-red-raw);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.sf-rc-meal-name {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--sf-text-heading);
+  margin: 0 0 8px;
+}
+
+.sf-rc-ingredients {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--sf-text-primary);
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+
+.sf-rc-protein {
+  font-family: var(--sf-sans);
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--sf-green-soft);
+  color: var(--sf-green-raw);
+  margin-bottom: 12px;
+}
+
+.sf-rc-voice {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--sf-text-secondary);
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--sf-border);
+}
+
+/* ===== NIGHT SHIFT CARD ===== */
+.sf-rc-night {
+  background: linear-gradient(135deg, #1e2a38 0%, #253545 50%, #1e2a38 100%);
+  border: 1px solid rgba(90,138,172,0.25);
+  border-radius: var(--sf-card-radius);
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 14px;
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sf-rc-night:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(30,42,56,0.3);
+}
+.sf-rc-night::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sf-blue-raw), rgba(90,138,172,0.3));
+}
+.sf-rc-night-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.sf-rc-night-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(90,138,172,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-rc-night-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.sf-rc-night-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-blue-raw);
+  margin: 0;
+}
+.sf-rc-night-text {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(228,239,246,0.9);
+  margin: 0;
+}
+
+/* ===== SOS STRIP ===== */
+.sf-rc-sos {
+  background: linear-gradient(135deg, rgba(192,80,77,0.08) 0%, rgba(192,80,77,0.04) 100%);
+  border: 1px solid rgba(192,80,77,0.2);
+  border-left: 4px solid var(--sf-red-raw);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.sf-rc-sos-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.sf-rc-sos-label {
+  font-family: var(--sf-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-red-raw);
+  margin: 0;
+}
+.sf-rc-sos-text {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--sf-text-primary);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== VALUE TRACKER ===== */
+.sf-rc-value {
+  background: var(--sf-bg-card);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-card-radius);
+  padding: 18px 20px;
+  text-align: center;
+  box-shadow: var(--sf-card-shadow);
+  margin-bottom: 14px;
+}
+.sf-rc-value-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sf-taupe-light);
+  margin: 0 0 4px;
+}
+.sf-rc-value-amount {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--sf-gold-raw);
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+.sf-rc-value-sub {
+  font-family: var(--sf-sans);
+  font-size: 13px;
+  color: var(--sf-text-secondary);
+  margin: 0;
+}
+
+/* ===== REFERRAL NUDGE ===== */
+.sf-rc-referral {
+  background: linear-gradient(135deg, rgba(200,160,78,0.08) 0%, rgba(200,160,78,0.03) 100%);
+  border: 1px solid rgba(200,160,78,0.25);
+  border-radius: var(--sf-card-radius);
+  padding: 16px 20px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.sf-rc-referral-text {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--sf-gold-raw);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== NEXT WEEK PREVIEW ===== */
+.sf-rc-next {
+  background: var(--sf-bg-card);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-card-radius);
+  padding: 16px 20px;
+  box-shadow: var(--sf-card-shadow);
+  margin-bottom: 14px;
+}
+.sf-rc-next-label {
+  font-family: var(--sf-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sf-taupe-light);
+  margin: 0 0 4px;
+}
+.sf-rc-next-text {
+  font-family: var(--sf-sans);
+  font-size: 14px;
+  color: var(--sf-text-primary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ===== VIP UPSELL BANNER (membership only) ===== */
+.sf-rc-upsell {
+  background: linear-gradient(135deg, rgba(200,160,78,0.1) 0%, rgba(200,160,78,0.04) 100%);
+  border: 1px solid rgba(200,160,78,0.3);
+  border-radius: var(--sf-card-radius);
+  padding: 14px 20px;
+  text-align: center;
+  margin-bottom: 0;
+}
+.sf-rc-upsell-text {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--sf-gold-raw);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== FOOTER ===== */
+.sf-rc-footer {
+  text-align: center;
+  padding: 20px 16px 28px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.sf-rc-footer-quote {
+  font-family: var(--sf-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--sf-text-heading);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+.sf-rc-footer-sig {
+  font-family: var(--sf-sans);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--sf-gold-raw);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+.sf-rc-footer-line {
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sf-gold-raw), transparent);
+  margin: 14px auto;
+  border: none;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .sf-rc-reveal { opacity: 1; -webkit-transform: none; transform: none; }
+  .sf-rc-stagger-1, .sf-rc-stagger-2, .sf-rc-stagger-3 { opacity: 1; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .sf-rc-hero { padding: 28px 16px 22px; }
+  .sf-rc-body { padding: 16px 12px 20px; }
+  .sf-rc-card { padding: 18px 16px; }
+  .sf-rc-night { padding: 18px 16px; }
+  .sf-rc-meal-name { font-size: 18px; }
+  .sf-rc-footer { padding: 16px 12px 24px; }
+  .sf-rc-value-amount { font-size: 24px; }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .sf-rc-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    background: #fff !important;
+    background-image: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sf-rc-hero {
+    background: #2a2118 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sf-rc-night {
+    background: #1e2a38 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sf-rc-card:hover,
+  .sf-rc-night:hover {
+    -webkit-transform: none;
+    transform: none;
+    box-shadow: var(--sf-card-shadow);
+  }
+  .sf-rc-reveal { opacity: 1 !important; -webkit-transform: none !important; transform: none !important; }
+  .sf-rc-stagger-1, .sf-rc-stagger-2, .sf-rc-stagger-3 { opacity: 1 !important; }
+}
+</style>
+
+<div class="sf-rc-wrap">
+
+  <!-- HERO -->
+  <div class="sf-rc-hero">
+    <div class="sf-rc-hero-inner">
+      <p class="sf-rc-brand sf-rc-stagger-1">SmithFit</p>
+      <span class="sf-rc-week-label sf-rc-stagger-2">Week 3 Resource Card</span>
+      <h1 class="sf-rc-title sf-rc-stagger-2">The Chaos Day Survival Kit</h1>
+      <p class="sf-rc-theme sf-rc-stagger-3">When everything falls apart, these 4 rescue plans keep you fueled without thinking.</p>
+      <hr class="sf-rc-divider sf-rc-stagger-3">
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="sf-rc-body">
+
+    <p class="sf-rc-intro sf-rc-reveal">Some days, the plan goes out the window. Double shifts. Short-staffed floors. Kids, life, chaos. These four rescue plans are your safety net. No prep required. No guilt necessary. Just protein, fuel, and forward.</p>
+
+    <!-- RESCUE 1: DRIVE-THROUGH -->
+    <div class="sf-rc-card sf-rc-reveal">
+      <div class="sf-rc-card-head">
+        <div class="sf-rc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="11" width="22" height="7" rx="2"/><path d="M5 11V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4"/><circle cx="7" cy="21" r="1"/><circle cx="17" cy="21" r="1"/><path d="M5 18h14"/></svg>
+        </div>
+        <p class="sf-rc-card-label">Drive-Through Rescue</p>
+      </div>
+      <h3 class="sf-rc-meal-name">The Smart Drive-Through Order</h3>
+      <p class="sf-rc-ingredients">Grilled chicken sandwich (skip the fries) + side salad or apple slices. Any chain.</p>
+      <span class="sf-rc-protein">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+        ~30g protein
+      </span>
+      <p class="sf-rc-voice">You're not failing by hitting a drive-through. You're making the smartest call available to you under pressure. That's not weakness. That's strategy.</p>
+    </div>
+
+    <!-- RESCUE 2: GAS STATION -->
+    <div class="sf-rc-card sf-rc-reveal">
+      <div class="sf-rc-card-head">
+        <div class="sf-rc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/><path d="M12 11H3"/><path d="M12 4v7"/><path d="M16 16l3 3 3-3"/><path d="M19 13v6"/></svg>
+        </div>
+        <p class="sf-rc-card-label">Gas Station Rescue</p>
+      </div>
+      <h3 class="sf-rc-meal-name">The 60-Second Gas Station Grab</h3>
+      <p class="sf-rc-ingredients">String cheese (2 sticks) + mixed nuts (small bag) + banana + water</p>
+      <span class="sf-rc-protein">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+        ~18g protein
+      </span>
+      <p class="sf-rc-voice">Available at literally any gas station between shifts. Not Instagram-worthy. Doesn't need to be.</p>
+    </div>
+
+    <!-- RESCUE 3: BREAK ROOM -->
+    <div class="sf-rc-card sf-rc-reveal">
+      <div class="sf-rc-card-head">
+        <div class="sf-rc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <p class="sf-rc-card-label">Break Room Rescue</p>
+      </div>
+      <h3 class="sf-rc-meal-name">The Locker Stash</h3>
+      <p class="sf-rc-ingredients">Can of tuna or chicken + crackers + an apple from the vending machine</p>
+      <span class="sf-rc-protein">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+        ~25g protein
+      </span>
+      <p class="sf-rc-voice">Keep 3-4 cans in your locker. This is the backup plan that has never let a single nurse down. Boring? Yes. Reliable? Every time.</p>
+    </div>
+
+    <!-- RESCUE 4: FROZEN DINNER -->
+    <div class="sf-rc-card sf-rc-reveal">
+      <div class="sf-rc-card-head">
+        <div class="sf-rc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M8 6l4 4 4-4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/><path d="M2 12h8"/><path d="M6 8l4 4-4 4"/><path d="M14 12h8"/><path d="M18 8l-4 4 4 4"/></svg>
+        </div>
+        <p class="sf-rc-card-label">Frozen Dinner Rescue</p>
+      </div>
+      <h3 class="sf-rc-meal-name">The Freezer Aisle Save</h3>
+      <p class="sf-rc-ingredients">Any high-protein frozen meal (aim for 20g+ protein on the label) + bag of frozen veggies microwaved alongside</p>
+      <span class="sf-rc-protein">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+        ~24g protein
+      </span>
+      <p class="sf-rc-voice">Read one number on the label: protein. Pick the highest one. Microwave both. Eat. Move on.</p>
+    </div>
+
+    <!-- NIGHT SHIFT ANGLE -->
+    <div class="sf-rc-night sf-rc-reveal">
+      <div class="sf-rc-night-head">
+        <div class="sf-rc-night-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5a8aac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <p class="sf-rc-night-label">Night Shift Angle</p>
+      </div>
+      <p class="sf-rc-night-text">The chaos day rescue kit isn't just for bad shifts. It's for that moment at 2am when the cafeteria is closed, the vending machine is your only option, and your body is screaming for sugar. When that happens, your brain is going to tell you to grab the candy bar. That's cortisol talking, not hunger. Grab the nuts and cheese instead. It won't feel as satisfying in the moment, but 30 minutes later, you'll feel steady instead of crashed.</p>
+    </div>
+
+    <!-- SOS STRIP -->
+    <div class="sf-rc-sos sf-rc-reveal">
+      <div class="sf-rc-sos-head">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c0504d" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p class="sf-rc-sos-label">If You Can Only Do One Thing This Week</p>
+      </div>
+      <p class="sf-rc-sos-text">Put 3 cans of tuna and a bag of nuts in your locker. Right now. Before your next shift. That's your insurance policy.</p>
+    </div>
+
+    <!-- VALUE TRACKER -->
+    <div class="sf-rc-value sf-rc-reveal">
+      <p class="sf-rc-value-label">Your SmithFit Journey So Far</p>
+      <p class="sf-rc-value-amount">$141</p>
+      <p class="sf-rc-value-sub">3 resource cards unlocked. Total extra value earned and counting.</p>
+    </div>
+
+    <!-- REFERRAL NUDGE -->
+    <div class="sf-rc-referral sf-rc-reveal">
+      <p class="sf-rc-referral-text">Refer 5 and your membership is free</p>
+    </div>
+
+    <!-- NEXT WEEK PREVIEW -->
+    <div class="sf-rc-next sf-rc-reveal">
+      <p class="sf-rc-next-label">Coming Next Week</p>
+      <p class="sf-rc-next-text">Hydration + Metabolic Cocktail. The morning drink that resets your cortisol.</p>
+    </div>
+
+    <!-- VIP UPSELL BANNER (membership only) -->
+    <div class="sf-rc-upsell sf-rc-reveal">
+      <p class="sf-rc-upsell-text">This card helped you plan your week. The VIP Playbook helps you own it.</p>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="sf-rc-footer sf-rc-reveal">
+    <hr class="sf-rc-footer-line">
+    <p class="sf-rc-footer-quote">Chaos days don't require perfect eating. They require something. Anything. Just don't go empty.</p>
+    <p class="sf-rc-footer-sig">IJ Smith, RN</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.sf-rc-reveal');
+  if (!els.length) return;
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('sf-rc-in');
+          obs.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.12 });
+    for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+  } else {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('sf-rc-in');
+  }
+})();
+</script>
