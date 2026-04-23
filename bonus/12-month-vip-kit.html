@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12-Month Bundle VIP Welcome Kit | SmithFit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sf-gold: #c8a04e;
+      --sf-gold-light: #d4b05e;
+      --sf-gold-glow: rgba(200, 160, 78, 0.18);
+      --sf-cream: #faf6f3;
+      --sf-cream-mid: #f1ebe3;
+      --sf-cream-deep: #e8dfd4;
+      --sf-dark: #2a2118;
+      --sf-dark-mid: #3a2e22;
+      --sf-taupe: #4a3f35;
+      --sf-taupe-light: #7a6e62;
+      --sf-green: #4a8c5c;
+      --sf-green-soft: #e8f5ec;
+      --sf-serif: 'Cormorant Garamond', Georgia, serif;
+      --sf-display: 'Playfair Display', Georgia, serif;
+      --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--sf-sans);
+      background: var(--sf-cream);
+      color: var(--sf-taupe);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .sf-vip12-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero */
+    .sf-vip12-hero {
+      background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+      position: relative;
+      padding: 64px 20px 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .sf-vip12-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.3) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .sf-vip12-hero-badge {
+      display: inline-block;
+      background: var(--sf-gold);
+      border-radius: 999px;
+      padding: 8px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-dark);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .sf-vip12-hero h1 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.1;
+      color: var(--sf-cream);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .sf-vip12-hero h1 span { color: var(--sf-gold); }
+    .sf-vip12-hero p {
+      font-family: var(--sf-display);
+      font-weight: 600;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--sf-cream-deep);
+      position: relative;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Stagger */
+    .sf-vip12-stagger-1 { opacity: 0; -webkit-animation: sfVip12Up 0.7s ease forwards 0.1s; animation: sfVip12Up 0.7s ease forwards 0.1s; }
+    .sf-vip12-stagger-2 { opacity: 0; -webkit-animation: sfVip12Up 0.7s ease forwards 0.3s; animation: sfVip12Up 0.7s ease forwards 0.3s; }
+    .sf-vip12-stagger-3 { opacity: 0; -webkit-animation: sfVip12Up 0.7s ease forwards 0.5s; animation: sfVip12Up 0.7s ease forwards 0.5s; }
+    @-webkit-keyframes sfVip12Up {
+      0% { opacity: 0; -webkit-transform: translateY(28px); }
+      100% { opacity: 1; -webkit-transform: translateY(0); }
+    }
+    @keyframes sfVip12Up {
+      0% { opacity: 0; transform: translateY(28px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section */
+    .sf-vip12-section { padding: 48px 0; }
+    .sf-vip12-section-title {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.15;
+      color: var(--sf-dark);
+      margin-bottom: 24px;
+    }
+
+    /* Card */
+    .sf-vip12-card {
+      background: #ffffff;
+      border: 1px solid var(--sf-cream-deep);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+      -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sf-vip12-card:hover {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+    }
+    .sf-vip12-card h3 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.3;
+      color: var(--sf-dark);
+      margin-bottom: 12px;
+    }
+
+    /* Gold bordered card */
+    .sf-vip12-card-gold {
+      border: 2px solid var(--sf-gold);
+    }
+
+    /* Welcome letter */
+    .sf-vip12-letter {
+      background: #ffffff;
+      border: 2px solid var(--sf-gold);
+      border-radius: 16px;
+      padding: 36px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 24px rgba(200, 160, 78, 0.15);
+    }
+    .sf-vip12-letter p { margin-bottom: 16px; line-height: 1.8; }
+    .sf-vip12-letter p:last-child { margin-bottom: 0; }
+    .sf-vip12-letter .sf-vip12-sig {
+      font-family: var(--sf-display);
+      font-weight: 600;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--sf-gold);
+      margin-top: 24px;
+    }
+
+    /* Step */
+    .sf-vip12-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .sf-vip12-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--sf-gold);
+      color: var(--sf-dark);
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sf-vip12-step-content h4 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--sf-dark);
+      margin-bottom: 4px;
+    }
+    .sf-vip12-step-content p {
+      font-size: 14px;
+      color: var(--sf-taupe-light);
+    }
+
+    /* Checklist */
+    .sf-vip12-checklist { list-style: none; margin: 16px 0; }
+    .sf-vip12-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px 0;
+    }
+    .sf-vip12-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 2px solid var(--sf-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Callout */
+    .sf-vip12-callout {
+      background: var(--sf-gold-glow);
+      border-left: 4px solid var(--sf-gold);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .sf-vip12-callout-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+      margin-bottom: 4px;
+    }
+
+    /* Dark section */
+    .sf-vip12-dark {
+      background: linear-gradient(135deg, var(--sf-dark) 0%, var(--sf-dark-mid) 100%);
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin: 24px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .sf-vip12-dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(200,160,78,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .sf-vip12-dark h3 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--sf-gold);
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .sf-vip12-dark p, .sf-vip12-dark li {
+      color: var(--sf-cream-deep);
+      position: relative;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .sf-vip12-dark ul {
+      list-style: none;
+      margin-top: 12px;
+    }
+    .sf-vip12-dark li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .sf-vip12-dark li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sf-gold);
+    }
+
+    /* MealLens Grid */
+    .sf-vip12-ml-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .sf-vip12-ml-item {
+      background: var(--sf-cream);
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .sf-vip12-ml-item strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sf-dark);
+      margin-bottom: 2px;
+    }
+    .sf-vip12-ml-item span {
+      font-size: 12px;
+      color: var(--sf-taupe-light);
+    }
+    .sf-vip12-ml-item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
+    /* Quarterly */
+    .sf-vip12-quarters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .sf-vip12-q-item {
+      background: #ffffff;
+      border: 1px solid var(--sf-cream-deep);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .sf-vip12-q-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+      margin-bottom: 4px;
+    }
+    .sf-vip12-q-title {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--sf-dark);
+      margin-bottom: 6px;
+    }
+    .sf-vip12-q-desc {
+      font-size: 13px;
+      color: var(--sf-taupe-light);
+      line-height: 1.5;
+    }
+
+    /* Roadmap phases */
+    .sf-vip12-phase {
+      background: #ffffff;
+      border: 1px solid var(--sf-cream-deep);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+    }
+    .sf-vip12-phase-label {
+      display: inline-block;
+      background: rgba(200,160,78,0.12);
+      border: 1px solid rgba(200,160,78,0.35);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+      margin-bottom: 12px;
+    }
+    .sf-vip12-phase h3 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--sf-dark);
+      margin-bottom: 8px;
+    }
+    .sf-vip12-phase p {
+      font-size: 14px;
+      color: var(--sf-taupe-light);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .sf-vip12-footer {
+      text-align: center;
+      padding: 40px 20px 56px;
+      border-top: 1px solid var(--sf-cream-deep);
+    }
+    .sf-vip12-footer-brand {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--sf-gold);
+      margin-bottom: 8px;
+    }
+    .sf-vip12-footer p { font-size: 13px; color: var(--sf-taupe-light); }
+
+    /* Reveal */
+    .sf-vip12-reveal {
+      opacity: 0;
+      -webkit-transform: translateY(20px);
+      transform: translateY(20px);
+      -webkit-transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .sf-vip12-reveal.sf-vip12-in {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    @media print {
+      .sf-vip12-hero, .sf-vip12-dark { background: #2a2118 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .sf-vip12-card:hover, .sf-vip12-reveal { transform: none !important; opacity: 1 !important; }
+      body { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sf-vip12-hero { padding: 48px 16px 40px; }
+      .sf-vip12-letter { padding: 24px 18px; }
+      .sf-vip12-card { padding: 22px 16px; }
+      .sf-vip12-section { padding: 32px 0; }
+      .sf-vip12-quarters { grid-template-columns: 1fr; }
+      .sf-vip12-ml-grid { grid-template-columns: 1fr; }
+      .sf-vip12-dark { padding: 24px 18px; }
+      .sf-vip12-phase { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="sf-vip12-hero">
+    <div class="sf-vip12-stagger-1">
+      <div class="sf-vip12-hero-badge">Top Tier VIP</div>
+    </div>
+    <h1 class="sf-vip12-stagger-2">Your <span>12-Month</span> Commitment</h1>
+    <p class="sf-vip12-stagger-3">The deepest investment we offer. A year-long partnership to transform your health.</p>
+  </header>
+
+  <div class="sf-vip12-wrapper">
+
+    <!-- Welcome Letter -->
+    <section class="sf-vip12-section">
+      <div class="sf-vip12-letter sf-vip12-reveal">
+        <p>I need you to hear this: what you just did takes courage.</p>
+        <p>A 12-month commitment to your health, while working shifts that most people cannot even imagine. That is not a purchase. That is a declaration. You told yourself, "I am worth the full investment." And you are right.</p>
+        <p>This is our top tier for a reason. You get everything SmithFit has to offer: the gameplan call, BioSync, MealLens Max, two-way VIP DMs with me directly, and four quarterly coaching calls across the entire year. This is a partnership.</p>
+        <p>Your first step is simple. Five actions in your first week. I listed them below so you can check them off one by one.</p>
+        <p>I am honored you chose this path. Let's build something that lasts.</p>
+        <div class="sf-vip12-sig">IJ Smith, RN</div>
+      </div>
+    </section>
+
+    <!-- 5-Step Activation -->
+    <section class="sf-vip12-section" style="padding-top: 0;">
+      <h2 class="sf-vip12-section-title sf-vip12-reveal">5-Step Activation Checklist</h2>
+      <p class="sf-vip12-reveal" style="margin-bottom: 24px; color: var(--sf-taupe-light);">Complete all five within your first 7 days.</p>
+
+      <div class="sf-vip12-card sf-vip12-reveal">
+        <div class="sf-vip12-step">
+          <div class="sf-vip12-step-num">1</div>
+          <div class="sf-vip12-step-content">
+            <h4>Book Your 60-Minute Gameplan Call</h4>
+            <p>Priority link in your welcome email. 12-month members get first pick of available slots. We will map your entire year together.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sf-vip12-card sf-vip12-reveal">
+        <div class="sf-vip12-step">
+          <div class="sf-vip12-step-num">2</div>
+          <div class="sf-vip12-step-content">
+            <h4>Upload Bloodwork to BioSync Portal</h4>
+            <p>Upload your most recent labs for a full metabolic report.</p>
+          </div>
+        </div>
+        <div class="sf-vip12-callout">
+          <div class="sf-vip12-callout-label">Expanded Lab List (12-Month VIP)</div>
+          <p style="font-size: 14px;">CBC, CMP, thyroid (TSH, Free T3, Free T4), sex hormones (estradiol, progesterone, testosterone, DHEA-S), and morning cortisol if available. The more data we have, the more personalized your plan becomes.</p>
+        </div>
+      </div>
+
+      <div class="sf-vip12-card sf-vip12-reveal">
+        <div class="sf-vip12-step">
+          <div class="sf-vip12-step-num">3</div>
+          <div class="sf-vip12-step-content">
+            <h4>Set Up MealLens Max</h4>
+            <p>MealLens Max goes beyond meal photos. Five situations where it works.</p>
+          </div>
+        </div>
+        <div class="sf-vip12-ml-grid">
+          <div class="sf-vip12-ml-item">
+            <strong>Meal Photo</strong>
+            <span>Snap any plate for a full breakdown</span>
+          </div>
+          <div class="sf-vip12-ml-item">
+            <strong>Restaurant Menu</strong>
+            <span>Photo the menu, get smart picks</span>
+          </div>
+          <div class="sf-vip12-ml-item">
+            <strong>Grocery Aisle</strong>
+            <span>Scan products while you shop</span>
+          </div>
+          <div class="sf-vip12-ml-item">
+            <strong>Gym Equipment</strong>
+            <span>ID machines, get form guidance</span>
+          </div>
+          <div class="sf-vip12-ml-item">
+            <strong>Supplement Label</strong>
+            <span>Check ingredients and quality</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sf-vip12-card sf-vip12-card-gold sf-vip12-reveal">
+        <div class="sf-vip12-step">
+          <div class="sf-vip12-step-num">4</div>
+          <div class="sf-vip12-step-content">
+            <h4>Send Your First VIP DM to Coach</h4>
+            <p>You have two-way messaging access. Open your app, find the DM feature, and introduce yourself. Tell me your biggest struggle right now and your number one goal. I will reply within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sf-vip12-card sf-vip12-reveal">
+        <div class="sf-vip12-step">
+          <div class="sf-vip12-step-num">5</div>
+          <div class="sf-vip12-step-content">
+            <h4>Mark 4 Quarterly Call Dates</h4>
+            <p>Put these on your calendar now so they do not slip. Four 20-minute calls across the year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gameplan Call Prep (Deeper) -->
+    <section class="sf-vip12-section" style="padding-top: 0;">
+      <h2 class="sf-vip12-section-title sf-vip12-reveal">Gameplan Call Prep</h2>
+      <div class="sf-vip12-card sf-vip12-reveal">
+        <h3>What to Bring (12-Month Deep Dive)</h3>
+        <ul class="sf-vip12-checklist">
+          <li><div class="sf-vip12-check"></div><span>Your eating patterns over the last 30 days (rough is fine)</span></li>
+          <li><div class="sf-vip12-check"></div><span>Your sleep schedule, including shift rotation pattern</span></li>
+          <li><div class="sf-vip12-check"></div><span>Your current biggest struggles (energy, body comp, stress, cravings)</span></li>
+          <li><div class="sf-vip12-check"></div><span>Your 12-month vision: what does success look like one year from today?</span></li>
+          <li><div class="sf-vip12-check"></div><span>Any medical history relevant to metabolism (thyroid, PCOS, medications)</span></li>
+          <li><div class="sf-vip12-check"></div><span>Your uploaded bloodwork results (BioSync will have your report ready)</span></li>
+        </ul>
+        <div class="sf-vip12-callout">
+          <div class="sf-vip12-callout-label">What Makes This Different</div>
+          <p style="font-size: 14px;">12-month gameplan calls go deeper. We are not just planning your first month. We are mapping all four phases of your year: Foundation, Breakthrough, Sustainability, and Identity Shift. You will leave with a blueprint that evolves with you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIP DM Protocol -->
+    <div class="sf-vip12-dark sf-vip12-reveal">
+      <h3>Two-Way VIP DM Protocol</h3>
+      <p>This is your direct line to your coach. Here is how to get the most out of it.</p>
+      <ul>
+        <li>Ask clear, specific questions. "My energy crashed after nights this week, what should I adjust?" works better than "I feel bad."</li>
+        <li>Photos are welcome: meals, grocery finds, progress, even your shift schedule.</li>
+        <li>Expect a response within 24 hours (often faster).</li>
+        <li>This is a partnership, not a crisis line. For emergencies, always contact your healthcare provider first.</li>
+      </ul>
+    </div>
+
+    <!-- Quarterly Calls -->
+    <section class="sf-vip12-section">
+      <h2 class="sf-vip12-section-title sf-vip12-reveal">Quarterly Call Schedule</h2>
+      <div class="sf-vip12-quarters sf-vip12-reveal">
+        <div class="sf-vip12-q-item">
+          <div class="sf-vip12-q-label">Month 3</div>
+          <div class="sf-vip12-q-title">Foundation Review</div>
+          <div class="sf-vip12-q-desc">Are the habits sticking? What needs adjusting? We fine-tune your approach based on 90 days of data.</div>
+        </div>
+        <div class="sf-vip12-q-item">
+          <div class="sf-vip12-q-label">Month 6</div>
+          <div class="sf-vip12-q-title">Midpoint Check</div>
+          <div class="sf-vip12-q-desc">Halfway there. We celebrate progress, recalibrate goals, and set up the second half of your year.</div>
+        </div>
+        <div class="sf-vip12-q-item">
+          <div class="sf-vip12-q-label">Month 9</div>
+          <div class="sf-vip12-q-title">Sustainability Audit</div>
+          <div class="sf-vip12-q-desc">Can you maintain this without thinking? We stress-test your habits and prepare for long-term independence.</div>
+        </div>
+        <div class="sf-vip12-q-item">
+          <div class="sf-vip12-q-label">Month 12</div>
+          <div class="sf-vip12-q-title">Identity Shift</div>
+          <div class="sf-vip12-q-desc">You are not the same person who started. We capture the transformation and plan what comes next.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12-Month Roadmap -->
+    <section class="sf-vip12-section" style="padding-top: 0;">
+      <h2 class="sf-vip12-section-title sf-vip12-reveal">Your 12-Month Roadmap</h2>
+
+      <div class="sf-vip12-phase sf-vip12-reveal">
+        <div class="sf-vip12-phase-label">Months 1 through 3</div>
+        <h3>Phase 1: Foundation</h3>
+        <p>Nervous system regulation, shift-proof nutrition, and movement basics. You are building the operating system that everything else runs on. By Month 3, the Morning Cocktail, plate formula, and 15-minute workouts feel automatic.</p>
+      </div>
+
+      <div class="sf-vip12-phase sf-vip12-reveal">
+        <div class="sf-vip12-phase-label">Months 4 through 6</div>
+        <h3>Phase 2: Breakthrough</h3>
+        <p>You have the foundation. Now we push. Progressive workouts, nuanced nutrition timing, and deeper stress management. This is where the visible changes accelerate. Clothes fitting differently. Energy that lasts the whole shift.</p>
+      </div>
+
+      <div class="sf-vip12-phase sf-vip12-reveal">
+        <div class="sf-vip12-phase-label">Months 7 through 9</div>
+        <h3>Phase 3: Sustainability</h3>
+        <p>Life throws curveballs. Schedule changes, holidays, sick weeks, overtime. We build resilience into your system so that a bad week does not erase a good month. You learn to pivot without spiraling.</p>
+      </div>
+
+      <div class="sf-vip12-phase sf-vip12-reveal">
+        <div class="sf-vip12-phase-label">Months 10 through 12</div>
+        <h3>Phase 4: Identity Shift</h3>
+        <p>This is no longer a program you follow. It is who you are. The nurse who has it figured out. The one colleagues ask, "What are you doing differently?" We capture your full transformation and set you up for whatever comes next.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="sf-vip12-footer">
+    <div class="sf-vip12-footer-brand">SmithFit</div>
+    <p>Built by a nurse, for nurses. &copy; 2026 SmithFit LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.sf-vip12-reveal');
+      if (!els.length) return;
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              entries[i].target.classList.add('sf-vip12-in');
+              obs.unobserve(entries[i].target);
+            }
+          }
+        }, { threshold: 0.12 });
+        for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+      } else {
+        for (var i = 0; i < els.length; i++) els[i].classList.add('sf-vip12-in');
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaos Day Rescue Card | SmithFit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== TOKENS ===== */
+    :root {
+      --sf-gold-raw: #c8a04e;
+      --sf-gold-light: #d4b05e;
+      --sf-gold-soft: #e8c878;
+      --sf-gold-glow: rgba(200, 160, 78, 0.18);
+      --sf-cream-raw: #faf6f3;
+      --sf-cream-mid: #f1ebe3;
+      --sf-cream-deep: #e8dfd4;
+      --sf-dark-raw: #2a2118;
+      --sf-dark-mid: #3a2e22;
+      --sf-taupe-raw: #4a3f35;
+      --sf-taupe-light: #7a6e62;
+      --sf-red-raw: #c0504d;
+      --sf-red-soft: #fff0ed;
+      --sf-orange-raw: #d4944a;
+
+      --sf-serif: 'Cormorant Garamond', Georgia, serif;
+      --sf-display: 'Playfair Display', Georgia, serif;
+      --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --sf-card-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+      --sf-card-radius: 16px;
+    }
+
+    /* ===== BASE ===== */
+    body {
+      font-family: var(--sf-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--sf-taupe-raw);
+      background: var(--sf-cream-raw);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ===== GRAIN OVERLAY ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 48px 32px 40px;
+      margin-bottom: 36px;
+      background: linear-gradient(135deg, var(--sf-dark-raw) 0%, var(--sf-dark-mid) 100%);
+      border-radius: var(--sf-card-radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(200, 160, 78, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(200, 160, 78, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--sf-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--sf-gold-raw);
+      border: 1px solid rgba(200, 160, 78, 0.35);
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(32px, 5.5vw, 48px);
+      line-height: 1.1;
+      color: var(--sf-cream-raw);
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .hero h1 span {
+      color: var(--sf-gold-raw);
+    }
+
+    .hero-byline {
+      font-family: var(--sf-sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--sf-taupe-light);
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .hero-tagline {
+      font-family: var(--sf-display);
+      font-style: italic;
+      font-size: 17px;
+      color: var(--sf-gold-soft);
+      position: relative;
+    }
+
+    /* ===== GOLD DIVIDER ===== */
+    .gold-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--sf-gold-raw), transparent);
+      margin: 0 auto 36px;
+      max-width: 120px;
+      border: none;
+    }
+
+    /* ===== SECTION CARDS ===== */
+    .section-card {
+      background: #ffffff;
+      border-radius: var(--sf-card-radius);
+      padding: 32px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--sf-card-shadow);
+      border: 1px solid var(--sf-cream-deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sf-gold-raw), var(--sf-gold-soft));
+    }
+
+    .section-card h2 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(22px, 4vw, 28px);
+      line-height: 1.15;
+      color: var(--sf-dark-raw);
+      margin-bottom: 8px;
+    }
+
+    .section-card h2 .emoji {
+      margin-right: 8px;
+      font-size: 0.9em;
+    }
+
+    .section-lead {
+      font-size: 14px;
+      color: var(--sf-taupe-light);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* ===== BOX BREATHING GRID ===== */
+    .breathing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .breathing-step {
+      background: var(--sf-cream-raw);
+      border: 1px solid var(--sf-cream-deep);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .breathing-step:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(200, 160, 78, 0.15);
+    }
+
+    .breathing-step .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--sf-gold-raw);
+      color: #fff;
+      font-family: var(--sf-sans);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .breathing-step .step-action {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--sf-dark-raw);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .breathing-step .step-duration {
+      font-family: var(--sf-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sf-gold-raw);
+      letter-spacing: 0.5px;
+    }
+
+    .breathing-note {
+      text-align: center;
+      margin-top: 16px;
+      font-family: var(--sf-display);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--sf-taupe-light);
+    }
+
+    .breathing-note strong {
+      color: var(--sf-dark-raw);
+      font-style: normal;
+    }
+
+    /* ===== FOOD LIST ===== */
+    .food-list {
+      list-style: none;
+      counter-reset: food;
+    }
+
+    .food-list li {
+      counter-increment: food;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--sf-cream-deep);
+    }
+
+    .food-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .food-list li::before {
+      content: counter(food);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      background: var(--sf-gold-glow);
+      color: var(--sf-gold-raw);
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+
+    .food-list .food-name {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--sf-dark-raw);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .food-list .food-why {
+      font-size: 13px;
+      color: var(--sf-taupe-light);
+      line-height: 1.5;
+    }
+
+    /* ===== SKIP SECTION (WARNING CARD) ===== */
+    .section-card.warning {
+      background: linear-gradient(135deg, #2a2118 0%, #3a2e22 100%);
+      border: 1px solid rgba(200, 160, 78, 0.2);
+    }
+
+    .section-card.warning::before {
+      background: linear-gradient(90deg, var(--sf-red-raw), var(--sf-orange-raw));
+    }
+
+    .section-card.warning h2 {
+      color: var(--sf-cream-raw);
+    }
+
+    .section-card.warning .section-lead {
+      color: rgba(250, 246, 243, 0.6);
+    }
+
+    .skip-list {
+      list-style: none;
+    }
+
+    .skip-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(250, 246, 243, 0.08);
+    }
+
+    .skip-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .skip-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      background: rgba(192, 80, 77, 0.2);
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+
+    .skip-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .skip-list .skip-name {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--sf-cream-raw);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .skip-list .skip-why {
+      font-size: 13px;
+      color: rgba(250, 246, 243, 0.55);
+      line-height: 1.5;
+    }
+
+    /* ===== RESET STEPS ===== */
+    .reset-steps {
+      list-style: none;
+    }
+
+    .reset-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--sf-cream-deep);
+    }
+
+    .reset-steps li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .reset-step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--sf-gold-raw), var(--sf-gold-light));
+      color: #fff;
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 10px;
+      margin-top: 2px;
+    }
+
+    .reset-step-content .reset-step-title {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--sf-dark-raw);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .reset-step-content .reset-step-desc {
+      font-size: 13px;
+      color: var(--sf-taupe-light);
+      line-height: 1.5;
+    }
+
+    .reset-done {
+      text-align: center;
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--sf-gold-glow);
+      border-radius: 12px;
+      font-family: var(--sf-display);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--sf-dark-raw);
+    }
+
+    /* ===== RECOVERY SECTION ===== */
+    .recovery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .recovery-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--sf-cream-raw);
+      border: 1px solid var(--sf-cream-deep);
+      border-radius: 12px;
+      padding: 18px 16px;
+    }
+
+    .recovery-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      background: var(--sf-gold-glow);
+      border-radius: 10px;
+    }
+
+    .recovery-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--sf-gold-raw);
+    }
+
+    .recovery-title {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--sf-dark-raw);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .recovery-desc {
+      font-size: 13px;
+      color: var(--sf-taupe-light);
+      line-height: 1.5;
+    }
+
+    .recovery-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--sf-gold-raw);
+      background: var(--sf-gold-glow);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 6px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 36px 24px;
+      background: linear-gradient(135deg, var(--sf-dark-raw), var(--sf-dark-mid));
+      border-radius: var(--sf-card-radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(200, 160, 78, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .footer-brand {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--sf-gold-raw);
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .footer-tagline {
+      font-family: var(--sf-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sf-taupe-light);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .footer-message {
+      font-family: var(--sf-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--sf-cream-deep);
+      max-width: 420px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .page-wrapper {
+        padding: 24px 16px 40px;
+      }
+
+      .hero {
+        padding: 36px 20px 32px;
+      }
+
+      .section-card {
+        padding: 24px 20px;
+      }
+
+      .breathing-grid {
+        gap: 8px;
+      }
+
+      .breathing-step {
+        padding: 16px 12px;
+      }
+
+      .breathing-step .step-action {
+        font-size: 16px;
+      }
+
+      .footer {
+        padding: 28px 20px;
+      }
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .breathing-step {
+        transition: none;
+      }
+    }
+
+    /* ===== PRINT STYLES ===== */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 12px;
+      }
+
+      body::before {
+        display: none;
+      }
+
+      .page-wrapper {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .hero {
+        background: #2a2118 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        break-after: avoid;
+      }
+
+      .section-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 16px;
+      }
+
+      .section-card.warning {
+        background: #2a2118 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .section-card::before {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .breathing-step {
+        border: 1px solid #ccc;
+      }
+
+      .breathing-step:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .footer {
+        background: #2a2118 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .skip-icon,
+      .recovery-icon,
+      .breathing-step .step-number,
+      .food-list li::before,
+      .reset-step-num {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-badge">SmithFit Bonus Resource</div>
+      <h1>Chaos Day <span>Rescue Card</span></h1>
+      <p class="hero-byline">From IJ, RN</p>
+      <p class="hero-tagline">"For the shift that melts down."</p>
+    </header>
+
+    <!-- SECTION 1: Box Breathing -->
+    <section class="section-card reveal">
+      <h2>The 2-Minute Med Room Reset</h2>
+      <p class="section-lead">When the shift is spiraling, your nervous system needs a signal that you are safe. Box breathing delivers that signal in under 90 seconds.</p>
+
+      <div class="breathing-grid">
+        <div class="breathing-step">
+          <span class="step-number">1</span>
+          <span class="step-action">Inhale</span>
+          <span class="step-duration">4 counts</span>
+        </div>
+        <div class="breathing-step">
+          <span class="step-number">2</span>
+          <span class="step-action">Hold</span>
+          <span class="step-duration">4 counts</span>
+        </div>
+        <div class="breathing-step">
+          <span class="step-number">3</span>
+          <span class="step-action">Exhale</span>
+          <span class="step-duration">4 counts</span>
+        </div>
+        <div class="breathing-step">
+          <span class="step-number">4</span>
+          <span class="step-action">Hold</span>
+          <span class="step-duration">4 counts</span>
+        </div>
+      </div>
+
+      <p class="breathing-note">Repeat x 4 rounds. <strong>That is it.</strong> You just told your nervous system you are safe.</p>
+    </section>
+
+    <!-- SECTION 2: What To Eat -->
+    <section class="section-card reveal">
+      <h2>What To Eat When the Cafeteria's Closed</h2>
+      <p class="section-lead">Shift-proof fuel that keeps your blood sugar stable through hour 11.</p>
+
+      <ol class="food-list">
+        <li>
+          <div>
+            <span class="food-name">String Cheese + Almonds</span>
+            <span class="food-why">Protein and fat together slow glucose absorption</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="food-name">Greek Yogurt + Berries</span>
+            <span class="food-why">High protein, antioxidants, probiotics in one grab-and-go</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="food-name">Beef Jerky + Apple</span>
+            <span class="food-why">Portable protein with natural sugar and fiber</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="food-name">Protein Bar (20g+ protein)</span>
+            <span class="food-why">Quality bar bridges the gap without spiking insulin</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="food-name">Hard Boiled Eggs + Banana</span>
+            <span class="food-why">Complete amino acids plus potassium</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SECTION 3: What To Skip (WARNING) -->
+    <section class="section-card warning reveal">
+      <h2>What To Skip (Even If You're Starving)</h2>
+      <p class="section-lead">These feel like fuel but sabotage your next four hours.</p>
+
+      <ul class="skip-list">
+        <li>
+          <span class="skip-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>
+          </span>
+          <div>
+            <span class="skip-name">Vending Machine Candy</span>
+            <span class="skip-why">Spikes blood sugar fast, drops you harder</span>
+          </div>
+        </li>
+        <li>
+          <span class="skip-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>
+          </span>
+          <div>
+            <span class="skip-name">Sugary Coffee Drinks</span>
+            <span class="skip-why">Sugar crash hits when you need to be sharpest</span>
+          </div>
+        </li>
+        <li>
+          <span class="skip-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>
+          </span>
+          <div>
+            <span class="skip-name">Energy Drinks After 2pm</span>
+            <span class="skip-why">Wrecks your sleep recovery window</span>
+          </div>
+        </li>
+        <li>
+          <span class="skip-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>
+          </span>
+          <div>
+            <span class="skip-name">Fried Cafeteria Food</span>
+            <span class="skip-why">Heavy fat pulls blood flow from your brain</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 4: 30-Second Reset -->
+    <section class="section-card reveal">
+      <h2>The 30-Second Reset (Anywhere)</h2>
+      <p class="section-lead">Four steps. No equipment. No one even has to notice.</p>
+
+      <ul class="reset-steps">
+        <li>
+          <span class="reset-step-num">1</span>
+          <div class="reset-step-content">
+            <span class="reset-step-title">Shoulders Down</span>
+            <span class="reset-step-desc">Drop them away from your ears</span>
+          </div>
+        </li>
+        <li>
+          <span class="reset-step-num">2</span>
+          <div class="reset-step-content">
+            <span class="reset-step-title">Three Deep Breaths</span>
+            <span class="reset-step-desc">Slow, full, intentional</span>
+          </div>
+        </li>
+        <li>
+          <span class="reset-step-num">3</span>
+          <div class="reset-step-content">
+            <span class="reset-step-title">Hand on Heart</span>
+            <span class="reset-step-desc">Physical touch activates the vagus nerve</span>
+          </div>
+        </li>
+        <li>
+          <span class="reset-step-num">4</span>
+          <div class="reset-step-content">
+            <span class="reset-step-title">Say: "I am safe. I am here. I am okay."</span>
+            <span class="reset-step-desc">Done. Back to the floor.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 5: Post-Shift Recovery -->
+    <section class="section-card reveal">
+      <h2>Post-Shift Recovery Rule</h2>
+      <p class="section-lead">Your first 30 minutes off the floor set the tone for everything that follows.</p>
+
+      <div class="recovery-grid">
+        <div class="recovery-item">
+          <span class="recovery-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+          </span>
+          <div>
+            <span class="recovery-title">20g Protein</span>
+            <span class="recovery-desc">Repairs muscle breakdown. Non-negotiable.</span>
+            <span class="recovery-tag">Non-negotiable</span>
+          </div>
+        </div>
+        <div class="recovery-item">
+          <span class="recovery-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </span>
+          <div>
+            <span class="recovery-title">8oz Water</span>
+            <span class="recovery-desc">You are almost certainly dehydrated.</span>
+          </div>
+        </div>
+        <div class="recovery-item">
+          <span class="recovery-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          <div>
+            <span class="recovery-title">5 Min of Stillness</span>
+            <span class="recovery-desc">No phone. Let the shift leave your body.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="gold-divider">
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p class="footer-brand">SmithFit</p>
+      <p class="footer-tagline">Built by a nurse, for nurses</p>
+      <p class="footer-message">You are not broken. You are just running on empty. This card is your refill.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function() {
+      var targets = document.querySelectorAll('.reveal');
+      if (!targets.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach(function(t) { t.classList.add('visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      targets.forEach(function(t) { observer.observe(t); });
+    })();
+  </script>
+
+</body>
+</html>

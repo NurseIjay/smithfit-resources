@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14-Day Trial Playbook | SmithFit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sf-gold: #c8a04e;
+      --sf-gold-light: #d4b05e;
+      --sf-gold-glow: rgba(200, 160, 78, 0.18);
+      --sf-cream: #faf6f3;
+      --sf-cream-mid: #f1ebe3;
+      --sf-cream-deep: #e8dfd4;
+      --sf-dark: #2a2118;
+      --sf-dark-mid: #3a2e22;
+      --sf-taupe: #4a3f35;
+      --sf-taupe-light: #7a6e62;
+      --sf-green: #4a8c5c;
+      --sf-green-soft: #e8f5ec;
+      --sf-blue: #5a8aac;
+      --sf-blue-soft: #e4eff6;
+      --sf-serif: 'Cormorant Garamond', Georgia, serif;
+      --sf-display: 'Playfair Display', Georgia, serif;
+      --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--sf-sans);
+      background: var(--sf-cream);
+      color: var(--sf-taupe);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .sf-trial-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero */
+    .sf-trial-hero {
+      background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+      position: relative;
+      padding: 64px 20px 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .sf-trial-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.25) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .sf-trial-hero-badge {
+      display: inline-block;
+      background: rgba(200,160,78,0.12);
+      border: 1px solid rgba(200,160,78,0.35);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .sf-trial-hero h1 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(32px, 5.5vw, 52px);
+      line-height: 1.1;
+      color: var(--sf-cream);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .sf-trial-hero h1 span { color: var(--sf-gold); }
+    .sf-trial-hero p {
+      font-family: var(--sf-display);
+      font-weight: 600;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--sf-cream-deep);
+      position: relative;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    /* Stagger */
+    .sf-trial-stagger-1 { opacity: 0; -webkit-animation: sfTrialUp 0.7s ease forwards 0.1s; animation: sfTrialUp 0.7s ease forwards 0.1s; }
+    .sf-trial-stagger-2 { opacity: 0; -webkit-animation: sfTrialUp 0.7s ease forwards 0.3s; animation: sfTrialUp 0.7s ease forwards 0.3s; }
+    .sf-trial-stagger-3 { opacity: 0; -webkit-animation: sfTrialUp 0.7s ease forwards 0.5s; animation: sfTrialUp 0.7s ease forwards 0.5s; }
+    @-webkit-keyframes sfTrialUp {
+      0% { opacity: 0; -webkit-transform: translateY(28px); }
+      100% { opacity: 1; -webkit-transform: translateY(0); }
+    }
+    @keyframes sfTrialUp {
+      0% { opacity: 0; transform: translateY(28px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section */
+    .sf-trial-section { padding: 48px 0; }
+    .sf-trial-section-title {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.15;
+      color: var(--sf-dark);
+      margin-bottom: 24px;
+    }
+
+    /* Day Card */
+    .sf-trial-day {
+      background: #ffffff;
+      border: 1px solid var(--sf-cream-deep);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+      display: flex;
+      gap: 16px;
+      -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sf-trial-day:hover {
+      -webkit-transform: translateY(-3px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+    }
+    .sf-trial-day-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--sf-gold);
+      color: var(--sf-dark);
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sf-trial-day-content h3 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--sf-dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .sf-trial-day-content p {
+      font-size: 14px;
+      color: var(--sf-taupe-light);
+      line-height: 1.6;
+    }
+
+    /* Checklist inside day */
+    .sf-trial-mini-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+    .sf-trial-mini-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 5px 0;
+      font-size: 14px;
+      color: var(--sf-taupe);
+    }
+    .sf-trial-mini-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 2px solid var(--sf-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* SPECIAL: Day 3 */
+    .sf-trial-day-special {
+      background: linear-gradient(135deg, var(--sf-dark) 0%, var(--sf-dark-mid) 100%);
+      border: 2px solid var(--sf-gold);
+      position: relative;
+      overflow: hidden;
+    }
+    .sf-trial-day-special::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(200,160,78,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .sf-trial-day-special .sf-trial-day-num {
+      position: relative;
+      box-shadow: 0 0 0 4px rgba(200,160,78,0.3);
+    }
+    .sf-trial-day-special .sf-trial-day-content h3 {
+      color: var(--sf-gold);
+      position: relative;
+    }
+    .sf-trial-day-special .sf-trial-day-content p {
+      color: var(--sf-cream-deep);
+      position: relative;
+    }
+    .sf-trial-day-special .sf-trial-day-content .sf-trial-stat {
+      display: inline-block;
+      background: rgba(200,160,78,0.2);
+      border: 1px solid rgba(200,160,78,0.4);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sf-gold);
+      margin-top: 12px;
+      position: relative;
+    }
+
+    /* Phase divider */
+    .sf-trial-phase {
+      text-align: center;
+      padding: 32px 0 16px;
+    }
+    .sf-trial-phase-badge {
+      display: inline-block;
+      background: rgba(200,160,78,0.12);
+      border: 1px solid rgba(200,160,78,0.35);
+      border-radius: 999px;
+      padding: 8px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+    }
+
+    /* Callout */
+    .sf-trial-callout {
+      background: var(--sf-gold-glow);
+      border-left: 4px solid var(--sf-gold);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .sf-trial-callout-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+      margin-bottom: 4px;
+    }
+    .sf-trial-callout p {
+      font-size: 14px;
+    }
+
+    /* Transparency callout */
+    .sf-trial-transparent {
+      background: var(--sf-blue-soft);
+      border-left: 4px solid var(--sf-blue);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+    .sf-trial-transparent-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-blue);
+      margin-bottom: 4px;
+    }
+    .sf-trial-transparent p {
+      font-size: 14px;
+      color: var(--sf-taupe);
+    }
+
+    /* Dark callout */
+    .sf-trial-dark {
+      background: linear-gradient(135deg, var(--sf-dark) 0%, var(--sf-dark-mid) 100%);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .sf-trial-dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(200,160,78,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .sf-trial-dark h3 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(22px, 4vw, 32px);
+      color: var(--sf-gold);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .sf-trial-dark p {
+      font-family: var(--sf-display);
+      font-weight: 600;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--sf-cream-deep);
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* Workout options */
+    .sf-trial-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .sf-trial-option {
+      background: var(--sf-cream);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+    .sf-trial-option strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sf-dark);
+      margin-bottom: 2px;
+    }
+    .sf-trial-option span {
+      font-size: 11px;
+      color: var(--sf-taupe-light);
+    }
+
+    /* Footer */
+    .sf-trial-footer {
+      text-align: center;
+      padding: 40px 20px 56px;
+      border-top: 1px solid var(--sf-cream-deep);
+    }
+    .sf-trial-footer-brand {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--sf-gold);
+      margin-bottom: 8px;
+    }
+    .sf-trial-footer p { font-size: 13px; color: var(--sf-taupe-light); }
+
+    /* Reveal */
+    .sf-trial-reveal {
+      opacity: 0;
+      -webkit-transform: translateY(20px);
+      transform: translateY(20px);
+      -webkit-transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .sf-trial-reveal.sf-trial-in {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    @media print {
+      .sf-trial-hero, .sf-trial-dark, .sf-trial-day-special { background: #2a2118 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .sf-trial-day:hover, .sf-trial-reveal { transform: none !important; opacity: 1 !important; }
+      body { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sf-trial-hero { padding: 48px 16px 40px; }
+      .sf-trial-day { flex-direction: column; gap: 12px; padding: 20px 16px; }
+      .sf-trial-day-num { align-self: flex-start; }
+      .sf-trial-section { padding: 32px 0; }
+      .sf-trial-options { grid-template-columns: 1fr; }
+      .sf-trial-dark { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="sf-trial-hero">
+    <div class="sf-trial-stagger-1">
+      <div class="sf-trial-hero-badge">14-Day Free Trial</div>
+    </div>
+    <h1 class="sf-trial-stagger-2">Your <span>14-Day</span> Playbook</h1>
+    <p class="sf-trial-stagger-3">Day by day. No guessing. Just follow the path.</p>
+  </header>
+
+  <div class="sf-trial-wrapper">
+    <section class="sf-trial-section">
+
+      <!-- Phase 1 -->
+      <div class="sf-trial-phase sf-trial-reveal">
+        <div class="sf-trial-phase-badge">Days 1 through 7: Discover</div>
+      </div>
+
+      <!-- Day 1 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">1</div>
+        <div class="sf-trial-day-content">
+          <h3>Set Up and Settle In</h3>
+          <p>Today is simple. Three small actions. No overwhelm.</p>
+          <ul class="sf-trial-mini-list">
+            <li><div class="sf-trial-mini-check"></div><span>Download the SmithFit app and create your profile</span></li>
+            <li><div class="sf-trial-mini-check"></div><span>Log one meal (just one, any meal)</span></li>
+            <li><div class="sf-trial-mini-check"></div><span>Join the community and say hello</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">2</div>
+        <div class="sf-trial-day-content">
+          <h3>Understand Why You Are Stuck</h3>
+          <p>Watch the Metabolic Stress Cycle video. This explains why "eat less, move more" has not worked for you. Then make your first Morning Metabolic Cocktail. The recipe is in your app.</p>
+          <ul class="sf-trial-mini-list">
+            <li><div class="sf-trial-mini-check"></div><span>Watch the Metabolic Stress Cycle video</span></li>
+            <li><div class="sf-trial-mini-check"></div><span>Make your Morning Cocktail</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Day 3 (SPECIAL) -->
+      <div class="sf-trial-day sf-trial-day-special sf-trial-reveal">
+        <div class="sf-trial-day-num">3</div>
+        <div class="sf-trial-day-content">
+          <h3>The Feeling</h3>
+          <p>This is the day most members notice something shift. It is subtle at first. Fewer cravings. A calmer morning. Slightly better sleep. Your nervous system is starting to respond. You are not imagining it.</p>
+          <div class="sf-trial-stat">87% of members feel a difference by Day 3</div>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">4</div>
+        <div class="sf-trial-day-content">
+          <h3>Your First Workout</h3>
+          <p>Fifteen minutes. Cortisol-conscious, not cortisol-spiking. Pick the version that matches your day.</p>
+          <div class="sf-trial-options">
+            <div class="sf-trial-option">
+              <strong>Post-Night Shift</strong>
+              <span>Gentle, restorative</span>
+            </div>
+            <div class="sf-trial-option">
+              <strong>Pre-Shift</strong>
+              <span>Energizing, quick</span>
+            </div>
+            <div class="sf-trial-option">
+              <strong>Day Off</strong>
+              <span>Full effort, 15 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">5</div>
+        <div class="sf-trial-day-content">
+          <h3>Weekly Check-In</h3>
+          <p>Quick check-in: energy, sleep quality, cravings, and mood. This takes 2 minutes. It is how we track what is working and what needs adjusting. No judgment, just data.</p>
+          <ul class="sf-trial-mini-list">
+            <li><div class="sf-trial-mini-check"></div><span>Complete your first check-in in the app</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">6</div>
+        <div class="sf-trial-day-content">
+          <h3>First Live Group Call</h3>
+          <p>Join your first weekly group coaching call with IJ and the SmithFit team. Camera optional. Bring questions or just listen. This is where real connection happens.</p>
+        </div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">7</div>
+        <div class="sf-trial-day-content">
+          <h3>Rest and Reflect</h3>
+          <p>One full week in. Take a breath. Ask yourself one question:</p>
+          <div class="sf-trial-callout">
+            <div class="sf-trial-callout-label">Reflection</div>
+            <p>"What feels different compared to 7 days ago?" Write it down. Even if it is small. Especially if it is small.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="sf-trial-phase sf-trial-reveal">
+        <div class="sf-trial-phase-badge">Days 8 through 14: Decide</div>
+      </div>
+
+      <!-- Days 8-10 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">8-10</div>
+        <div class="sf-trial-day-content">
+          <h3>Build Consistency</h3>
+          <p>Three daily actions. Same thing each day. This is where the habit loop starts to solidify.</p>
+          <ul class="sf-trial-mini-list">
+            <li><div class="sf-trial-mini-check"></div><span>Morning Cocktail (before your shift or first thing)</span></li>
+            <li><div class="sf-trial-mini-check"></div><span>One 15-minute movement session</span></li>
+            <li><div class="sf-trial-mini-check"></div><span>Log one meal</span></li>
+          </ul>
+          <p style="margin-top: 10px;">Missed a day? That is okay. This is not about perfection. It is about building a pattern your body can rely on.</p>
+        </div>
+      </div>
+
+      <!-- Day 11 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">11</div>
+        <div class="sf-trial-day-content">
+          <h3>Review Your Progress</h3>
+          <p>Look back at your check-in data. Compare Day 1 to now. Energy level. Sleep quality. Cravings intensity. Most members see meaningful improvement across at least two of these markers by Day 11.</p>
+        </div>
+      </div>
+
+      <!-- Day 12 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">12</div>
+        <div class="sf-trial-day-content">
+          <h3>Decision Window Opens</h3>
+          <p>Here is the deal, with complete transparency.</p>
+          <div class="sf-trial-transparent">
+            <div class="sf-trial-transparent-label">Full Transparency</div>
+            <p><strong>If you want to stay:</strong> Do nothing. Your membership auto-continues at $67/month on Day 15. You keep everything you have built.</p>
+          </div>
+          <div class="sf-trial-transparent">
+            <div class="sf-trial-transparent-label">Your Choice</div>
+            <p><strong>If you want to cancel:</strong> One click. No hoops, no guilt trip, no "save" calls. I built the cancel button to be easy on purpose. You should stay because it works, not because leaving is hard.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 13 -->
+      <div class="sf-trial-day sf-trial-reveal">
+        <div class="sf-trial-day-num">13</div>
+        <div class="sf-trial-day-content">
+          <h3>Set Your Reminder</h3>
+          <p>Whether you are staying or going, set a phone reminder for tomorrow. Know your options. No surprises. If you have questions about the membership, ask in the community or on the group call. We will answer honestly.</p>
+        </div>
+      </div>
+
+      <!-- Day 14 -->
+      <div class="sf-trial-day sf-trial-day-special sf-trial-reveal">
+        <div class="sf-trial-day-num">14</div>
+        <div class="sf-trial-day-content">
+          <h3>Welcome to the Real Work</h3>
+          <p>If you are reading this and you are still here, something worked. Maybe it was the energy shift. Maybe the community. Maybe the fact that for the first time, someone built a program around your actual schedule instead of asking you to change it. Whatever it was, the real transformation starts now.</p>
+        </div>
+      </div>
+
+      <!-- Closing -->
+      <div class="sf-trial-dark sf-trial-reveal">
+        <h3>From IJ, RN</h3>
+        <p>I did not build a 14-day trial to trick anyone into a subscription. I built it so you could feel what I felt the first time this approach clicked for me. If it clicks for you, stay. If it does not, go with my respect. Either way, the Morning Cocktail is yours to keep forever.</p>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="sf-trial-footer">
+    <div class="sf-trial-footer-brand">SmithFit</div>
+    <p>Built by a nurse, for nurses. &copy; 2026 SmithFit LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.sf-trial-reveal');
+      if (!els.length) return;
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              entries[i].target.classList.add('sf-trial-in');
+              obs.unobserve(entries[i].target);
+            }
+          }
+        }, { threshold: 0.12 });
+        for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+      } else {
+        for (var i = 0; i < els.length; i++) els[i].classList.add('sf-trial-in');
+      }
+    })();
+  </script>
+
+</body>
+</html>

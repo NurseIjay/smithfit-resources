@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your First 30 Days: Shift-Proof Calendar | SmithFit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sf-gold: #c8a04e;
+      --sf-gold-light: #d4b05e;
+      --sf-gold-soft: #e8c878;
+      --sf-gold-glow: rgba(200, 160, 78, 0.18);
+      --sf-cream: #faf6f3;
+      --sf-cream-mid: #f1ebe3;
+      --sf-cream-deep: #e8dfd4;
+      --sf-dark: #2a2118;
+      --sf-dark-mid: #3a2e22;
+      --sf-taupe: #4a3f35;
+      --sf-taupe-light: #7a6e62;
+      --sf-green: #4a8c5c;
+      --sf-serif: 'Cormorant Garamond', Georgia, serif;
+      --sf-display: 'Playfair Display', Georgia, serif;
+      --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--sf-sans);
+      background: var(--sf-cream);
+      color: var(--sf-taupe);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .sf-cal-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero */
+    .sf-cal-hero {
+      background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+      position: relative;
+      padding: 64px 20px 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .sf-cal-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.25) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .sf-cal-hero-badge {
+      display: inline-block;
+      background: rgba(200,160,78,0.12);
+      border: 1px solid rgba(200,160,78,0.35);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .sf-cal-hero h1 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(32px, 5.5vw, 52px);
+      line-height: 1.1;
+      color: var(--sf-cream);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .sf-cal-hero h1 span {
+      color: var(--sf-gold);
+    }
+    .sf-cal-hero p {
+      font-family: var(--sf-display);
+      font-weight: 600;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--sf-cream-deep);
+      position: relative;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Section */
+    .sf-cal-section {
+      padding: 48px 0;
+    }
+
+    /* Week Card */
+    .sf-cal-week {
+      background: #ffffff;
+      border: 1px solid var(--sf-cream-deep);
+      border-radius: 16px;
+      padding: 0;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+      overflow: hidden;
+      -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sf-cal-week:hover {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+    }
+
+    .sf-cal-week-header {
+      background: linear-gradient(135deg, var(--sf-dark) 0%, var(--sf-dark-mid) 100%);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .sf-cal-week-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--sf-gold);
+      color: var(--sf-dark);
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sf-cal-week-header-text h2 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(20px, 3.5vw, 28px);
+      line-height: 1.15;
+      color: var(--sf-cream);
+      margin-bottom: 2px;
+    }
+    .sf-cal-week-header-text p {
+      font-size: 13px;
+      color: var(--sf-gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .sf-cal-week-body {
+      padding: 28px;
+    }
+
+    /* Focus callout */
+    .sf-cal-focus {
+      background: var(--sf-gold-glow);
+      border-left: 4px solid var(--sf-gold);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+    .sf-cal-focus-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sf-gold);
+      margin-bottom: 4px;
+    }
+    .sf-cal-focus p {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--sf-dark);
+    }
+
+    /* Checklist */
+    .sf-cal-checklist {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .sf-cal-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--sf-cream-mid);
+    }
+    .sf-cal-checklist li:last-child {
+      border-bottom: none;
+    }
+    .sf-cal-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid var(--sf-gold);
+      flex-shrink: 0;
+      margin-top: 1px;
+      position: relative;
+    }
+    .sf-cal-checklist li span {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .sf-cal-day-tag {
+      display: inline-block;
+      background: var(--sf-cream-mid);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--sf-taupe-light);
+      margin-right: 6px;
+    }
+
+    /* What to Expect */
+    .sf-cal-expect {
+      background: var(--sf-cream);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .sf-cal-expect h4 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--sf-dark);
+      margin-bottom: 10px;
+    }
+    .sf-cal-expect p {
+      font-size: 14px;
+      color: var(--sf-taupe-light);
+      line-height: 1.6;
+    }
+
+    /* Dark callout */
+    .sf-cal-dark-callout {
+      background: linear-gradient(135deg, var(--sf-dark) 0%, var(--sf-dark-mid) 100%);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      margin: 48px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .sf-cal-dark-callout::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(200,160,78,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .sf-cal-dark-callout h3 {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: clamp(22px, 4vw, 32px);
+      color: var(--sf-gold);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .sf-cal-dark-callout p {
+      font-family: var(--sf-display);
+      font-weight: 600;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--sf-cream-deep);
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .sf-cal-footer {
+      text-align: center;
+      padding: 40px 20px 56px;
+      border-top: 1px solid var(--sf-cream-deep);
+    }
+    .sf-cal-footer p {
+      font-size: 13px;
+      color: var(--sf-taupe-light);
+    }
+    .sf-cal-footer-brand {
+      font-family: var(--sf-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--sf-gold);
+      margin-bottom: 8px;
+    }
+
+    /* Reveal */
+    .sf-cal-reveal {
+      opacity: 0;
+      -webkit-transform: translateY(20px);
+      transform: translateY(20px);
+      -webkit-transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .sf-cal-reveal.sf-cal-in {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    /* Stagger */
+    .sf-cal-stagger-1 { opacity: 0; -webkit-animation: sfCalFadeUp 0.7s ease forwards 0.1s; animation: sfCalFadeUp 0.7s ease forwards 0.1s; }
+    .sf-cal-stagger-2 { opacity: 0; -webkit-animation: sfCalFadeUp 0.7s ease forwards 0.3s; animation: sfCalFadeUp 0.7s ease forwards 0.3s; }
+    .sf-cal-stagger-3 { opacity: 0; -webkit-animation: sfCalFadeUp 0.7s ease forwards 0.5s; animation: sfCalFadeUp 0.7s ease forwards 0.5s; }
+
+    @-webkit-keyframes sfCalFadeUp {
+      0% { opacity: 0; -webkit-transform: translateY(28px); }
+      100% { opacity: 1; -webkit-transform: translateY(0); }
+    }
+    @keyframes sfCalFadeUp {
+      0% { opacity: 0; transform: translateY(28px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Print */
+    @media print {
+      .sf-cal-hero { background: #2a2118 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .sf-cal-week:hover { transform: none; box-shadow: none; }
+      .sf-cal-reveal { opacity: 1 !important; transform: none !important; }
+      .sf-cal-dark-callout { background: #2a2118 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { font-size: 12px; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .sf-cal-hero { padding: 48px 16px 40px; }
+      .sf-cal-week-header { padding: 18px 16px; gap: 12px; }
+      .sf-cal-week-num { width: 40px; height: 40px; font-size: 18px; }
+      .sf-cal-week-body { padding: 20px 16px; }
+      .sf-cal-dark-callout { padding: 32px 20px; }
+      .sf-cal-section { padding: 32px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="sf-cal-hero">
+    <div class="sf-cal-stagger-1">
+      <div class="sf-cal-hero-badge">Premium Member Bonus</div>
+    </div>
+    <h1 class="sf-cal-stagger-2">Your First <span>30 Days</span></h1>
+    <p class="sf-cal-stagger-3">The Shift-Proof Calendar. One focus per week. No overwhelm.</p>
+  </header>
+
+  <div class="sf-cal-wrapper">
+    <section class="sf-cal-section">
+
+      <!-- WEEK 1 -->
+      <div class="sf-cal-week sf-cal-reveal">
+        <div class="sf-cal-week-header">
+          <div class="sf-cal-week-num">1</div>
+          <div class="sf-cal-week-header-text">
+            <h2>Stabilize</h2>
+            <p>Days 1 through 7</p>
+          </div>
+        </div>
+        <div class="sf-cal-week-body">
+          <div class="sf-cal-focus">
+            <div class="sf-cal-focus-label">This Week's Focus</div>
+            <p>Morning Cocktail + Box Breathing. That is it. Two habits, no more.</p>
+          </div>
+          <ul class="sf-cal-checklist">
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 1</span> Download the SmithFit app and set up your profile</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 1</span> Make your first Morning Metabolic Cocktail</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 2</span> Join the community and introduce yourself</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 3</span> Complete your first check-in (energy, sleep, cravings)</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Days 1-7</span> Log one meal per day in the app</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">This Week</span> Attend your first group coaching call</span>
+            </li>
+          </ul>
+          <div class="sf-cal-expect">
+            <h4>What to Expect</h4>
+            <p>The first few days are about your nervous system, not your waistline. You may notice calmer mornings, fewer afternoon crashes, and slightly deeper sleep. 87% of members feel a noticeable shift by Day 3. If you feel nothing yet, that is completely normal. Your body is recalibrating.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 2 -->
+      <div class="sf-cal-week sf-cal-reveal">
+        <div class="sf-cal-week-header">
+          <div class="sf-cal-week-num">2</div>
+          <div class="sf-cal-week-header-text">
+            <h2>Shift-Proof Your Plate</h2>
+            <p>Days 8 through 14</p>
+          </div>
+        </div>
+        <div class="sf-cal-week-body">
+          <div class="sf-cal-focus">
+            <div class="sf-cal-focus-label">This Week's Focus</div>
+            <p>The 3x3 Plate Formula: Protein + Fiber + Fat at every meal.</p>
+          </div>
+          <ul class="sf-cal-checklist">
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 8</span> Learn the 3x3 Plate Formula in the Stabilize hub</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Days 8-12</span> Apply the formula to at least 5 meals this week</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">This Week</span> Use the Chaos Day Rescue plan at least once</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">This Week</span> Attend one group coaching call</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 14</span> Check in: how are your energy and cravings compared to Day 1?</span>
+            </li>
+          </ul>
+          <div class="sf-cal-expect">
+            <h4>What to Expect</h4>
+            <p>You will likely notice that meals built with protein, fiber, and fat keep you fuller longer, even on 12-hour shifts. Cravings may soften. You are not dieting. You are building a plate that works with your stress physiology instead of against it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 3 -->
+      <div class="sf-cal-week sf-cal-reveal">
+        <div class="sf-cal-week-header">
+          <div class="sf-cal-week-num">3</div>
+          <div class="sf-cal-week-header-text">
+            <h2>Add Movement</h2>
+            <p>Days 15 through 21</p>
+          </div>
+        </div>
+        <div class="sf-cal-week-body">
+          <div class="sf-cal-focus">
+            <div class="sf-cal-focus-label">This Week's Focus</div>
+            <p>Three 15-minute cortisol-conscious workouts. We are not chasing sweat. We are sending a signal.</p>
+          </div>
+          <ul class="sf-cal-checklist">
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 15</span> Complete your first 15-minute workout (choose your level)</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Days 15-21</span> Complete 3 workouts total this week</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">This Week</span> Submit your weekly check-in</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">This Week</span> Post once in the community (a win, a question, or just say hi)</span>
+            </li>
+          </ul>
+          <div class="sf-cal-expect">
+            <h4>What to Expect</h4>
+            <p>These workouts are short by design. When cortisol is already elevated from shift work, long intense sessions can backfire. Fifteen minutes tells your body "we are safe, we are strong" without spiking stress hormones. You may notice improved mood and energy within hours of each session.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 4 -->
+      <div class="sf-cal-week sf-cal-reveal">
+        <div class="sf-cal-week-header">
+          <div class="sf-cal-week-num">4</div>
+          <div class="sf-cal-week-header-text">
+            <h2>The Full Loop</h2>
+            <p>Days 22 through 30</p>
+          </div>
+        </div>
+        <div class="sf-cal-week-body">
+          <div class="sf-cal-focus">
+            <div class="sf-cal-focus-label">This Week's Focus</div>
+            <p>Run all three pillars together. Stabilize + Fuel + Move on autopilot.</p>
+          </div>
+          <ul class="sf-cal-checklist">
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Daily</span> Morning Cocktail + Box Breathing (by now this should feel automatic)</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Daily</span> 3x3 Plate at most meals (progress, not perfection)</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">3x/week</span> 15-minute cortisol-conscious workouts</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 28</span> Submit your weekly check-in</span>
+            </li>
+            <li>
+              <div class="sf-cal-check"></div>
+              <span><span class="sf-cal-day-tag">Day 30</span> Capture your transformation: take a photo, write down how you feel</span>
+            </li>
+          </ul>
+          <div class="sf-cal-expect">
+            <h4>What to Expect</h4>
+            <p>This is where it clicks. The habits start to feel like yours, not a program you are following. Many members report that by Day 30, they are sleeping better, craving less sugar, fitting into clothes differently, and most importantly, feeling like themselves again.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closing -->
+      <div class="sf-cal-dark-callout sf-cal-reveal">
+        <h3>From IJ, RN</h3>
+        <p>I built SmithFit because I was you. Working shifts, wondering why nothing stuck, blaming myself when the real problem was stress physiology. These 30 days changed everything for me. They will change everything for you, too. One week at a time.</p>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="sf-cal-footer">
+    <div class="sf-cal-footer-brand">SmithFit</div>
+    <p>Built by a nurse, for nurses. &copy; 2026 SmithFit LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.sf-cal-reveal');
+      if (!els.length) return;
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              entries[i].target.classList.add('sf-cal-in');
+              obs.unobserve(entries[i].target);
+            }
+          }
+        }, { threshold: 0.12 });
+        for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+      } else {
+        for (var i = 0; i < els.length; i++) els[i].classList.add('sf-cal-in');
+      }
+    })();
+  </script>
+
+</body>
+</html>
