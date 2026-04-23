@@ -1,0 +1,349 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== GHL CONTAINER OVERRIDE ===== */
+.sf-rc-wrap{position:relative;width:100vw !important;max-width:100vw !important;margin-left:calc(-50vw + 50%) !important;overflow-x:hidden}
+.row:has(.sf-rc-wrap),.column:has(.sf-rc-wrap),.inner-content:has(.sf-rc-wrap),[class*="col"]:has(.sf-rc-wrap){max-width:100vw !important;width:100vw !important;padding:0 !important;margin-left:calc(-50vw + 50%) !important;overflow:visible !important}
+
+.sf-rc-wrap {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-blue-raw: #5a8aac;
+  --sf-blue-soft: #e4eff6;
+  --sf-orange-raw: #d4944a;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+
+  --sf-bg-primary: var(--sf-cream-raw);
+  --sf-bg-secondary: var(--sf-cream-mid);
+  --sf-bg-dark: var(--sf-dark-raw);
+  --sf-bg-card: #ffffff;
+  --sf-text-primary: var(--sf-taupe-raw);
+  --sf-text-secondary: var(--sf-taupe-light);
+  --sf-text-heading: var(--sf-dark-raw);
+  --sf-text-on-dark: var(--sf-cream-raw);
+  --sf-accent: var(--sf-gold-raw);
+  --sf-accent-hover: var(--sf-gold-light);
+  --sf-border: var(--sf-cream-deep);
+  --sf-success: var(--sf-green-raw);
+  --sf-warning: var(--sf-orange-raw);
+  --sf-error: var(--sf-red-raw);
+
+  --sf-btn-bg: var(--sf-accent);
+  --sf-btn-text: var(--sf-dark-raw);
+  --sf-btn-shadow: 0 4px 20px rgba(200, 160, 78, 0.4);
+  --sf-btn-hover-shadow: 0 8px 32px rgba(200, 160, 78, 0.55);
+  --sf-card-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+  --sf-card-hover-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+  --sf-card-radius: 16px;
+
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --sf-space-xs: 4px; --sf-space-sm: 8px; --sf-space-md: 16px; --sf-space-lg: 24px; --sf-space-xl: 32px; --sf-space-2xl: 48px;
+
+  font-family: var(--sf-sans); color: var(--sf-text-primary); background: var(--sf-bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  line-height: 1.7; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+@-webkit-keyframes sfFadeUp { 0%{opacity:0;-webkit-transform:translateY(28px)} 100%{opacity:1;-webkit-transform:translateY(0)} }
+@keyframes sfFadeUp { 0%{opacity:0;transform:translateY(28px)} 100%{opacity:1;transform:translateY(0)} }
+@-webkit-keyframes sfFadeIn { 0%{opacity:0} 100%{opacity:1} }
+@keyframes sfFadeIn { 0%{opacity:0} 100%{opacity:1} }
+@-webkit-keyframes sfPulse { 0%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)} 50%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 14px rgba(200,160,78,0)} 100%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)} }
+@keyframes sfPulse { 0%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)} 50%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 14px rgba(200,160,78,0)} 100%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)} }
+@-webkit-keyframes sfGoldShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes sfGoldShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+
+.sf-rc-reveal { opacity:0; -webkit-transform:translateY(20px); transform:translateY(20px); -webkit-transition:opacity .6s ease,transform .6s ease; transition:opacity .6s ease,transform .6s ease; }
+.sf-rc-reveal.sf-rc-in { opacity:1; -webkit-transform:translateY(0); transform:translateY(0); }
+.sf-rc-stagger-1 { opacity:0; -webkit-animation:sfFadeUp .7s ease forwards .1s; animation:sfFadeUp .7s ease forwards .1s; }
+.sf-rc-stagger-2 { opacity:0; -webkit-animation:sfFadeUp .7s ease forwards .3s; animation:sfFadeUp .7s ease forwards .3s; }
+.sf-rc-stagger-3 { opacity:0; -webkit-animation:sfFadeUp .7s ease forwards .5s; animation:sfFadeUp .7s ease forwards .5s; }
+.sf-rc-stagger-4 { opacity:0; -webkit-animation:sfFadeUp .7s ease forwards .7s; animation:sfFadeUp .7s ease forwards .7s; }
+
+.sf-rc-hero { background:linear-gradient(135deg,#2a2118 0%,#3a2e22 50%,#2a2118 100%); position:relative; padding:40px 20px 32px; text-align:center; overflow:hidden; }
+.sf-rc-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%,rgba(200,160,78,.25) 0%,transparent 55%); pointer-events:none; }
+.sf-rc-hero-inner { position:relative; z-index:1; max-width:540px; margin:0 auto; }
+.sf-rc-brand { font-family:var(--sf-serif); font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--sf-gold-raw); margin:0 0 14px; }
+.sf-rc-week-label { font-family:var(--sf-sans); font-weight:600; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--sf-taupe-light); margin:0 0 6px; display:inline-block; background:rgba(200,160,78,.12); border:1px solid rgba(200,160,78,.25); border-radius:999px; padding:5px 16px; }
+.sf-rc-title { font-family:var(--sf-serif); font-weight:700; font-size:clamp(26px,5.5vw,40px); line-height:1.1; color:var(--sf-cream-raw); margin:14px 0 10px; }
+.sf-rc-subtitle { font-family:var(--sf-display); font-weight:600; font-style:italic; font-size:clamp(15px,3.5vw,18px); color:var(--sf-gold-soft); margin:0; line-height:1.5; }
+.sf-rc-divider { width:48px; height:2px; background:linear-gradient(90deg,transparent,var(--sf-gold-raw),transparent); margin:16px auto 0; border:none; }
+
+.sf-rc-body { max-width:680px; margin:0 auto; padding:24px 16px 8px; }
+.sf-rc-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+.sf-rc-card { background:var(--sf-bg-card); border:1px solid var(--sf-border); border-radius:var(--sf-card-radius); padding:22px 18px; box-shadow:var(--sf-card-shadow); position:relative; overflow:hidden; -webkit-transition:transform .3s ease,box-shadow .3s ease; transition:transform .3s ease,box-shadow .3s ease; }
+.sf-rc-card:hover { -webkit-transform:translateY(-4px); transform:translateY(-4px); box-shadow:var(--sf-card-hover-shadow); }
+.sf-rc-card::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; }
+.sf-rc-card--red::before { background:var(--sf-red-raw); }
+.sf-rc-card--blue::before { background:var(--sf-blue-raw); }
+.sf-rc-card--gold::before { background:var(--sf-gold-raw); }
+.sf-rc-card--green::before { background:var(--sf-green-raw); }
+
+.sf-rc-card-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.sf-rc-icon { width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.sf-rc-icon--red { background:var(--sf-red-soft); }
+.sf-rc-icon--blue { background:var(--sf-blue-soft); }
+.sf-rc-icon--gold { background:rgba(200,160,78,.12); }
+.sf-rc-icon--green { background:var(--sf-green-soft); }
+.sf-rc-icon svg { width:18px; height:18px; }
+
+.sf-rc-card-label { font-family:var(--sf-sans); font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin:0; line-height:1.3; }
+.sf-rc-card-label--red { color:var(--sf-red-raw); }
+.sf-rc-card-label--blue { color:var(--sf-blue-raw); }
+.sf-rc-card-label--gold { color:var(--sf-gold-raw); }
+.sf-rc-card-label--green { color:var(--sf-green-raw); }
+
+.sf-rc-card-title { font-family:var(--sf-serif); font-weight:700; font-size:20px; line-height:1.3; color:var(--sf-text-heading); margin:0 0 8px; }
+.sf-rc-card-text { font-family:var(--sf-sans); font-size:14px; line-height:1.65; color:var(--sf-text-primary); margin:0 0 10px; }
+.sf-rc-card-text:last-child { margin-bottom:0; }
+.sf-rc-card-quote { font-family:var(--sf-display); font-weight:600; font-style:italic; font-size:15px; line-height:1.5; color:var(--sf-text-heading); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--sf-border); }
+
+.sf-rc-night { grid-column:1/-1; background:linear-gradient(135deg,#1e2a38 0%,#253545 50%,#1e2a38 100%); border:1px solid rgba(90,138,172,.25); border-radius:var(--sf-card-radius); padding:22px 20px; position:relative; overflow:hidden; -webkit-transition:transform .3s ease,box-shadow .3s ease; transition:transform .3s ease,box-shadow .3s ease; }
+.sf-rc-night:hover { -webkit-transform:translateY(-3px); transform:translateY(-3px); box-shadow:0 8px 32px rgba(30,42,56,.3); }
+.sf-rc-night::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--sf-blue-raw),rgba(90,138,172,.3)); }
+.sf-rc-night-head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.sf-rc-night-icon { width:34px; height:34px; border-radius:10px; background:rgba(90,138,172,.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.sf-rc-night-icon svg { width:18px; height:18px; }
+.sf-rc-night-label { font-family:var(--sf-sans); font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--sf-blue-raw); margin:0; }
+.sf-rc-night-text { font-family:var(--sf-sans); font-size:14px; line-height:1.65; color:rgba(228,239,246,.9); margin:0; }
+
+.sf-rc-sos { max-width:680px; margin:0 auto; padding:0 16px; }
+.sf-rc-sos-inner { background:linear-gradient(135deg,var(--sf-dark-raw) 0%,var(--sf-dark-mid) 100%); border-radius:var(--sf-card-radius); padding:24px; position:relative; overflow:hidden; border:1px solid rgba(200,160,78,.2); }
+.sf-rc-sos-inner::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,var(--sf-gold-raw),transparent); }
+.sf-rc-sos-badge { font-family:var(--sf-sans); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--sf-gold-raw); margin:0 0 10px; display:inline-block; background:rgba(200,160,78,.12); border:1px solid rgba(200,160,78,.25); border-radius:999px; padding:4px 14px; }
+.sf-rc-sos-text { font-family:var(--sf-display); font-weight:600; font-style:italic; font-size:16px; line-height:1.55; color:var(--sf-cream-raw); margin:0; }
+
+.sf-rc-upsell { max-width:680px; margin:0 auto; padding:16px 16px 0; }
+.sf-rc-upsell-inner { background:linear-gradient(135deg,rgba(200,160,78,.08) 0%,rgba(200,160,78,.04) 100%); border:1px solid rgba(200,160,78,.2); border-radius:var(--sf-card-radius); padding:18px 22px; text-align:center; }
+.sf-rc-upsell-text { font-family:var(--sf-display); font-weight:600; font-style:italic; font-size:15px; line-height:1.5; color:var(--sf-taupe-raw); margin:0; }
+.sf-rc-upsell-text span { color:var(--sf-gold-raw); font-weight:700; }
+
+.sf-rc-tracker { max-width:680px; margin:0 auto; padding:16px 16px 0; }
+.sf-rc-tracker-inner { background:var(--sf-bg-card); border:1px solid var(--sf-border); border-radius:var(--sf-card-radius); padding:20px 22px; box-shadow:var(--sf-card-shadow); }
+.sf-rc-tracker-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.sf-rc-tracker-icon { width:34px; height:34px; border-radius:10px; background:rgba(200,160,78,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.sf-rc-tracker-icon svg { width:18px; height:18px; }
+.sf-rc-tracker-label { font-family:var(--sf-sans); font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--sf-gold-raw); margin:0; }
+.sf-rc-tracker-text { font-family:var(--sf-sans); font-size:14px; line-height:1.6; color:var(--sf-text-primary); margin:0 0 12px; }
+.sf-rc-tracker-value { font-family:var(--sf-serif); font-weight:700; font-size:28px; color:var(--sf-gold-raw); display:inline-block; }
+.sf-rc-tracker-bar-wrap { background:var(--sf-cream-deep); border-radius:3px; height:6px; overflow:hidden; margin-top:8px; }
+.sf-rc-tracker-bar { height:100%; border-radius:3px; background:var(--sf-gold-raw); -webkit-transition:width .4s ease; transition:width .4s ease; width:58%; }
+
+.sf-rc-referral { max-width:680px; margin:0 auto; padding:16px 16px 0; }
+.sf-rc-referral-inner { background:var(--sf-bg-card); border:1px solid var(--sf-border); border-left:4px solid var(--sf-gold-raw); border-radius:0 var(--sf-card-radius) var(--sf-card-radius) 0; padding:16px 20px; display:flex; align-items:center; gap:14px; box-shadow:var(--sf-card-shadow); -webkit-transition:transform .3s ease,box-shadow .3s ease; transition:transform .3s ease,box-shadow .3s ease; }
+.sf-rc-referral-inner:hover { -webkit-transform:translateY(-2px); transform:translateY(-2px); box-shadow:var(--sf-card-hover-shadow); }
+.sf-rc-referral-icon { width:38px; height:38px; border-radius:10px; background:rgba(200,160,78,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.sf-rc-referral-icon svg { width:20px; height:20px; }
+.sf-rc-referral-text { font-family:var(--sf-sans); font-size:14px; font-weight:500; color:var(--sf-text-primary); margin:0; line-height:1.5; }
+.sf-rc-referral-text strong { color:var(--sf-gold-raw); font-weight:700; }
+
+.sf-rc-next { max-width:680px; margin:0 auto; padding:16px 16px 0; }
+.sf-rc-next-inner { background:var(--sf-bg-card); border:1px solid var(--sf-border); border-radius:var(--sf-card-radius); padding:18px 20px; display:flex; align-items:center; gap:14px; box-shadow:var(--sf-card-shadow); -webkit-transition:transform .3s ease,box-shadow .3s ease; transition:transform .3s ease,box-shadow .3s ease; }
+.sf-rc-next-inner:hover { -webkit-transform:translateY(-2px); transform:translateY(-2px); box-shadow:var(--sf-card-hover-shadow); }
+.sf-rc-next-icon { width:38px; height:38px; border-radius:10px; background:var(--sf-cream-mid); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.sf-rc-next-icon svg { width:18px; height:18px; }
+.sf-rc-next-label { font-family:var(--sf-sans); font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--sf-taupe-light); margin:0 0 2px; }
+.sf-rc-next-text { font-family:var(--sf-display); font-weight:600; font-style:italic; font-size:15px; color:var(--sf-text-heading); margin:0; line-height:1.4; }
+
+.sf-rc-footer { text-align:center; padding:24px 16px 32px; max-width:680px; margin:0 auto; }
+.sf-rc-footer-line { width:36px; height:2px; background:linear-gradient(90deg,transparent,var(--sf-gold-raw),transparent); margin:0 auto 16px; border:none; }
+.sf-rc-footer-quote { font-family:var(--sf-display); font-weight:600; font-style:italic; font-size:16px; color:var(--sf-text-heading); margin:0 0 6px; line-height:1.5; }
+.sf-rc-footer-sig { font-family:var(--sf-sans); font-weight:500; font-size:13px; color:var(--sf-gold-raw); margin:0; letter-spacing:.04em; }
+
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { -webkit-animation-duration:.01ms !important; animation-duration:.01ms !important; -webkit-transition-duration:.01ms !important; transition-duration:.01ms !important; } .sf-rc-reveal { opacity:1; -webkit-transform:none; transform:none; } .sf-rc-stagger-1,.sf-rc-stagger-2,.sf-rc-stagger-3,.sf-rc-stagger-4 { opacity:1; } }
+
+@media (max-width:600px) {
+  .sf-rc-hero { padding:28px 16px 24px; } .sf-rc-body { padding:16px 12px 8px; } .sf-rc-grid { grid-template-columns:1fr; gap:12px; }
+  .sf-rc-card { padding:18px 16px; } .sf-rc-night { padding:18px 16px; } .sf-rc-card-title { font-size:18px; }
+  .sf-rc-sos { padding:0 12px; } .sf-rc-sos-inner { padding:20px 18px; } .sf-rc-upsell { padding:12px 12px 0; }
+  .sf-rc-tracker { padding:12px 12px 0; } .sf-rc-referral { padding:12px 12px 0; }
+  .sf-rc-referral-inner { flex-direction:column; text-align:center; gap:10px; }
+  .sf-rc-next { padding:12px 12px 0; } .sf-rc-next-inner { flex-direction:column; text-align:center; gap:10px; }
+  .sf-rc-footer { padding:20px 12px 28px; } .sf-rc-tracker-value { font-size:24px; }
+}
+
+@media print {
+  .sf-rc-wrap { width:100% !important; max-width:100% !important; margin-left:0 !important; background:#fff !important; background-image:none !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .sf-rc-hero { background:#2a2118 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .sf-rc-night { background:#1e2a38 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .sf-rc-sos-inner { background:#2a2118 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .sf-rc-card:hover,.sf-rc-night:hover,.sf-rc-referral-inner:hover,.sf-rc-next-inner:hover { -webkit-transform:none; transform:none; box-shadow:var(--sf-card-shadow); }
+  .sf-rc-reveal { opacity:1 !important; -webkit-transform:none !important; transform:none !important; }
+  .sf-rc-stagger-1,.sf-rc-stagger-2,.sf-rc-stagger-3,.sf-rc-stagger-4 { opacity:1 !important; }
+}
+</style>
+
+<div class="sf-rc-wrap">
+
+  <!-- ===== HERO ===== -->
+  <div class="sf-rc-hero">
+    <div class="sf-rc-hero-inner">
+      <p class="sf-rc-brand sf-rc-stagger-1">SmithFit</p>
+      <span class="sf-rc-week-label sf-rc-stagger-2">Week 15 Resource Card</span>
+      <h1 class="sf-rc-title sf-rc-stagger-2">You're Bigger Than Your Mistakes</h1>
+      <p class="sf-rc-subtitle sf-rc-stagger-3">Why failure is required. The "fell off" myth. How to restart without the shame spiral.</p>
+      <hr class="sf-rc-divider sf-rc-stagger-4">
+    </div>
+  </div>
+
+  <!-- ===== CONTENT CARDS ===== -->
+  <div class="sf-rc-body">
+    <div class="sf-rc-grid">
+
+      <!-- THE "FELL OFF" MYTH -->
+      <div class="sf-rc-card sf-rc-card--gold sf-rc-reveal">
+        <div class="sf-rc-card-head">
+          <div class="sf-rc-icon sf-rc-icon--gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <p class="sf-rc-card-label sf-rc-card-label--gold">The "Fell Off" Myth</p>
+        </div>
+        <h3 class="sf-rc-card-title">You Didn't Fall Off. You Hit a Bump and Kept Driving.</h3>
+        <p class="sf-rc-card-text">There is no wagon to fall off of. There is no program to fail. There's just today. What you did yesterday doesn't define today. The all-or-nothing mentality is the actual enemy, not the skipped workout or the midnight pizza.</p>
+        <p class="sf-rc-card-text">The women who succeed in SmithFit aren't the ones who never mess up. They're the ones who mess up and come back the next day.</p>
+      </div>
+
+      <!-- WHY SHAME DOESN'T WORK -->
+      <div class="sf-rc-card sf-rc-card--red sf-rc-reveal">
+        <div class="sf-rc-card-head">
+          <div class="sf-rc-icon sf-rc-icon--red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c0504d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11v6M9 14h6"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+          </div>
+          <p class="sf-rc-card-label sf-rc-card-label--red">Why Shame Doesn't Work</p>
+        </div>
+        <h3 class="sf-rc-card-title">Shame Makes You Hide. Hiding Makes You Quit.</h3>
+        <p class="sf-rc-card-text">Shame makes you stop logging, stop checking in, stop showing up to calls. Silence breeds more silence. Then one day you cancel because it's been 3 weeks since you engaged and it feels too late to come back.</p>
+        <p class="sf-rc-card-quote">"It's never too late. I've had women come back after 6 weeks of silence and hit their best month ever. The door doesn't close."</p>
+      </div>
+
+      <!-- THE RESTART PROTOCOL -->
+      <div class="sf-rc-card sf-rc-card--green sf-rc-reveal">
+        <div class="sf-rc-card-head">
+          <div class="sf-rc-icon sf-rc-icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4a8c5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          </div>
+          <p class="sf-rc-card-label sf-rc-card-label--green">The Restart Protocol</p>
+        </div>
+        <h3 class="sf-rc-card-title">Drop the Backpack. Pick One Thing.</h3>
+        <p class="sf-rc-card-text"><strong>Step 1: Drop the backpack.</strong> Stop carrying guilt from last week. It's heavy and it's not helping.</p>
+        <p class="sf-rc-card-text"><strong>Step 2: Pick ONE thing for today.</strong> Not 7 things, not a complete overhaul. One thing.</p>
+        <p class="sf-rc-card-text"><strong>Step 3: Tell the community you're back.</strong> "Hey FAM, I'm back. Rough couple weeks. Starting fresh today."</p>
+        <p class="sf-rc-card-text"><strong>Step 4: Watch what happens.</strong> Spoiler: everyone cheers. Nobody judges. That's what this community does.</p>
+        <p class="sf-rc-card-quote">"Restarting is not failure. Restarting is the skill that separates people who eventually succeed from people who eventually quit."</p>
+      </div>
+
+      <!-- NIGHT SHIFT NOTE -->
+      <div class="sf-rc-night sf-rc-reveal">
+        <div class="sf-rc-night-head">
+          <div class="sf-rc-night-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a8aac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <p class="sf-rc-night-label">Night Shift Note</p>
+        </div>
+        <p class="sf-rc-night-text">Night shifters restart more often because the schedule disrupts everything more often. A rotation change, a holiday shift, a double. It throws off your rhythm and suddenly you haven't logged in 5 days. That's normal. That's shift life. The restart protocol works the same every time: drop the guilt, pick one thing, show up.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SOS STRIP ===== -->
+  <div class="sf-rc-sos sf-rc-reveal">
+    <div class="sf-rc-sos-inner">
+      <span class="sf-rc-sos-badge">Your One Thing This Week</span>
+      <p class="sf-rc-sos-text">Forgive yourself for last week. Actually say it: "I'm not going to carry that anymore. Today is today." Then do one thing. Log one meal. Take one walk. Check in once. That's enough.</p>
+    </div>
+  </div>
+
+  <!-- ===== MEMBERSHIP UPSELL BANNER ===== -->
+  <div class="sf-rc-upsell sf-rc-reveal">
+    <div class="sf-rc-upsell-inner">
+      <p class="sf-rc-upsell-text">This card helped you plan your week. The <span>VIP Playbook</span> helps you own it.</p>
+    </div>
+  </div>
+
+  <!-- ===== VALUE TRACKER ===== -->
+  <div class="sf-rc-tracker sf-rc-reveal">
+    <div class="sf-rc-tracker-inner">
+      <div class="sf-rc-tracker-head">
+        <div class="sf-rc-tracker-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <p class="sf-rc-tracker-label">Your Value Tracker</p>
+      </div>
+      <p class="sf-rc-tracker-text">Your SmithFit journey so far: <strong>15 resource cards</strong> unlocked.</p>
+      <span class="sf-rc-tracker-value">$705</span>
+      <p style="font-family:var(--sf-sans);font-size:12px;color:var(--sf-taupe-light);margin:2px 0 0;line-height:1.4;">total extra value earned and counting</p>
+      <div class="sf-rc-tracker-bar-wrap">
+        <div class="sf-rc-tracker-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== REFERRAL NUDGE ===== -->
+  <div class="sf-rc-referral sf-rc-reveal">
+    <div class="sf-rc-referral-inner">
+      <div class="sf-rc-referral-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <p class="sf-rc-referral-text">Know a nurse who needs this? <strong>Refer 5 and your membership is free.</strong></p>
+    </div>
+  </div>
+
+  <!-- ===== WHAT'S NEXT ===== -->
+  <div class="sf-rc-next sf-rc-reveal">
+    <div class="sf-rc-next-inner">
+      <div class="sf-rc-next-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7a6e62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div>
+        <p class="sf-rc-next-label">Next Week</p>
+        <p class="sf-rc-next-text">The Inner Voice. Self-talk rewiring for the nurse who takes care of everyone but herself.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="sf-rc-footer sf-rc-reveal">
+    <hr class="sf-rc-footer-line">
+    <p class="sf-rc-footer-quote">"The women who win aren't the ones who never stumble. They're the ones who get back up before anyone notices they were down."</p>
+    <p class="sf-rc-footer-sig">IJ Smith, RN</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.sf-rc-reveal');
+  if (!els.length) return;
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('sf-rc-in');
+          obs.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.12 });
+    for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+  } else {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('sf-rc-in');
+  }
+})();
+</script>
