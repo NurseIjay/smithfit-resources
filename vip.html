@@ -675,6 +675,66 @@
   margin: 0;
   line-height: 1.5;
 }
+/* Referral tier grid */
+.sf-rc-referral-grid {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  margin:14px 0 12px;
+}
+.sf-rc-referral-tier {
+  background:#fff;border:1px solid var(--sf-cream-deep);border-radius:10px;
+  padding:10px 6px;text-align:center;
+  -webkit-transition:all .3s ease;transition:all .3s ease;
+}
+.sf-rc-referral-tier:hover {
+  -webkit-transform:translateY(-3px);transform:translateY(-3px);
+  box-shadow:0 4px 16px rgba(200,160,78,.2);
+}
+.sf-rc-referral-num {
+  display:block;font-family:var(--sf-serif);font-weight:800;font-size:20px;
+  color:var(--sf-taupe-raw);line-height:1.2;
+}
+.sf-rc-referral-num::after {
+  content:" friends";font-size:9px;font-weight:600;font-family:var(--sf-sans);
+  letter-spacing:.04em;text-transform:uppercase;color:var(--sf-taupe-light);
+}
+.sf-rc-referral-amt {
+  display:block;font-family:var(--sf-serif);font-weight:800;font-size:18px;
+  color:var(--sf-gold-raw);margin-top:4px;
+}
+/* Hero tier (10 referrals) - the big one */
+.sf-rc-referral-hero-tier {
+  background:linear-gradient(135deg,var(--sf-dark-raw) 0%,var(--sf-dark-mid) 100%);
+  border:2px solid var(--sf-gold-raw);
+  -webkit-animation:sfRcPulseGold 2.5s ease infinite;
+  animation:sfRcPulseGold 2.5s ease infinite;
+  position:relative;overflow:hidden;
+}
+.sf-rc-referral-hero-tier::before {
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(200,160,78,.25) 0%,transparent 60%);
+  pointer-events:none;
+}
+.sf-rc-referral-hero-tier .sf-rc-referral-num {color:#fff;}
+.sf-rc-referral-hero-tier .sf-rc-referral-num::after {color:rgba(200,160,78,.7);}
+.sf-rc-referral-hero-tier .sf-rc-referral-amt {
+  font-size:22px;color:var(--sf-gold-soft);
+  text-shadow:0 0 12px rgba(200,160,78,.4);
+}
+@-webkit-keyframes sfRcPulseGold {
+  0%{box-shadow:0 4px 16px rgba(200,160,78,.3),0 0 0 0 rgba(200,160,78,.4)}
+  50%{box-shadow:0 4px 16px rgba(200,160,78,.3),0 0 0 12px rgba(200,160,78,0)}
+  100%{box-shadow:0 4px 16px rgba(200,160,78,.3),0 0 0 0 rgba(200,160,78,0)}
+}
+@keyframes sfRcPulseGold {
+  0%{box-shadow:0 4px 16px rgba(200,160,78,.3),0 0 0 0 rgba(200,160,78,.4)}
+  50%{box-shadow:0 4px 16px rgba(200,160,78,.3),0 0 0 12px rgba(200,160,78,0)}
+  100%{box-shadow:0 4px 16px rgba(200,160,78,.3),0 0 0 0 rgba(200,160,78,0)}
+}
+.sf-rc-referral-kicker {
+  font-family:var(--sf-display);font-style:italic;font-weight:600;
+  font-size:15px;color:var(--sf-gold-raw);text-align:center;
+  margin:0;line-height:1.5;
+}
 .sf-rc-referral-text strong {
   color: var(--sf-gold-raw);
   font-weight: 700;
@@ -798,6 +858,8 @@
   .sf-rc-tracker { padding: 12px 12px 0; }
   .sf-rc-referral { padding: 12px 12px 0; }
   .sf-rc-referral-inner { flex-direction: column; text-align: center; gap: 10px; }
+  .sf-rc-referral-grid { grid-template-columns: repeat(2,1fr); }
+  .sf-rc-referral-hero-tier { grid-column: span 2; }
   .sf-rc-next { padding: 12px 12px 0; }
   .sf-rc-next-inner { flex-direction: column; text-align: center; gap: 10px; }
   .sf-rc-footer { padding: 20px 12px 28px; }
@@ -1015,7 +1077,14 @@
       <div class="sf-rc-referral-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
-      <p class="sf-rc-referral-text">Know a nurse who needs this? <strong>Earn $10/mo for every friend who joins and stays.</strong> 5 referrals = $60/mo. Your membership practically pays for itself.</p>
+      <p class="sf-rc-referral-text">Know a nurse who needs this? <strong>Earn $10/mo for every friend who joins and stays active.</strong></p>
+      <div class="sf-rc-referral-grid">
+        <div class="sf-rc-referral-tier"><span class="sf-rc-referral-num">1</span><span class="sf-rc-referral-amt">$10/mo</span></div>
+        <div class="sf-rc-referral-tier"><span class="sf-rc-referral-num">3</span><span class="sf-rc-referral-amt">$30/mo</span></div>
+        <div class="sf-rc-referral-tier"><span class="sf-rc-referral-num">5</span><span class="sf-rc-referral-amt">$60/mo</span></div>
+        <div class="sf-rc-referral-tier sf-rc-referral-hero-tier"><span class="sf-rc-referral-num">10</span><span class="sf-rc-referral-amt">$110/mo</span></div>
+      </div>
+      <p class="sf-rc-referral-kicker">At 7 referrals, SmithFit literally pays you to be healthy.</p>
     </div>
   </div>
 
