@@ -1,0 +1,244 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+.sf-nw-wrap {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+
+  --sf-bg-primary: var(--sf-cream-raw);
+  --sf-bg-dark: var(--sf-dark-raw);
+  --sf-bg-card: #ffffff;
+  --sf-text-primary: var(--sf-taupe-raw);
+  --sf-text-secondary: var(--sf-taupe-light);
+  --sf-text-heading: var(--sf-dark-raw);
+  --sf-text-on-dark: var(--sf-cream-raw);
+  --sf-accent: var(--sf-gold-raw);
+  --sf-border: var(--sf-cream-deep);
+
+  --sf-card-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+  --sf-card-hover-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+  --sf-card-radius: 16px;
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sf-space-xs: 4px; --sf-space-sm: 8px; --sf-space-md: 16px; --sf-space-lg: 24px; --sf-space-xl: 32px; --sf-space-2xl: 48px;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-text-primary);
+  background: var(--sf-bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@-webkit-keyframes sfFadeUp { 0%{opacity:0;-webkit-transform:translateY(28px)} 100%{opacity:1;-webkit-transform:translateY(0)} }
+@keyframes sfFadeUp { 0%{opacity:0;transform:translateY(28px)} 100%{opacity:1;transform:translateY(0)} }
+@-webkit-keyframes sfGoldShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes sfGoldShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@-webkit-keyframes sfPulse { 0%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)} 50%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 14px rgba(200,160,78,0)} 100%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)} }
+@keyframes sfPulse { 0%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)} 50%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 14px rgba(200,160,78,0)} 100%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)} }
+
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after{-webkit-animation-duration:.01ms!important;animation-duration:.01ms!important;-webkit-transition-duration:.01ms!important;transition-duration:.01ms!important} .sf-nw-reveal{opacity:1!important;-webkit-transform:none!important;transform:none!important} }
+
+.sf-nw-reveal { opacity:0; -webkit-transform:translateY(20px); transform:translateY(20px); -webkit-transition:opacity .6s ease,-webkit-transform .6s ease; transition:opacity .6s ease,transform .6s ease; }
+.sf-nw-reveal.sf-nw-visible { opacity:1; -webkit-transform:translateY(0); transform:translateY(0); }
+
+.sf-nw-hero {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+  position: relative;
+  padding: 56px 28px 48px;
+  text-align: center;
+  border-radius: 0 0 var(--sf-card-radius) var(--sf-card-radius);
+  margin-bottom: var(--sf-space-xl);
+  overflow: hidden;
+}
+.sf-nw-hero::before { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background:radial-gradient(circle at 50% 0%,rgba(200,160,78,.3) 0%,transparent 55%); pointer-events:none; }
+.sf-nw-hero::after { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E"); pointer-events:none; }
+.sf-nw-hero>*{position:relative;z-index:1}
+
+.sf-nw-hero-badge {
+  font-family:var(--sf-sans); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sf-accent);
+  display:inline-block; background:var(--sf-gold-hover); border:1px solid rgba(200,160,78,.35); border-radius:999px; padding:8px 20px; margin-bottom:var(--sf-space-lg);
+}
+.sf-nw-hero-icon { font-size: 48px; margin-bottom: var(--sf-space-md); display: block; }
+.sf-nw-hero h1 { font-family:var(--sf-serif); font-weight:700; font-size:clamp(32px,5.5vw,52px); color:var(--sf-text-on-dark); line-height:1.2; margin:0 0 var(--sf-space-sm); }
+.sf-nw-hero h1 em { font-family:var(--sf-display); font-style:italic; font-weight:600; color:var(--sf-accent); }
+.sf-nw-hero-date {
+  font-family:var(--sf-sans); font-size:14px; font-weight:600; color:var(--sf-accent); letter-spacing:.08em; margin-bottom:var(--sf-space-lg);
+}
+.sf-nw-hero-sub { font-family:var(--sf-sans); font-size:15px; color:var(--sf-taupe-light); line-height:1.7; max-width:460px; margin:0 auto; }
+
+.sf-nw-divider { width:48px; height:2px; background:linear-gradient(90deg,transparent,var(--sf-accent),transparent); margin:var(--sf-space-xl) auto; border:none; }
+
+.sf-nw-card { background:var(--sf-bg-card); border:1px solid var(--sf-border); border-radius:var(--sf-card-radius); padding:28px 24px; box-shadow:var(--sf-card-shadow); margin-bottom:var(--sf-space-lg); -webkit-transition:box-shadow .3s ease,-webkit-transform .3s ease; transition:box-shadow .3s ease,transform .3s ease; }
+.sf-nw-card:hover { box-shadow:var(--sf-card-hover-shadow); -webkit-transform:translateY(-4px); transform:translateY(-4px); }
+.sf-nw-card h2 { font-family:var(--sf-serif); font-weight:700; font-size:clamp(22px,4vw,28px); color:var(--sf-text-heading); margin:0 0 var(--sf-space-md); line-height:1.3; }
+.sf-nw-card p { font-size:15px; line-height:1.7; margin:0 0 var(--sf-space-md); color:var(--sf-text-primary); }
+.sf-nw-card p:last-child{margin-bottom:0}
+
+.sf-nw-quote {
+  background: linear-gradient(135deg, rgba(200,160,78,.06) 0%, rgba(200,160,78,.02) 100%);
+  border-left: 4px solid var(--sf-accent);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: var(--sf-space-md) 0;
+}
+.sf-nw-quote p {
+  font-family: var(--sf-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--sf-text-heading);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sf-nw-list { list-style:none; padding:0; margin:0; }
+.sf-nw-list li { display:flex; align-items:flex-start; gap:14px; padding:12px 0; font-size:15px; line-height:1.6; border-bottom:1px solid var(--sf-border); }
+.sf-nw-list li:last-child{border-bottom:none}
+.sf-nw-list-icon { width:28px; height:28px; border-radius:50%; background:var(--sf-gold-hover); border:1px solid rgba(200,160,78,.25); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; margin-top:2px; }
+
+.sf-nw-highlight {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 100%);
+  border-radius: var(--sf-card-radius);
+  padding: 32px 24px;
+  text-align: center;
+  margin-bottom: var(--sf-space-lg);
+  position: relative;
+  overflow: hidden;
+}
+.sf-nw-highlight::before { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background:radial-gradient(circle at 50% 50%,rgba(200,160,78,.1) 0%,transparent 60%); pointer-events:none; }
+.sf-nw-highlight>*{position:relative;z-index:1}
+.sf-nw-highlight h2 { font-family:var(--sf-serif); font-weight:700; font-size:clamp(22px,4vw,28px); color:var(--sf-text-on-dark); margin:0 0 var(--sf-space-md); }
+.sf-nw-highlight p { font-size:15px; color:var(--sf-taupe-light); line-height:1.7; margin:0 0 var(--sf-space-md); max-width:480px; margin-left:auto; margin-right:auto; }
+.sf-nw-highlight-name {
+  font-family:var(--sf-serif); font-weight:800; font-size:clamp(20px,4vw,28px);
+  background:linear-gradient(90deg,var(--sf-gold-raw),var(--sf-gold-soft),var(--sf-gold-raw)); background-size:200% auto;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  -webkit-animation:sfGoldShimmer 4s ease infinite; animation:sfGoldShimmer 4s ease infinite;
+}
+
+.sf-nw-sos {
+  background: var(--sf-gold-hover);
+  border: 1px solid rgba(200,160,78,.25);
+  border-radius: var(--sf-card-radius);
+  padding: 20px 24px;
+  margin-bottom: var(--sf-space-lg);
+  text-align: center;
+}
+.sf-nw-sos-label { font-family:var(--sf-sans); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sf-accent); margin-bottom:var(--sf-space-sm); }
+.sf-nw-sos p { font-family:var(--sf-display); font-style:italic; font-weight:600; font-size:16px; color:var(--sf-text-heading); margin:0; line-height:1.6; }
+
+.sf-nw-closing { text-align:center; padding:24px 20px 48px; }
+.sf-nw-closing p { font-family:var(--sf-display); font-style:italic; font-weight:600; font-size:17px; color:var(--sf-text-secondary); max-width:440px; margin:0 auto; line-height:1.7; }
+.sf-nw-closing-sig { font-family:var(--sf-sans); font-weight:700; font-size:14px; color:var(--sf-accent); margin-top:var(--sf-space-lg); letter-spacing:.05em; }
+
+.sf-nw-referral { font-family:var(--sf-sans); font-size:13px; color:var(--sf-text-secondary); text-align:center; padding:var(--sf-space-md); margin-bottom:var(--sf-space-md); }
+.sf-nw-referral strong { color:var(--sf-accent); }
+
+@media(max-width:600px){
+  .sf-nw-hero{padding:40px 20px 36px}
+  .sf-nw-card,.sf-nw-highlight,.sf-nw-sos{padding:22px 16px}
+  .sf-nw-quote{padding:16px 18px}
+}
+</style>
+
+<div class="sf-nw-wrap">
+
+  <div class="sf-nw-hero sf-nw-reveal">
+    <span class="sf-nw-hero-badge">Special Edition</span>
+    <span class="sf-nw-hero-icon">&#9829;</span>
+    <h1>Happy <em>Nurses Week</em></h1>
+    <div class="sf-nw-hero-date">May 6 - 12, 2026</div>
+    <p class="sf-nw-hero-sub">This card isn't about nutrition or workouts. It's about you. The person behind the scrubs who shows up when it matters most.</p>
+  </div>
+
+  <div class="sf-nw-card sf-nw-reveal">
+    <h2>A Letter from IJ</h2>
+    <p>I want to say something that nobody at the hospital is going to say to you this week, at least not in a way that really lands.</p>
+    <p>You chose one of the hardest careers on the planet. Not because of the science or the hours (though those are brutal). Because you chose to carry other people's worst days on your shoulders, over and over, and still show up the next shift.</p>
+    <p>And somewhere along the way, you stopped taking care of yourself the way you take care of everyone else. That's not weakness. That's what happens when your entire identity is built around giving.</p>
+    <p>SmithFit exists because I watched it happen to me first. I watched my body change, my energy disappear, my confidence shrink. And I knew it wasn't laziness. It was the job. It was the stress. It was the system.</p>
+    <p>So this week, I don't want you to hit a PR or nail your macros. I want you to do one thing: recognize that you deserve the same care you give your patients.</p>
+    <p>That's it. That's the whole card.</p>
+  </div>
+
+  <hr class="sf-nw-divider">
+
+  <div class="sf-nw-card sf-nw-reveal">
+    <h2>What Other SmithFit Nurses Are Saying</h2>
+    <div class="sf-nw-quote">
+      <p>"I used to come home from a 12-hour shift and eat standing up over the sink. Now I sit down. That sounds small but it changed everything."</p>
+    </div>
+    <div class="sf-nw-quote">
+      <p>"My coworkers asked me what I'm doing differently. I told them it's not a diet. It's a system that actually works with night shift instead of pretending night shift doesn't exist."</p>
+    </div>
+    <div class="sf-nw-quote">
+      <p>"For the first time in years, I bought clothes that aren't scrubs. Not because I lost a certain amount of weight. Because I felt like I deserved to."</p>
+    </div>
+  </div>
+
+  <div class="sf-nw-highlight sf-nw-reveal">
+    <h2>Your Nurses Week Challenge</h2>
+    <p>One act of self-care per day this week. Not fitness. Not nutrition. Just something that's for YOU.</p>
+    <ul class="sf-nw-list" style="text-align:left;max-width:420px;margin:var(--sf-space-md) auto 0;">
+      <li><span class="sf-nw-list-icon" style="color:var(--sf-accent)">M</span><span style="color:var(--sf-text-on-dark)">Monday: 10 minutes of silence before your shift. No phone.</span></li>
+      <li><span class="sf-nw-list-icon" style="color:var(--sf-accent)">T</span><span style="color:var(--sf-text-on-dark)">Tuesday: Buy yourself something. Coffee, flowers, a book. Under $10.</span></li>
+      <li><span class="sf-nw-list-icon" style="color:var(--sf-accent)">W</span><span style="color:var(--sf-text-on-dark)">Wednesday: Text a nurse friend and tell them one thing you admire about them.</span></li>
+      <li><span class="sf-nw-list-icon" style="color:var(--sf-accent)">T</span><span style="color:var(--sf-text-on-dark)">Thursday: Say no to one thing that drains you. Just one.</span></li>
+      <li><span class="sf-nw-list-icon" style="color:var(--sf-accent)">F</span><span style="color:var(--sf-text-on-dark)">Friday: Look in the mirror and say "I'm proud of you" out loud. (It'll feel weird. Do it anyway.)</span></li>
+      <li><span class="sf-nw-list-icon" style="color:var(--sf-accent)">S</span><span style="color:var(--sf-text-on-dark)">Saturday: Do absolutely nothing productive for one hour. No guilt.</span></li>
+      <li><span class="sf-nw-list-icon" style="color:var(--sf-accent)">S</span><span style="color:var(--sf-text-on-dark)">Sunday: Write down three things your body did for you this week. Thank it.</span></li>
+    </ul>
+  </div>
+
+  <div class="sf-nw-card sf-nw-reveal">
+    <h2>The Numbers Behind Your Sacrifice</h2>
+    <ul class="sf-nw-list">
+      <li><span class="sf-nw-list-icon">&#9733;</span><span>Nurses walk an average of <strong>4-5 miles per 12-hour shift</strong></span></li>
+      <li><span class="sf-nw-list-icon">&#9733;</span><span>Night shift nurses have <strong>2-3x higher cortisol</strong> than day workers in the same role</span></li>
+      <li><span class="sf-nw-list-icon">&#9733;</span><span><strong>63% of nurses</strong> report eating their first real meal after hour 6 of their shift</span></li>
+      <li><span class="sf-nw-list-icon">&#9733;</span><span>The average nurse misses <strong>40% of scheduled breaks</strong></span></li>
+      <li><span class="sf-nw-list-icon">&#9733;</span><span>You chose this career anyway. And you're here, working on yourself <strong>on top of all of it</strong></span></li>
+    </ul>
+  </div>
+
+  <div class="sf-nw-sos sf-nw-reveal">
+    <div class="sf-nw-sos-label">This Week's One Thing</div>
+    <p>You are not behind. You are not broken. You are a nurse who decided to take care of herself too. That decision alone puts you ahead of where you were.</p>
+  </div>
+
+  <div class="sf-nw-referral">
+    Know a nurse who needs to hear this? <strong>Refer 5 and your membership is free.</strong>
+  </div>
+
+  <div class="sf-nw-closing sf-nw-reveal">
+    <p>Happy Nurses Week. From one nurse to another: I see you. I'm proud of you. And I'm grateful you trusted me with your health.</p>
+    <div class="sf-nw-closing-sig">IJ Smith, RN</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.sf-nw-reveal');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){entries[i].target.classList.add('sf-nw-visible');obs.unobserve(entries[i].target)}}},{threshold:.12});
+    for(var i=0;i<els.length;i++)obs.observe(els[i]);
+  }else{for(var i=0;i<els.length;i++)els[i].classList.add('sf-nw-visible')}
+})();
+</script>
