@@ -1,0 +1,813 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+.sf-cal-wrap {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --sf-card-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+  --sf-card-hover-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background: var(--sf-cream-raw);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+@-webkit-keyframes sfFadeUp { 0%{opacity:0;-webkit-transform:translateY(28px)} 100%{opacity:1;-webkit-transform:translateY(0)} }
+@keyframes sfFadeUp { 0%{opacity:0;transform:translateY(28px)} 100%{opacity:1;transform:translateY(0)} }
+
+@-webkit-keyframes sfCalPulse {
+  0% { box-shadow: 0 2px 8px rgba(200,160,78,0.15); }
+  50% { box-shadow: 0 4px 20px rgba(200,160,78,0.35); }
+  100% { box-shadow: 0 2px 8px rgba(200,160,78,0.15); }
+}
+@keyframes sfCalPulse {
+  0% { box-shadow: 0 2px 8px rgba(200,160,78,0.15); }
+  50% { box-shadow: 0 4px 20px rgba(200,160,78,0.35); }
+  100% { box-shadow: 0 2px 8px rgba(200,160,78,0.15); }
+}
+@-webkit-keyframes sfCalPulseVip {
+  0% { box-shadow: 0 2px 8px rgba(42,33,24,0.08); }
+  50% { box-shadow: 0 4px 20px rgba(42,33,24,0.2); }
+  100% { box-shadow: 0 2px 8px rgba(42,33,24,0.08); }
+}
+@keyframes sfCalPulseVip {
+  0% { box-shadow: 0 2px 8px rgba(42,33,24,0.08); }
+  50% { box-shadow: 0 4px 20px rgba(42,33,24,0.2); }
+  100% { box-shadow: 0 2px 8px rgba(42,33,24,0.08); }
+}
+
+@media (prefers-reduced-motion:reduce) { *{-webkit-animation:none!important;animation:none!important;-webkit-transition:none!important;transition:none!important} .sf-cal-reveal{opacity:1!important;-webkit-transform:none!important;transform:none!important} }
+
+.sf-cal-reveal{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px);-webkit-transition:opacity .6s ease,transform .6s ease;transition:opacity .6s ease,transform .6s ease}
+.sf-cal-reveal.sf-cal-in{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}
+
+/* === HERO === */
+.sf-cal-hero {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 50%, #2a2118 100%);
+  position: relative;
+  padding: 48px 28px 40px;
+  text-align: center;
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.sf-cal-hero::before { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background:radial-gradient(circle at 50% 0%,rgba(200,160,78,.2) 0%,transparent 55%); pointer-events:none; }
+.sf-cal-hero > * { position: relative; z-index: 1; }
+.sf-cal-hero-brand { font-family:var(--sf-sans); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sf-gold-raw); margin-bottom:16px; display:inline-block; background:var(--sf-gold-hover); border:1px solid rgba(200,160,78,.35); border-radius:999px; padding:6px 16px; }
+.sf-cal-hero h1 { font-family:var(--sf-serif); font-weight:700; font-size:clamp(28px,5vw,42px); color:var(--sf-cream-raw); margin:0 0 8px; line-height:1.2; }
+.sf-cal-hero h1 em { font-family:var(--sf-display); font-style:italic; font-weight:600; color:var(--sf-gold-raw); }
+.sf-cal-hero-sub { font-size:14px; color:var(--sf-taupe-light); }
+
+/* === KEY === */
+.sf-cal-key {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0 8px;
+  flex-wrap: wrap;
+}
+.sf-cal-key-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sf-cream-raw);
+  letter-spacing: 0.04em;
+}
+.sf-cal-key-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.sf-cal-key-dot-all { background: var(--sf-gold-raw); }
+.sf-cal-key-dot-vip { background: var(--sf-dark-mid); border: 1.5px solid var(--sf-gold-raw); }
+
+/* === CALENDAR GRID === */
+.sf-cal-grid-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.sf-cal-day-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sf-taupe-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+
+.sf-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.sf-cal-cell {
+  min-height: 90px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 6px;
+  position: relative;
+  border: 1px solid var(--sf-cream-deep);
+  -webkit-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+}
+.sf-cal-cell:hover { box-shadow: var(--sf-card-shadow); }
+.sf-cal-cell-empty { background: #ffffff; border-color: var(--sf-cream-deep); min-height: 90px; opacity: 0.5; }
+.sf-cal-cell-active {
+  background: var(--sf-cream-raw);
+  border: 1.5px solid rgba(200,160,78,0.35);
+  box-shadow: 0 2px 12px rgba(200,160,78,0.12);
+}
+.sf-cal-cell-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sf-taupe-light);
+  margin-bottom: 4px;
+  padding: 2px 4px;
+}
+.sf-cal-cell-today .sf-cal-cell-num {
+  background: var(--sf-gold-raw);
+  color: var(--sf-dark-raw);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* === EVENT CARDS === */
+.sf-cal-event {
+  border-radius: 6px;
+  padding: 5px 6px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  -webkit-transition: transform 0.15s ease;
+  transition: transform 0.15s ease;
+  position: relative;
+}
+.sf-cal-event:active { -webkit-transform: scale(0.97); transform: scale(0.97); }
+.sf-cal-event-all {
+  background: linear-gradient(135deg, rgba(200,160,78,0.22), rgba(200,160,78,0.12));
+  border-left: 3px solid var(--sf-gold-raw);
+  -webkit-animation: sfCalPulse 2.5s ease infinite;
+  animation: sfCalPulse 2.5s ease infinite;
+}
+.sf-cal-event-vip {
+  background: linear-gradient(135deg, rgba(42,33,24,0.12), rgba(42,33,24,0.06));
+  border-left: 3px solid var(--sf-dark-raw);
+  -webkit-animation: sfCalPulseVip 2.5s ease infinite;
+  animation: sfCalPulseVip 2.5s ease infinite;
+}
+.sf-cal-event-time {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--sf-gold-raw);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1px;
+}
+.sf-cal-event-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sf-dark-raw);
+  line-height: 1.3;
+}
+.sf-cal-event-host {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--sf-taupe-light);
+  margin-top: 2px;
+}
+
+/* === EXPANDABLE DETAIL PANEL === */
+.sf-cal-detail {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(42,33,24,0.6);
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.sf-cal-detail.sf-cal-open { display: flex; }
+.sf-cal-detail-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 16px 48px rgba(42,33,24,0.2);
+  position: relative;
+  -webkit-animation: sfFadeUp 0.3s ease;
+  animation: sfFadeUp 0.3s ease;
+}
+.sf-cal-detail-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: var(--sf-cream-mid);
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--sf-taupe-raw);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.sf-cal-detail-close:hover { background: var(--sf-cream-deep); }
+.sf-cal-detail-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+.sf-cal-badge-all { background: var(--sf-gold-glow); color: var(--sf-gold-raw); border: 1px solid rgba(200,160,78,0.3); }
+.sf-cal-badge-vip { background: rgba(42,33,24,0.08); color: var(--sf-dark-raw); border: 1px solid rgba(42,33,24,0.15); }
+.sf-cal-detail h3 {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--sf-dark-raw);
+  margin: 0 0 4px;
+}
+.sf-cal-detail-date {
+  font-size: 13px;
+  color: var(--sf-taupe-light);
+  margin-bottom: 16px;
+}
+.sf-cal-detail-topic {
+  background: var(--sf-cream-raw);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.sf-cal-detail-topic-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--sf-taupe-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sf-cal-detail-topic-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--sf-dark-raw);
+}
+.sf-cal-detail-info {
+  font-size: 13px;
+  color: var(--sf-taupe-raw);
+  line-height: 1.7;
+}
+.sf-cal-detail-info strong { color: var(--sf-dark-raw); }
+.sf-cal-detail-zoom {
+  display: block;
+  text-align: center;
+  background: var(--sf-gold-raw);
+  color: var(--sf-dark-raw);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 16px;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  letter-spacing: 0.03em;
+}
+.sf-cal-detail-zoom:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(200,160,78,0.4); }
+
+/* === WEEKLY RHYTHM SECTION === */
+.sf-cal-rhythm {
+  background: #ffffff;
+  border: 1px solid var(--sf-cream-deep);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--sf-card-shadow);
+}
+.sf-cal-rhythm h2 {
+  font-family: var(--sf-serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--sf-dark-raw);
+  margin: 0 0 16px;
+}
+.sf-cal-rhythm-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--sf-cream-mid);
+  cursor: pointer;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.sf-cal-rhythm-row:last-child { border-bottom: none; }
+.sf-cal-rhythm-row:hover { background: rgba(200,160,78,0.04); }
+.sf-cal-rhythm-day {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-cal-rhythm-day-all { background: var(--sf-gold-glow); border: 1px solid rgba(200,160,78,0.3); }
+.sf-cal-rhythm-day-vip { background: rgba(42,33,24,0.06); border: 1px solid rgba(42,33,24,0.12); }
+.sf-cal-rhythm-day span { font-size: 10px; font-weight: 700; color: var(--sf-dark-raw); letter-spacing: 0.06em; text-transform: uppercase; }
+.sf-cal-rhythm-text { flex: 1; }
+.sf-cal-rhythm-name { font-weight: 600; font-size: 15px; color: var(--sf-dark-raw); }
+.sf-cal-rhythm-meta { font-size: 12px; color: var(--sf-taupe-light); margin-top: 2px; }
+.sf-cal-rhythm-chevron { font-size: 14px; color: var(--sf-taupe-light); margin-top: 14px; flex-shrink: 0; }
+
+.sf-cal-rhythm-expand {
+  display: none;
+  padding: 12px 0 4px 62px;
+  font-size: 13px;
+  color: var(--sf-taupe-raw);
+  line-height: 1.7;
+}
+.sf-cal-rhythm-expand.sf-cal-open { display: block; }
+
+/* === FOOTER === */
+.sf-cal-footer {
+  text-align: center;
+  padding: 24px 16px 48px;
+  font-size: 13px;
+  color: var(--sf-taupe-light);
+}
+.sf-cal-footer a { color: var(--sf-gold-raw); text-decoration: none; font-weight: 600; }
+
+/* === MOBILE === */
+@media (max-width: 600px) {
+  .sf-cal-hero { padding: 36px 20px 28px; }
+  .sf-cal-grid { gap: 2px; }
+  .sf-cal-cell { min-height: 70px; padding: 4px; border-radius: 6px; }
+  .sf-cal-cell-empty { min-height: 70px; }
+  .sf-cal-cell-num { font-size: 11px; }
+  .sf-cal-event { padding: 3px 4px; }
+  .sf-cal-event-time { font-size: 8px; }
+  .sf-cal-event-name { font-size: 9px; }
+  .sf-cal-rhythm { padding: 20px 16px; }
+  .sf-cal-detail-card { padding: 24px 20px; }
+  .sf-cal-key { gap: 12px; }
+}
+</style>
+
+<!-- HERO -->
+<div class="sf-cal-wrap">
+  <div class="sf-cal-hero">
+    <div class="sf-cal-hero-brand">SmithFit</div>
+    <h1>Coaching Calls <em>June 2026</em></h1>
+    <div class="sf-cal-hero-sub">3 calls per week. Your schedule, mapped out.</div>
+    <div class="sf-cal-key">
+      <div class="sf-cal-key-item"><div class="sf-cal-key-dot sf-cal-key-dot-all"></div> All Members</div>
+      <div class="sf-cal-key-item"><div class="sf-cal-key-dot sf-cal-key-dot-vip"></div> VIP / Bundle Only</div>
+    </div>
+    <div style="margin-top:14px;font-size:12px;color:rgba(250,246,243,0.6);font-style:italic;">Push or click each highlighted day for a breakdown of what to expect</div>
+  </div>
+
+  <!-- DAY LABELS -->
+  <div class="sf-cal-grid-header">
+    <div class="sf-cal-day-label">Sun</div>
+    <div class="sf-cal-day-label">Mon</div>
+    <div class="sf-cal-day-label">Tue</div>
+    <div class="sf-cal-day-label">Wed</div>
+    <div class="sf-cal-day-label">Thu</div>
+    <div class="sf-cal-day-label">Fri</div>
+    <div class="sf-cal-day-label">Sat</div>
+  </div>
+
+  <!-- CALENDAR GRID -->
+  <div class="sf-cal-grid">
+    <!-- Week 1: Jun 1-7 -->
+    <div class="sf-cal-cell sf-cal-reveal">
+      <div class="sf-cal-cell-num">1</div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('mm1')">
+      <div class="sf-cal-cell-num">2</div>
+      <div class="sf-cal-event sf-cal-event-all">
+        <div class="sf-cal-event-time">6 PM</div>
+        <div class="sf-cal-event-name">Metabolic Monday</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">3</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('ww1')">
+      <div class="sf-cal-cell-num">4</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">12 PM</div>
+        <div class="sf-cal-event-name">Win Wednesday</div>
+        <div class="sf-cal-event-host">Coach Soni</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">5</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('fr1')">
+      <div class="sf-cal-cell-num">6</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">10 AM</div>
+        <div class="sf-cal-event-name">Friday Reset</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">7</div></div>
+
+    <!-- Week 2: Jun 8-14 -->
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">8</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('mm2')">
+      <div class="sf-cal-cell-num">9</div>
+      <div class="sf-cal-event sf-cal-event-all">
+        <div class="sf-cal-event-time">6 PM</div>
+        <div class="sf-cal-event-name">Metabolic Monday</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">10</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('ww2')">
+      <div class="sf-cal-cell-num">11</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">12 PM</div>
+        <div class="sf-cal-event-name">Win Wednesday</div>
+        <div class="sf-cal-event-host">Coach Soni</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">12</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('fr2')">
+      <div class="sf-cal-cell-num">13</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">10 AM</div>
+        <div class="sf-cal-event-name">Friday Reset</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">14</div></div>
+
+    <!-- Week 3: Jun 15-21 -->
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">15</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('mm3')">
+      <div class="sf-cal-cell-num">16</div>
+      <div class="sf-cal-event sf-cal-event-all">
+        <div class="sf-cal-event-time">6 PM</div>
+        <div class="sf-cal-event-name">Metabolic Monday</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">17</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('ww3')">
+      <div class="sf-cal-cell-num">18</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">12 PM</div>
+        <div class="sf-cal-event-name">Win Wednesday</div>
+        <div class="sf-cal-event-host">Coach Soni</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">19</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('fr3')">
+      <div class="sf-cal-cell-num">20</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">10 AM</div>
+        <div class="sf-cal-event-name">Friday Reset</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">21</div></div>
+
+    <!-- Week 4: Jun 22-28 -->
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">22</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('mm4')">
+      <div class="sf-cal-cell-num">23</div>
+      <div class="sf-cal-event sf-cal-event-all">
+        <div class="sf-cal-event-time">6 PM</div>
+        <div class="sf-cal-event-name">Metabolic Monday</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">24</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('ww4')">
+      <div class="sf-cal-cell-num">25</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">12 PM</div>
+        <div class="sf-cal-event-name">Win Wednesday</div>
+        <div class="sf-cal-event-host">Coach Soni</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">26</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('fr4')">
+      <div class="sf-cal-cell-num">27</div>
+      <div class="sf-cal-event sf-cal-event-vip">
+        <div class="sf-cal-event-time">10 AM</div>
+        <div class="sf-cal-event-name">Friday Reset</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">28</div></div>
+
+    <!-- Week 5: Jun 29-30 -->
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"><div class="sf-cal-cell-num">29</div></div>
+    <div class="sf-cal-cell sf-cal-cell-active sf-cal-reveal" onclick="sfCalOpen('mm5')">
+      <div class="sf-cal-cell-num">30</div>
+      <div class="sf-cal-event sf-cal-event-all">
+        <div class="sf-cal-event-time">6 PM</div>
+        <div class="sf-cal-event-name">Metabolic Monday</div>
+        <div class="sf-cal-event-host">Coach IJ</div>
+      </div>
+    </div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"></div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"></div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"></div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"></div>
+    <div class="sf-cal-cell sf-cal-cell-empty sf-cal-reveal"></div>
+  </div>
+
+  <!-- WEEKLY RHYTHM SECTION -->
+  <div class="sf-cal-rhythm sf-cal-reveal">
+    <h2>Your Weekly Rhythm</h2>
+
+    <div class="sf-cal-rhythm-row" onclick="sfCalToggle(this)">
+      <div class="sf-cal-rhythm-day sf-cal-rhythm-day-all"><span>Mon</span></div>
+      <div class="sf-cal-rhythm-text">
+        <div class="sf-cal-rhythm-name">Metabolic Monday</div>
+        <div class="sf-cal-rhythm-meta">6:00 PM PT with Coach IJ &middot; All Members</div>
+      </div>
+      <div class="sf-cal-rhythm-chevron">&#9660;</div>
+    </div>
+    <div class="sf-cal-rhythm-expand">
+      Weekly lesson + live Q&A. IJ teaches one topic from the 26-week rotation (nutrition, nervous system, movement, mindset, and more), then opens the floor. Bring your questions. This is the call where you learn <strong>why</strong> the program works, not just what to do.<br><br>
+      <strong>Membership clients:</strong> This is your weekly call. Show up live or watch the recording in your Toolkit.
+    </div>
+
+    <div class="sf-cal-rhythm-row" onclick="sfCalToggle(this)">
+      <div class="sf-cal-rhythm-day sf-cal-rhythm-day-vip"><span>Wed</span></div>
+      <div class="sf-cal-rhythm-text">
+        <div class="sf-cal-rhythm-name">Win Wednesday</div>
+        <div class="sf-cal-rhythm-meta">12:00 PM PT with Coach Soni / Wife &middot; VIP/Bundle</div>
+      </div>
+      <div class="sf-cal-rhythm-chevron">&#9660;</div>
+    </div>
+    <div class="sf-cal-rhythm-expand">
+      Your mid-week hype session. Share wins (especially the small ones), shout out someone in the group, get a live workout from Coach Soni, or just show up and soak in the energy. Soni hosts weeks 1 and 3, IJ's wife hosts weeks 2 and 4.<br><br>
+      <strong>Format rotates:</strong> live workout, client spotlight, community shoutouts, movement demos.
+    </div>
+
+    <div class="sf-cal-rhythm-row" onclick="sfCalToggle(this)">
+      <div class="sf-cal-rhythm-day sf-cal-rhythm-day-vip"><span>Fri</span></div>
+      <div class="sf-cal-rhythm-text">
+        <div class="sf-cal-rhythm-name">Friday Reset</div>
+        <div class="sf-cal-rhythm-meta">10:00 AM PT with Coach IJ &middot; VIP/Bundle</div>
+      </div>
+      <div class="sf-cal-rhythm-chevron">&#9660;</div>
+    </div>
+    <div class="sf-cal-rhythm-expand">
+      End your week with intention. Rotating format: client audits (IJ reviews your check-in live), hot girl walk (audio-only walking call), Q&A deep dive, or mindset session. This is the call where you get personal attention and set up your weekend for success.<br><br>
+      <strong>Can't attend live?</strong> All calls are recorded and saved in your Toolkit within 24 hours.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="sf-cal-footer sf-cal-reveal">
+    All times Pacific (PT). Zoom link is the same for every call.<br>
+    Recordings saved in <a href="#">Your SmithFit Toolkit</a>.<br>
+    Questions? Drop them in Questions &amp; Support before the call.
+  </div>
+</div>
+
+<!-- DETAIL MODALS (one per event) -->
+<div class="sf-cal-detail" id="sf-cal-mm1" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-all">All Members</div>
+    <h3>Metabolic Monday</h3>
+    <div class="sf-cal-detail-date">Monday, June 2 &middot; 6:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week's Topic</div><div class="sf-cal-detail-topic-text">Protein-First Mornings</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> 20 min lesson + 20 min Q&A<br><strong>Bring:</strong> Your questions about protein timing, pre-shift meals, or anything on your mind.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-ww1" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Win Wednesday</h3>
+    <div class="sf-cal-detail-date">Wednesday, June 4 &middot; 12:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Wins + Live Workout with Coach Soni</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach Soni<br><strong>Format:</strong> 15 min wins/shoutouts + 25 min live workout<br><strong>Bring:</strong> One win from the week. Even a small one. Especially a small one.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-fr1" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Friday Reset</h3>
+    <div class="sf-cal-detail-date">Friday, June 6 &middot; 10:00 AM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Client Audit Day</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> IJ reviews 3-4 client check-ins live, gives real-time adjustments<br><strong>Bring:</strong> Submit your check-in before Thursday if you want to be reviewed.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-mm2" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-all">All Members</div>
+    <h3>Metabolic Monday</h3>
+    <div class="sf-cal-detail-date">Monday, June 9 &middot; 6:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week's Topic</div><div class="sf-cal-detail-topic-text">Post-Shift Wind Down</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> 20 min lesson + 20 min Q&A<br><strong>Focus:</strong> 5 parasympathetic techniques that help your body transition from "go mode" to recovery after a 12-hour shift.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-ww2" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Win Wednesday</h3>
+    <div class="sf-cal-detail-date">Wednesday, June 11 &middot; 12:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Wins + Community Shoutouts</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Wife<br><strong>Format:</strong> Wins roundtable + shoutouts for members who showed up this week</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-fr2" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Friday Reset</h3>
+    <div class="sf-cal-detail-date">Friday, June 13 &middot; 10:00 AM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Hot Girl Walk (Audio Only)</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> Lace up and walk while we talk. Casual coaching, mindset, and community. Camera optional.<br><strong>Bring:</strong> Headphones and sneakers.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-mm3" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-all">All Members</div>
+    <h3>Metabolic Monday</h3>
+    <div class="sf-cal-detail-date">Monday, June 16 &middot; 6:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week's Topic</div><div class="sf-cal-detail-topic-text">The Chaos Day Survival Kit</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> 20 min lesson + 20 min Q&A<br><strong>Focus:</strong> What to eat, how to move, and how to stay sane on the days when everything goes sideways.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-ww3" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Win Wednesday</h3>
+    <div class="sf-cal-detail-date">Wednesday, June 18 &middot; 12:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Wins + Live Workout with Coach Soni</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach Soni<br><strong>Format:</strong> 15 min wins/shoutouts + 25 min live workout</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-fr3" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Friday Reset</h3>
+    <div class="sf-cal-detail-date">Friday, June 20 &middot; 10:00 AM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Q&A Deep Dive</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> Open floor. Nutrition, training, mindset, supplements, anything. No topic is off limits.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-mm4" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-all">All Members</div>
+    <h3>Metabolic Monday</h3>
+    <div class="sf-cal-detail-date">Monday, June 23 &middot; 6:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week's Topic</div><div class="sf-cal-detail-topic-text">Burnout Recovery</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> 20 min lesson + 20 min Q&A<br><strong>Focus:</strong> Nursing burnout, caregiver burnout, mom burnout. How to recognize it and what actually helps (not just "self-care").</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-ww4" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Win Wednesday</h3>
+    <div class="sf-cal-detail-date">Wednesday, June 25 &middot; 12:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Community Spotlight</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Wife<br><strong>Format:</strong> Featuring one member's journey so far. Plus wins roundtable.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-fr4" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-vip">VIP / Bundle</div>
+    <h3>Friday Reset</h3>
+    <div class="sf-cal-detail-date">Friday, June 27 &middot; 10:00 AM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week</div><div class="sf-cal-detail-topic-text">Mindset Session</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> Going deeper on the mental game. Self-talk, identity shifts, and why the women who make it to Month 6 all have one thing in common.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<div class="sf-cal-detail" id="sf-cal-mm5" onclick="if(event.target===this)sfCalClose()">
+  <div class="sf-cal-detail-card">
+    <button class="sf-cal-detail-close" onclick="sfCalClose()">&times;</button>
+    <div class="sf-cal-detail-badge sf-cal-badge-all">All Members</div>
+    <h3>Metabolic Monday</h3>
+    <div class="sf-cal-detail-date">Monday, June 30 &middot; 6:00 PM PT</div>
+    <div class="sf-cal-detail-topic"><div class="sf-cal-detail-topic-label">This Week's Topic</div><div class="sf-cal-detail-topic-text">Hydration + Metabolic Cocktail</div></div>
+    <div class="sf-cal-detail-info"><strong>Host:</strong> Coach IJ<br><strong>Format:</strong> 20 min lesson + 20 min Q&A<br><strong>Focus:</strong> The metabolic cocktail recipe, why it works, when to drink it on shift vs off day, and hydration strategies for 12-hour shifts.</div>
+    <a href="#" class="sf-cal-detail-zoom">Join on Zoom</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* Scroll reveal */
+  var els = document.querySelectorAll('.sf-cal-reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('sf-cal-in');
+          obs.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.08 });
+    for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+  } else {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('sf-cal-in');
+  }
+})();
+
+function sfCalOpen(id) {
+  var el = document.getElementById('sf-cal-' + id);
+  if (el) { el.classList.add('sf-cal-open'); document.body.style.overflow = 'hidden'; }
+}
+function sfCalClose() {
+  var all = document.querySelectorAll('.sf-cal-detail.sf-cal-open');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('sf-cal-open');
+  document.body.style.overflow = '';
+}
+function sfCalToggle(row) {
+  var expand = row.nextElementSibling;
+  var chevron = row.querySelector('.sf-cal-rhythm-chevron');
+  if (expand && expand.classList.contains('sf-cal-rhythm-expand')) {
+    var isOpen = expand.classList.contains('sf-cal-open');
+    expand.classList.toggle('sf-cal-open');
+    if (chevron) chevron.innerHTML = isOpen ? '&#9660;' : '&#9650;';
+  }
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') sfCalClose(); });
+</script>
