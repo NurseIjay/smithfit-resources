@@ -1,0 +1,339 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+.sf-wl-wrap {
+  /* ===== PRIMITIVE TOKENS ===== */
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+
+  /* ===== SEMANTIC TOKENS ===== */
+  --sf-bg-primary: var(--sf-cream-raw);
+  --sf-bg-dark: var(--sf-dark-raw);
+  --sf-bg-card: #ffffff;
+  --sf-text-primary: var(--sf-taupe-raw);
+  --sf-text-secondary: var(--sf-taupe-light);
+  --sf-text-heading: var(--sf-dark-raw);
+  --sf-text-on-dark: var(--sf-cream-raw);
+  --sf-accent: var(--sf-gold-raw);
+  --sf-accent-hover: var(--sf-gold-light);
+  --sf-border: var(--sf-cream-deep);
+
+  /* ===== COMPONENT TOKENS ===== */
+  --sf-btn-bg: var(--sf-accent);
+  --sf-btn-text: var(--sf-dark-raw);
+  --sf-btn-hover-bg: var(--sf-accent-hover);
+  --sf-btn-shadow: 0 4px 20px rgba(200, 160, 78, 0.4);
+  --sf-btn-hover-shadow: 0 8px 32px rgba(200, 160, 78, 0.55);
+  --sf-card-shadow: 0 2px 16px rgba(42, 33, 24, 0.06);
+  --sf-card-hover-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
+  --sf-card-radius: 16px;
+
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --sf-space-xs: 4px;
+  --sf-space-sm: 8px;
+  --sf-space-md: 16px;
+  --sf-space-lg: 24px;
+  --sf-space-xl: 32px;
+  --sf-space-2xl: 48px;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-text-primary);
+  background: var(--sf-bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@-webkit-keyframes sfFadeUp { 0%{opacity:0;-webkit-transform:translateY(28px)} 100%{opacity:1;-webkit-transform:translateY(0)} }
+@keyframes sfFadeUp { 0%{opacity:0;transform:translateY(28px)} 100%{opacity:1;transform:translateY(0)} }
+@-webkit-keyframes sfPulse { 0%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)} 50%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 14px rgba(200,160,78,0)} 100%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)} }
+@keyframes sfPulse { 0%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,.5)} 50%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 14px rgba(200,160,78,0)} 100%{box-shadow:0 4px 20px rgba(200,160,78,.4),0 0 0 0 rgba(200,160,78,0)} }
+@-webkit-keyframes sfGoldShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes sfGoldShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@-webkit-keyframes sfProgressFill { 0%{width:0%} }
+@keyframes sfProgressFill { 0%{width:0%} }
+
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after{-webkit-animation-duration:.01ms!important;animation-duration:.01ms!important;-webkit-transition-duration:.01ms!important;transition-duration:.01ms!important} .sf-wl-reveal{opacity:1!important;-webkit-transform:none!important;transform:none!important} }
+
+.sf-wl-reveal { opacity:0; -webkit-transform:translateY(20px); transform:translateY(20px); -webkit-transition:opacity .6s ease,-webkit-transform .6s ease; transition:opacity .6s ease,transform .6s ease; }
+.sf-wl-reveal.sf-wl-visible { opacity:1; -webkit-transform:translateY(0); transform:translateY(0); }
+.sf-wl-stagger-1{-webkit-transition-delay:.1s;transition-delay:.1s}
+.sf-wl-stagger-2{-webkit-transition-delay:.2s;transition-delay:.2s}
+.sf-wl-stagger-3{-webkit-transition-delay:.3s;transition-delay:.3s}
+.sf-wl-stagger-4{-webkit-transition-delay:.4s;transition-delay:.4s}
+
+.sf-wl-hero { background:linear-gradient(135deg,#2a2118 0%,#3a2e22 50%,#2a2118 100%); position:relative; padding:56px 28px 48px; text-align:center; border-radius:0 0 var(--sf-card-radius) var(--sf-card-radius); margin-bottom:var(--sf-space-xl); overflow:hidden; }
+.sf-wl-hero::before { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background:radial-gradient(circle at 50% 0%,rgba(200,160,78,.25) 0%,transparent 55%); pointer-events:none; }
+.sf-wl-hero::after { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E"); pointer-events:none; }
+.sf-wl-hero>*{position:relative;z-index:1}
+.sf-wl-hero-label { font-family:var(--sf-sans); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sf-accent); margin-bottom:var(--sf-space-lg); display:inline-block; background:var(--sf-gold-hover); border:1px solid rgba(200,160,78,.35); border-radius:999px; padding:8px 18px; }
+.sf-wl-hero-name { font-family:var(--sf-serif); font-weight:800; font-size:clamp(26px,5vw,38px); margin-bottom:var(--sf-space-sm); background:linear-gradient(90deg,var(--sf-gold-raw),var(--sf-gold-soft),var(--sf-gold-raw)); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; -webkit-animation:sfGoldShimmer 4s ease infinite; animation:sfGoldShimmer 4s ease infinite; }
+.sf-wl-hero h1 { font-family:var(--sf-serif); font-weight:700; font-size:clamp(32px,5.5vw,52px); color:var(--sf-text-on-dark); line-height:1.2; margin:0 0 var(--sf-space-lg); }
+.sf-wl-hero h1 em { font-family:var(--sf-display); font-style:italic; font-weight:600; color:var(--sf-accent); }
+.sf-wl-hero-sub { font-family:var(--sf-sans); font-size:15px; color:var(--sf-taupe-light); line-height:1.7; max-width:420px; margin:0 auto; }
+
+.sf-wl-divider { width:48px; height:2px; background:linear-gradient(90deg,transparent,var(--sf-accent),transparent); margin:var(--sf-space-xl) auto; border:none; }
+
+.sf-wl-stats { display:grid; grid-template-columns:1fr 1fr; gap:var(--sf-space-md); margin-bottom:var(--sf-space-xl); }
+.sf-wl-stat { background:var(--sf-bg-card); border:1px solid var(--sf-border); border-radius:var(--sf-card-radius); padding:28px 20px; text-align:center; box-shadow:var(--sf-card-shadow); -webkit-transition:box-shadow .3s ease,-webkit-transform .3s ease; transition:box-shadow .3s ease,transform .3s ease; }
+.sf-wl-stat:hover { box-shadow:var(--sf-card-hover-shadow); -webkit-transform:translateY(-4px); transform:translateY(-4px); }
+.sf-wl-stat-number { font-family:var(--sf-serif); font-weight:800; font-size:clamp(36px,6vw,48px); color:var(--sf-accent); line-height:1; margin-bottom:var(--sf-space-sm); }
+.sf-wl-stat-label { font-family:var(--sf-sans); font-size:12px; font-weight:700; color:var(--sf-text-secondary); letter-spacing:.1em; text-transform:uppercase; }
+
+.sf-wl-card { background:var(--sf-bg-card); border:1px solid var(--sf-border); border-radius:var(--sf-card-radius); padding:28px 24px; box-shadow:var(--sf-card-shadow); margin-bottom:var(--sf-space-lg); -webkit-transition:box-shadow .3s ease,-webkit-transform .3s ease; transition:box-shadow .3s ease,transform .3s ease; }
+.sf-wl-card:hover { box-shadow:var(--sf-card-hover-shadow); -webkit-transform:translateY(-4px); transform:translateY(-4px); }
+.sf-wl-card h2 { font-family:var(--sf-serif); font-weight:700; font-size:clamp(22px,4vw,28px); color:var(--sf-text-heading); margin:0 0 var(--sf-space-md); line-height:1.3; }
+.sf-wl-card p { font-size:15px; line-height:1.7; margin:0 0 var(--sf-space-md); color:var(--sf-text-primary); }
+.sf-wl-card p:last-child{margin-bottom:0}
+
+.sf-wl-total-highlight { background:linear-gradient(135deg,rgba(200,160,78,.08) 0%,rgba(200,160,78,.03) 100%); border:1px solid rgba(200,160,78,.2); border-radius:12px; padding:16px 20px; text-align:center; margin-top:var(--sf-space-md); }
+.sf-wl-total-highlight strong { font-family:var(--sf-serif); font-weight:800; font-size:24px; color:var(--sf-accent); }
+
+.sf-wl-milestone { background:linear-gradient(135deg,#2a2118 0%,#3a2e22 50%,#2a2118 100%); border-radius:var(--sf-card-radius); padding:32px 24px; margin-bottom:var(--sf-space-lg); position:relative; overflow:hidden; }
+.sf-wl-milestone::before { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background:radial-gradient(circle at 80% 20%,rgba(200,160,78,.12) 0%,transparent 50%); pointer-events:none; }
+.sf-wl-milestone>*{position:relative;z-index:1}
+.sf-wl-milestone h2 { font-family:var(--sf-serif); font-weight:700; font-size:clamp(22px,4vw,28px); color:var(--sf-text-on-dark); margin:0 0 var(--sf-space-lg); }
+.sf-wl-milestone-item { display:flex; align-items:center; gap:var(--sf-space-md); padding:14px 0; border-bottom:1px solid rgba(200,160,78,.12); }
+.sf-wl-milestone-item:last-of-type{border-bottom:none}
+.sf-wl-milestone-icon { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; -webkit-transition:-webkit-transform .3s ease; transition:transform .3s ease; }
+.sf-wl-milestone-item:hover .sf-wl-milestone-icon{-webkit-transform:scale(1.1);transform:scale(1.1)}
+.sf-wl-milestone-done{background:rgba(74,140,92,.2);color:var(--sf-green-raw)}
+.sf-wl-milestone-next{background:var(--sf-gold-glow);border:2px solid var(--sf-accent);color:var(--sf-accent)}
+.sf-wl-milestone-future{background:rgba(200,160,78,.06);color:var(--sf-taupe-light)}
+.sf-wl-milestone-text{flex:1}
+.sf-wl-milestone-name{font-family:var(--sf-sans);font-weight:600;font-size:15px;color:var(--sf-text-on-dark)}
+.sf-wl-milestone-detail{font-family:var(--sf-sans);font-size:13px;color:var(--sf-taupe-light);margin-top:2px}
+.sf-wl-milestone-badge{font-family:var(--sf-sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;flex-shrink:0}
+.sf-wl-badge-claimed{background:rgba(74,140,92,.15);color:var(--sf-green-raw)}
+.sf-wl-badge-next{background:var(--sf-gold-glow);color:var(--sf-accent);-webkit-animation:sfPulse 2.5s infinite;animation:sfPulse 2.5s infinite}
+.sf-wl-badge-ahead{background:rgba(200,160,78,.06);color:var(--sf-taupe-light)}
+
+.sf-wl-progress-wrap{margin-top:var(--sf-space-lg);padding-top:var(--sf-space-lg);border-top:1px solid rgba(200,160,78,.12)}
+.sf-wl-progress-label{display:flex;justify-content:space-between;font-family:var(--sf-sans);font-size:12px;font-weight:600;color:var(--sf-taupe-light);margin-bottom:var(--sf-space-sm);letter-spacing:.05em}
+.sf-wl-progress-bar{height:6px;background:var(--sf-cream-deep);border-radius:3px;overflow:hidden}
+.sf-wl-progress-fill{height:100%;background:linear-gradient(90deg,var(--sf-accent),var(--sf-gold-soft));border-radius:3px;-webkit-animation:sfProgressFill 1.5s ease forwards;animation:sfProgressFill 1.5s ease forwards}
+.sf-wl-progress-pct{font-family:var(--sf-sans);font-size:13px;font-weight:700;color:var(--sf-accent);text-align:center;margin-top:var(--sf-space-sm)}
+
+.sf-wl-stays{list-style:none;padding:0;margin:0}
+.sf-wl-stays li{display:flex;align-items:flex-start;gap:14px;padding:14px 0;font-size:15px;line-height:1.6;border-bottom:1px solid var(--sf-border);-webkit-transition:background .2s ease;transition:background .2s ease}
+.sf-wl-stays li:last-child{border-bottom:none}
+.sf-wl-stays li:hover{background:rgba(200,160,78,.03);margin:0 -8px;padding-left:8px;padding-right:8px;border-radius:8px}
+.sf-wl-stays-icon{width:28px;height:28px;border-radius:50%;background:var(--sf-gold-hover);border:1px solid rgba(200,160,78,.25);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px;color:var(--sf-accent)}
+
+.sf-wl-referral{background:var(--sf-bg-card);border:1px solid rgba(200,160,78,.25);border-radius:var(--sf-card-radius);padding:28px 24px;margin-bottom:var(--sf-space-lg);text-align:center;position:relative;overflow:hidden}
+.sf-wl-referral::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--sf-accent),transparent)}
+.sf-wl-referral-count{font-family:var(--sf-serif);font-weight:800;font-size:42px;color:var(--sf-accent);line-height:1}
+.sf-wl-referral-goal{font-family:var(--sf-sans);font-size:12px;font-weight:700;color:var(--sf-text-secondary);margin-top:var(--sf-space-sm);letter-spacing:.1em;text-transform:uppercase}
+.sf-wl-referral-dots{display:flex;justify-content:center;gap:8px;margin:var(--sf-space-md) 0}
+.sf-wl-referral-dot{width:12px;height:12px;border-radius:50%}
+.sf-wl-dot-filled{background:var(--sf-accent)}
+.sf-wl-dot-empty{background:var(--sf-cream-deep);border:1px solid var(--sf-border)}
+.sf-wl-referral-reward{font-family:var(--sf-display);font-style:italic;font-weight:600;font-size:17px;color:var(--sf-text-heading);margin-top:var(--sf-space-sm)}
+
+.sf-wl-pause{background:var(--sf-bg-card);border:2px solid var(--sf-accent);border-radius:var(--sf-card-radius);padding:32px 24px;text-align:center;margin-bottom:var(--sf-space-lg);position:relative;overflow:hidden}
+.sf-wl-pause::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 50% 100%,rgba(200,160,78,.06) 0%,transparent 50%);pointer-events:none}
+.sf-wl-pause>*{position:relative;z-index:1}
+.sf-wl-pause h2{font-family:var(--sf-serif);font-weight:700;font-size:clamp(22px,4vw,28px);color:var(--sf-text-heading);margin:0 0 var(--sf-space-sm)}
+.sf-wl-pause p{font-size:15px;color:var(--sf-text-primary);margin:0 0 var(--sf-space-lg);line-height:1.7}
+.sf-wl-pause-btn{display:inline-block;background:var(--sf-btn-bg);color:var(--sf-btn-text);font-family:var(--sf-sans);font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;padding:16px 40px;border-radius:12px;text-decoration:none;-webkit-animation:sfPulse 2.5s ease infinite;animation:sfPulse 2.5s ease infinite;-webkit-transition:all .25s ease;transition:all .25s ease;cursor:pointer;border:none}
+.sf-wl-pause-btn:hover{background:var(--sf-btn-hover-bg);box-shadow:var(--sf-btn-hover-shadow);-webkit-transform:translateY(-2px);transform:translateY(-2px)}
+.sf-wl-pause-btn:active{-webkit-transform:translateY(0);transform:translateY(0)}
+
+.sf-wl-closing{text-align:center;padding:32px 20px 56px}
+.sf-wl-closing p{font-family:var(--sf-display);font-style:italic;font-weight:600;font-size:17px;color:var(--sf-text-secondary);max-width:440px;margin:0 auto;line-height:1.7}
+.sf-wl-closing-sig{font-family:var(--sf-sans);font-weight:700;font-size:14px;color:var(--sf-accent);margin-top:var(--sf-space-lg);letter-spacing:.05em}
+
+@media(max-width:600px){
+  .sf-wl-hero{padding:40px 20px 36px}
+  .sf-wl-stats{gap:10px}
+  .sf-wl-stat{padding:20px 14px}
+  .sf-wl-stat-number{font-size:32px}
+  .sf-wl-card,.sf-wl-milestone,.sf-wl-pause,.sf-wl-referral{padding:22px 16px}
+  .sf-wl-milestone-item{gap:12px}
+  .sf-wl-milestone-icon{width:36px;height:36px;font-size:15px}
+  .sf-wl-stays li{padding:12px 0;font-size:14px}
+  .sf-wl-stays-icon{width:24px;height:24px;font-size:10px}
+  .sf-wl-pause-btn{padding:14px 32px;font-size:15px}
+}
+</style>
+
+<div class="sf-wl-wrap">
+
+  <div class="sf-wl-hero sf-wl-reveal">
+    <span class="sf-wl-hero-label">Before You Go</span>
+    <div class="sf-wl-hero-name">{{CLIENT_NAME}}</div>
+    <h1>Look What <em>You Built</em></h1>
+    <p class="sf-wl-hero-sub">We got your request. Before anything changes, we want you to see something. This is yours. You earned every bit of it.</p>
+  </div>
+
+  <div class="sf-wl-stats">
+    <div class="sf-wl-stat sf-wl-reveal sf-wl-stagger-1">
+      <div class="sf-wl-stat-number" data-target="{{STREAK_WEEKS}}">0</div>
+      <div class="sf-wl-stat-label">Week Streak</div>
+    </div>
+    <div class="sf-wl-stat sf-wl-reveal sf-wl-stagger-2">
+      <div class="sf-wl-stat-number" data-target="{{WORKOUTS_COMPLETED}}">0</div>
+      <div class="sf-wl-stat-label">Workouts Done</div>
+    </div>
+    <div class="sf-wl-stat sf-wl-reveal sf-wl-stagger-3">
+      <div class="sf-wl-stat-number" data-target="{{CHECKINS_COMPLETED}}">0</div>
+      <div class="sf-wl-stat-label">Check-ins Logged</div>
+    </div>
+    <div class="sf-wl-stat sf-wl-reveal sf-wl-stagger-4">
+      <div class="sf-wl-stat-number" data-target="{{DAYS_IN_PROGRAM}}">0</div>
+      <div class="sf-wl-stat-label">Days in SmithFit</div>
+    </div>
+  </div>
+
+  <hr class="sf-wl-divider">
+
+  <div class="sf-wl-milestone sf-wl-reveal">
+    <h2>Your Milestone Journey</h2>
+
+    {{#MILESTONES_CLAIMED}}
+    <div class="sf-wl-milestone-item">
+      <div class="sf-wl-milestone-icon sf-wl-milestone-done">&#10003;</div>
+      <div class="sf-wl-milestone-text">
+        <div class="sf-wl-milestone-name">{{MILESTONE_NAME}}</div>
+        <div class="sf-wl-milestone-detail">{{MILESTONE_DETAIL}}</div>
+      </div>
+      <span class="sf-wl-milestone-badge sf-wl-badge-claimed">Claimed</span>
+    </div>
+    {{/MILESTONES_CLAIMED}}
+
+    {{#NEXT_MILESTONE}}
+    <div class="sf-wl-milestone-item">
+      <div class="sf-wl-milestone-icon sf-wl-milestone-next">&#9733;</div>
+      <div class="sf-wl-milestone-text">
+        <div class="sf-wl-milestone-name">{{NEXT_MILESTONE_NAME}}</div>
+        <div class="sf-wl-milestone-detail">{{NEXT_MILESTONE_DAYS}} days away, ${{NEXT_MILESTONE_AMOUNT}} gift card</div>
+      </div>
+      <span class="sf-wl-milestone-badge sf-wl-badge-next">Next</span>
+    </div>
+    {{/NEXT_MILESTONE}}
+
+    {{#FUTURE_MILESTONES}}
+    <div class="sf-wl-milestone-item">
+      <div class="sf-wl-milestone-icon sf-wl-milestone-future">&#9675;</div>
+      <div class="sf-wl-milestone-text">
+        <div class="sf-wl-milestone-name">{{FUTURE_MILESTONE_NAME}}</div>
+        <div class="sf-wl-milestone-detail">${{FUTURE_MILESTONE_AMOUNT}} gift card</div>
+      </div>
+      <span class="sf-wl-milestone-badge sf-wl-badge-ahead">Ahead</span>
+    </div>
+    {{/FUTURE_MILESTONES}}
+
+    <div class="sf-wl-progress-wrap">
+      <div class="sf-wl-progress-label">
+        <span>Day {{DAYS_IN_PROGRAM}}</span>
+        <span>Day {{NEXT_MILESTONE_DAY}}</span>
+      </div>
+      <div class="sf-wl-progress-bar">
+        <div class="sf-wl-progress-fill" style="width: {{PROGRESS_PERCENT}}%"></div>
+      </div>
+      <div class="sf-wl-progress-pct">{{PROGRESS_PERCENT}}% there</div>
+    </div>
+  </div>
+
+  <div class="sf-wl-card sf-wl-reveal">
+    <h2>Rewards Still Waiting for You</h2>
+    <p>You've claimed <strong>${{GIFT_CARDS_CLAIMED}}</strong> in gift cards so far. If you stay through your 12-month journey, there's <strong>${{GIFT_CARDS_REMAINING}}</strong> more waiting for you.</p>
+    <div class="sf-wl-total-highlight">
+      <div>Total for completing 12 months</div>
+      <strong>$130 in gift cards</strong>
+      <div style="font-size: 13px; color: var(--sf-taupe-light); margin-top: 4px;">Yours to spend however you want</div>
+    </div>
+  </div>
+
+  <div class="sf-wl-card sf-wl-reveal">
+    <h2>What You'd Walk Away From</h2>
+    <ul class="sf-wl-stays">
+      <li>
+        <span class="sf-wl-stays-icon">&#9830;</span>
+        <span>Your <strong>{{STREAK_WEEKS}}-week streak</strong>, the longest you've stayed consistent with anything since nursing school</span>
+      </li>
+      <li>
+        <span class="sf-wl-stays-icon">&#9830;</span>
+        <span><strong>{{RESOURCE_CARDS_REMAINING}} weekly resource cards</strong> you haven't seen yet this cycle, topics picked for exactly where you are right now</span>
+      </li>
+      <li>
+        <span class="sf-wl-stays-icon">&#9830;</span>
+        <span>Your next milestone gift card (<strong>${{NEXT_MILESTONE_AMOUNT}}</strong>), only <strong>{{NEXT_MILESTONE_DAYS}} days</strong> away</span>
+      </li>
+      {{#HAS_BUDDY}}
+      <li>
+        <span class="sf-wl-stays-icon">&#9830;</span>
+        <span>Your buddy <strong>{{BUDDY_NAME}}</strong>, who's in Week {{BUDDY_WEEK}} and counting on you showing up</span>
+      </li>
+      {{/HAS_BUDDY}}
+      <li>
+        <span class="sf-wl-stays-icon">&#9830;</span>
+        <span><strong>{{COMMUNITY_SIZE}} nurses</strong> in this community who recognize your name in the group</span>
+      </li>
+      <li>
+        <span class="sf-wl-stays-icon">&#9830;</span>
+        <span>Weekly coaching calls, check-ins, and a system that runs without you having to think about it</span>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="sf-wl-divider">
+
+  {{#HAS_REFERRALS}}
+  <div class="sf-wl-referral sf-wl-reveal">
+    <div class="sf-wl-referral-count">{{REFERRAL_COUNT}} / 5</div>
+    <div class="sf-wl-referral-goal">Active Referrals</div>
+    <div class="sf-wl-referral-dots">
+      {{REFERRAL_DOTS}}
+    </div>
+    <div class="sf-wl-referral-reward">{{REFERRAL_AWAY}} more and your membership is free</div>
+  </div>
+  {{/HAS_REFERRALS}}
+
+  <div class="sf-wl-pause sf-wl-reveal">
+    <h2>Not Ready to Leave, Just Need a Break?</h2>
+    <p>You can pause your membership instead of cancelling. Your streak, your data, your community spot, all of it stays exactly where you left it. Pick back up whenever you're ready.</p>
+    <a href="{{PAUSE_LINK}}" class="sf-wl-pause-btn">Pause Instead</a>
+  </div>
+
+  <div class="sf-wl-closing sf-wl-reveal">
+    <p>This isn't a sales pitch. You can leave whenever you want. We just wanted you to see what you built before you decide.</p>
+    <div class="sf-wl-closing-sig">IJ Smith, RN</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.sf-wl-reveal');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){entries[i].target.classList.add('sf-wl-visible');obs.unobserve(entries[i].target)}}},{threshold:.12});
+    for(var i=0;i<els.length;i++)obs.observe(els[i]);
+  }else{for(var i=0;i<els.length;i++)els[i].classList.add('sf-wl-visible')}
+
+  function startCountUp(el){var t=parseInt(el.getAttribute('data-target'),10);if(isNaN(t)){el.textContent=el.getAttribute('data-target');return}var d=1200,s=performance.now();function tick(n){var e=n-s,p=Math.min(e/d,1),q=1-Math.pow(1-p,3);el.textContent=Math.round(q*t);if(p<1)requestAnimationFrame(tick);else el.classList.add('sf-wl-counted')}requestAnimationFrame(tick)}
+  var statNums=document.querySelectorAll('.sf-wl-stat-number[data-target]');
+  if('IntersectionObserver' in window){
+    var sObs=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){var el=entries[i].target;var card=el.closest('.sf-wl-stat');var delay=0;if(card){if(card.classList.contains('sf-wl-stagger-1'))delay=100;else if(card.classList.contains('sf-wl-stagger-2'))delay=200;else if(card.classList.contains('sf-wl-stagger-3'))delay=300;else if(card.classList.contains('sf-wl-stagger-4'))delay=400}(function(targetEl,d){setTimeout(function(){startCountUp(targetEl)},d+300)})(el,delay);sObs.unobserve(el)}}},{threshold:.3});
+    for(var i=0;i<statNums.length;i++)sObs.observe(statNums[i]);
+  }else{for(var i=0;i<statNums.length;i++)statNums[i].textContent=statNums[i].getAttribute('data-target')}
+})();
+</script>
