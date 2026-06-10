@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1A1518">
+<title>Proof · SmithFit</title>
+<meta name="description" content="Real wins from real nurses. A pre-call gift from IJ Smith.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://assets.cdn.filesafe.space" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;700&family=League+Spartan:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   SmithFit · Proof Site v1
+   Gold · Cream · Cormorant · League Spartan · DM Sans
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF6F3;
+  --cream-warm:#F5F0E8;
+  --cream-deeper:#EDE6D6;
+  --cream-edge:#E4DAC8;
+  --card:#FFFEFB;
+  --text:#1A1518;
+  --text-soft:#3A2F2A;
+  --muted:#6A5F50;
+  --muted-2:#8A7A68;
+  --gold:#C8A04E;
+  --gold-soft:#D9B872;
+  --gold-light:#E2C97E;
+  --gold-deep:#A8842F;
+  --line:rgba(200,160,78,.28);
+  --line-soft:rgba(200,160,78,.14);
+  --glow:rgba(200,160,78,.18);
+  --shadow-sm:0 1px 2px rgba(26,21,24,.05),0 2px 8px rgba(26,21,24,.06);
+  --shadow-md:0 6px 18px rgba(26,21,24,.08),0 2px 6px rgba(26,21,24,.06);
+  --shadow-lg:0 24px 48px -16px rgba(26,21,24,.18),0 8px 18px rgba(26,21,24,.08);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'League Spartan','Helvetica Neue',sans-serif;
+  --body:'DM Sans','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --r-sm:8px;
+  --r-md:14px;
+  --r-lg:22px;
+  --r-pill:999px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+img,video{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,246,243,.85);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-soft);
+  padding:14px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav__logo{
+  font-family:var(--display);
+  font-size:14px;font-weight:900;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text);
+}
+.nav__logo em{color:var(--gold);font-style:normal}
+.nav__badge{
+  font-family:var(--display);
+  font-size:9px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid var(--line);
+  padding:5px 11px;border-radius:var(--r-pill);
+  background:rgba(200,160,78,.06);
+}
+@media(max-width:520px){.nav__badge{display:none}}
+
+/* ============================================================
+   GENERIC CONTAINERS + TYPE
+   ============================================================ */
+.container{max-width:1180px;margin:0 auto;padding:0 22px;width:100%}
+.container--narrow{max-width:780px}
+.container--medium{max-width:980px}
+
+.eyebrow{
+  font-family:var(--display);
+  font-size:11px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:14px;
+}
+
+.display{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(38px,7vw,76px);
+  line-height:1.02;
+  letter-spacing:-.012em;
+  color:var(--text);
+}
+.display em{font-style:italic;color:var(--gold-deep);font-weight:500}
+
+.headline{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(30px,5vw,52px);
+  line-height:1.08;
+  letter-spacing:-.01em;
+  color:var(--text);
+}
+.headline em{font-style:italic;color:var(--gold-deep);font-weight:500}
+
+.subhead{
+  font-family:var(--body);
+  font-size:clamp(15px,1.8vw,18px);
+  line-height:1.65;
+  font-weight:300;
+  color:var(--muted);
+  max-width:60ch;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:min(92vh,820px);
+  padding:80px 22px 100px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 12%,rgba(226,201,126,.22),transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 85%,rgba(200,160,78,.10),transparent 60%),
+    linear-gradient(180deg,var(--cream) 0%,var(--cream-warm) 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .78 0 0 0 0 .63 0 0 0 0 .31 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='40' height='40' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.5;pointer-events:none;
+}
+.hero__inner{position:relative;z-index:2;max-width:900px}
+.hero__giftpill{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-deep);
+  background:rgba(255,254,251,.7);
+  border:1px solid var(--line);
+  padding:8px 16px;border-radius:var(--r-pill);
+  margin-bottom:28px;
+  box-shadow:var(--shadow-sm);
+}
+.hero__giftpill::before{content:'★';color:var(--gold);font-size:10px;letter-spacing:0}
+.hero__title{margin-bottom:24px}
+.hero__title em{position:relative;display:inline-block}
+.hero__title em::after{
+  content:'';
+  position:absolute;left:6%;right:6%;bottom:0.08em;height:.08em;
+  background:linear-gradient(90deg,transparent 0%,var(--gold-light) 20%,var(--gold) 50%,var(--gold-light) 80%,transparent 100%);
+  border-radius:99px;
+  transform:scaleX(0);transform-origin:left;
+  animation:underline 1.4s var(--ease-out) .8s forwards;
+}
+@keyframes underline{to{transform:scaleX(1)}}
+.hero__sub{
+  margin:0 auto 36px;
+  color:var(--text-soft);
+  font-size:clamp(16px,1.9vw,19px);
+}
+.hero__trust{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);
+  font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);
+}
+.hero__stars{display:inline-flex;gap:2px;color:var(--gold);font-size:14px;letter-spacing:.05em}
+.hero__scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  font-family:var(--display);
+  font-size:9px;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--muted-2);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:bounce 2.6s ease-in-out infinite;
+}
+.hero__scroll-line{
+  width:1px;height:36px;
+  background:linear-gradient(180deg,var(--gold) 0%,transparent 100%);
+}
+@keyframes bounce{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(8px)}
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+.sec{
+  padding:clamp(70px,9vw,120px) 0;
+  position:relative;
+}
+.sec--bg-warm{background:var(--cream-warm)}
+.sec--bg-deeper{background:linear-gradient(180deg,var(--cream-warm) 0%,var(--cream-deeper) 100%)}
+.sec--bg-dark{
+  background:linear-gradient(180deg,#1F1A1C 0%,#15101D 100%);
+  color:var(--cream);
+}
+.sec--bg-dark .headline,
+.sec--bg-dark .display{color:var(--cream)}
+.sec--bg-dark .subhead{color:rgba(250,246,243,.7)}
+.sec--bg-dark .eyebrow{color:var(--gold-light)}
+
+.sec__header{
+  text-align:center;
+  margin-bottom:clamp(40px,5vw,64px);
+}
+.sec__header .subhead{margin:18px auto 0}
+
+/* ============================================================
+   HERO COMPILATION VIDEO
+   ============================================================ */
+.compilation{padding:clamp(60px,8vw,100px) 22px clamp(50px,7vw,90px)}
+.compilation__inner{max-width:520px;margin:0 auto;text-align:center}
+.compilation__player{
+  position:relative;
+  margin-top:40px;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:#1A1518;
+  box-shadow:var(--shadow-lg),0 0 0 1px var(--line);
+  aspect-ratio:9/16;
+  max-width:420px;
+  margin-left:auto;margin-right:auto;
+}
+.compilation__player video{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.compilation__caption{
+  margin-top:22px;
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted-2);
+}
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+.stats{
+  background:linear-gradient(135deg,var(--cream-warm) 0%,var(--cream-deeper) 100%);
+  padding:clamp(50px,7vw,80px) 22px;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+}
+.stats__grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:32px 16px;
+}
+@media(max-width:780px){.stats__grid{grid-template-columns:repeat(2,1fr);gap:36px 20px}}
+.stat{text-align:center}
+.stat__num{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(40px,6vw,64px);
+  line-height:1;
+  color:var(--gold-deep);
+  letter-spacing:-.02em;
+  font-feature-settings:"tnum" 1,"lnum" 1;
+}
+.stat__num em{font-style:italic}
+.stat__num sup{font-size:.5em;vertical-align:.7em;margin-left:.05em}
+.stat__label{
+  margin-top:12px;
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ============================================================
+   VIDEO TILES GRID
+   ============================================================ */
+.vgrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+@media(max-width:900px){.vgrid{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(max-width:560px){.vgrid{grid-template-columns:1fr;gap:18px}}
+
+.vtile{
+  position:relative;
+  aspect-ratio:16/9;
+  border-radius:var(--r-md);
+  overflow:hidden;
+  background:#1A1518;
+  box-shadow:var(--shadow-md);
+  cursor:pointer;
+  transition:transform .4s var(--ease-out),box-shadow .4s var(--ease-out);
+  border:1px solid var(--line-soft);
+}
+.vtile:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.vtile__poster{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  z-index:1;
+  transition:opacity .3s var(--ease);
+}
+.vtile.playing .vtile__poster{opacity:0;pointer-events:none}
+.vtile video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  z-index:2;
+  opacity:0;
+  transition:opacity .3s var(--ease);
+}
+.vtile.playing video{opacity:1}
+.vtile__overlay{
+  position:absolute;inset:0;
+  z-index:3;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,rgba(26,21,24,.18) 0%,rgba(26,21,24,.55) 100%);
+  transition:opacity .3s var(--ease);
+  pointer-events:none;
+}
+.vtile.playing .vtile__overlay{opacity:0}
+.vtile__play{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(250,246,243,.95);
+  backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.3),0 0 0 1px rgba(200,160,78,.2);
+  transition:transform .3s var(--ease-out),background .3s var(--ease);
+}
+.vtile:hover .vtile__play{transform:scale(1.08);background:var(--gold-light)}
+.vtile__play svg{width:18px;height:18px;margin-left:3px;fill:var(--text)}
+
+/* ============================================================
+   BEFORE/AFTER GRID
+   ============================================================ */
+.bagrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+@media(max-width:960px){.bagrid{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(max-width:520px){.bagrid{grid-template-columns:1fr;gap:18px;max-width:340px;margin:0 auto}}
+
+.bacard{
+  position:relative;
+  border-radius:var(--r-md);
+  overflow:hidden;
+  background:var(--card);
+  box-shadow:var(--shadow-md);
+  border:1px solid var(--line-soft);
+  transition:transform .4s var(--ease-out),box-shadow .4s var(--ease-out);
+}
+.bacard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.bacard img{
+  width:100%;height:auto;display:block;
+  aspect-ratio:860/1704;
+  object-fit:cover;
+}
+
+/* ============================================================
+   SCREENSHOT MASONRY
+   ============================================================ */
+.ssgrid{
+  columns:3;
+  column-gap:18px;
+}
+@media(max-width:900px){.ssgrid{columns:2;column-gap:14px}}
+@media(max-width:520px){.ssgrid{columns:1}}
+
+.sscard{
+  break-inside:avoid;
+  margin-bottom:18px;
+  border-radius:var(--r-md);
+  overflow:hidden;
+  background:var(--card);
+  box-shadow:var(--shadow-sm);
+  border:1px solid var(--line-soft);
+  transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),border-color .3s;
+}
+.sscard:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--line)}
+.sscard img{
+  width:100%;height:auto;display:block;
+}
+.sscard.is-hidden{display:none}
+
+/* ============================================================
+   LOAD MORE
+   ============================================================ */
+.lm-wrap{margin-top:40px;text-align:center}
+.lm-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);
+  font-size:11px;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text);
+  background:var(--card);
+  border:1.5px solid var(--gold);
+  padding:14px 28px;border-radius:var(--r-pill);
+  cursor:pointer;
+  transition:all .3s var(--ease);
+  box-shadow:var(--shadow-sm);
+}
+.lm-btn:hover{background:var(--gold);color:var(--text);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.lm-btn .arr{transition:transform .3s var(--ease)}
+.lm-btn.is-open .arr{transform:rotate(180deg)}
+.lm-count{
+  margin-top:14px;
+  font-family:var(--display);
+  font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted-2);
+}
+
+/* ============================================================
+   QUOTE WALL (interleaved)
+   ============================================================ */
+.quote{
+  margin:0 auto;
+  padding:clamp(60px,8vw,100px) 22px;
+  text-align:center;
+  max-width:880px;
+  position:relative;
+}
+.quote::before{
+  content:'\201C';
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(140px,18vw,220px);
+  line-height:.6;
+  position:absolute;
+  top:30px;left:50%;
+  transform:translateX(-50%);
+  color:var(--gold);opacity:.18;
+  pointer-events:none;
+}
+.quote__text{
+  position:relative;
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(24px,3.6vw,38px);
+  line-height:1.3;
+  color:var(--text);
+  letter-spacing:-.005em;
+}
+.quote__attr{
+  margin-top:24px;
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-deep);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.quote__attr::before,.quote__attr::after{
+  content:'';width:30px;height:1px;background:var(--line);
+}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.cta-final{
+  padding:clamp(80px,10vw,140px) 22px clamp(70px,9vw,120px);
+  text-align:center;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%,rgba(226,201,126,.18),transparent 70%),
+    linear-gradient(180deg,var(--cream-warm) 0%,var(--cream-deeper) 100%);
+  border-top:1px solid var(--line-soft);
+  position:relative;overflow:hidden;
+}
+.cta-final__inner{max-width:720px;margin:0 auto;position:relative;z-index:2}
+.cta-final__eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold-deep);
+  margin-bottom:20px;
+}
+.cta-final__eyebrow::before,.cta-final__eyebrow::after{
+  content:'';width:24px;height:1px;background:var(--gold);
+}
+.cta-final__title{margin-bottom:18px}
+.cta-final__sub{margin:0 auto 36px;color:var(--text-soft);max-width:540px;font-size:clamp(15px,1.7vw,17px)}
+.cta-final__buttons{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);
+  font-size:13px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text);
+  background:var(--gold);
+  padding:18px 36px;border-radius:var(--r-pill);
+  box-shadow:0 8px 28px rgba(200,160,78,.4),inset 0 -2px 0 rgba(0,0,0,.08);
+  transition:all .3s var(--ease-out);
+  position:relative;
+}
+.btn-primary:hover{transform:translateY(-2px);background:var(--gold-light);box-shadow:0 12px 36px rgba(200,160,78,.5),inset 0 -2px 0 rgba(0,0,0,.08)}
+.btn-primary .arr{transition:transform .3s var(--ease)}
+.btn-primary:hover .arr{transform:translateX(4px)}
+.btn-secondary{
+  font-family:var(--body);
+  font-size:14px;font-weight:400;
+  color:var(--muted);
+  padding:6px 0;
+  border-bottom:1px solid transparent;
+  transition:all .25s var(--ease);
+}
+.btn-secondary:hover{color:var(--text);border-bottom-color:var(--gold)}
+.cta-final__trust{
+  margin-top:42px;
+  display:flex;justify-content:center;align-items:center;
+  gap:18px;flex-wrap:wrap;
+  font-family:var(--display);
+  font-size:10px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);
+}
+.cta-final__trust span{display:inline-flex;align-items:center;gap:6px}
+.cta-final__trust .dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.6}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:#1A1518;color:rgba(250,246,243,.6);
+  padding:50px 22px 36px;text-align:center;
+  font-size:13px;
+}
+.footer__logo{
+  font-family:var(--display);
+  font-size:14px;font-weight:900;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream);
+  margin-bottom:18px;
+}
+.footer__logo em{color:var(--gold);font-style:normal}
+.footer__tag{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--gold-light);margin-bottom:14px}
+.footer__small{font-size:11px;letter-spacing:.05em;color:rgba(250,246,243,.4)}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);
+}
+.reveal.is-in{opacity:1;transform:translateY(0)}
+.reveal--delay-1{transition-delay:.1s}
+.reveal--delay-2{transition-delay:.2s}
+.reveal--delay-3{transition-delay:.3s}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.tag{
+  display:inline-block;
+  font-family:var(--display);
+  font-size:9px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid var(--line);
+  padding:5px 11px;border-radius:var(--r-pill);
+  background:rgba(200,160,78,.05);
+}
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--line) 30%,var(--line) 70%,transparent 100%);
+  max-width:80px;margin:0 auto;
+}
+
+/* ============================================================
+   V2 — MIRROR BLOCK (Section A)
+   ============================================================ */
+.mirror{
+  padding:clamp(70px,9vw,110px) 22px;
+  background:var(--cream);
+  text-align:center;
+}
+.mirror__inner{max-width:680px;margin:0 auto}
+.mirror__head{margin-bottom:40px}
+.mirror__quotes{
+  display:flex;flex-direction:column;gap:18px;
+  margin:36px 0 32px;
+  text-align:left;
+}
+.mirror__quote{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(18px,2.4vw,24px);
+  line-height:1.45;
+  color:var(--text-soft);
+  padding-left:20px;
+  border-left:2px solid var(--gold);
+  background:linear-gradient(90deg,rgba(200,160,78,.04) 0%,transparent 50%);
+  padding-top:8px;padding-bottom:8px;
+}
+.mirror__close{
+  margin-top:30px;
+  padding-top:30px;
+  border-top:1px solid var(--line-soft);
+  font-family:var(--body);
+  font-size:clamp(15px,1.8vw,17px);
+  font-weight:400;
+  color:var(--muted);
+  font-style:italic;
+}
+
+/* ============================================================
+   V2 — CORTISOL MECHANISM (Section B)
+   ============================================================ */
+.mech{
+  padding:clamp(70px,9vw,110px) 22px;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 0%,rgba(226,201,126,.14),transparent 60%),
+    linear-gradient(180deg,var(--cream-warm) 0%,var(--cream-deeper) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.mech__inner{max-width:720px;margin:0 auto;text-align:center}
+.mech__head{margin-bottom:36px}
+.mech__sub{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(20px,2.6vw,26px);
+  color:var(--gold-deep);
+  font-weight:500;
+  margin-top:8px;
+}
+.mech__body{
+  text-align:left;
+  max-width:580px;margin:0 auto;
+}
+.mech__body p{
+  font-family:var(--body);
+  font-size:clamp(16px,1.9vw,18px);
+  line-height:1.7;
+  font-weight:300;
+  color:var(--text-soft);
+  margin-bottom:18px;
+}
+.mech__body p strong{
+  font-weight:500;
+  color:var(--text);
+}
+.mech__body p em{
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--gold-deep);
+  font-weight:500;
+  font-size:1.05em;
+}
+.mech__rule{
+  width:60px;height:2px;
+  background:var(--gold);
+  margin:30px auto;
+  border-radius:2px;
+}
+.mech__close{
+  text-align:center;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(18px,2.2vw,22px);
+  line-height:1.4;
+  color:var(--text);
+  font-weight:500;
+}
+
+/* ============================================================
+   V2 — VIDEO CAPTION CARDS (Section C)
+   ============================================================ */
+.vwrap{display:flex;flex-direction:column}
+.vcap{
+  margin-top:14px;
+  background:var(--card);
+  border:1px solid var(--line-soft);
+  border-radius:var(--r-md);
+  padding:18px 18px 20px;
+  box-shadow:var(--shadow-sm);
+}
+.vcap__title{
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-deep);
+  margin-bottom:14px;
+  text-align:center;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line-soft);
+}
+.vcap__cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:14px;
+}
+@media(max-width:560px){.vcap__cols{grid-template-columns:1fr;gap:14px}}
+.vcap__col{position:relative}
+.vcap__label{
+  font-family:var(--display);
+  font-size:9px;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;
+  margin-bottom:7px;
+  display:inline-block;
+}
+.vcap__col--before .vcap__label{color:var(--muted-2)}
+.vcap__col--after .vcap__label{color:var(--gold-deep)}
+.vcap__col--after::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  border-radius:2px;
+}
+@media(min-width:561px){
+  .vcap__col--after::before{
+    top:0;bottom:0;right:auto;left:-7px;width:1px;height:auto;
+    background:linear-gradient(180deg,transparent 10%,var(--gold) 50%,transparent 90%);
+  }
+}
+.vcap__text{
+  font-family:var(--body);
+  font-size:13px;line-height:1.55;
+  color:var(--text-soft);
+  font-weight:300;
+}
+.vcap__text em{
+  font-style:italic;
+  color:var(--text);
+  font-weight:400;
+}
+.vcap__quote{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--line-soft);
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:15px;
+  line-height:1.4;
+  color:var(--text);
+  text-align:center;
+}
+.vcap__attr{
+  display:block;
+  margin-top:6px;
+  font-family:var(--display);
+  font-size:9px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-deep);
+  font-style:normal;
+}
+
+/* ============================================================
+   V2 — DAY BY DAY TIMELINE (Section D)
+   ============================================================ */
+.timeline{padding:clamp(70px,9vw,110px) 22px;background:var(--cream)}
+.timeline__inner{max-width:1080px;margin:0 auto}
+.timeline__head{text-align:center;margin-bottom:clamp(40px,5vw,60px)}
+.timeline__sub{
+  font-family:var(--body);
+  font-size:clamp(15px,1.7vw,17px);
+  color:var(--muted);
+  margin-top:14px;
+  max-width:520px;margin-left:auto;margin-right:auto;
+}
+.timeline__grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  position:relative;
+}
+@media(max-width:780px){.timeline__grid{grid-template-columns:repeat(2,1fr);gap:28px 18px}}
+@media(max-width:460px){.timeline__grid{grid-template-columns:1fr;gap:24px}}
+.timeline__line{
+  position:absolute;
+  top:24px;left:8%;right:8%;
+  height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--gold) 20%,var(--gold) 80%,transparent 100%);
+  opacity:.4;
+  z-index:0;
+  pointer-events:none;
+}
+@media(max-width:780px){.timeline__line{display:none}}
+.tday{
+  position:relative;
+  text-align:center;
+  padding:0 6px;
+  z-index:1;
+}
+.tday__dot{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--gold);
+  margin:0 auto 18px;
+  position:relative;
+  z-index:2;
+  box-shadow:0 0 0 4px var(--cream),0 0 0 6px rgba(200,160,78,.3);
+}
+.tday__label{
+  font-family:var(--display);
+  font-size:11px;font-weight:800;
+  letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold-deep);
+  margin-bottom:8px;
+}
+.tday__num{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(34px,4.6vw,46px);
+  font-weight:500;
+  line-height:1;
+  color:var(--text);
+  margin-bottom:18px;
+}
+.tday__text{
+  font-family:var(--body);
+  font-size:14px;
+  line-height:1.55;
+  color:var(--text-soft);
+  font-weight:300;
+}
+
+/* ============================================================
+   V2 — SHOW-UP BONUS (Section E)
+   ============================================================ */
+.bonus{
+  padding:clamp(70px,9vw,110px) 22px;
+  background:linear-gradient(180deg,var(--cream-warm) 0%,var(--cream-deeper) 100%);
+}
+.bonus__inner{max-width:780px;margin:0 auto}
+.bonus__head{text-align:center;margin-bottom:36px}
+.bonus__sub{
+  font-family:var(--body);
+  font-size:clamp(15px,1.7vw,17px);
+  color:var(--muted);
+  margin-top:16px;
+  line-height:1.65;
+  max-width:580px;margin-left:auto;margin-right:auto;
+}
+.bonus__card{
+  background:var(--card);
+  border:2px solid var(--gold);
+  border-radius:var(--r-lg);
+  padding:clamp(28px,4vw,42px) clamp(24px,3.5vw,40px);
+  box-shadow:0 16px 40px -16px rgba(200,160,78,.35),0 6px 16px rgba(26,21,24,.06);
+  position:relative;
+}
+.bonus__card::before{
+  content:'';
+  position:absolute;top:-1px;left:8%;right:8%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold-light),transparent);
+}
+.bonus__pill{
+  display:inline-flex;align-items:center;gap:8px;
+  position:absolute;
+  top:-14px;left:50%;transform:translateX(-50%);
+  font-family:var(--display);
+  font-size:10px;font-weight:800;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text);
+  background:var(--gold);
+  padding:8px 18px;
+  border-radius:var(--r-pill);
+  box-shadow:0 6px 16px rgba(200,160,78,.4);
+}
+.bonus__pill::before{content:'★';font-size:11px;letter-spacing:0}
+.bonus__items{
+  display:flex;flex-direction:column;
+  gap:18px;
+  margin-top:8px;
+}
+.bonus__item{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:24px;
+  align-items:center;
+  padding:24px 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.bonus__item:last-child{border-bottom:0;padding-bottom:8px}
+.bonus__item:first-child{padding-top:8px}
+@media(max-width:560px){
+  .bonus__item{
+    grid-template-columns:1fr;
+    gap:14px;
+    text-align:center;
+    padding:28px 0;
+  }
+}
+.bonus__thumb{
+  position:relative;
+  width:140px;
+  border-radius:6px;
+  overflow:visible;
+}
+@media(max-width:560px){
+  .bonus__thumb{
+    width:160px;
+    margin:0 auto;
+  }
+}
+.bonus__thumb img{
+  width:100%;height:auto;
+  display:block;
+  border-radius:6px;
+  filter:drop-shadow(0 12px 18px rgba(26,21,24,.12)) drop-shadow(0 4px 6px rgba(26,21,24,.08));
+  transition:transform .4s var(--ease-out);
+}
+.bonus__item:hover .bonus__thumb img{transform:translateY(-3px) scale(1.02)}
+.bonus__num{
+  position:absolute;
+  top:-10px;left:-10px;
+  width:32px;height:32px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 100%);
+  color:var(--text);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);
+  font-size:15px;font-weight:600;
+  font-style:italic;
+  box-shadow:0 4px 10px rgba(200,160,78,.4);
+  z-index:2;
+}
+@media(max-width:560px){
+  .bonus__num{top:-8px;left:50%;transform:translateX(-50%) translateX(-70px)}
+}
+.bonus__body{flex:1;min-width:0}
+.bonus__name{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(17px,2.1vw,21px);
+  line-height:1.25;
+  color:var(--text);
+  margin-bottom:4px;
+}
+.bonus__name em{font-style:italic;color:var(--gold-deep)}
+.bonus__value{
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-deep);
+  display:inline-block;
+  margin-bottom:8px;
+  padding:2px 8px;
+  border:1px solid var(--line);
+  border-radius:var(--r-pill);
+  background:rgba(200,160,78,.06);
+}
+.bonus__desc{
+  font-family:var(--body);
+  font-size:14px;line-height:1.6;
+  color:var(--text-soft);
+  font-weight:300;
+}
+.bonus__close{
+  margin-top:28px;
+  padding-top:24px;
+  border-top:1px solid var(--line-soft);
+  font-family:var(--body);
+  font-size:13.5px;
+  font-style:italic;
+  line-height:1.55;
+  color:var(--muted);
+  text-align:center;
+}
+.bonus__close strong{font-weight:500;color:var(--text-soft);font-style:normal}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav">
+  <div class="nav__logo">Smith<em>Fit</em></div>
+  <div class="nav__badge">A pre-call gift from IJ</div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__giftpill">Real Women · Real Receipts</div>
+    <h1 class="hero__title display">
+      You're not the problem.<br><em>Here's proof.</em>
+    </h1>
+    <p class="hero__sub subhead" style="margin-left:auto;margin-right:auto;">
+      Before your call, I want you to see what's possible. These are real wins from real nurses who finally stopped fighting their body and started working with it.
+    </p>
+    <div class="hero__trust">
+      <span class="hero__stars">★★★★★</span>
+      <span>400+ Nurses Transformed</span>
+    </div>
+  </div>
+  <div class="hero__scroll">
+    <span>Keep reading</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION A — MIRROR BLOCK
+     ============================================================ -->
+<section class="mirror" id="mirror">
+  <div class="mirror__inner">
+    <div class="mirror__head">
+      <div class="eyebrow reveal">If you've ever said any of these</div>
+      <h2 class="headline reveal">You're not crazy.<br>You're not lazy.<br><em>You're not the problem.</em></h2>
+    </div>
+    <div class="mirror__quotes">
+      <p class="mirror__quote reveal">"I've tried everything."</p>
+      <p class="mirror__quote reveal reveal--delay-1">"I'm good all week, then I blow it on night shifts."</p>
+      <p class="mirror__quote reveal reveal--delay-2">"I'm too tired to meal prep."</p>
+      <p class="mirror__quote reveal reveal--delay-1">"My body just doesn't respond like it used to."</p>
+      <p class="mirror__quote reveal reveal--delay-2">"I'm living off coffee and vibes, honestly."</p>
+      <p class="mirror__quote reveal reveal--delay-3">"I don't even recognize my body anymore."</p>
+      <p class="mirror__quote reveal reveal--delay-2">"I'm not lazy. I'm just exhausted."</p>
+    </div>
+    <p class="mirror__close reveal">Every nurse on this page said one of those out loud before she started.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION B — CORTISOL MECHANISM
+     ============================================================ -->
+<section class="mech" id="mechanism">
+  <div class="mech__inner">
+    <div class="mech__head">
+      <div class="eyebrow reveal">Here's what's actually happening</div>
+      <h2 class="headline reveal">What if your body<br><em>isn't broken?</em></h2>
+      <p class="mech__sub reveal">What if it's just been waiting for the right signal?</p>
+    </div>
+    <div class="mech__body">
+      <p class="reveal">Your body isn't resisting weight loss. It's resisting <em>stress</em>.</p>
+      <p class="reveal reveal--delay-1">After enough years of 12-hour shifts, broken sleep, missed meals, and adrenaline dumps, your body learns one rule: <strong>stay alive, store everything</strong>.</p>
+      <p class="reveal reveal--delay-2">That's cortisol. Locked on. Day and night.</p>
+      <p class="reveal reveal--delay-1">When cortisol is locked on, no amount of cardio, calorie cutting, or willpower wins. The body holds the belly. The cravings escalate. The energy crashes. The mirror confirms it.</p>
+      <p class="reveal reveal--delay-2">So you blame yourself.</p>
+      <p class="reveal reveal--delay-1">But this isn't a discipline problem. <strong>It's a regulation problem.</strong></p>
+      <p class="reveal reveal--delay-2">Calm the system, and the body finally exhales.</p>
+    </div>
+    <div class="mech__rule reveal"></div>
+    <p class="mech__close reveal">That's what every woman on this page did. Same body. Same shifts. Same exhaustion. They just got the right signal.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPILATION VIDEO (HERO CENTERPIECE)
+     ============================================================ -->
+<section class="compilation sec--bg-warm" id="compilation">
+  <div class="compilation__inner">
+    <div class="eyebrow reveal">Hear it in their own words</div>
+    <h2 class="headline reveal">
+      Two minutes.<br><em>Real women. Real reasons.</em>
+    </h2>
+    <p class="subhead reveal" style="margin:18px auto 0;text-align:center;">
+      The kind of testimonial you can't fake. No filters, no scripts. Just nurses talking about what changed.
+    </p>
+    <div class="compilation__player reveal">
+      <video
+        controls
+        playsinline
+        preload="none"
+        poster="posters/compilation.jpg"
+        src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69abe36136702f9ab236c9d0.mov">
+        Your browser doesn't support video.
+      </video>
+    </div>
+    <div class="compilation__caption reveal">10+ Nurses Featured · Raw + Unscripted</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS STRIP
+     ============================================================ -->
+<section class="stats" id="stats">
+  <div class="stats__grid">
+    <div class="stat reveal">
+      <div class="stat__num"><span data-count="400">0</span><sup>+</sup></div>
+      <div class="stat__label">Nurses Transformed</div>
+    </div>
+    <div class="stat reveal reveal--delay-1">
+      <div class="stat__num"><span data-count="5">0</span> <em>lbs</em></div>
+      <div class="stat__label">Avg. Week 1 Loss</div>
+    </div>
+    <div class="stat reveal reveal--delay-2">
+      <div class="stat__num"><span data-count="87">0</span><sup>%</sup></div>
+      <div class="stat__label">Feel Change by Day 3</div>
+    </div>
+    <div class="stat reveal reveal--delay-3">
+      <div class="stat__num"><span data-count="60">0</span><sup>day</sup></div>
+      <div class="stat__label">Money-Back Guarantee</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INDIVIDUAL VIDEO TESTIMONIALS
+     ============================================================ -->
+<section class="sec" id="videos">
+  <div class="container">
+    <div class="sec__header">
+      <div class="eyebrow reveal">She took a minute to say this</div>
+      <h2 class="headline reveal">Their stories,<br><em>in their voice.</em></h2>
+      <p class="subhead reveal" style="margin-left:auto;margin-right:auto;">
+        Nine nurses. No teleprompter. Just press play and listen.
+      </p>
+    </div>
+    <div class="vgrid">
+      <!-- Video 1 — Regina · Freedom from Food Obsession -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/699a350155d8bcd0dc09582c.mov" data-poster="posters/v1.jpg">
+          <img class="vtile__poster" src="posters/v1.jpg" alt="Regina — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Freedom from Food Obsession</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Counted every calorie for 3 years. Still binged every Sunday night. Cried in the drive-thru at 11pm after a shift, hating herself for being <em>"weak."</em></p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Eats what she loves, guilt-free. Down 22 lbs. Hasn't binged in 7 months. Finally at peace with food.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"My relationship with food completely changed"<em class="vcap__attr">Regina</em></p>
+        </div>
+      </div>
+
+      <!-- Video 2 — Cynthia · Ending the War With Her Body -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/699a350108245ef632728218.mov" data-poster="posters/v2.jpg">
+          <img class="vtile__poster" src="posters/v2.jpg" alt="Cynthia — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Ending the War With Her Body</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Did 5am HIIT classes after night shifts. Ate 1,200 calories. Still gaining. Her doctor said <em>"just eat less and move more."</em> She wanted to scream.</p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Eats MORE than before. Works out LESS. Down 24 lbs. Her doctor asked what she's doing. She said <em>"I stopped fighting my body and started listening to it."</em></p>
+            </div>
+          </div>
+          <p class="vcap__quote">"I stopped punishing myself and the weight finally came off"<em class="vcap__attr">Cynthia</em></p>
+        </div>
+      </div>
+
+      <!-- Video 3 — Kristal · Results Everyone Around You Can See -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/699a35013a2afd5480c992c2.mov" data-poster="posters/v3.jpg">
+          <img class="vtile__poster" src="posters/v3.jpg" alt="Kristal — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Results Everyone Around You Can See</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Avoided mirrors. Wore oversized hoodies to hide. Her husband stopped complimenting her, not because he didn't care, but because she'd shut down every time.</p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Her husband grabbed her waist and said <em>"Where did you go?"</em> Down 31 lbs. She bought her first fitted dress in 4 years.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"My husband noticed before I did"<em class="vcap__attr">Kristal</em></p>
+        </div>
+      </div>
+
+      <!-- Video 4 — Hannah · No More Bloating & Puffiness -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ab78b7618c8d65603e34b9.mov" data-poster="posters/v4.jpg">
+          <img class="vtile__poster" src="posters/v4.jpg" alt="Hannah — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">No More Bloating & Puffiness</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Woke up every morning with a swollen face and fingers so puffy she couldn't wear her wedding ring. Thought it was just <em>"getting older."</em></p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Ring fits. Face is defined. Lost 19 lbs and her husband keeps asking what she's doing differently.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"I haven't felt this good in years"<em class="vcap__attr">Hannah</em></p>
+        </div>
+      </div>
+
+      <!-- Video 5 — Nixie · Food Freedom & Mental Clarity -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69abb9d7618c8d379444eea4.mov" data-poster="posters/v5.jpg">
+          <img class="vtile__poster" src="posters/v5.jpg" alt="Nixie — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Food Freedom & Mental Clarity</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Spent 45 minutes every night agonizing over what to eat. Googled <em>"is rice bad for you"</em> at 2am. The mental load of food was heavier than the weight itself.</p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Opens her plan, eats, moves on. Brain fog gone. Lost 16 lbs and gained back the mental space she didn't know she'd lost.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"I finally stopped second-guessing every meal"<em class="vcap__attr">Nixie</em></p>
+        </div>
+      </div>
+
+      <!-- Video 6 — Sarah · Done with Diets That Don't Work -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69abb9d77bdf3820aaba0ef5.mov" data-poster="posters/v6.jpg">
+          <img class="vtile__poster" src="posters/v6.jpg" alt="Sarah — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Done with Diets That Don't Work</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Spent $4,000+ on programs, coaches, and supplements. Lost the same 10 lbs six times. Gained it back every time. Started to believe her body was just broken.</p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Down 38 lbs and kept it off for 14 months. Threw away every diet book she owned. Her body wasn't broken. The approach was.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"I've tried every diet, this is the only thing that worked"<em class="vcap__attr">Sarah</em></p>
+        </div>
+      </div>
+
+      <!-- Video 7 — Shelly · Reclaiming Her Identity -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69abc17136702f36c93440e5.mov" data-poster="posters/v7.jpg">
+          <img class="vtile__poster" src="posters/v7.jpg" alt="Shelly — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Reclaiming Her Identity</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Looked at old photos and didn't recognize herself. Used to be the <em>"fit friend."</em> Now she was the one making excuses to skip girls' night because nothing fit.</p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Down 29 lbs. Went to girls' night in a dress she hadn't worn in 3 years. Someone said <em>"You look like YOU again."</em> She almost cried.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"I feel like myself again for the first time in years"<em class="vcap__attr">Shelly</em></p>
+        </div>
+      </div>
+
+      <!-- Video 8 — Branda · Energy, Confidence & Real Results -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69abc29ab003fa50d805b4a2.mov" data-poster="posters/v8.jpg">
+          <img class="vtile__poster" src="posters/v8.jpg" alt="Branda — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Energy, Confidence & Real Results</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">So exhausted after shifts she'd sleep through her kids' soccer games. Missed recitals. Felt like a ghost in her own family. Told herself <em>"this is just what nursing does to you."</em></p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Has energy after every shift. Coaches her daughter's softball team. Down 25 lbs. Her kids say they got their mom back.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"This program gave me my life back"<em class="vcap__attr">Branda</em></p>
+        </div>
+      </div>
+
+      <!-- Video 9 — Crystal · Long-Term Results That Last -->
+      <div class="vwrap reveal">
+        <div class="vtile" data-src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69abc8e936702f53f234daef.mov" data-poster="posters/v9.jpg">
+          <img class="vtile__poster" src="posters/v9.jpg" alt="Crystal — SmithFit member testimonial" loading="lazy" decoding="async">
+          <video playsinline preload="none" muted></video>
+          <div class="vtile__overlay"><div class="vtile__play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></div></div>
+        </div>
+        <div class="vcap">
+          <div class="vcap__title">Long-Term Results That Last</div>
+          <div class="vcap__cols">
+            <div class="vcap__col vcap__col--before">
+              <span class="vcap__label">Before</span>
+              <p class="vcap__text">Lost 20 lbs on keto. Gained 30 back. Lost 15 on Noom. Gained 20 back. Every January was a fresh start that ended by February.</p>
+            </div>
+            <div class="vcap__col vcap__col--after">
+              <span class="vcap__label">Now</span>
+              <p class="vcap__text">Lost 33 lbs three years ago. Still at her goal weight. No longer <em>"starting over Monday."</em> This is just how she lives now.</p>
+            </div>
+          </div>
+          <p class="vcap__quote">"3 years later and I still use this system"<em class="vcap__attr">Crystal</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUOTE WALL #1
+     ============================================================ -->
+<section class="quote sec--bg-warm">
+  <p class="quote__text reveal">
+    I stopped fighting my body. That's the part nobody told me would change first.
+  </p>
+  <div class="quote__attr reveal reveal--delay-1">Real SmithFit Member</div>
+</section>
+
+<!-- ============================================================
+     BEFORE & AFTER CARDS
+     ============================================================ -->
+<section class="sec" id="before-after">
+  <div class="container container--medium">
+    <div class="sec__header">
+      <div class="eyebrow reveal">The physical proof</div>
+      <h2 class="headline reveal">Same body.<br><em>New chapter.</em></h2>
+      <p class="subhead reveal" style="margin-left:auto;margin-right:auto;">
+        Before-and-afters from nurses who quietly did the work. Not photoshoots. Just same lighting, same mirror, different months.
+      </p>
+    </div>
+    <div class="bagrid">
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98945596d13068f0e2ad.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf9895ad14007c5fe362bf.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98949bd1391242f4bce4.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf9894ad14005e9ee362bc.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf9894ad140085b3e362be.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98943b3a58c443cdf65c.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98945596d1377cf0e2b3.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98945596d15303f0e2b4.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf9894ad1400ce0ae362bd.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98945596d1df53f0e2b2.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf989483f1a1a0d43c66b2.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98b49bd139ba55f4bed4.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+      <div class="bacard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69bf98949bd13976faf4bce7.png" alt="SmithFit before and after transformation" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUOTE WALL #2
+     ============================================================ -->
+<section class="quote sec--bg-warm">
+  <p class="quote__text reveal">
+    The scale moved. But the bigger thing? I'm not white-knuckling food anymore.
+  </p>
+  <div class="quote__attr reveal reveal--delay-1">Real SmithFit Member</div>
+</section>
+
+<!-- ============================================================
+     MINDSET / IDENTITY / WINS SCREENSHOTS
+     ============================================================ -->
+<section class="sec" id="wins">
+  <div class="container">
+    <div class="sec__header">
+      <div class="eyebrow reveal">The win they didn't expect</div>
+      <h2 class="headline reveal">Beyond<br><em>the scale.</em></h2>
+      <p class="subhead reveal" style="margin-left:auto;margin-right:auto;">
+        The DMs we screenshot at 2 AM because they hit different. Energy, sleep, identity, mindset, motherhood, body image. The non-scale wins that actually rewire a life.
+      </p>
+    </div>
+
+    <div class="ssgrid" id="ssgrid">
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a8efeba4876610363419.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a877cab7f7101bc00fd1.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a61b277ba02a51e37ea6.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a649bfc81f1ba3020ceb.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a676277ba02b3ee3860b.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a6b0d54817821c3132cc.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a5b9cab7f753f9bfdbd1.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a585eba487329b35f408.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4a56acab7f7d1f7bfd558.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906b277ba0d8a7e1864c.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bcab7f7340dbde247.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard reveal"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906beba487a4273405dc.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bba922c3757d8fb4e.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bba922c51e4d8fb4f.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bcab7f748dabde249.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bba922c678fd8fb50.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bcab7f7570ebde246.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906beba4870ff03405e0.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906c070c58ebf67032cb.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bd5481721ea2f308c.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bcab7f77d53bde248.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bd54817545d2f308d.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906b277ba052e2e1864d.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bfc512837a180c8b8.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bfc51286d4c80c8b9.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bba922c0886d8fb4d.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bcab7f782c6bde244.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bfb38ca1bffa00d83.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b4906bbfc81fbdb100100d.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f26b44fa698.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f14064fa681.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c677bdf388841d5f65f.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b2a2748ab2fa06cf.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f64c54fa684.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67618c8d48e760e99f.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b2a274bd57fa06ce.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b2a27416e0fa06cd.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c677bdf382253d5f673.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b003fa2af1212fab.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b2a2741a95fa06cb.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67618c8d4f4b60e99e.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c677bdf38e53dd5f65e.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67618c8d96b960e995.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f5cc64fa69d.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c677bdf38027cd5f669.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c677bdf386a47d5f664.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f1d0f4fa683.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b2a2747a0dfa06de.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c677bdf387c58d5f668.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67618c8d056760e997.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67618c8da6d760e998.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b2a27492bafa06e0.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b003fa1b2d212f97.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67b003fa1d06212fad.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f70cf4fa696.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c67618c8d6e2a60e996.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f6f6d4fa682.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+      <div class="sscard is-hidden"><img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69ac9c6736702f213a4fa680.jpg" alt="SmithFit member win" loading="lazy" decoding="async"></div>
+    </div>
+
+    <div class="lm-wrap">
+      <button class="lm-btn" id="lmBtn" type="button" aria-expanded="false">
+        <span id="lmLabel">See all 58 wins</span>
+        <span class="arr" aria-hidden="true">↓</span>
+      </button>
+      <div class="lm-count" id="lmCount">Showing 12 of 58</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION D — DAY-BY-DAY SENSORY TIMELINE
+     ============================================================ -->
+<section class="timeline" id="timeline">
+  <div class="timeline__inner">
+    <div class="timeline__head">
+      <div class="eyebrow reveal">What this actually feels like</div>
+      <h2 class="headline reveal">You'll feel the shift<br><em>before the scale does.</em></h2>
+      <p class="timeline__sub reveal">This is what nurses report by Day 3, Day 7, Day 14, and Day 30.</p>
+    </div>
+    <div class="timeline__grid">
+      <div class="timeline__line" aria-hidden="true"></div>
+      <div class="tday reveal">
+        <div class="tday__dot"></div>
+        <div class="tday__label">Day</div>
+        <div class="tday__num">3</div>
+        <p class="tday__text">The bloat starts to leave your face. You sleep deeper. The 3pm crash is quieter. You catch yourself not reaching for the second coffee.</p>
+      </div>
+      <div class="tday reveal reveal--delay-1">
+        <div class="tday__dot"></div>
+        <div class="tday__label">Day</div>
+        <div class="tday__num">7</div>
+        <p class="tday__text">Your scrubs feel different. Cravings shrink. You walk into your shift without dreading the next 12 hours. Energy stops crashing mid-shift.</p>
+      </div>
+      <div class="tday reveal reveal--delay-2">
+        <div class="tday__dot"></div>
+        <div class="tday__label">Day</div>
+        <div class="tday__num">14</div>
+        <p class="tday__text">You stop white-knuckling food. The drive-thru loses its grip. Sleep clicks back. You notice your reflection without flinching.</p>
+      </div>
+      <div class="tday reveal reveal--delay-3">
+        <div class="tday__dot"></div>
+        <div class="tday__label">Day</div>
+        <div class="tday__num">30</div>
+        <p class="tday__text">Someone says <em>"you look different."</em> You see it too. Your rings fit. Your posture is up. Food doesn't run your brain anymore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUOTE WALL #3
+     ============================================================ -->
+<section class="quote sec--bg-warm">
+  <p class="quote__text reveal">
+    I didn't need more discipline. I needed someone to explain what was actually happening in my body.
+  </p>
+  <div class="quote__attr reveal reveal--delay-1">Real SmithFit Member</div>
+</section>
+
+<!-- ============================================================
+     SECTION E — SHOW-UP BONUS
+     ============================================================ -->
+<section class="bonus" id="bonus">
+  <div class="bonus__inner">
+    <div class="bonus__head">
+      <div class="eyebrow reveal">A gift for showing up</div>
+      <h2 class="headline reveal">Pick one.<br><em>Yours when we hop on the call.</em></h2>
+      <p class="bonus__sub reveal">I built these three guides for the moments most nurses tell me are the hardest. Whichever one is calling your name, that's the one I'll send you the second we get on the call. My thank-you for showing up.</p>
+    </div>
+    <div class="bonus__card reveal">
+      <div class="bonus__pill">Choose one</div>
+      <div class="bonus__items">
+        <div class="bonus__item">
+          <div class="bonus__thumb">
+            <div class="bonus__num">1</div>
+            <img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b5ff510c9f1e5300fb1890.webp" alt="The Shift-Worker's Grocery Guide cover" loading="lazy" decoding="async">
+          </div>
+          <div class="bonus__body">
+            <div class="bonus__name">The Shift-Worker's Grocery Guide &amp; <em>15-Minute Meal Prep Plan</em></div>
+            <span class="bonus__value">$47 value</span>
+            <p class="bonus__desc">Walk into any grocery store and know exactly what to grab in 15 minutes flat. Done-for-you shopping list organized by store section, with 15-minute meal prep designed for break rooms, not Michelin kitchens.</p>
+          </div>
+        </div>
+        <div class="bonus__item">
+          <div class="bonus__thumb">
+            <div class="bonus__num">2</div>
+            <img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b600355b89c7d3fa8c0315.webp" alt="Beat the Binge: The After-Shift Protocol cover" loading="lazy" decoding="async">
+          </div>
+          <div class="bonus__body">
+            <div class="bonus__name">Beat the Binge: <em>The After-Shift Protocol</em></div>
+            <span class="bonus__value">$47 value</span>
+            <p class="bonus__desc">Walk through your front door after a brutal shift and feel calm, not out of control. The 5-step emergency protocol that rewires the cortisol response so you walk past the pantry, pour yourself tea, and go to bed feeling proud instead of ashamed.</p>
+          </div>
+        </div>
+        <div class="bonus__item">
+          <div class="bonus__thumb">
+            <div class="bonus__num">3</div>
+            <img src="https://assets.cdn.filesafe.space/TSWnCFvIE58IDjlDc4Ym/media/69b6005ead0276ba90e75e06.webp" alt="The Restaurant &amp; Takeout Survival Guide cover" loading="lazy" decoding="async">
+          </div>
+          <div class="bonus__body">
+            <div class="bonus__name">The Restaurant &amp; <em>Takeout Survival Guide</em></div>
+            <span class="bonus__value">$47 value</span>
+            <p class="bonus__desc">Go out to eat with your family and enjoy every bite, without the guilt spiral afterward. Exact ordering strategies for every major chain. Your kids want pizza? Great. Your partner wants Mexican? Perfect. You'll know exactly what to order that keeps you on track AND lets you actually enjoy the meal.</p>
+          </div>
+        </div>
+      </div>
+      <p class="bonus__close">Total value <strong>$141</strong>. You'll keep whichever one you choose, even if we decide working together isn't the right fit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="cta-final" id="cta">
+  <div class="cta-final__inner">
+    <div class="cta-final__eyebrow">You're already on the way</div>
+    <h2 class="cta-final__title display">
+      On the call, you'll find out<br><em>what your body actually needs.</em>
+    </h2>
+    <p class="cta-final__sub">
+      Not another diet. Not another plan to fail. A system built for the woman you're becoming, who isn't going to fight her body for one more decade.
+    </p>
+    <div class="cta-final__buttons">
+      <a href="https://calendly.com/ijfit/30-minute-game-plan" class="btn-primary" target="_blank" rel="noopener">
+        <span>Confirm my call</span><span class="arr">→</span>
+      </a>
+      <a href="https://calendly.com/ijfit/30-minute-game-plan" class="btn-secondary" target="_blank" rel="noopener">
+        Already booked? See you there. Need to reschedule? Tap above.
+      </a>
+    </div>
+    <div class="cta-final__trust">
+      <span>★★★★★</span>
+      <span class="dot"></span>
+      <span>400+ Nurses Transformed</span>
+      <span class="dot"></span>
+      <span>60-Day Money-Back</span>
+      <span class="dot"></span>
+      <span>Built by a Nurse, for Nurses</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer__logo">Smith<em>Fit</em></div>
+  <div class="footer__tag">Built by a nurse, for nurses.</div>
+  <div class="footer__small">A private proof page shared with leads pre-call. Not for public distribution.</div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  // ---------- Reveal on scroll ----------
+  var revealItems = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    revealItems.forEach(function(el){revealObserver.observe(el)});
+  } else {
+    revealItems.forEach(function(el){el.classList.add('is-in')});
+  }
+
+  // ---------- Animated counters ----------
+  function animateCounter(el){
+    var target = parseInt(el.getAttribute('data-count'),10);
+    if(isNaN(target)) return;
+    var duration = 1600;
+    var start = performance.now();
+    function tick(now){
+      var progress = Math.min((now-start)/duration,1);
+      var eased = 1 - Math.pow(1-progress,3);
+      el.textContent = Math.floor(eased * target);
+      if(progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+  if('IntersectionObserver' in window){
+    var counterObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.5});
+    document.querySelectorAll('[data-count]').forEach(function(el){counterObserver.observe(el)});
+  } else {
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      el.textContent = el.getAttribute('data-count');
+    });
+  }
+
+  // ---------- Video tile lazy-load + play ----------
+  var tiles = document.querySelectorAll('.vtile');
+  tiles.forEach(function(tile){
+    var video = tile.querySelector('video');
+    var src = tile.getAttribute('data-src');
+    // Lazy-attach src when in viewport (preload="none" still won't fetch)
+    if('IntersectionObserver' in window){
+      var lazyObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            if(!video.src) video.src = src;
+            lazyObs.unobserve(tile);
+          }
+        });
+      },{rootMargin:'200px 0px'});
+      lazyObs.observe(tile);
+    } else {
+      video.src = src;
+    }
+    tile.addEventListener('click', function(){
+      if(!video.src) video.src = src;
+      video.setAttribute('controls','');
+      video.muted = false;
+      tile.classList.add('playing');
+      video.play().catch(function(){});
+    });
+  });
+
+  // ---------- Load more screenshots ----------
+  var lmBtn = document.getElementById('lmBtn');
+  var lmLabel = document.getElementById('lmLabel');
+  var lmCount = document.getElementById('lmCount');
+  var ssgrid = document.getElementById('ssgrid');
+  var hidden = ssgrid.querySelectorAll('.sscard.is-hidden');
+  var total = ssgrid.querySelectorAll('.sscard').length;
+  var isOpen = false;
+  lmBtn.addEventListener('click', function(){
+    isOpen = !isOpen;
+    hidden.forEach(function(el){
+      if(isOpen) el.classList.remove('is-hidden');
+      else el.classList.add('is-hidden');
+    });
+    lmBtn.classList.toggle('is-open', isOpen);
+    lmBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    lmLabel.textContent = isOpen ? 'Show less' : 'See all ' + total + ' wins';
+    lmCount.textContent = isOpen ? 'Showing all ' + total : 'Showing 12 of ' + total;
+    if(!isOpen){
+      document.getElementById('wins').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>

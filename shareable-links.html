@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmithFit — Shareable Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #faf7f2;
+            color: #2c2416;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: #c9a54e;
+        }
+        .subtitle { color: #9a8d7d; margin-bottom: 40px; font-size: 0.95rem; }
+        .section { margin-bottom: 36px; }
+        .section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c9a54e;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e8e0d4;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+        a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 10px;
+            color: #2c2416;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            font-family: 'DM Sans', sans-serif;
+        }
+        a:hover { border-color: #c9a54e; background: #f5f0e8; }
+        .arrow { color: #c9a54e; font-size: 1.2rem; }
+        .copy-btn {
+            background: none;
+            border: 1px solid #e8e0d4;
+            color: #9a8d7d;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin-left: 10px;
+            transition: all 0.2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .copy-btn:hover { border-color: #c9a54e; color: #c9a54e; }
+        .copy-btn.copied { border-color: #c9a54e; color: #c9a54e; }
+        .link-row { display: flex; align-items: center; gap: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SmithFit</h1>
+        <p class="subtitle">Shareable interactive tools & resources. Click to open, or copy the link to share.</p>
+
+        <div class="section">
+            <div class="section-title">Course Pillar Hubs</div>
+            <a href="course-hubs/pillar-1-diagnose-hub.html">
+                <span>Pillar 1 — Diagnose Hub</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'course-hubs/pillar-1-diagnose-hub.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="course-hubs/pillar-2-stabilize-hub.html">
+                <span>Pillar 2 — Stabilize Hub</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'course-hubs/pillar-2-stabilize-hub.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="course-hubs/pillar-3-calm-hub.html">
+                <span>Pillar 3 — Calm Hub</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'course-hubs/pillar-3-calm-hub.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="course-hubs/pillar-4-strengthen-hub.html">
+                <span>Pillar 4 — Strengthen Hub</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'course-hubs/pillar-4-strengthen-hub.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="course-hubs/pillar-5-sustain-hub.html">
+                <span>Pillar 5 — Sustain Hub</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'course-hubs/pillar-5-sustain-hub.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Interactive Tools</div>
+            <a href="standalone-tools/metabolism-stress-type-quiz.html">
+                <span>Metabolism Stress-Type Quiz</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'standalone-tools/metabolism-stress-type-quiz.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="standalone-tools/lead-magnet-quiz.html">
+                <span>Lead Magnet Quiz (with email capture)</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'standalone-tools/lead-magnet-quiz.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="standalone-tools/7-day-proof-tracker.html">
+                <span>7-Day Proof Tracker</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'standalone-tools/7-day-proof-tracker.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="standalone-tools/metabolic-stress-cycle.html">
+                <span>Metabolic Stress Cycle (animated)</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'standalone-tools/metabolic-stress-cycle.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Client Resources</div>
+            <a href="standalone-tools/cottage-cheese-recipes.html">
+                <span>Top 10 Cottage Cheese Recipes</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'standalone-tools/cottage-cheese-recipes.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Community Challenges</div>
+            <a href="challenges/ignition-week/client.html">
+                <span>Ignition Week — Client View</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'challenges/ignition-week/client.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+            <a href="challenges/metabolism-kickstart/client.html">
+                <span>Metabolism Kickstart — Client View</span>
+                <div class="link-row">
+                    <button class="copy-btn" onclick="copyLink(event, 'challenges/metabolism-kickstart/client.html')">Copy Link</button>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function copyLink(event, path) {
+            event.preventDefault();
+            event.stopPropagation();
+            const base = 'https://nurseijay.github.io/SmithFit/';
+            navigator.clipboard.writeText(base + path).then(() => {
+                const btn = event.target;
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy Link';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
