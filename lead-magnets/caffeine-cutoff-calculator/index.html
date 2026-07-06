@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keep Your Coffee. Move Your Last Call. | The Caffeine Cutoff Calculator | SmithFit</title>
+<meta name="description" content="You do not have to quit caffeine to sleep after a shift. You have to know when to stop. Get your personal last-call time in 10 seconds. Free, built by a nurse for nurses.">
+<meta property="og:title" content="Keep Your Coffee. Move Your Last Call. The Caffeine Cutoff Calculator">
+<meta property="og:description" content="Your personal caffeine last call, computed for your shift and your sleep time. Free, built by a nurse.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-cc *, .sf-cc *::before, .sf-cc *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-cc {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-orange-raw: #d4944a;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.sf-cc h1, .sf-cc h2, .sf-cc h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.14; }
+.sf-cc-em { font-family: var(--sf-display); font-style: italic; }
+.sf-cc button:focus-visible, .sf-cc a:focus-visible, .sf-cc input:focus-visible { outline: 3px solid var(--sf-gold-raw); outline-offset: 2px; }
+
+/* ===== Hero: split, last-call clock identity ===== */
+.sf-cc-hero {
+  background: linear-gradient(150deg, #241c13 0%, #3a2e22 58%, #2a2118 100%);
+  padding: 58px 20px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.sf-cc-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 78% 18%, rgba(200,160,78,0.26) 0%, transparent 52%); pointer-events: none; }
+.sf-cc-hero-inner { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; display: flex; align-items: center; gap: 44px; }
+.sf-cc-hero-copy { flex: 1 1 55%; }
+.sf-cc-badge {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4);
+  color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 22px;
+}
+.sf-cc-hero h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(34px, 5.8vw, 56px); margin-bottom: 16px; }
+.sf-cc-hero h1 .sf-cc-em { color: var(--sf-gold-soft); }
+.sf-cc-hero-sub { color: rgba(250,246,243,0.84); font-size: clamp(16px, 2.2vw, 19px); max-width: 480px; margin-bottom: 30px; }
+.sf-cc-hero-cta {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 38px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-cc-hero-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-cc-hero-trust { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 15px; }
+
+.sf-cc-hero-clock { flex: 0 0 auto; text-align: center; }
+.sf-cc-dial { width: 218px; height: 218px; display: block; margin: 0 auto; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.35)); }
+.sf-cc-dial-tag {
+  display: inline-block; margin-top: -30px; position: relative; z-index: 2;
+  background: var(--sf-gold-raw); color: var(--sf-dark-raw); border-radius: 8px; padding: 6px 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+.sf-cc-dial-cap { font-family: var(--sf-display); font-style: italic; color: rgba(250,246,243,0.72); font-size: 14.5px; max-width: 240px; margin: 18px auto 0; line-height: 1.55; }
+
+/* ===== Layout ===== */
+.sf-cc-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+.sf-cc-section { padding: 48px 0; }
+.sf-cc-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); text-align: center; margin-bottom: 10px; }
+.sf-cc-h2 { text-align: center; font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; margin-bottom: 8px; }
+.sf-cc-lead { text-align: center; color: var(--sf-taupe-light); font-size: 16px; max-width: 520px; margin: 0 auto 28px; }
+
+/* ===== Validate ===== */
+.sf-cc-validate {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-top: 4px solid var(--sf-gold-raw);
+  border-radius: 18px; padding: 28px 28px; margin-top: 42px;
+  box-shadow: 0 8px 32px rgba(42,33,24,0.07);
+}
+.sf-cc-validate h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 12px; }
+.sf-cc-validate p { font-size: 16px; margin-bottom: 10px; }
+.sf-cc-validate p:last-child { margin-bottom: 0; }
+.sf-cc-validate .sf-cc-line { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-light); }
+
+/* ===== Tool card ===== */
+.sf-cc-tool { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 30px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-cc-step-h { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 12px; display: flex; align-items: center; gap: 9px; }
+.sf-cc-step-n { width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+.sf-cc-shifts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+.sf-cc-shift { background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 13px 6px; text-align: center; cursor: pointer; font-family: var(--sf-sans); -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-cc-shift:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cc-shift.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-cc-shift-name { font-family: var(--sf-serif); font-weight: 700; font-size: 18px; color: var(--sf-dark-raw); display: block; }
+.sf-cc-shift-desc { font-size: 11px; color: var(--sf-taupe-light); margin-top: 2px; display: block; line-height: 1.4; }
+
+.sf-cc-customrow { margin: 4px 0 12px; }
+.sf-cc-customrow label { display: block; font-size: 13px; font-weight: 600; color: var(--sf-taupe-raw); margin-bottom: 6px; }
+.sf-cc-time { width: 100%; max-width: 220px; padding: 11px 14px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 10px; font-family: var(--sf-sans); font-size: 16px; color: var(--sf-dark-raw); -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-cc-time:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+
+.sf-cc-gap { height: 14px; }
+
+.sf-cc-sleeps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+.sf-cc-sleep { background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 12px 6px; text-align: center; cursor: pointer; font-family: var(--sf-sans); -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-cc-sleep:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cc-sleep.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-cc-sleep-time { font-family: var(--sf-serif); font-weight: 700; font-size: 19px; color: var(--sf-dark-raw); display: block; white-space: nowrap; }
+.sf-cc-sleep-desc { font-size: 10.5px; color: var(--sf-taupe-light); margin-top: 2px; display: block; line-height: 1.4; }
+
+.sf-cc-sensrow { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 15px 16px; }
+.sf-cc-switch { position: relative; flex: 0 0 48px; width: 48px; height: 27px; border-radius: 999px; background: var(--sf-cream-deep); border: 1.5px solid var(--sf-border); cursor: pointer; margin-top: 2px; -webkit-transition: background .2s ease, border-color .2s ease; transition: background .2s ease, border-color .2s ease; }
+.sf-cc-switch::after { content: ""; position: absolute; top: 2px; left: 3px; width: 19px; height: 19px; border-radius: 50%; background: #ffffff; box-shadow: 0 1px 4px rgba(42,33,24,0.25); -webkit-transition: transform .2s ease; transition: transform .2s ease; }
+.sf-cc-switch.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); }
+.sf-cc-switch.sf-on::after { -webkit-transform: translateX(20px); transform: translateX(20px); }
+.sf-cc-sens-label { font-size: 15px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-cc-sens-hint { font-size: 13px; color: var(--sf-taupe-light); margin-top: 2px; }
+
+.sf-cc-btn {
+  display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.4);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-cc-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-cc-btn:active { -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-cc-hint { text-align: center; font-size: 13px; color: var(--sf-taupe-light); margin-top: 12px; min-height: 16px; }
+.sf-cc-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+
+/* ===== Result ===== */
+@-webkit-keyframes sfCcPop { 0% { opacity: 0; -webkit-transform: translateY(14px) scale(.98); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
+@keyframes sfCcPop { 0% { opacity: 0; transform: translateY(14px) scale(.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+.sf-cc-pop { -webkit-animation: sfCcPop .5s ease forwards; animation: sfCcPop .5s ease forwards; }
+
+.sf-cc-ticket {
+  background: linear-gradient(140deg, #241c13 0%, #3a2e22 58%, #2a2118 100%);
+  border: 1px solid rgba(200,160,78,0.45); border-radius: 18px;
+  padding: 28px 24px; margin-top: 24px; position: relative; overflow: hidden;
+  display: flex; align-items: center; gap: 24px;
+}
+.sf-cc-ticket::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 22% 0%, rgba(200,160,78,0.22) 0%, transparent 55%); pointer-events: none; }
+.sf-cc-ticket > * { position: relative; z-index: 1; }
+.sf-cc-ticket-dial { flex: 0 0 auto; }
+.sf-cc-ticket-dial svg { width: 108px; height: 108px; display: block; }
+.sf-cc-ticket-body { flex: 1 1 auto; min-width: 0; }
+.sf-cc-ticket-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 4px; }
+.sf-cc-ticket-time { font-family: var(--sf-serif); font-weight: 700; font-size: clamp(44px, 8vw, 60px); color: var(--sf-cream-raw); line-height: 1; }
+.sf-cc-ticket-sub { font-size: 13px; color: rgba(250,246,243,0.62); margin-top: 6px; }
+
+.sf-cc-verdict { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 20px 20px; margin-top: 14px; font-size: 15px; color: var(--sf-taupe-raw); }
+
+/* Timeline */
+.sf-cc-tl { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px 16px; margin-top: 14px; }
+.sf-cc-tl-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 26px; }
+.sf-cc-tl-track { position: relative; height: 14px; border-radius: 7px; background: var(--sf-cream-deep); overflow: visible; }
+.sf-cc-tl-win { position: absolute; top: 0; left: 0; bottom: 0; border-radius: 7px 0 0 7px; background: linear-gradient(90deg, var(--sf-gold-soft), var(--sf-gold-raw)); -webkit-transition: width .8s ease; transition: width .8s ease; }
+.sf-cc-tl-endtick { position: absolute; top: -5px; bottom: -5px; width: 2px; background: var(--sf-taupe-light); border-radius: 1px; }
+.sf-cc-tl-flag { position: absolute; bottom: 100%; margin-bottom: 7px; white-space: nowrap; }
+.sf-cc-tl-flag span { display: inline-block; background: var(--sf-dark-raw); color: var(--sf-gold-soft); border-radius: 6px; padding: 3px 9px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.sf-cc-tl-flag::after { content: ""; position: absolute; top: 100%; left: var(--sf-cc-arrow, 50%); margin-left: -4px; border: 4px solid transparent; border-top-color: var(--sf-dark-raw); }
+.sf-cc-tl-labels { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--sf-taupe-light); }
+.sf-cc-tl-labels .sf-cc-tl-mid { text-align: center; }
+.sf-cc-tl-key { display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: var(--sf-taupe-light); flex-wrap: wrap; }
+.sf-cc-tl-key span { display: inline-flex; align-items: center; gap: 6px; }
+.sf-cc-tl-key i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sf-cc-tl-key .sf-k-win { background: var(--sf-gold-raw); }
+.sf-cc-tl-key .sf-k-after { background: var(--sf-cream-deep); border: 1px solid var(--sf-border); }
+
+/* Decay bars */
+.sf-cc-decay { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 14px; }
+.sf-cc-decay-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 4px; }
+.sf-cc-decay-sub { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 18px; }
+.sf-cc-row { margin-bottom: 16px; }
+.sf-cc-row:last-child { margin-bottom: 0; }
+.sf-cc-row-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.sf-cc-cup { font-size: 14px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-cc-cup small { font-weight: 500; color: var(--sf-taupe-light); font-size: 13px; }
+.sf-cc-pct { font-size: 13px; font-weight: 700; white-space: nowrap; }
+.sf-cc-pct.sf-ok { color: var(--sf-green-raw); }
+.sf-cc-pct.sf-mid { color: #a8702a; }
+.sf-cc-pct.sf-hot { color: var(--sf-red-raw); }
+.sf-cc-bar { height: 10px; border-radius: 5px; background: var(--sf-cream-deep); overflow: hidden; }
+.sf-cc-fill { height: 100%; border-radius: 5px; width: 0; -webkit-transition: width .8s ease; transition: width .8s ease; }
+.sf-cc-fill.sf-ok { background: var(--sf-green-raw); }
+.sf-cc-fill.sf-mid { background: var(--sf-orange-raw); }
+.sf-cc-fill.sf-hot { background: var(--sf-red-raw); }
+.sf-cc-row-note { font-size: 12px; color: var(--sf-taupe-light); margin-top: 4px; font-style: italic; font-family: var(--sf-display); }
+
+.sf-cc-halflife { background: var(--sf-gold-hover); border-left: 4px solid var(--sf-gold-raw); border-radius: 0 12px 12px 0; padding: 16px 18px; margin-top: 14px; font-family: var(--sf-display); font-style: italic; font-size: 15.5px; color: var(--sf-taupe-raw); }
+
+.sf-cc-swaps { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 14px; }
+.sf-cc-swaps-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 14px; }
+.sf-cc-swap { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 14.5px; }
+.sf-cc-swap:last-child { border-bottom: none; }
+.sf-cc-swap-emoji { flex: 0 0 auto; font-size: 19px; line-height: 1.4; }
+.sf-cc-swap strong { color: var(--sf-dark-raw); }
+
+/* ===== Email gate ===== */
+.sf-cc-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 34px 26px; margin-top: 24px; text-align: center; position: relative; overflow: hidden; }
+.sf-cc-gate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 62%); pointer-events: none; }
+.sf-cc-gate > * { position: relative; z-index: 1; }
+.sf-cc-gate h3 { color: var(--sf-cream-raw); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 10px; }
+.sf-cc-gate h3 .sf-cc-em { color: var(--sf-gold-soft); }
+.sf-cc-gate p { color: rgba(250,246,243,0.82); font-size: 15px; max-width: 440px; margin: 0 auto 22px; }
+.sf-cc-list { list-style: none; max-width: 400px; margin: 0 auto 24px; text-align: left; }
+.sf-cc-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
+.sf-cc-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-cc-form { max-width: 400px; margin: 0 auto; }
+.sf-cc-field { margin-bottom: 12px; text-align: left; }
+.sf-cc-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,246,243,0.7); margin-bottom: 5px; }
+.sf-cc-field input { width: 100%; padding: 13px 15px; background: rgba(250,246,243,0.96); border: 1.5px solid transparent; border-radius: 10px; color: var(--sf-dark-raw); font-family: var(--sf-sans); font-size: 16px; -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-cc-field input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-cc-field input::placeholder { color: var(--sf-taupe-light); }
+.sf-cc-submit { display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 10px; padding: 15px 24px; font-family: var(--sf-sans); font-weight: 700; font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; margin-top: 6px; -webkit-transition: transform .2s ease, background .2s ease; transition: transform .2s ease, background .2s ease; }
+.sf-cc-submit:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); background: var(--sf-gold-light); }
+.sf-cc-submit:disabled { background: var(--sf-taupe-light); color: rgba(250,246,243,0.8); cursor: not-allowed; -webkit-transform: none; transform: none; }
+.sf-cc-formnote { color: rgba(250,246,243,0.55); font-size: 12px; margin-top: 14px; }
+.sf-cc-msg { border-radius: 10px; padding: 12px 16px; font-size: 14px; margin-top: 14px; text-align: left; }
+.sf-cc-msg.sf-err { background: var(--sf-red-soft); color: #8a3a37; }
+.sf-cc-msg.sf-ok { background: var(--sf-green-soft); color: #2f6b41; }
+.sf-cc-msg a { color: inherit; font-weight: 700; }
+
+/* ===== Bridge ===== */
+.sf-cc-bridge { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 34px 26px; text-align: center; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-cc-bridge h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 12px; }
+.sf-cc-bridge h2 .sf-cc-em { color: var(--sf-gold-raw); }
+.sf-cc-bridge p { font-size: 16px; max-width: 500px; margin: 0 auto 24px; }
+.sf-cc-bridge-cta { display: inline-block; background: transparent; color: var(--sf-taupe-raw); text-decoration: none; border: 1.5px solid var(--sf-gold-raw); border-radius: 12px; padding: 15px 34px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-cc-bridge-cta:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cc-bridge-note { color: var(--sf-taupe-light); font-size: 13px; margin-top: 14px; }
+
+/* ===== Proof ===== */
+.sf-cc-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.sf-cc-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 20px 10px; text-align: center; }
+.sf-cc-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 28px; color: var(--sf-gold-raw); display: block; }
+.sf-cc-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-cc-footer { text-align: center; padding: 36px 20px 40px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-cc-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-cc-reveal { opacity: 0; -webkit-transform: translateY(22px); transform: translateY(22px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-cc-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-cc-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-cc-hero { padding: 44px 18px 50px; }
+  .sf-cc-hero-inner { flex-direction: column; gap: 30px; text-align: center; }
+  .sf-cc-hero-sub { margin-left: auto; margin-right: auto; }
+  .sf-cc-dial { width: 172px; height: 172px; }
+  .sf-cc-section { padding: 38px 0; }
+  .sf-cc-validate { margin-top: 34px; padding: 24px 20px; }
+  .sf-cc-tool { padding: 24px 18px; }
+  .sf-cc-shifts { grid-template-columns: repeat(2, 1fr); }
+  .sf-cc-sleeps { grid-template-columns: repeat(2, 1fr); }
+  .sf-cc-shift-name { font-size: 16px; }
+  .sf-cc-sleep-time { font-size: 17px; }
+  .sf-cc-ticket { flex-direction: column; text-align: center; gap: 14px; padding: 24px 18px; }
+  .sf-cc-proof { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-cc *, .sf-cc *::before, .sf-cc *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-cc">
+
+  <!-- HERO -->
+  <header class="sf-cc-hero">
+    <div class="sf-cc-hero-inner">
+      <div class="sf-cc-hero-copy">
+        <span class="sf-cc-badge">Free calculator, built by a nurse</span>
+        <h1>Keep your coffee. Move your <span class="sf-cc-em">last call</span>.</h1>
+        <p class="sf-cc-hero-sub">You do not have to quit caffeine to sleep after a shift. You have to know when to stop. Tap in your shift and your sleep time, and get your personal last call in about 10 seconds.</p>
+        <a href="#sf-cc-tool" class="sf-cc-hero-cta">Get my last call</a>
+        <p class="sf-cc-hero-trust">Free. No email needed to see your time. Works for day, night, and rotating shifts.</p>
+      </div>
+      <div class="sf-cc-hero-clock" aria-hidden="true">
+        <svg class="sf-cc-dial" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="56" fill="rgba(200,160,78,0.07)" stroke="rgba(200,160,78,0.85)" stroke-width="2.5"/>
+          <g stroke="rgba(250,246,243,0.45)" stroke-width="2" stroke-linecap="round">
+            <line x1="60" y1="9" x2="60" y2="16"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(30 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(60 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(90 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(120 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(150 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(180 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(210 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(240 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(270 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(300 60 60)"/>
+            <line x1="60" y1="9" x2="60" y2="16" transform="rotate(330 60 60)"/>
+          </g>
+          <line x1="60" y1="60" x2="60" y2="34" stroke="#faf6f3" stroke-width="3.5" stroke-linecap="round" transform="rotate(90 60 60)"/>
+          <line x1="60" y1="60" x2="60" y2="24" stroke="#c8a04e" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="3.5" fill="#c8a04e"/>
+        </svg>
+        <span class="sf-cc-dial-tag">Last call</span>
+        <p class="sf-cc-dial-cap">A 3:00 am coffee is still about half strength in your blood at 8:00 am.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="sf-cc-wrap">
+
+    <!-- VALIDATE -->
+    <div class="sf-cc-validate sf-cc-reveal">
+      <h2>The coffee was never the problem</h2>
+      <p>Nobody hands you a nap room and a quiet hour at 3:00 am. You reach for coffee because it is the one tool the break room actually stocks, and it works. That is not a willpower problem. That is a nurse getting through her schedule.</p>
+      <p class="sf-cc-line">The trap is the timing, not the cup. Caffeine hangs around for hours after you drink it, so the cup that saves your shift can quietly take the sleep you were counting on. Move your last call and the math starts working for you.</p>
+    </div>
+
+    <!-- TOOL -->
+    <section class="sf-cc-section" id="sf-cc-tool">
+      <div class="sf-cc-eyebrow">Try it right now</div>
+      <h2 class="sf-cc-h2">Find your caffeine last call</h2>
+      <p class="sf-cc-lead">Three taps: your shift, your sleep time, and whether caffeine hits you hard. No email needed to see your number.</p>
+
+      <div class="sf-cc-tool sf-cc-reveal">
+        <div class="sf-cc-step-h"><span class="sf-cc-step-n">1</span> Your shift</div>
+        <div class="sf-cc-shifts" id="sfCcShifts" role="group" aria-label="Choose your shift">
+          <button type="button" class="sf-cc-shift" data-shift="day" aria-pressed="false">
+            <span class="sf-cc-shift-name">Day</span>
+            <span class="sf-cc-shift-desc">7a to 7p</span>
+          </button>
+          <button type="button" class="sf-cc-shift" data-shift="night" aria-pressed="false">
+            <span class="sf-cc-shift-name">Night</span>
+            <span class="sf-cc-shift-desc">7p to 7a</span>
+          </button>
+          <button type="button" class="sf-cc-shift" data-shift="evening" aria-pressed="false">
+            <span class="sf-cc-shift-name">Evening</span>
+            <span class="sf-cc-shift-desc">3p to 11p</span>
+          </button>
+          <button type="button" class="sf-cc-shift" data-shift="custom" aria-pressed="false">
+            <span class="sf-cc-shift-name">Custom</span>
+            <span class="sf-cc-shift-desc">Set my own end</span>
+          </button>
+        </div>
+        <div class="sf-cc-customrow sf-cc-hidden" id="sfCcCustomEndRow">
+          <label for="sfCcCustomEnd">When does your shift end?</label>
+          <input type="time" class="sf-cc-time" id="sfCcCustomEnd" value="">
+        </div>
+
+        <div class="sf-cc-gap"></div>
+
+        <div class="sf-cc-step-h"><span class="sf-cc-step-n">2</span> When do you plan to be asleep?</div>
+        <div class="sf-cc-sleeps" id="sfCcSleeps" role="group" aria-label="Choose when you plan to be asleep">
+          <button type="button" class="sf-cc-sleep" data-sleep="g90" aria-pressed="false">
+            <span class="sf-cc-sleep-time" data-slot="g90">--:--</span>
+            <span class="sf-cc-sleep-desc">I crash fast, about 90 minutes after clock-out</span>
+          </button>
+          <button type="button" class="sf-cc-sleep" data-sleep="g150" aria-pressed="false">
+            <span class="sf-cc-sleep-time" data-slot="g150">--:--</span>
+            <span class="sf-cc-sleep-desc">I wind down first, about 2 and a half hours after</span>
+          </button>
+          <button type="button" class="sf-cc-sleep" data-sleep="g240" aria-pressed="false">
+            <span class="sf-cc-sleep-time" data-slot="g240">--:--</span>
+            <span class="sf-cc-sleep-desc">Second wind, about 4 hours after</span>
+          </button>
+          <button type="button" class="sf-cc-sleep" data-sleep="custom" aria-pressed="false">
+            <span class="sf-cc-sleep-time">Custom</span>
+            <span class="sf-cc-sleep-desc">I will set my own time</span>
+          </button>
+        </div>
+        <div class="sf-cc-customrow sf-cc-hidden" id="sfCcCustomSleepRow">
+          <label for="sfCcCustomSleep">What time will you actually be asleep?</label>
+          <input type="time" class="sf-cc-time" id="sfCcCustomSleep" value="">
+        </div>
+
+        <div class="sf-cc-gap"></div>
+
+        <div class="sf-cc-step-h"><span class="sf-cc-step-n">3</span> One more thing</div>
+        <div class="sf-cc-sensrow">
+          <button type="button" class="sf-cc-switch" id="sfCcSens" aria-pressed="false" aria-label="Caffeine hits me hard"></button>
+          <div>
+            <div class="sf-cc-sens-label">Caffeine hits me hard</div>
+            <div class="sf-cc-sens-hint">One cup at noon and you are wired at midnight? Turn this on and I will pull your last call 2 hours earlier.</div>
+          </div>
+        </div>
+
+        <button type="button" class="sf-cc-btn" id="sfCcGo">Get my last call</button>
+        <p class="sf-cc-hint" id="sfCcHint"></p>
+        <div id="sfCcNudge"></div>
+
+        <div id="sfCcResult" class="sf-cc-hidden" aria-live="polite"></div>
+
+        <!-- EMAIL GATE (revealed after first result) -->
+        <div class="sf-cc-gate sf-cc-hidden" id="sfCcGate">
+          <h3>That is your number for <span class="sf-cc-em">one shift</span>. Get the full version.</h3>
+          <p>The full calculator covers your whole schedule, plus the pieces that keep it working on a rough stretch:</p>
+          <ul class="sf-cc-list">
+            <li>Day, night, and evening last calls side by side</li>
+            <li>The 3-nights-in-a-row plan</li>
+            <li>The rotating-shift reset card</li>
+            <li>A printable locker card with your numbers</li>
+          </ul>
+          <form class="sf-cc-form" id="sfCcForm" novalidate>
+            <div class="sf-cc-field">
+              <label for="sfCcFirst">First name (optional)</label>
+              <input type="text" id="sfCcFirst" name="firstName" placeholder="First name" autocomplete="given-name">
+            </div>
+            <div class="sf-cc-field">
+              <label for="sfCcEmail">Email</label>
+              <input type="email" id="sfCcEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
+            </div>
+            <button type="submit" class="sf-cc-submit" id="sfCcSubmit">Send me the full version</button>
+            <div id="sfCcFormMsg" aria-live="polite"></div>
+            <p class="sf-cc-formnote">No spam. Unsubscribe any time.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOFT HIGH-TICKET BRIDGE -->
+    <section class="sf-cc-section">
+      <div class="sf-cc-bridge sf-cc-reveal">
+        <h2>Want the plan built <span class="sf-cc-em">around your schedule</span>?</h2>
+        <p>The calculator handles the coffee. If you want the whole picture (the shifts, the sleep, the food, the weeks that fall apart) I take a few nurses a month for a free game-plan call. No pitch, a plan you can actually run.</p>
+        <a href="#" data-sf-call class="sf-cc-bridge-cta" target="_blank" rel="noopener">Book my free game-plan call</a>
+        <p class="sf-cc-bridge-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="sf-cc-section" style="padding-top: 0;">
+      <div class="sf-cc-proof sf-cc-reveal">
+        <div class="sf-cc-proof-item"><span class="sf-cc-proof-num">400+</span><div class="sf-cc-proof-label">Nurses coached</div></div>
+        <div class="sf-cc-proof-item"><span class="sf-cc-proof-num">87%</span><div class="sf-cc-proof-label">Feel a difference by Day 3</div></div>
+        <div class="sf-cc-proof-item"><span class="sf-cc-proof-num">~5 lbs</span><div class="sf-cc-proof-label">Average lost in Week 1</div></div>
+        <div class="sf-cc-proof-item"><span class="sf-cc-proof-num">60-day</span><div class="sf-cc-proof-label">Money-back guarantee</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-cc-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Keep your coffee. Move your last call.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (values live in lead-magnets/config.js) ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-caffeine-cutoff",
+    resourceUrl: "resource.html"
+  };
+  function isConfigured(v) { return v && v.indexOf('[') !== 0; }
+
+  /* ---- Meta pixel ---- */
+  try {
+    if (SF_CONFIG.pixelId) {
+      (function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+        t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init', SF_CONFIG.pixelId);
+      window.fbq('track', 'PageView');
+    }
+  } catch (e) {}
+
+  /* ---- Call CTAs ---- */
+  try {
+    var callLinks = document.querySelectorAll('[data-sf-call]');
+    if (SF_CONFIG.callUrl && SF_CONFIG.callUrl.indexOf('[') !== 0) {
+      for (var cl = 0; cl < callLinks.length; cl++) { callLinks[cl].setAttribute('href', SF_CONFIG.callUrl); }
+    }
+  } catch (e) {}
+
+  /* ---- Time math (all minutes since midnight, wraps across midnight) ---- */
+  var HALF_LIFE_H = 5.5; /* caffeine half-life, midpoint of the 5 to 6 hour range */
+  function mod1440(m) { return ((m % 1440) + 1440) % 1440; }
+  function fmt(min) {
+    min = Math.round(mod1440(min));
+    var h = Math.floor(min / 60), m = min % 60;
+    var ap = h >= 12 ? 'pm' : 'am';
+    var hh = h % 12; if (hh === 0) hh = 12;
+    return hh + ':' + (m < 10 ? '0' : '') + m + ' ' + ap;
+  }
+  function remainingPct(hoursToSleep) { return Math.round(Math.pow(0.5, hoursToSleep / HALF_LIFE_H) * 100); }
+  function hoursPhrase(min) {
+    var halves = Math.round(min / 30);
+    if (halves <= 1) return 'about 30 minutes';
+    var h = Math.floor(halves / 2), half = halves % 2;
+    if (h === 0) return 'about 30 minutes';
+    var word = (h === 1 && !half) ? 'hour' : 'hours';
+    return 'about ' + h + (half ? ' and a half ' : ' ') + word;
+  }
+  function parseTimeInput(el) {
+    if (!el || !el.value) return null;
+    var bits = el.value.split(':');
+    if (bits.length < 2) return null;
+    var h = parseInt(bits[0], 10), m = parseInt(bits[1], 10);
+    if (isNaN(h) || isNaN(m)) return null;
+    return mod1440(h * 60 + m);
+  }
+
+  var SHIFTS = {
+    day: { start: 420, end: 1140, name: 'day shift' },
+    night: { start: 1140, end: 420, name: 'night shift' },
+    evening: { start: 900, end: 1380, name: 'evening shift' },
+    custom: { start: null, end: null, name: 'shift' }
+  };
+  var GAPS = { g90: 90, g150: 150, g240: 240 };
+
+  var state = { shift: null, sleepMode: null, sensitive: false, rendered: false, lastCutoffLabel: '', lastSleepLabel: '' };
+
+  /* ---- DOM ---- */
+  var shiftsEl = document.getElementById('sfCcShifts');
+  var sleepsEl = document.getElementById('sfCcSleeps');
+  var customEndRow = document.getElementById('sfCcCustomEndRow');
+  var customEndEl = document.getElementById('sfCcCustomEnd');
+  var customSleepRow = document.getElementById('sfCcCustomSleepRow');
+  var customSleepEl = document.getElementById('sfCcCustomSleep');
+  var sensEl = document.getElementById('sfCcSens');
+  var goBtn = document.getElementById('sfCcGo');
+  var hintEl = document.getElementById('sfCcHint');
+  var nudgeEl = document.getElementById('sfCcNudge');
+  var resultEl = document.getElementById('sfCcResult');
+  var gateEl = document.getElementById('sfCcGate');
+  var formEl = document.getElementById('sfCcForm');
+  var submitBtn = document.getElementById('sfCcSubmit');
+  var formMsg = document.getElementById('sfCcFormMsg');
+
+  /* ---- Shift geometry ---- */
+  function getShift() {
+    if (!state.shift) return null;
+    if (state.shift === 'custom') {
+      var end = parseTimeInput(customEndEl);
+      if (end === null) return null;
+      return { start: mod1440(end - 720), end: end, len: 720, assumed: true, name: 'shift' };
+    }
+    var s = SHIFTS[state.shift];
+    return { start: s.start, end: s.end, len: mod1440(s.end - s.start), assumed: false, name: s.name };
+  }
+  function getSleep(shift) {
+    if (!state.sleepMode) return null;
+    if (state.sleepMode === 'custom') return parseTimeInput(customSleepEl);
+    return mod1440(shift.end + GAPS[state.sleepMode]);
+  }
+
+  /* ---- Preset labels follow the chosen shift ---- */
+  function updateSleepLabels() {
+    var shift = getShift();
+    var keys = ['g90', 'g150', 'g240'];
+    for (var i = 0; i < keys.length; i++) {
+      var slot = sleepsEl.querySelector('[data-slot="' + keys[i] + '"]');
+      if (slot) slot.textContent = shift ? fmt(shift.end + GAPS[keys[i]]) : '--:--';
+    }
+  }
+
+  function updateHint() {
+    if (!state.shift) { hintEl.textContent = 'Start with your shift.'; return; }
+    if (state.shift === 'custom' && parseTimeInput(customEndEl) === null) { hintEl.textContent = 'Set your shift end time above.'; return; }
+    if (!state.sleepMode) { hintEl.textContent = 'Now tap when you plan to be asleep.'; return; }
+    if (state.sleepMode === 'custom' && parseTimeInput(customSleepEl) === null) { hintEl.textContent = 'Set your sleep time above.'; return; }
+    hintEl.textContent = state.rendered ? 'Your result updates as you change things.' : 'Ready when you are.';
+  }
+
+  /* ---- Interactions ---- */
+  shiftsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-cc-shift');
+    if (!btn) return;
+    var all = shiftsEl.querySelectorAll('.sf-cc-shift');
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove('sf-on'); all[i].setAttribute('aria-pressed', 'false'); }
+    btn.classList.add('sf-on'); btn.setAttribute('aria-pressed', 'true');
+    state.shift = btn.getAttribute('data-shift');
+    customEndRow.classList.toggle('sf-cc-hidden', state.shift !== 'custom');
+    nudgeEl.innerHTML = '';
+    updateSleepLabels();
+    updateHint();
+    maybeRerender();
+  });
+
+  sleepsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-cc-sleep');
+    if (!btn) return;
+    var all = sleepsEl.querySelectorAll('.sf-cc-sleep');
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove('sf-on'); all[i].setAttribute('aria-pressed', 'false'); }
+    btn.classList.add('sf-on'); btn.setAttribute('aria-pressed', 'true');
+    state.sleepMode = btn.getAttribute('data-sleep');
+    customSleepRow.classList.toggle('sf-cc-hidden', state.sleepMode !== 'custom');
+    nudgeEl.innerHTML = '';
+    updateHint();
+    maybeRerender();
+  });
+
+  customEndEl.addEventListener('input', function () { updateSleepLabels(); updateHint(); maybeRerender(); });
+  customSleepEl.addEventListener('input', function () { updateHint(); maybeRerender(); });
+
+  sensEl.addEventListener('click', function () {
+    state.sensitive = !state.sensitive;
+    sensEl.classList.toggle('sf-on', state.sensitive);
+    sensEl.setAttribute('aria-pressed', state.sensitive ? 'true' : 'false');
+    try { window.localStorage.setItem('sf_cc_sensitive', state.sensitive ? '1' : '0'); } catch (e) {}
+    maybeRerender();
+  });
+
+  goBtn.addEventListener('click', function () { render(true); });
+
+  function maybeRerender() { if (state.rendered) render(false); }
+
+  /* ---- The result ---- */
+  function render(scroll) {
+    if (!state.shift) {
+      nudgeEl.innerHTML = '<div class="sf-cc-nudge">Tap your shift first (day, night, evening, or custom) so I can line the clock up with your day.</div>';
+      return;
+    }
+    var shift = getShift();
+    if (!shift) {
+      nudgeEl.innerHTML = '<div class="sf-cc-nudge">Type in when your shift ends and I will take it from there.</div>';
+      return;
+    }
+    if (!state.sleepMode) {
+      nudgeEl.innerHTML = '<div class="sf-cc-nudge">Tap when you plan to be asleep (or set your own time). Your last call is one tap away.</div>';
+      return;
+    }
+    var sleep = getSleep(shift);
+    if (sleep === null) {
+      nudgeEl.innerHTML = '<div class="sf-cc-nudge">Type the time you actually plan to be asleep and I will do the math.</div>';
+      return;
+    }
+    nudgeEl.innerHTML = '';
+
+    var windowH = state.sensitive ? 10 : 8;
+    var cutoff = mod1440(sleep - windowH * 60);
+    var gap = mod1440(sleep - shift.end);
+    var cycle = shift.len + gap;
+    var cutoffFromStart = mod1440(cutoff - shift.start);
+
+    /* Verdict, three genuinely different branches */
+    var verdict;
+    if (cutoffFromStart > cycle) {
+      verdict = 'To be asleep by ' + fmt(sleep) + ', your last call is ' + fmt(cutoff) + '. That is before you even clock in, so have your coffee before the shift and let the swaps below run the floor.';
+    } else if (cutoffFromStart <= shift.len) {
+      if (cutoffFromStart < 45) {
+        verdict = 'Your last call is ' + fmt(cutoff) + ', right around clock-in. Front-load your coffee early, then hand the rest of the shift to the swaps below.';
+      } else {
+        verdict = 'Your last call is ' + fmt(cutoff) + ', ' + hoursPhrase(cutoffFromStart) + ' into your shift. Every cup before that is yours, enjoy it. After that, the swaps below carry the back half.';
+      }
+    } else {
+      verdict = 'Your last call is ' + fmt(cutoff) + ', and it lands after you clock out. You have more room than most nurses expect. The one to skip is the refill at home before bed.';
+    }
+    verdict += state.sensitive
+      ? ' You said caffeine hits you hard, so this is 10 hours before your sleep time instead of the standard 8.'
+      : ' That is your planned sleep time minus 8 hours, the window a cup needs to mostly clear.';
+    if (gap > 720) {
+      verdict += ' One heads up: you set your sleep time more than 12 hours after clock-out. The math still holds, the long awake stretch is the hard part.';
+    }
+    if (shift.assumed) {
+      verdict += ' (For the picture below I assumed a 12-hour shift. Your last call only depends on your sleep time.)';
+    }
+
+    /* Ticket clock hands */
+    var ch = Math.floor(cutoff / 60), cm = cutoff % 60;
+    var hourDeg = ((ch % 12) * 30 + cm * 0.5);
+    var minDeg = cm * 6;
+
+    /* Timeline positions */
+    var winPct = cutoffFromStart > cycle ? 0 : Math.min(100, (cutoffFromStart / cycle) * 100);
+    var endPct = Math.min(100, (shift.len / cycle) * 100);
+    var flagPct = Math.max(10, Math.min(90, winPct));
+
+    /* Decay sample cups */
+    var cups = [
+      { name: 'Clock-in cup', t: shift.start },
+      { name: 'Mid-shift cup', t: mod1440(shift.start + shift.len / 2) },
+      { name: 'The slump cup', t: mod1440(shift.start + shift.len * 0.75) },
+      { name: 'Drive-home cup', t: shift.end }
+    ];
+    var rowsHtml = '';
+    for (var i = 0; i < cups.length; i++) {
+      var h = mod1440(sleep - cups[i].t) / 60;
+      var pct = remainingPct(h);
+      var cls, note;
+      if (h >= windowH) { cls = 'sf-ok'; note = 'Mostly cleared by the time you land.'; }
+      else if (pct <= 55) { cls = 'sf-mid'; note = 'Still working on you at bedtime.'; }
+      else if (pct < 70) { cls = 'sf-hot'; note = 'More than half of it rides home with you.'; }
+      else { cls = 'sf-hot'; note = 'Basically a fresh cup at bedtime.'; }
+      rowsHtml += '' +
+        '<div class="sf-cc-row">' +
+          '<div class="sf-cc-row-head">' +
+            '<span class="sf-cc-cup">' + cups[i].name + ' <small>' + fmt(cups[i].t) + '</small></span>' +
+            '<span class="sf-cc-pct ' + cls + '">' + pct + '% at bedtime</span>' +
+          '</div>' +
+          '<div class="sf-cc-bar"><div class="sf-cc-fill ' + cls + '" data-w="' + pct + '"></div></div>' +
+          '<div class="sf-cc-row-note">' + note + '</div>' +
+        '</div>';
+    }
+
+    var halfLine = 'A coffee at ' + fmt(sleep - 300) + ' is still about half strength in your blood at ' + fmt(sleep) + ', right when you are trying to fall asleep. Half of every cup leaves your system every 5 to 6 hours. That is why the last cup matters more than the first.';
+
+    resultEl.innerHTML = '' +
+      '<div class="sf-cc-ticket sf-cc-pop">' +
+        '<div class="sf-cc-ticket-dial" aria-hidden="true">' +
+          '<svg viewBox="0 0 120 120">' +
+            '<circle cx="60" cy="60" r="56" fill="rgba(200,160,78,0.08)" stroke="rgba(200,160,78,0.85)" stroke-width="2.5"/>' +
+            '<g stroke="rgba(250,246,243,0.4)" stroke-width="2" stroke-linecap="round">' +
+              '<line x1="60" y1="9" x2="60" y2="15"/><line x1="60" y1="9" x2="60" y2="15" transform="rotate(90 60 60)"/>' +
+              '<line x1="60" y1="9" x2="60" y2="15" transform="rotate(180 60 60)"/><line x1="60" y1="9" x2="60" y2="15" transform="rotate(270 60 60)"/>' +
+            '</g>' +
+            '<line x1="60" y1="60" x2="60" y2="34" stroke="#faf6f3" stroke-width="3.5" stroke-linecap="round" transform="rotate(' + minDeg + ' 60 60)"/>' +
+            '<line x1="60" y1="60" x2="60" y2="25" stroke="#c8a04e" stroke-width="2.5" stroke-linecap="round" transform="rotate(' + hourDeg + ' 60 60)"/>' +
+            '<circle cx="60" cy="60" r="3.5" fill="#c8a04e"/>' +
+          '</svg>' +
+        '</div>' +
+        '<div class="sf-cc-ticket-body">' +
+          '<div class="sf-cc-ticket-label">Your caffeine last call</div>' +
+          '<div class="sf-cc-ticket-time">' + fmt(cutoff) + '</div>' +
+          '<div class="sf-cc-ticket-sub">To be asleep by ' + fmt(sleep) + (state.sensitive ? ', tuned for caffeine that hits hard' : '') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="sf-cc-verdict sf-cc-pop">' + verdict + '</div>' +
+      '<div class="sf-cc-tl sf-cc-pop">' +
+        '<div class="sf-cc-tl-title">Your shift to sleep, on one line</div>' +
+        '<div class="sf-cc-tl-track">' +
+          '<div class="sf-cc-tl-flag" style="left:' + flagPct + '%; -webkit-transform: translateX(-50%); transform: translateX(-50%);"><span>Last call ' + fmt(cutoff) + '</span></div>' +
+          '<div class="sf-cc-tl-win" data-w="' + winPct + '"></div>' +
+          '<div class="sf-cc-tl-endtick" style="left:' + endPct + '%"></div>' +
+        '</div>' +
+        '<div class="sf-cc-tl-labels">' +
+          '<span>Clock in ' + fmt(shift.start) + '</span>' +
+          '<span class="sf-cc-tl-mid">Clock out ' + fmt(shift.end) + '</span>' +
+          '<span>Asleep ' + fmt(sleep) + '</span>' +
+        '</div>' +
+        '<div class="sf-cc-tl-key">' +
+          '<span><i class="sf-k-win"></i> Coffee window</span>' +
+          '<span><i class="sf-k-after"></i> After last call</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="sf-cc-decay sf-cc-pop">' +
+        '<div class="sf-cc-decay-title">Where each cup lands at ' + fmt(sleep) + '</div>' +
+        '<div class="sf-cc-decay-sub">Percent of the caffeine still in your blood when your head hits the pillow.</div>' +
+        rowsHtml +
+      '</div>' +
+      '<div class="sf-cc-halflife sf-cc-pop">' + halfLine + '</div>' +
+      '<div class="sf-cc-swaps sf-cc-pop">' +
+        '<div class="sf-cc-swaps-title">After last call, reach for</div>' +
+        '<div class="sf-cc-swap"><span class="sf-cc-swap-emoji" aria-hidden="true">💧</span><div><strong>Water plus electrolytes.</strong> Half the 3 am drag is dehydration wearing a caffeine costume.</div></div>' +
+        '<div class="sf-cc-swap"><span class="sf-cc-swap-emoji" aria-hidden="true">🚶</span><div><strong>A 10-minute walk or a stair lap.</strong> Movement wakes you up without the 5-hour tail.</div></div>' +
+        '<div class="sf-cc-swap"><span class="sf-cc-swap-emoji" aria-hidden="true">🥜</span><div><strong>A protein snack.</strong> Steady fuel beats another spike, and it holds until the drive home.</div></div>' +
+      '</div>';
+
+    resultEl.classList.remove('sf-cc-hidden');
+
+    /* Animate the fills after insertion */
+    var fills = resultEl.querySelectorAll('[data-w]');
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        for (var f = 0; f < fills.length; f++) { fills[f].style.width = fills[f].getAttribute('data-w') + '%'; }
+      });
+    });
+
+    /* Remember the result for the payload + the full version */
+    state.lastCutoffLabel = fmt(cutoff);
+    state.lastSleepLabel = fmt(sleep);
+    try {
+      window.localStorage.setItem('sf_cc_result', JSON.stringify({ shift: state.shift, cutoff: fmt(cutoff), sleep: fmt(sleep), sensitive: state.sensitive }));
+    } catch (e) {}
+
+    var firstTime = !state.rendered;
+    state.rendered = true;
+    updateHint();
+    gateEl.classList.remove('sf-cc-hidden');
+    if (scroll && firstTime) { resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+
+  /* ---- Email capture ---- */
+  function fireLeadPixel() {
+    try { if (SF_CONFIG.pixelId && typeof window.fbq === 'function') { window.fbq('track', 'Lead', { content_name: 'The Caffeine Cutoff Calculator' }); } } catch (e) {}
+  }
+  function goToResource(first) {
+    try {
+      if (first) window.localStorage.setItem('sf_cc_first', first);
+      window.localStorage.setItem('sf_cc_unlocked', '1');
+    } catch (e) {}
+    window.location.href = SF_CONFIG.resourceUrl + '?unlocked=1';
+  }
+
+  formEl.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first = document.getElementById('sfCcFirst').value.trim();
+    var email = document.getElementById('sfCcEmail').value.trim();
+
+    if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+      formMsg.innerHTML = '<div class="sf-cc-msg sf-err">That email looks off. Mind checking it?</div>';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    formMsg.innerHTML = '';
+
+    var payload = {
+      firstName: first,
+      email: email,
+      magnet: 'caffeine-cutoff-calculator',
+      tag: SF_CONFIG.leadTag,
+      shift: state.shift || '',
+      cutoff: state.lastCutoffLabel || '',
+      source: 'lead-magnet-site',
+      timestamp: new Date().toISOString()
+    };
+
+    /* Not wired yet: still deliver the value, the form is never a dead end */
+    if (!isConfigured(SF_CONFIG.webhookUrl)) {
+      formMsg.innerHTML = '<div class="sf-cc-msg sf-ok">You are in. Opening your full calculator...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 700);
+      return;
+    }
+
+    var done = false;
+    var timer = setTimeout(function () {
+      if (done) return; done = true;
+      /* Slow network: do not trap her, let her through */
+      formMsg.innerHTML = '<div class="sf-cc-msg sf-ok">You are in. Opening your full calculator...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 500);
+    }, 8000);
+
+    fetch(SF_CONFIG.webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (done) return; done = true; clearTimeout(timer);
+      if (res && (res.ok || res.status === 0 || res.type === 'opaque')) {
+        formMsg.innerHTML = '<div class="sf-cc-msg sf-ok">You are in. Opening your full calculator...</div>';
+        fireLeadPixel();
+        setTimeout(function () { goToResource(first); }, 700);
+      } else {
+        throw new Error('bad status');
+      }
+    }).catch(function () {
+      if (done) return; done = true; clearTimeout(timer);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send me the full version';
+      formMsg.innerHTML = '<div class="sf-cc-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full calculator now</a> and I will catch your email next time.</div>';
+    });
+  });
+
+  /* ---- Reveal ---- */
+  (function reveal() {
+    var els = document.querySelectorAll('.sf-cc-reveal');
+    if (!els.length) return;
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { entries[i].target.classList.add('sf-in'); obs.unobserve(entries[i].target); } }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add('sf-in');
+    }
+  })();
+
+  /* ---- Init ---- */
+  try { if (window.localStorage.getItem('sf_cc_sensitive') === '1') { state.sensitive = true; sensEl.classList.add('sf-on'); sensEl.setAttribute('aria-pressed', 'true'); } } catch (e) {}
+  updateSleepLabels();
+  updateHint();
+
+  /* QA preview: ?demo=1 pre-fills night shift + crash-fast and renders the result */
+  try {
+    if (window.location.search.indexOf('demo=1') !== -1) {
+      var nightBtn = shiftsEl.querySelector('[data-shift="night"]');
+      var g90Btn = sleepsEl.querySelector('[data-sleep="g90"]');
+      if (nightBtn) nightBtn.click();
+      if (g90Btn) g90Btn.click();
+      render(false);
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>

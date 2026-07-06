@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cortisol Scam | Run Your Receipt, Take the Free Fix | SmithFit</title>
+<meta name="description" content="Adrenal fatigue is not a real diagnosis, and no $60 powder fixes a 12-hour schedule. Run the receipt on what the calm aisle has charged you, then take the four free moves that actually work. Built by a nurse, for nurses.">
+<meta property="og:title" content="The Cortisol Scam. Throw out the adrenal cocktail. The thing that actually works is free.">
+<meta property="og:description" content="Run the receipt on what the calm industry has cost you, then take the free shift-proof fix. Built by a nurse, for nurses.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-cs *, .sf-cs *::before, .sf-cs *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-cs {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-paper: #fffdf8;
+  --sf-ink: #3a3226;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sf-mono: 'SFMono-Regular', Menlo, Consolas, 'Courier New', monospace;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.sf-cs h1, .sf-cs h2, .sf-cs h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.12; font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; }
+.sf-cs-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Top bar ===== */
+.sf-cs-top {
+  background: var(--sf-dark-raw);
+  border-bottom: 1px solid rgba(200,160,78,0.28);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px;
+}
+.sf-cs-top-mark { font-family: var(--sf-serif); font-weight: 700; font-size: 19px; color: var(--sf-cream-raw); letter-spacing: 0.02em; }
+.sf-cs-top-mark span { color: var(--sf-gold-soft); }
+.sf-cs-top-note { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,246,243,0.55); }
+
+/* ===== Hero ===== */
+.sf-cs-hero {
+  background: linear-gradient(150deg, #2a2118 0%, #3a2e22 55%, #241c14 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 64px 24px 72px;
+}
+.sf-cs-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 22% 0%, rgba(200,160,78,0.26) 0%, transparent 52%); pointer-events: none; }
+.sf-cs-hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+}
+.sf-cs-hero-grid { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.72fr); gap: 52px; align-items: center; }
+.sf-cs-kicker { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 18px; }
+.sf-cs-kicker::before { content: ""; display: inline-block; width: 26px; height: 1px; background: var(--sf-gold-raw); vertical-align: middle; margin-right: 12px; }
+.sf-cs-hero h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(33px, 5.4vw, 56px); margin-bottom: 18px; }
+.sf-cs-hero h1 .sf-cs-em { color: var(--sf-gold-soft); }
+.sf-cs-hero-sub { color: rgba(250,246,243,0.82); font-size: clamp(15px, 2.1vw, 18px); max-width: 520px; margin-bottom: 30px; }
+.sf-cs-hero-cta {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 40px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-cs-hero-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-cs-hero-cta:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-cs-hero-trust { color: rgba(250,246,243,0.58); font-size: 13px; margin-top: 15px; }
+
+/* Hero exhibit receipt */
+.sf-cs-exhibit { -webkit-transform: rotate(2.5deg); transform: rotate(2.5deg); }
+.sf-cs-paper {
+  background: var(--sf-paper); color: var(--sf-ink);
+  font-family: var(--sf-mono); font-size: 13px; line-height: 1.75;
+  padding: 22px 20px 16px;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.4);
+  position: relative;
+  max-width: 320px; margin: 0 auto;
+}
+.sf-cs-tear {
+  height: 11px; max-width: 320px; margin: 0 auto;
+  background-image: linear-gradient(135deg, var(--sf-paper) 50%, transparent 50%), linear-gradient(225deg, var(--sf-paper) 50%, transparent 50%);
+  background-size: 12px 12px; background-repeat: repeat-x;
+}
+.sf-cs-rhead { text-align: center; font-weight: 700; letter-spacing: 0.12em; font-size: 12px; text-transform: uppercase; }
+.sf-cs-rsub { text-align: center; font-size: 11px; color: #857763; margin-bottom: 8px; }
+.sf-cs-rsep { border-top: 1.5px dashed #cfc3af; margin: 8px 0; }
+.sf-cs-rline { display: flex; align-items: baseline; gap: 6px; }
+.sf-cs-rname { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sf-cs-rdots { flex: 1; border-bottom: 2px dotted #cfc3af; -webkit-transform: translateY(-4px); transform: translateY(-4px); min-width: 12px; }
+.sf-cs-rprice { white-space: nowrap; }
+.sf-cs-rtotal { font-weight: 700; }
+.sf-cs-rzero { color: var(--sf-red-raw); font-weight: 700; }
+.sf-cs-rstamp {
+  position: absolute; top: -13px; right: -16px;
+  border: 3px solid var(--sf-red-raw); color: var(--sf-red-raw);
+  font-family: var(--sf-sans); font-weight: 800; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 6px 10px; border-radius: 4px; opacity: 0.9;
+  -webkit-transform: rotate(-11deg); transform: rotate(-11deg);
+  background: rgba(255,253,248,0.72);
+  pointer-events: none;
+}
+.sf-cs-rbar { height: 30px; width: 72%; margin: 12px auto 2px; background: repeating-linear-gradient(90deg, var(--sf-ink) 0 2px, transparent 2px 5px, var(--sf-ink) 5px 6px, transparent 6px 9px, var(--sf-ink) 9px 12px, transparent 12px 15px); }
+.sf-cs-rbarnote { text-align: center; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #857763; }
+.sf-cs-exhibit-cap { text-align: center; font-family: var(--sf-display); font-style: italic; color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 20px; }
+
+/* ===== Layout ===== */
+.sf-cs-wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.sf-cs-section { padding: 54px 0 10px; }
+.sf-cs-secnum { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 10px; }
+.sf-cs-secnum::before { content: ""; display: inline-block; width: 26px; height: 1px; background: var(--sf-gold-raw); vertical-align: middle; margin-right: 12px; }
+.sf-cs-h2 { font-size: clamp(27px, 4.6vw, 40px); font-weight: 700; margin-bottom: 10px; }
+.sf-cs-lead { color: var(--sf-taupe-light); font-size: 16px; max-width: 600px; margin-bottom: 28px; }
+
+/* ===== Validate ===== */
+.sf-cs-validate { padding: 58px 0 8px; }
+.sf-cs-validate h2 { font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; margin-bottom: 16px; }
+.sf-cs-validate p { font-size: 16px; margin-bottom: 14px; max-width: 640px; }
+.sf-cs-truth {
+  border-left: 4px solid var(--sf-gold-raw); background: var(--sf-gold-hover);
+  border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 22px 0 14px;
+  font-family: var(--sf-display); font-style: italic; font-size: clamp(16px, 2.3vw, 19px); color: var(--sf-dark-raw); max-width: 640px;
+}
+
+/* ===== Purchases tool ===== */
+.sf-cs-tool { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 30px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-cs-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px; }
+.sf-cs-item {
+  display: flex; align-items: flex-start; gap: 12px; text-align: left;
+  background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px;
+  padding: 14px 14px; cursor: pointer; font-family: var(--sf-sans); width: 100%;
+  -webkit-transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.sf-cs-item:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cs-item:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-cs-item.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-cs-item-emoji { font-size: 22px; line-height: 1.3; }
+.sf-cs-item-name { font-weight: 700; font-size: 14.5px; color: var(--sf-dark-raw); }
+.sf-cs-item.sf-on .sf-cs-item-name::after { content: " \2713"; color: var(--sf-gold-raw); }
+.sf-cs-item-price { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sf-gold-raw); margin-top: 1px; }
+.sf-cs-item-sub { font-size: 12px; color: var(--sf-taupe-light); margin-top: 2px; line-height: 1.45; }
+
+.sf-cs-runrow { display: flex; gap: 12px; flex-wrap: wrap; }
+.sf-cs-btn {
+  flex: 1; min-width: 200px; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.4);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-cs-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-cs-btn:active { -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-cs-btn:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-cs-ghost {
+  flex: 1; min-width: 200px; background: transparent; color: var(--sf-taupe-raw); border: 1.5px solid var(--sf-border); border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 14px; font-weight: 600; cursor: pointer;
+  -webkit-transition: background .2s ease, border-color .2s ease;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sf-cs-ghost:hover { background: var(--sf-cream-mid); border-color: var(--sf-gold-soft); }
+.sf-cs-ghost:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+
+.sf-cs-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 13px 17px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 16px; }
+
+/* Receipt result */
+.sf-cs-result { margin-top: 28px; }
+.sf-cs-result .sf-cs-paper { max-width: 380px; -webkit-transform: none; transform: none; box-shadow: 0 10px 30px rgba(42,33,24,0.16); }
+.sf-cs-result .sf-cs-tear { max-width: 380px; }
+@-webkit-keyframes sfCsLine { 0% { opacity: 0; -webkit-transform: translateY(6px); } 100% { opacity: 1; -webkit-transform: translateY(0); } }
+@keyframes sfCsLine { 0% { opacity: 0; transform: translateY(6px); } 100% { opacity: 1; transform: translateY(0); } }
+.sf-cs-rline-anim { opacity: 0; -webkit-animation: sfCsLine .45s ease forwards; animation: sfCsLine .45s ease forwards; }
+@-webkit-keyframes sfCsPop { 0% { opacity: 0; -webkit-transform: translateY(14px) scale(.985); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
+@keyframes sfCsPop { 0% { opacity: 0; transform: translateY(14px) scale(.985); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+.sf-cs-pop { -webkit-animation: sfCsPop .5s ease forwards; animation: sfCsPop .5s ease forwards; }
+
+.sf-cs-verdict { background: var(--sf-cream-mid); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 22px; margin-top: 22px; }
+.sf-cs-verdict h3 { font-size: clamp(20px, 3.4vw, 26px); font-weight: 700; margin-bottom: 8px; }
+.sf-cs-verdict p { font-size: 15px; }
+.sf-cs-honest { margin-top: 22px; }
+.sf-cs-honest h4 { font-family: var(--sf-sans); font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 12px; }
+.sf-cs-honest-item { padding: 12px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-cs-honest-item:last-child { border-bottom: none; }
+.sf-cs-honest-name { font-weight: 700; font-size: 14.5px; color: var(--sf-dark-raw); }
+.sf-cs-honest-name em { font-style: normal; font-size: 12px; font-weight: 700; color: var(--sf-gold-raw); margin-left: 6px; }
+.sf-cs-honest-line { font-size: 14px; color: var(--sf-taupe-raw); margin-top: 2px; }
+.sf-cs-next { display: inline-block; margin-top: 22px; background: transparent; border: 1.5px solid var(--sf-gold-raw); color: var(--sf-taupe-raw); border-radius: 12px; padding: 13px 26px; font-family: var(--sf-sans); font-size: 14px; font-weight: 700; cursor: pointer; -webkit-transition: background .2s ease, transform .2s ease; transition: background .2s ease, transform .2s ease; }
+.sf-cs-next:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cs-next:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+
+/* ===== Free fix ===== */
+.sf-cs-patterns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.sf-cs-pattern {
+  background: var(--sf-bg-card); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 16px 10px; text-align: center; cursor: pointer; font-family: var(--sf-sans);
+  -webkit-transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.sf-cs-pattern:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); border-color: var(--sf-gold-soft); box-shadow: 0 8px 24px rgba(42,33,24,0.08); }
+.sf-cs-pattern:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-cs-pattern.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 20px var(--sf-gold-glow); }
+.sf-cs-pattern-emoji { font-size: 24px; display: block; margin-bottom: 4px; }
+.sf-cs-pattern-name { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 18px; color: var(--sf-dark-raw); }
+.sf-cs-pattern-desc { display: block; font-size: 11px; color: var(--sf-taupe-light); margin-top: 2px; }
+
+.sf-cs-plan { margin-top: 6px; }
+.sf-cs-plan-head { margin-bottom: 6px; }
+.sf-cs-plan-head h3 { font-size: clamp(22px, 3.8vw, 30px); font-weight: 700; }
+.sf-cs-plan-intro { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-raw); font-size: 15.5px; background: var(--sf-gold-hover); border-radius: 12px; padding: 12px 18px; margin: 12px 0 18px; }
+.sf-cs-move { display: flex; gap: 16px; background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 20px 20px; margin-bottom: 12px; box-shadow: 0 2px 16px rgba(42,33,24,0.05); }
+.sf-cs-move-n { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sf-cs-move h4 { font-family: var(--sf-serif); font-size: 19px; font-weight: 700; color: var(--sf-dark-raw); margin-bottom: 4px; }
+.sf-cs-move p { font-size: 14.5px; }
+.sf-cs-zero { display: inline-flex; align-items: center; gap: 8px; background: var(--sf-green-soft); color: #2f6b41; border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 700; margin-top: 10px; }
+
+/* ===== Expect ===== */
+.sf-cs-expect p { font-size: 16px; max-width: 640px; margin-bottom: 14px; }
+.sf-cs-statcall { border-left: 4px solid var(--sf-gold-raw); background: var(--sf-bg-card); border-radius: 0 12px 12px 0; padding: 18px 22px; max-width: 640px; box-shadow: 0 2px 16px rgba(42,33,24,0.05); }
+.sf-cs-statcall strong { color: var(--sf-dark-raw); }
+
+/* ===== Email gate ===== */
+.sf-cs-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 36px 28px; margin-top: 44px; text-align: center; position: relative; overflow: hidden; }
+.sf-cs-gate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 62%); pointer-events: none; }
+.sf-cs-gate > * { position: relative; z-index: 1; }
+.sf-cs-gate h3 { color: var(--sf-cream-raw); font-size: clamp(23px, 3.8vw, 32px); font-weight: 700; margin-bottom: 10px; }
+.sf-cs-gate h3 .sf-cs-em { color: var(--sf-gold-soft); }
+.sf-cs-gate p { color: rgba(250,246,243,0.82); font-size: 15px; max-width: 460px; margin: 0 auto 20px; }
+.sf-cs-gate-list { list-style: none; max-width: 420px; margin: 0 auto 24px; text-align: left; }
+.sf-cs-gate-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
+.sf-cs-gate-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-cs-form { max-width: 400px; margin: 0 auto; }
+.sf-cs-field { margin-bottom: 12px; text-align: left; }
+.sf-cs-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,246,243,0.7); margin-bottom: 5px; }
+.sf-cs-field input { width: 100%; padding: 13px 15px; background: rgba(250,246,243,0.96); border: 1.5px solid transparent; border-radius: 10px; color: var(--sf-dark-raw); font-family: var(--sf-sans); font-size: 16px; -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-cs-field input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-cs-field input::placeholder { color: var(--sf-taupe-light); }
+.sf-cs-submit { display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 10px; padding: 15px 24px; font-family: var(--sf-sans); font-weight: 700; font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; margin-top: 6px; -webkit-transition: transform .2s ease, background .2s ease; transition: transform .2s ease, background .2s ease; }
+.sf-cs-submit:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); background: var(--sf-gold-light); }
+.sf-cs-submit:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-cs-submit:disabled { background: var(--sf-taupe-light); color: rgba(250,246,243,0.8); cursor: not-allowed; -webkit-transform: none; transform: none; }
+.sf-cs-formnote { color: rgba(250,246,243,0.55); font-size: 12px; margin-top: 14px; }
+.sf-cs-msg { border-radius: 10px; padding: 12px 16px; font-size: 14px; margin-top: 14px; text-align: left; }
+.sf-cs-msg.sf-err { background: var(--sf-red-soft); color: #8a3a37; }
+.sf-cs-msg.sf-ok { background: var(--sf-green-soft); color: #2f6b41; }
+.sf-cs-msg a { color: inherit; font-weight: 700; }
+
+/* ===== Bridge ===== */
+.sf-cs-bridge { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 36px 28px; text-align: center; box-shadow: 0 2px 16px rgba(42,33,24,0.06); margin-top: 54px; }
+.sf-cs-bridge h2 { font-size: clamp(24px, 4vw, 33px); font-weight: 700; margin-bottom: 12px; }
+.sf-cs-bridge h2 .sf-cs-em { color: var(--sf-gold-raw); }
+.sf-cs-bridge p { font-size: 16px; max-width: 520px; margin: 0 auto 24px; }
+.sf-cs-bridge-cta { display: inline-block; background: transparent; color: var(--sf-taupe-raw); text-decoration: none; border: 1.5px solid var(--sf-gold-raw); border-radius: 12px; padding: 15px 34px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; -webkit-transition: background .2s ease, transform .2s ease; transition: background .2s ease, transform .2s ease; }
+.sf-cs-bridge-cta:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cs-bridge-cta:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 3px; }
+.sf-cs-bridge-note { color: var(--sf-taupe-light); font-size: 13px; margin-top: 14px; }
+
+/* ===== Proof ===== */
+.sf-cs-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+.sf-cs-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 20px 10px; text-align: center; }
+.sf-cs-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 28px; color: var(--sf-gold-raw); display: block; font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; }
+.sf-cs-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-cs-footer { text-align: center; padding: 44px 20px 44px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-cs-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-cs-reveal { opacity: 0; -webkit-transform: translateY(22px); transform: translateY(22px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-cs-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-cs-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-cs-top { padding: 12px 18px; }
+  .sf-cs-top-note { display: none; }
+  .sf-cs-hero { padding: 44px 20px 54px; }
+  .sf-cs-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .sf-cs-exhibit { -webkit-transform: rotate(1.5deg); transform: rotate(1.5deg); }
+  .sf-cs-paper, .sf-cs-tear { max-width: 280px; }
+  .sf-cs-section { padding: 42px 0 8px; }
+  .sf-cs-validate { padding: 44px 0 6px; }
+  .sf-cs-tool { padding: 24px 18px; }
+  .sf-cs-items { grid-template-columns: 1fr; }
+  .sf-cs-runrow .sf-cs-btn, .sf-cs-runrow .sf-cs-ghost { min-width: 100%; }
+  .sf-cs-pattern-name { font-size: 15px; }
+  .sf-cs-pattern { padding: 13px 6px; }
+  .sf-cs-move { padding: 16px 15px; gap: 12px; }
+  .sf-cs-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-cs-gate { padding: 30px 20px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-cs *, .sf-cs *::before, .sf-cs *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-cs">
+
+  <!-- TOP BAR -->
+  <div class="sf-cs-top">
+    <span class="sf-cs-top-mark">Smith<span>Fit</span></span>
+    <span class="sf-cs-top-note">Built by a nurse, for nurses</span>
+  </div>
+
+  <!-- HERO -->
+  <header class="sf-cs-hero">
+    <div class="sf-cs-hero-grid">
+      <div>
+        <p class="sf-cs-kicker">The calm industry, audited</p>
+        <h1>Throw out the adrenal cocktail. The thing that actually works is <span class="sf-cs-em">free</span>.</h1>
+        <p class="sf-cs-hero-sub">Adrenal fatigue is not a real diagnosis, and no $60 powder can out-supplement a 12-hour schedule. Run the receipt on what the calm aisle has charged you, then take the four free moves that steady your sleep and your energy, shaped to your shifts.</p>
+        <a href="#sf-cs-tool" class="sf-cs-hero-cta" id="sfCsHeroCta">Run my receipt</a>
+        <p class="sf-cs-hero-trust">Two minutes. No email needed to see your number.</p>
+      </div>
+      <div class="sf-cs-exhibit" aria-hidden="true">
+        <div class="sf-cs-paper">
+          <div class="sf-cs-rhead">The Calm Aisle</div>
+          <div class="sf-cs-rsub">an average month, if you buy what the ads push</div>
+          <div class="sf-cs-rsep"></div>
+          <div class="sf-cs-rline"><span class="sf-cs-rname">adrenal cocktail</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$22</span></div>
+          <div class="sf-cs-rline"><span class="sf-cs-rname">ashwagandha</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$18</span></div>
+          <div class="sf-cs-rline"><span class="sf-cs-rname">magnesium spray</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$14</span></div>
+          <div class="sf-cs-rline"><span class="sf-cs-rname">greens powder</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$49</span></div>
+          <div class="sf-cs-rsep"></div>
+          <div class="sf-cs-rline sf-cs-rtotal"><span class="sf-cs-rname">per month</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$103</span></div>
+          <div class="sf-cs-rline sf-cs-rtotal"><span class="sf-cs-rname">per year</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$1,236</span></div>
+          <div class="sf-cs-rline sf-cs-rzero"><span class="sf-cs-rname">schedule fixed</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">no</span></div>
+          <div class="sf-cs-rstamp">Not a real diagnosis</div>
+          <div class="sf-cs-rbar"></div>
+          <div class="sf-cs-rbarnote">calm not included</div>
+        </div>
+        <div class="sf-cs-tear"></div>
+        <p class="sf-cs-exhibit-cap">Yours is probably different. Run it below.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="sf-cs-wrap">
+
+    <!-- VALIDATE -->
+    <section class="sf-cs-validate sf-cs-reveal">
+      <p class="sf-cs-secnum">First, the part nobody says</p>
+      <h2>You bought it at 3am for a reason</h2>
+      <p>You were exhausted, wired, and halfway through a stretch of shifts when the ad found you. Someone in scrubs said her belly fat was cortisol, held up a glass of orange juice with salt in it, and promised calm. When you are that tired, twenty dollars for hope is not gullible. It is human.</p>
+      <p>So here is the part that video will never say. Adrenal fatigue is not a recognized medical condition. The Endocrine Society has said plainly that there is no scientific basis for it. Your adrenals are not tired. They are working exactly as designed, through a schedule that would flatten anyone.</p>
+      <div class="sf-cs-truth">The stress is real. The exhaustion is real. The diagnosis they sold you is not, and neither is the fix in the jar. The sellers are the problem here. Not your body, and not you.</div>
+    </section>
+
+    <!-- TOOL PART 1: THE RECEIPT -->
+    <section class="sf-cs-section" id="sf-cs-tool">
+      <p class="sf-cs-secnum">01 / The receipt</p>
+      <h2 class="sf-cs-h2">What has calm cost you?</h2>
+      <p class="sf-cs-lead">Tap everything you have bought chasing calm. Prices are typical monthly costs, rounded. No judgment here. This marketing was engineered to work on exhausted people.</p>
+
+      <div class="sf-cs-tool sf-cs-reveal">
+        <div class="sf-cs-items" id="sfCsItems" role="group" aria-label="Tap what you have bought chasing calm"></div>
+        <div class="sf-cs-runrow">
+          <button type="button" class="sf-cs-btn" id="sfCsRun">Run my receipt</button>
+          <button type="button" class="sf-cs-ghost" id="sfCsNone">I have not bought any of it</button>
+        </div>
+        <div id="sfCsNudge"></div>
+        <div class="sf-cs-result" id="sfCsResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- TOOL PART 2: THE FREE FIX -->
+    <section class="sf-cs-section" id="sf-cs-fix">
+      <p class="sf-cs-secnum">02 / The free fix</p>
+      <h2 class="sf-cs-h2">The four moves that actually work</h2>
+      <p class="sf-cs-lead">Sleep anchors, light timing, meal timing, load management. This is what the research keeps coming back to, and none of it can be bottled, which is exactly why nobody runs ads for it. Pick your pattern and I will shape it to your week.</p>
+
+      <div class="sf-cs-patterns" id="sfCsPatterns" role="group" aria-label="Pick your shift pattern">
+        <button type="button" class="sf-cs-pattern" data-pattern="days" aria-pressed="false">
+          <span class="sf-cs-pattern-emoji" aria-hidden="true">&#9728;&#65039;</span>
+          <span class="sf-cs-pattern-name">Days</span>
+          <span class="sf-cs-pattern-desc">7a to 7p and friends</span>
+        </button>
+        <button type="button" class="sf-cs-pattern" data-pattern="nights" aria-pressed="false">
+          <span class="sf-cs-pattern-emoji" aria-hidden="true">&#127769;</span>
+          <span class="sf-cs-pattern-name">Nights</span>
+          <span class="sf-cs-pattern-desc">The 3am club</span>
+        </button>
+        <button type="button" class="sf-cs-pattern" data-pattern="rotating" aria-pressed="false">
+          <span class="sf-cs-pattern-emoji" aria-hidden="true">&#128260;</span>
+          <span class="sf-cs-pattern-name">Rotating</span>
+          <span class="sf-cs-pattern-desc">The roughest ride</span>
+        </button>
+      </div>
+      <div class="sf-cs-plan" id="sfCsPlan" aria-live="polite"></div>
+    </section>
+
+    <!-- WHAT TO EXPECT -->
+    <section class="sf-cs-section sf-cs-expect sf-cs-reveal">
+      <p class="sf-cs-secnum">03 / What to expect</p>
+      <h2 class="sf-cs-h2">Give it one week</h2>
+      <p>The order is predictable: sleep gets easier first, then the energy steadies, then the cravings quiet down. You do not need all four moves running perfectly. The sleep anchor matters most, and the rest compound on top of it.</p>
+      <div class="sf-cs-statcall">In my coaching program, where these four moves get a full plan built around them, <strong>87% of nurses feel a difference by Day 3</strong>. This page is the same first layer. It is free because the part that works should be.</div>
+    </section>
+
+    <!-- EMAIL GATE (revealed after first result) -->
+    <div class="sf-cs-gate sf-cs-hidden" id="sfCsGate">
+      <h3>Take the <span class="sf-cs-em">whole playbook</span> with you</h3>
+      <p>You have your receipt and your first protocol. The full version covers you when the schedule changes:</p>
+      <ul class="sf-cs-gate-list">
+        <li>The complete reset protocol for all three patterns: days, nights, and rotating</li>
+        <li>The "Is it a scam?" checklist: 5 questions to run before anything gets your $60</li>
+        <li>A printable one-pager for your locker, your fridge, or the break room</li>
+      </ul>
+      <form class="sf-cs-form" id="sfCsForm" novalidate>
+        <div class="sf-cs-field">
+          <label for="sfCsFirst">First name (optional)</label>
+          <input type="text" id="sfCsFirst" name="firstName" placeholder="First name" autocomplete="given-name">
+        </div>
+        <div class="sf-cs-field">
+          <label for="sfCsEmail">Email</label>
+          <input type="email" id="sfCsEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
+        </div>
+        <button type="submit" class="sf-cs-submit" id="sfCsSubmit">Send me the full protocol</button>
+        <div id="sfCsFormMsg" aria-live="polite"></div>
+        <p class="sf-cs-formnote">No spam. Unsubscribe any time.</p>
+      </form>
+    </div>
+
+    <!-- SOFT HIGH-TICKET BRIDGE -->
+    <div class="sf-cs-bridge sf-cs-reveal">
+      <h2>Want this mapped to <span class="sf-cs-em">your exact schedule</span>?</h2>
+      <p>The receipt shows the leak and the four moves stop it. If you want the whole thing built around your actual roster (the rotation, the sleep, the food, the training), I take a few nurses a month for a free game-plan call. No pitch. You leave with a plan either way.</p>
+      <a href="#" data-sf-call class="sf-cs-bridge-cta" target="_blank" rel="noopener">Book my free game-plan call</a>
+      <p class="sf-cs-bridge-note">30 minutes, free, nurse to nurse.</p>
+    </div>
+
+    <!-- PROOF -->
+    <div class="sf-cs-proof sf-cs-reveal">
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">400+</span><div class="sf-cs-proof-label">Nurses coached</div></div>
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">87%</span><div class="sf-cs-proof-label">Feel a difference by Day 3</div></div>
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">~5 lbs</span><div class="sf-cs-proof-label">Average lost in Week 1</div></div>
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">60-day</span><div class="sf-cs-proof-label">Money-back guarantee</div></div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-cs-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Supplement notes here are general education. Talk with your own provider before starting or stopping anything.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (lead-magnets/config.js) ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-cortisol-scam",
+    resourceUrl: "resource.html"
+  };
+  function isConfigured(v) { return v && v.indexOf("[") !== 0; }
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    if (!SF_CONFIG.pixelId) return;
+    try {
+      if (!window.fbq) {
+        var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+        if (!window._fbq) window._fbq = n;
+        n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+        var t = document.createElement("script"); t.async = true;
+        t.src = "https://connect.facebook.net/en_US/fbevents.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(t, s);
+      }
+      window.fbq("init", SF_CONFIG.pixelId);
+      window.fbq("track", "PageView");
+    } catch (e) {}
+  }
+  function fireLeadPixel() {
+    try { if (typeof window.fbq === "function") { window.fbq("track", "Lead", { content_name: "The Cortisol Scam" }); } } catch (e) {}
+  }
+
+  /* ---- Call CTA links ---- */
+  function initCallLinks() {
+    try {
+      var links = document.querySelectorAll("[data-sf-call]");
+      for (var i = 0; i < links.length; i++) { links[i].setAttribute("href", SF_CONFIG.callUrl); }
+    } catch (e) {}
+  }
+
+  /* ---- The purchases ---- */
+  var ITEMS = [
+    { id: "cocktail", emoji: "🍹", name: "Adrenal cocktail ingredients", cost: 22, sub: "OJ, coconut water, cream of tartar, sea salt", verdict: "Juice with a salt rim. The hydration helps, and water with a banana does the same for pennies." },
+    { id: "ashwagandha", emoji: "🌿", name: "Ashwagandha", cost: 18, sub: "capsules or gummies", verdict: "The most studied thing on this list. A small, short-lived effect on how stressed you feel in some trials, and zero effect on the schedule causing it." },
+    { id: "mocktail", emoji: "🥤", name: "Cortisol mocktail supplies", cost: 25, sub: "the TikTok version, with the powders", verdict: "The adrenal cocktail after a rebrand. Same juice, new name, higher price." },
+    { id: "magnesium", emoji: "🧴", name: "Magnesium spray", cost: 14, sub: "spray, lotion, or bath flakes", verdict: "Skin absorbs almost none of it. If you are truly low, food or a cheap oral form does far more." },
+    { id: "greens", emoji: "🥬", name: "Greens powder", cost: 49, sub: "the influencer subscription kind", verdict: "An expensive multivitamin with grass in it. Fine as insurance. It is not a stress treatment." },
+    { id: "stack", emoji: "💊", name: "Stress supplement stack", cost: 60, sub: "the \"adrenal support\" bundle", verdict: "Six capsules aimed at a diagnosis that does not exist. The label says \"support\" because the law will not let it say more." },
+    { id: "tea", emoji: "🍵", name: "Calming teas", cost: 12, sub: "the stress blends, not the cheap box", verdict: "The ten quiet minutes with a warm mug are real medicine. The \"stress blend\" markup is not. Keep the ritual, buy the plain box." }
+  ];
+
+  /* ---- The free fix ---- */
+  var PLANS = {
+    days: {
+      label: "day shifts",
+      intro: "Days are the friendliest pattern on the body clock, which is exactly why it stings when the fatigue and the cravings still will not move. Here is your version.",
+      moves: [
+        { t: "Anchor your sleep", b: "One wake time, every day, work or off, within an hour. The night before a 12, work backward from the alarm and protect 7.5 hours. The consistency is the treatment." },
+        { t: "Time your light", b: "Ten minutes of outdoor light before 9am, even if it is the walk from the far end of the parking lot. After 8pm, dim the house. Bright mornings and dark evenings keep your sleep honest." },
+        { t: "Time your meals", b: "Protein-first breakfast, real lunch, and stop eating heavy 2 to 3 hours before bed. Moving the calories earlier is what shrinks the 3pm crash and the late-night cravings." },
+        { t: "Manage the load", b: "Train before shifts or on off days. After a 12, the workout is a walk. Day three of three in a row is recovery on purpose, not a test you are failing." }
+      ]
+    },
+    nights: {
+      label: "night shifts",
+      intro: "Nights are the pattern the calm aisle preys on hardest, because 3am you will consider anything that promises to feel human. Here is what actually steadies night-shift nurses.",
+      moves: [
+        { t: "Anchor your sleep", b: "Pick a 4-hour anchor window (9am to 1pm works for most) and defend it every day, on nights and off. Blackout curtains, phone on do not disturb, household briefed. Everything else can flex around it." },
+        { t: "Time your light", b: "Sunglasses for the drive home, every time. Morning sun is a wake-up signal hitting at the exact moment you need to stand down. Keep the bedroom cave-dark, and get your bright light at the start of your night instead." },
+        { t: "Time your meals", b: "Main meal before the shift. Keep 2am to 5am light, because that stretch is when your body handles food worst and the vending machine knows it. Land on something small before day-sleep, not a full plate." },
+        { t: "Manage the load", b: "Never train straight off a night shift. Sleep first, train after, and keep it short during a stretch of nights. A hard session on no sleep digs the hole deeper." }
+      ]
+    },
+    rotating: {
+      label: "rotating shifts",
+      intro: "Rotating is the roughest ride in healthcare, and no powder has ever cared. The trick is rules that travel with the block, not with the clock.",
+      moves: [
+        { t: "Anchor inside the block", b: "You cannot hold one bedtime across a rotation, so hold it within each block. Days block: one wake time. Nights block: one protected day-sleep window. The anchor moves when the block moves, never inside it." },
+        { t: "Light as a lever", b: "Day block: bright light on waking, dim evenings. Night block: sunglasses home, blackout room, bright light at the front of the shift. Switch day: get light at your new morning, whatever the wall clock says." },
+        { t: "Meals on body time", b: "First meal within two hours of waking, biggest meal in your personal midday, light in your personal evening. When the rotation flips, the meals flip with it." },
+        { t: "Load around the flips", b: "Train in the middle of stable blocks. The 48 hours around a switch are for walking, food, and sleep. Protecting the flip days is what keeps the rest of the week trainable." }
+      ]
+    }
+  };
+
+  /* ---- State ---- */
+  var state = { picks: [], pattern: null, lastTotal: null };
+
+  /* ---- DOM ---- */
+  var itemsEl = document.getElementById("sfCsItems");
+  var runBtn = document.getElementById("sfCsRun");
+  var noneBtn = document.getElementById("sfCsNone");
+  var nudgeEl = document.getElementById("sfCsNudge");
+  var resultEl = document.getElementById("sfCsResult");
+  var patternsEl = document.getElementById("sfCsPatterns");
+  var planEl = document.getElementById("sfCsPlan");
+  var gateEl = document.getElementById("sfCsGate");
+  var formEl = document.getElementById("sfCsForm");
+  var submitBtn = document.getElementById("sfCsSubmit");
+  var formMsg = document.getElementById("sfCsFormMsg");
+  var heroCta = document.getElementById("sfCsHeroCta");
+
+  function money(n) { return "$" + n.toLocaleString("en-US"); }
+  function findItem(id) { for (var i = 0; i < ITEMS.length; i++) { if (ITEMS[i].id === id) return ITEMS[i]; } return null; }
+
+  /* ---- Render purchase cards ---- */
+  function renderItems() {
+    var html = "";
+    for (var i = 0; i < ITEMS.length; i++) {
+      var it = ITEMS[i];
+      html += '<button type="button" class="sf-cs-item" data-id="' + it.id + '" aria-pressed="false">' +
+        '<span class="sf-cs-item-emoji" aria-hidden="true">' + it.emoji + '</span>' +
+        '<span><span class="sf-cs-item-name">' + it.name + '</span>' +
+        '<span class="sf-cs-item-price" style="display:block;">about ' + money(it.cost) + ' a month</span>' +
+        '<span class="sf-cs-item-sub" style="display:block;">' + it.sub + '</span></span>' +
+      '</button>';
+    }
+    itemsEl.innerHTML = html;
+  }
+
+  itemsEl.addEventListener("click", function (e) {
+    var card = e.target.closest(".sf-cs-item");
+    if (!card) return;
+    var id = card.getAttribute("data-id");
+    var idx = state.picks.indexOf(id);
+    if (idx === -1) { state.picks.push(id); card.classList.add("sf-on"); card.setAttribute("aria-pressed", "true"); }
+    else { state.picks.splice(idx, 1); card.classList.remove("sf-on"); card.setAttribute("aria-pressed", "false"); }
+    nudgeEl.innerHTML = "";
+  });
+
+  /* ---- Verdict tiers (different totals, different verdicts) ---- */
+  function verdictFor(total) {
+    var year = total * 12;
+    if (total === 0) {
+      return { h: "The aisle has not gotten you yet.", p: "Your receipt is clean and your money is where it belongs. Keep it that way. The free fix below is the part the calm industry hopes you never scroll to." };
+    }
+    if (total <= 25) {
+      return { h: money(total) + " a month. The aisle only nicked you.", p: "Small spend, same problem: none of it can touch a three-shift stretch. Put that " + money(total) + " toward blackout curtains and take the free fix below." };
+    }
+    if (total <= 60) {
+      return { h: money(total) + " a month. That is " + money(year) + " a year on calm.", p: "Real money, spent treating a diagnosis that does not exist. The four moves below are what those products quietly promise, and they cost nothing." };
+    }
+    if (total <= 120) {
+      return { h: money(total) + " a month. " + money(year) + " a year.", p: "A year of handing your paycheck to people who invented the condition they claim to treat. You are done with that as of today. The free fix is below." };
+    }
+    return { h: money(total) + " a month. " + money(year) + " a year. The marketing did exactly what it was built to do.", p: "This is not on you. It is a machine tuned for exhausted people at 3am. Close the tab on the next restock, and take the fix that has no price below." };
+  }
+
+  /* ---- Render the receipt ---- */
+  function renderReceipt(pickedIds) {
+    var picked = [];
+    for (var i = 0; i < pickedIds.length; i++) { var it = findItem(pickedIds[i]); if (it) picked.push(it); }
+    var total = 0;
+    for (var j = 0; j < picked.length; j++) { total += picked[j].cost; }
+    state.lastTotal = total;
+
+    var d = 0;
+    function delay() { d += 0.06; return ' style="-webkit-animation-delay:' + d.toFixed(2) + 's;animation-delay:' + d.toFixed(2) + 's"'; }
+
+    var lines = "";
+    if (picked.length) {
+      for (var k = 0; k < picked.length; k++) {
+        lines += '<div class="sf-cs-rline sf-cs-rline-anim"' + delay() + '><span class="sf-cs-rname">' + picked[k].name.toLowerCase() + '</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">' + money(picked[k].cost) + '</span></div>';
+      }
+    } else {
+      lines += '<div class="sf-cs-rline sf-cs-rline-anim"' + delay() + '><span class="sf-cs-rname">nothing. not one jar.</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$0</span></div>';
+    }
+
+    var verdict = verdictFor(total);
+
+    var honest = "";
+    if (picked.length) {
+      honest += '<div class="sf-cs-honest"><h4>The honest line on each</h4>';
+      for (var m = 0; m < picked.length; m++) {
+        honest += '<div class="sf-cs-honest-item"><div class="sf-cs-honest-name">' + picked[m].emoji + " " + picked[m].name + "<em>" + money(picked[m].cost) + "/mo</em></div><div class=\"sf-cs-honest-line\">" + picked[m].verdict + "</div></div>";
+      }
+      honest += "</div>";
+    }
+
+    resultEl.innerHTML = "" +
+      '<div class="sf-cs-pop">' +
+        '<div class="sf-cs-paper">' +
+          '<div class="sf-cs-rhead">Your calm receipt</div>' +
+          '<div class="sf-cs-rsub">smithfit audit, no card charged</div>' +
+          '<div class="sf-cs-rsep"></div>' +
+          lines +
+          '<div class="sf-cs-rsep"></div>' +
+          '<div class="sf-cs-rline sf-cs-rtotal sf-cs-rline-anim"' + delay() + '><span class="sf-cs-rname">per month</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">' + money(total) + '</span></div>' +
+          '<div class="sf-cs-rline sf-cs-rtotal sf-cs-rline-anim"' + delay() + '><span class="sf-cs-rname">a year of that</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">' + money(total * 12) + '</span></div>' +
+          '<div class="sf-cs-rline sf-cs-rzero sf-cs-rline-anim"' + delay() + '><span class="sf-cs-rname">what it fixed</span><span class="sf-cs-rdots"></span><span class="sf-cs-rprice">$0.00</span></div>' +
+          '<div class="sf-cs-rstamp">Not a real diagnosis</div>' +
+          '<div class="sf-cs-rbar"></div>' +
+          '<div class="sf-cs-rbarnote">calm not included</div>' +
+        '</div>' +
+        '<div class="sf-cs-tear"></div>' +
+        '<div class="sf-cs-verdict"><h3>' + verdict.h + '</h3><p>' + verdict.p + '</p></div>' +
+        honest +
+        '<button type="button" class="sf-cs-next" id="sfCsToFix">Take me to the free fix</button>' +
+      '</div>';
+
+    var toFix = document.getElementById("sfCsToFix");
+    if (toFix) toFix.addEventListener("click", function () {
+      var fix = document.getElementById("sf-cs-fix");
+      if (fix) fix.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    revealGate();
+  }
+
+  runBtn.addEventListener("click", function () {
+    if (!state.picks.length) {
+      nudgeEl.innerHTML = '<div class="sf-cs-nudge">Tap what you have bought first, or tap "I have not bought any of it" and I will take you straight to the free fix.</div>';
+      return;
+    }
+    nudgeEl.innerHTML = "";
+    renderReceipt(state.picks);
+  });
+
+  noneBtn.addEventListener("click", function () {
+    nudgeEl.innerHTML = "";
+    state.picks = [];
+    var cards = itemsEl.querySelectorAll(".sf-cs-item");
+    for (var i = 0; i < cards.length; i++) { cards[i].classList.remove("sf-on"); cards[i].setAttribute("aria-pressed", "false"); }
+    renderReceipt([]);
+  });
+
+  /* ---- Render the protocol (different pattern, different plan) ---- */
+  function renderPlan(pattern) {
+    var plan = PLANS[pattern];
+    if (!plan) return;
+    var moves = "";
+    for (var i = 0; i < plan.moves.length; i++) {
+      moves += '<div class="sf-cs-move"><span class="sf-cs-move-n">' + (i + 1) + '</span><div><h4>' + plan.moves[i].t + '</h4><p>' + plan.moves[i].b + '</p></div></div>';
+    }
+    planEl.innerHTML = "" +
+      '<div class="sf-cs-pop">' +
+        '<div class="sf-cs-plan-head"><h3>Your $0 reset, shaped for ' + plan.label + '</h3></div>' +
+        '<div class="sf-cs-plan-intro">' + plan.intro + '</div>' +
+        moves +
+        '<span class="sf-cs-zero">Total: $0.00 a month. Refills: unlimited.</span>' +
+      '</div>';
+    revealGate();
+  }
+
+  patternsEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-cs-pattern");
+    if (!btn) return;
+    var buttons = patternsEl.querySelectorAll(".sf-cs-pattern");
+    for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove("sf-on"); buttons[i].setAttribute("aria-pressed", "false"); }
+    btn.classList.add("sf-on");
+    btn.setAttribute("aria-pressed", "true");
+    state.pattern = btn.getAttribute("data-pattern");
+    renderPlan(state.pattern);
+  });
+
+  /* ---- Gate reveal (after her first result, never before) ---- */
+  function revealGate() { gateEl.classList.remove("sf-cs-hidden"); }
+
+  /* ---- Email capture (never a dead end) ---- */
+  function goToResource(first) {
+    try {
+      if (first) window.localStorage.setItem("sf_cs_first", first);
+      window.localStorage.setItem("sf_cs_unlocked", "1");
+    } catch (e) {}
+    window.location.href = SF_CONFIG.resourceUrl + "?unlocked=1";
+  }
+
+  formEl.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var first = document.getElementById("sfCsFirst").value.trim();
+    var email = document.getElementById("sfCsEmail").value.trim();
+
+    if (!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+      formMsg.innerHTML = '<div class="sf-cs-msg sf-err">That email looks off. Mind checking it?</div>';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formMsg.innerHTML = "";
+
+    var payload = {
+      firstName: first,
+      email: email,
+      magnet: "cortisol-scam",
+      tag: SF_CONFIG.leadTag,
+      shiftPattern: state.pattern || "",
+      monthlySpend: (typeof state.lastTotal === "number" ? state.lastTotal : ""),
+      source: "lead-magnet-site",
+      timestamp: new Date().toISOString()
+    };
+
+    /* Not yet wired: still deliver the value, the form is never a dead end */
+    if (!isConfigured(SF_CONFIG.webhookUrl)) {
+      formMsg.innerHTML = '<div class="sf-cs-msg sf-ok">Done. Opening your full protocol...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 700);
+      return;
+    }
+
+    var done = false;
+    var timer = setTimeout(function () {
+      if (done) return; done = true;
+      /* Slow network: do not trap her, let her through */
+      formMsg.innerHTML = '<div class="sf-cs-msg sf-ok">Done. Opening your full protocol...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 500);
+    }, 8000);
+
+    fetch(SF_CONFIG.webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (done) return; done = true; clearTimeout(timer);
+      if (res && (res.ok || res.status === 0 || res.type === "opaque")) {
+        formMsg.innerHTML = '<div class="sf-cs-msg sf-ok">Done. Opening your full protocol...</div>';
+        fireLeadPixel();
+        setTimeout(function () { goToResource(first); }, 700);
+      } else {
+        throw new Error("bad status");
+      }
+    }).catch(function () {
+      if (done) return; done = true; clearTimeout(timer);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send me the full protocol";
+      formMsg.innerHTML = '<div class="sf-cs-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full protocol now</a> and I will catch your email next time.</div>';
+    });
+  });
+
+  /* ---- Hero CTA smooth scroll ---- */
+  if (heroCta) heroCta.addEventListener("click", function (e) {
+    e.preventDefault();
+    var tool = document.getElementById("sf-cs-tool");
+    if (tool) tool.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  /* ---- Reveal on scroll ---- */
+  (function reveal() {
+    var els = document.querySelectorAll(".sf-cs-reveal");
+    if (!els.length) return;
+    if ("IntersectionObserver" in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { entries[i].target.classList.add("sf-in"); obs.unobserve(entries[i].target); } }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add("sf-in");
+    }
+  })();
+
+  /* ---- Init ---- */
+  renderItems();
+  initCallLinks();
+  initPixel();
+})();
+</script>
+</body>
+</html>

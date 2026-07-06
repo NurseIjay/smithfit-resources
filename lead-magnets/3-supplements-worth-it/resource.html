@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 3 Supplements Worth It: The Full Audit Kit | SmithFit</title>
+<meta name="description" content="The full cabinet audit: all 14 verdicts, the printable dosing card for protein, creatine, and vitamin D, the label-reading checklist, and the cancel-first order. Built by a nurse, for nurses.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-sup *, .sf-sup *::before, .sf-sup *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-sup {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-deep: #96762f;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-deep: #2f6b41;
+  --sf-green-soft: #e8f5ec;
+  --sf-orange-deep: #a8702a;
+  --sf-orange-soft: #fdf3e6;
+  --sf-red-raw: #c0504d;
+  --sf-red-deep: #8a3a37;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.sf-sup h1, .sf-sup h2, .sf-sup h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.12; }
+.sf-sup-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Header ===== */
+.sf-sup-header { position: relative; overflow: hidden; border-bottom: 1px solid var(--sf-border); }
+.sf-sup-header::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 18% 0%, rgba(200,160,78,0.14) 0%, transparent 52%); }
+.sf-sup-header-in { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 26px 20px 46px; }
+.sf-sup-topbar { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 34px; }
+.sf-sup-mark { font-family: var(--sf-serif); font-weight: 700; font-size: 20px; color: var(--sf-dark-raw); letter-spacing: 0.02em; }
+.sf-sup-mark span { color: var(--sf-gold-raw); }
+.sf-sup-topnote { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); }
+.sf-sup-eyebrow {
+  display: inline-block; border: 1px solid rgba(200,160,78,0.5); background: var(--sf-gold-hover);
+  color: var(--sf-gold-deep); border-radius: 999px; padding: 7px 16px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px;
+}
+.sf-sup-header h1 { font-weight: 700; font-size: clamp(32px, 5.4vw, 52px); margin-bottom: 14px; }
+.sf-sup-header h1 .sf-sup-em { color: var(--sf-gold-deep); }
+.sf-sup-greet { font-size: clamp(15px, 2vw, 18px); color: var(--sf-taupe-raw); max-width: 560px; }
+
+/* ===== Layout ===== */
+.sf-sup-wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 56px; }
+.sf-sup-section { padding-top: 48px; }
+.sf-sup-kicker { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-deep); margin-bottom: 10px; }
+.sf-sup-h2 { font-size: clamp(25px, 4.2vw, 36px); font-weight: 700; margin-bottom: 10px; }
+.sf-sup-lead { color: var(--sf-taupe-light); font-size: 16px; max-width: 580px; margin-bottom: 24px; }
+
+/* ===== Verdict stamps ===== */
+.sf-sup-stamp {
+  display: inline-block; border: 1.5px solid; border-radius: 4px; padding: 2px 7px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;
+  -webkit-transform: rotate(-2deg); transform: rotate(-2deg);
+}
+.sf-sup-stamp.sf-keep { color: var(--sf-green-deep); border-color: var(--sf-green-raw); background: var(--sf-green-soft); }
+.sf-sup-stamp.sf-dep  { color: var(--sf-orange-deep); border-color: #d4944a; background: var(--sf-orange-soft); }
+.sf-sup-stamp.sf-drop { color: var(--sf-red-deep); border-color: var(--sf-red-raw); background: var(--sf-red-soft); }
+
+/* ===== Audit board ===== */
+.sf-sup-board { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 8px 22px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); font-variant-numeric: tabular-nums; }
+.sf-sup-row {
+  display: flex; align-items: flex-start; gap: 12px; width: 100%; text-align: left;
+  background: transparent; border: none; border-bottom: 1px dashed var(--sf-cream-deep);
+  padding: 14px 2px; font-family: var(--sf-sans); cursor: pointer;
+  -webkit-transition: background .18s ease; transition: background .18s ease;
+}
+.sf-sup-row:last-child { border-bottom: none; }
+.sf-sup-row:hover { background: var(--sf-gold-hover); }
+.sf-sup-row:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: -3px; border-radius: 8px; }
+.sf-sup-tick { flex: 0 0 22px; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; border: 1.5px solid var(--sf-border); position: relative; -webkit-transition: background .18s ease, border-color .18s ease; transition: background .18s ease, border-color .18s ease; }
+.sf-sup-row.sf-on .sf-sup-tick { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); }
+.sf-sup-row.sf-on .sf-sup-tick::after { content: "\2713"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--sf-dark-raw); }
+.sf-sup-row-emoji { flex: 0 0 auto; font-size: 20px; margin-top: 1px; }
+.sf-sup-row-main { flex: 1; min-width: 0; }
+.sf-sup-row-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.sf-sup-row-name { font-size: 15px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-sup-row-right { display: inline-flex; align-items: center; gap: 10px; }
+.sf-sup-row-cost { font-size: 12px; color: var(--sf-taupe-light); }
+.sf-sup-row-line { font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 3px; max-width: 580px; }
+.sf-sup-board-note { font-size: 13px; color: var(--sf-taupe-light); text-align: center; margin-top: 12px; }
+
+/* ===== Live tally ===== */
+.sf-sup-tally {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border-radius: 16px; padding: 26px 26px; margin-top: 18px; position: relative; overflow: hidden;
+}
+.sf-sup-tally::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.22) 0%, transparent 60%); pointer-events: none; }
+.sf-sup-tally > * { position: relative; z-index: 1; }
+.sf-sup-tally-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 6px; }
+.sf-sup-tally-num { font-family: var(--sf-serif); font-weight: 700; font-size: clamp(34px, 5.6vw, 48px); color: var(--sf-cream-raw); line-height: 1.05; }
+.sf-sup-tally-num small { font-family: var(--sf-sans); font-size: 15px; font-weight: 600; color: rgba(250,246,243,0.7); margin-left: 6px; letter-spacing: 0.02em; }
+.sf-sup-tally-year { font-family: var(--sf-display); font-style: italic; font-size: 16px; color: var(--sf-gold-soft); margin-top: 8px; }
+.sf-sup-tally-note { font-size: 13.5px; color: rgba(250,246,243,0.78); margin-top: 12px; max-width: 500px; }
+
+/* ===== Dosing card ===== */
+.sf-sup-card {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-top: 4px solid var(--sf-gold-raw);
+  border-radius: 16px; padding: 26px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06);
+}
+.sf-sup-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-bottom: 1.5px dashed var(--sf-cream-deep); padding-bottom: 14px; margin-bottom: 6px; }
+.sf-sup-card-title { font-family: var(--sf-serif); font-weight: 700; font-size: 24px; color: var(--sf-dark-raw); }
+.sf-sup-card-sub { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); }
+.sf-sup-dose { padding: 16px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-sup-dose:last-of-type { border-bottom: none; }
+.sf-sup-dose-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.sf-sup-dose-name { font-family: var(--sf-serif); font-weight: 700; font-size: 20px; color: var(--sf-dark-raw); }
+.sf-sup-dose-pill { display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4); color: var(--sf-gold-deep); border-radius: 999px; padding: 5px 13px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; }
+.sf-sup-dose p { font-size: 14px; margin-bottom: 5px; }
+.sf-sup-dose-buy { font-size: 13px; color: var(--sf-taupe-light); }
+.sf-sup-dose-buy strong { color: var(--sf-gold-deep); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-right: 5px; }
+.sf-sup-card-foot { font-family: var(--sf-display); font-style: italic; font-size: 13px; color: var(--sf-taupe-light); border-top: 1.5px dashed var(--sf-cream-deep); padding-top: 12px; margin-top: 4px; }
+.sf-sup-print {
+  display: inline-block; margin-top: 18px; background: transparent; color: var(--sf-taupe-raw);
+  border: 1.5px solid var(--sf-gold-raw); border-radius: 12px; padding: 13px 28px;
+  font-family: var(--sf-sans); font-weight: 700; font-size: 14px; letter-spacing: 0.03em; cursor: pointer;
+  -webkit-transition: background .2s ease, transform .2s ease; transition: background .2s ease, transform .2s ease;
+}
+.sf-sup-print:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-sup-print:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 3px; }
+
+/* ===== Label checklist ===== */
+.sf-sup-checks { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 10px 22px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-sup-check {
+  display: flex; align-items: flex-start; gap: 12px; width: 100%; text-align: left;
+  background: transparent; border: none; border-bottom: 1px dashed var(--sf-cream-deep);
+  padding: 14px 2px; font-family: var(--sf-sans); cursor: pointer;
+  -webkit-transition: background .18s ease; transition: background .18s ease;
+}
+.sf-sup-check:last-child { border-bottom: none; }
+.sf-sup-check:hover { background: var(--sf-gold-hover); }
+.sf-sup-check:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: -3px; border-radius: 8px; }
+.sf-sup-check-box { flex: 0 0 22px; width: 22px; height: 22px; margin-top: 2px; border-radius: 6px; border: 1.5px solid var(--sf-border); position: relative; -webkit-transition: background .18s ease, border-color .18s ease; transition: background .18s ease, border-color .18s ease; }
+.sf-sup-check.sf-on .sf-sup-check-box { background: var(--sf-green-raw); border-color: var(--sf-green-raw); }
+.sf-sup-check.sf-on .sf-sup-check-box::after { content: "\2713"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #ffffff; }
+.sf-sup-check-txt { flex: 1; }
+.sf-sup-check-name { display: block; font-size: 14.5px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-sup-check-line { display: block; font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 2px; }
+
+/* ===== Cancel-first order ===== */
+.sf-sup-order { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 10px 22px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); font-variant-numeric: tabular-nums; }
+.sf-sup-orow { display: flex; align-items: flex-start; gap: 14px; padding: 14px 2px; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-sup-orow:last-child { border-bottom: none; }
+.sf-sup-onum { flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%; background: var(--sf-red-soft); border: 1.5px solid var(--sf-red-raw); color: var(--sf-red-deep); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.sf-sup-orow-main { flex: 1; }
+.sf-sup-orow-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.sf-sup-orow-name { font-size: 15px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-sup-orow-cost { font-size: 12px; color: var(--sf-taupe-light); white-space: nowrap; }
+.sf-sup-orow-line { font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 2px; }
+.sf-sup-order-foot { font-family: var(--sf-display); font-style: italic; font-size: 13.5px; color: var(--sf-taupe-light); margin-top: 14px; }
+
+/* ===== CTA bridge ===== */
+.sf-sup-cta {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border-radius: 20px; padding: 40px 26px; text-align: center; margin-top: 52px; position: relative; overflow: hidden;
+}
+.sf-sup-cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.22) 0%, transparent 60%); pointer-events: none; }
+.sf-sup-cta > * { position: relative; z-index: 1; }
+.sf-sup-cta h2 { color: var(--sf-cream-raw); font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; margin-bottom: 12px; }
+.sf-sup-cta h2 .sf-sup-em { color: var(--sf-gold-soft); }
+.sf-sup-cta p { color: rgba(250,246,243,0.82); font-size: 16px; max-width: 520px; margin: 0 auto 26px; }
+.sf-sup-cta-btn {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 40px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-sup-cta-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-sup-cta-btn:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-sup-cta-note { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 16px; }
+
+/* ===== Proof ===== */
+.sf-sup-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+.sf-sup-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 10px; text-align: center; }
+.sf-sup-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold-deep); display: block; }
+.sf-sup-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 4px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-sup-footer { text-align: center; padding: 34px 20px 12px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-sup-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 15px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-sup-reveal { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-sup-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-sup-header-in { padding: 20px 18px 38px; }
+  .sf-sup-topbar { margin-bottom: 28px; }
+  .sf-sup-wrap { padding: 0 16px 48px; }
+  .sf-sup-section { padding-top: 40px; }
+  .sf-sup-board, .sf-sup-checks, .sf-sup-order { padding: 6px 14px; }
+  .sf-sup-card { padding: 22px 16px; }
+  .sf-sup-tally { padding: 22px 18px; }
+  .sf-sup-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-sup-print { display: block; width: 100%; text-align: center; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-sup *, .sf-sup *::before, .sf-sup *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Print (the dosing card, checklist, and cancel order survive) ===== */
+@media print {
+  .sf-sup { background: #ffffff; }
+  .sf-sup-header::before, .sf-sup-eyebrow, .sf-sup-greet, .sf-sup-topnote,
+  .sf-sup-board-section, .sf-sup-tally, .sf-sup-print,
+  .sf-sup-cta, .sf-sup-proof { display: none !important; }
+  .sf-sup-reveal { opacity: 1 !important; -webkit-transform: none !important; transform: none !important; }
+  .sf-sup-card, .sf-sup-checks, .sf-sup-order { box-shadow: none; border: 1.5px solid #cccccc; page-break-inside: avoid; }
+  .sf-sup-header { border-bottom: none; }
+  .sf-sup-header h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+<div class="sf-sup">
+
+  <!-- HEADER -->
+  <header class="sf-sup-header">
+    <div class="sf-sup-header-in">
+      <div class="sf-sup-topbar">
+        <span class="sf-sup-mark">Smith<span>Fit</span></span>
+        <span class="sf-sup-topnote">Built by a nurse, for nurses</span>
+      </div>
+      <span class="sf-sup-eyebrow">Your full audit kit</span>
+      <h1>The 3 Supplements <span class="sf-sup-em">Worth It</span></h1>
+      <p class="sf-sup-greet" id="sfSupGreet">The dosing card, the full 14-item audit, the label checklist, and the cancel-first order. Print it, screenshot it, tape it inside your locker.</p>
+    </div>
+  </header>
+
+  <div class="sf-sup-wrap">
+
+    <!-- 1. DOSING CARD -->
+    <section class="sf-sup-section">
+      <div class="sf-sup-kicker">Part 1</div>
+      <h2 class="sf-sup-h2">The keeper card</h2>
+      <p class="sf-sup-lead">Protein, creatine, vitamin D. Everything else on the shelf is optional at best. Here is exactly how to run the three, in plain language.</p>
+
+      <div class="sf-sup-card sf-sup-reveal" id="sfSupDosingCard">
+        <div class="sf-sup-card-head">
+          <span class="sf-sup-card-title">The SmithFit Keeper Card</span>
+          <span class="sf-sup-card-sub">Fridge door. Locker. Done.</span>
+        </div>
+
+        <div class="sf-sup-dose">
+          <div class="sf-sup-dose-top">
+            <span class="sf-sup-dose-name">🥤 Protein powder</span>
+            <span class="sf-sup-dose-pill">1 scoop = 25 to 30g protein</span>
+          </div>
+          <p>It is convenient food, not a magic shake. Aim it at your daily protein target, and lean on it hardest the shifts where lunch never happens. Whey, casein, or a plant blend all work.</p>
+          <p class="sf-sup-dose-buy"><strong>Buy</strong>20g or more protein per scoop, protein first on the ingredient list, third-party tested.</p>
+        </div>
+
+        <div class="sf-sup-dose">
+          <div class="sf-sup-dose-top">
+            <span class="sf-sup-dose-name">💪 Creatine</span>
+            <span class="sf-sup-dose-pill">3 to 5g every day</span>
+          </div>
+          <p>Timing does not matter, the daily streak does. Take it on nights, days, and days off. The most studied supplement there is: muscle and strength, plus early signals for a sleep-deprived brain.</p>
+          <p class="sf-sup-dose-buy"><strong>Buy</strong>Plain creatine monohydrate. One ingredient on the label. The cheapest tub is the right tub.</p>
+        </div>
+
+        <div class="sf-sup-dose">
+          <div class="sf-sup-dose-top">
+            <span class="sf-sup-dose-name">☀️ Vitamin D</span>
+            <span class="sf-sup-dose-pill">1000 to 2000 IU, with food</span>
+          </div>
+          <p>You clock in before sunrise and drive home after dark, and shift workers barely see sun. Take it with a meal that has some fat. You know the move: get a level drawn before going higher.</p>
+          <p class="sf-sup-dose-buy"><strong>Buy</strong>D3 form. The $8 bottle is the same molecule as the $30 one.</p>
+        </div>
+
+        <div class="sf-sup-card-foot">Educational resource, not medical advice. Run these past your provider, especially with prescriptions, kidney concerns, or pregnancy.</div>
+      </div>
+
+      <button type="button" class="sf-sup-print" id="sfSupPrint">Print my keeper card</button>
+    </section>
+
+    <!-- 2. FULL AUDIT BOARD -->
+    <section class="sf-sup-section sf-sup-board-section">
+      <div class="sf-sup-kicker">Part 2</div>
+      <h2 class="sf-sup-h2">The full 14-item audit</h2>
+      <p class="sf-sup-lead">Every jar, every verdict, honest monthly costs. Tap the rows you actually buy and I will run your money math live.</p>
+
+      <div class="sf-sup-board sf-sup-reveal" id="sfSupBoard" role="group" aria-label="Tap the supplements you currently buy"></div>
+      <p class="sf-sup-board-note">Prices are typical monthly figures, close enough for the math to hold.</p>
+
+      <div class="sf-sup-tally" id="sfSupTally" aria-live="polite">
+        <div class="sf-sup-tally-label">Back in your pocket</div>
+        <div class="sf-sup-tally-num">$0<small>a month</small></div>
+        <p class="sf-sup-tally-note">Tap the rows you buy and the math shows up here.</p>
+      </div>
+    </section>
+
+    <!-- 3. LABEL CHECKLIST -->
+    <section class="sf-sup-section">
+      <div class="sf-sup-kicker">Part 3</div>
+      <h2 class="sf-sup-h2">Read the label like you read a chart</h2>
+      <p class="sf-sup-lead">Six checks before anything goes in the cart. Tap them off on your next store run.</p>
+
+      <div class="sf-sup-checks sf-sup-reveal" id="sfSupChecks" role="group" aria-label="Label-reading checklist">
+        <button type="button" class="sf-sup-check" aria-pressed="false">
+          <span class="sf-sup-check-box" aria-hidden="true"></span>
+          <span class="sf-sup-check-txt"><span class="sf-sup-check-name">Third-party tested</span><span class="sf-sup-check-line">Look for NSF Certified for Sport or Informed Choice on the label. No seal, no sale.</span></span>
+        </button>
+        <button type="button" class="sf-sup-check" aria-pressed="false">
+          <span class="sf-sup-check-box" aria-hidden="true"></span>
+          <span class="sf-sup-check-txt"><span class="sf-sup-check-name">No proprietary blends</span><span class="sf-sup-check-line">If the label hides doses inside a blend, the dose is too small to work. Hidden math is bad math.</span></span>
+        </button>
+        <button type="button" class="sf-sup-check" aria-pressed="false">
+          <span class="sf-sup-check-box" aria-hidden="true"></span>
+          <span class="sf-sup-check-txt"><span class="sf-sup-check-name">Creatine: one ingredient</span><span class="sf-sup-check-line">Creatine monohydrate, nothing else. The fancy forms cost more and do less.</span></span>
+        </button>
+        <button type="button" class="sf-sup-check" aria-pressed="false">
+          <span class="sf-sup-check-box" aria-hidden="true"></span>
+          <span class="sf-sup-check-txt"><span class="sf-sup-check-name">Protein: 20g+ per scoop</span><span class="sf-sup-check-line">Protein should be the first ingredient and the label should be short enough to read on a break.</span></span>
+        </button>
+        <button type="button" class="sf-sup-check" aria-pressed="false">
+          <span class="sf-sup-check-box" aria-hidden="true"></span>
+          <span class="sf-sup-check-txt"><span class="sf-sup-check-name">Vitamin D: the D3 form</span><span class="sf-sup-check-line">The cheap bottle and the $30 bottle are the same molecule. Buy cheap, spend the rest on food.</span></span>
+        </button>
+        <button type="button" class="sf-sup-check" aria-pressed="false">
+          <span class="sf-sup-check-box" aria-hidden="true"></span>
+          <span class="sf-sup-check-txt"><span class="sf-sup-check-name">Gummies are candy first</span><span class="sf-sup-check-line">If it matters enough to take, take it as a capsule, powder, or tablet. The gummy tax is real.</span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 4. CANCEL-FIRST ORDER -->
+    <section class="sf-sup-section">
+      <div class="sf-sup-kicker">Part 4</div>
+      <h2 class="sf-sup-h2">What to cancel first</h2>
+      <p class="sf-sup-lead">In order. Start at the top, cancel one tonight, and do not replace it with anything.</p>
+
+      <div class="sf-sup-order sf-sup-reveal">
+        <div class="sf-sup-orow"><span class="sf-sup-onum">1</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">Fat burner</span><span class="sf-sup-orow-cost">$45/mo back</span></div><p class="sf-sup-orow-line">The most expensive way to buy caffeine. Cancel it first and feel nothing but relief.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">2</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">Detox tea</span><span class="sf-sup-orow-cost">$30/mo back</span></div><p class="sf-sup-orow-line">Your liver was never waiting on a tea. This one is a laxative with branding.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">3</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">Adrenal cocktail mix</span><span class="sf-sup-orow-cost">$40/mo back</span></div><p class="sf-sup-orow-line">Orange juice, salt, and a story. 'Adrenal fatigue' is not in any chart you have ever opened.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">4</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">ACV gummies</span><span class="sf-sup-orow-cost">$20/mo back</span></div><p class="sf-sup-orow-line">The vinegar studies were tiny and the gummies are mostly sugar.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">5</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">BCAAs</span><span class="sf-sup-orow-cost">$30/mo back</span></div><p class="sf-sup-orow-line">Already inside the protein you eat. Fully redundant.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">6</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">Collagen marketed for weight loss</span><span class="sf-sup-orow-cost">$35/mo back</span></div><p class="sf-sup-orow-line">Fine as coffee flavor. Useless for fat loss, weak as a protein.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">7</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">Greens powder</span><span class="sf-sup-orow-cost">$50/mo back</span></div><p class="sf-sup-orow-line">Dehydrated produce at a luxury markup. Frozen vegetables win on every measure but marketing.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">8</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">Multivitamin</span><span class="sf-sup-orow-cost">$15/mo back</span></div><p class="sf-sup-orow-line">Insurance at best. Keep it only if your eating weeks are pure chaos, and know it will not move fat loss.</p></div></div>
+        <div class="sf-sup-orow"><span class="sf-sup-onum">9</span><div class="sf-sup-orow-main"><div class="sf-sup-orow-top"><span class="sf-sup-orow-name">Ashwagandha</span><span class="sf-sup-orow-cost">$25/mo back</span></div><p class="sf-sup-orow-line">Thin evidence, thinner doses in most bottles. Last on the list because it at least aims at stress.</p></div></div>
+      </div>
+      <p class="sf-sup-order-foot">Melatonin and magnesium are not on this list. They are judgment calls, and the notes live on the audit board above.</p>
+    </section>
+
+    <!-- BRIDGE -->
+    <div class="sf-sup-cta sf-sup-reveal">
+      <h2>Supplements are the last <span class="sf-sup-em">five percent</span>.</h2>
+      <p>The other ninety five is food that survives a 12, sleep that survives rotating shifts, and a plan for the weeks that fall apart. If you want that built around your actual schedule, I take a few nurses a month for a free game-plan call. No pitch, you leave with a plan either way.</p>
+      <a href="#" data-sf-call class="sf-sup-cta-btn" target="_blank" rel="noopener">Book my free game-plan call</a>
+      <p class="sf-sup-cta-note">30 minutes, free, nurse to nurse.</p>
+    </div>
+
+    <!-- PROOF -->
+    <div class="sf-sup-proof">
+      <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">400+</span><div class="sf-sup-proof-label">Nurses coached</div></div>
+      <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">87%</span><div class="sf-sup-proof-label">Feel a difference by Day 3</div></div>
+      <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">~5 lbs</span><div class="sf-sup-proof-label">Average lost in Week 1</div></div>
+      <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">60-day</span><div class="sf-sup-proof-label">Money-back guarantee</div></div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-sup-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Verdicts reflect published evidence and honest math. Check with your provider before starting anything new.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (lead-magnets/config.js) with safe fallbacks ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-supplements",
+    resourceUrl: "resource.html"
+  };
+  function isConfigured(v) { return v && v.indexOf("[") !== 0; }
+
+  /* ---- The cabinet (verdicts: keep / dep / drop) ---- */
+  var ITEMS = [
+    { id: "fatburner", label: "Fat burner", emoji: "🔥", cost: 45, verdict: "drop",
+      line: "Mostly caffeine in a costume. No fat burner on the shelf outperforms a slightly longer walk, and you already run on caffeine." },
+    { id: "detox", label: "Detox tea", emoji: "🍵", cost: 30, verdict: "drop",
+      line: "Detox is an organ function. You chart liver panels for a living, and no tea is doing that work. This one is a laxative with branding." },
+    { id: "adrenal", label: "Adrenal cocktail mix", emoji: "🍊", cost: 40, verdict: "drop",
+      line: "Orange juice, salt, and a story. 'Adrenal fatigue' is not a diagnosis in any chart you have ever opened." },
+    { id: "ashwagandha", label: "Ashwagandha", emoji: "🌿", cost: 25, verdict: "drop",
+      line: "A handful of small trials on stress, and most gummies are dosed below even those. Not worth a standing monthly charge." },
+    { id: "greens", label: "Greens powder", emoji: "🥬", cost: 50, verdict: "drop",
+      line: "Dehydrated produce at a luxury markup. A bag of frozen vegetables covers it for a tenth of the price." },
+    { id: "bcaa", label: "BCAAs", emoji: "🧪", cost: 30, verdict: "drop",
+      line: "If you eat protein, you already own these. They are amino acids that come inside the food." },
+    { id: "collagen", label: "Collagen (weight-loss)", emoji: "☕", cost: 35, verdict: "drop",
+      line: "Fine as a coffee flavor. As a weight-loss product it is a weak protein with strong marketing." },
+    { id: "acv", label: "ACV gummies", emoji: "🍬", cost: 20, verdict: "drop",
+      line: "The vinegar studies were tiny, and the gummy version is mostly sugar. Candy with a health label." },
+    { id: "magspray", label: "Magnesium spray", emoji: "💦", cost: 15, verdict: "dep",
+      line: "Magnesium itself has a case if you run low, especially at night. The spray is the wrong vehicle. If you keep it, switch to an oral form like glycinate." },
+    { id: "multi", label: "Multivitamin", emoji: "💊", cost: 15, verdict: "drop",
+      line: "Insurance at best. If you eat protein and produce most weeks, a lot of it becomes expensive urine. Put the $15 toward the produce." },
+    { id: "melatonin", label: "Melatonin", emoji: "😴", cost: 10, verdict: "dep",
+      line: "A short reset tool after a run of nights, at a low dose, before your target sleep window. As an every-night habit it stops being a tool." },
+    { id: "protein", label: "Protein powder", emoji: "🥤", cost: 35, verdict: "keep",
+      line: "Not magic, convenient food. One scoop is 25 to 30 grams of protein with zero cooking at hour 11 of a 12." },
+    { id: "creatine", label: "Creatine", emoji: "💪", cost: 12, verdict: "keep",
+      line: "One of the most studied supplements in existence. Muscle and strength, plus early signals for a sleep-deprived brain. Pennies a day." },
+    { id: "vitd", label: "Vitamin D", emoji: "☀️", cost: 10, verdict: "keep",
+      line: "You clock in before sunrise and drive home after dark. Shift workers barely see sun, and this is the cheapest fix on the shelf." }
+  ];
+  var STAMP = {
+    drop: '<span class="sf-sup-stamp sf-drop">Drop</span>',
+    dep: '<span class="sf-sup-stamp sf-dep">Depends</span>',
+    keep: '<span class="sf-sup-stamp sf-keep">Keep</span>'
+  };
+
+  var state = { selected: [] };
+
+  var boardEl = document.getElementById("sfSupBoard");
+  var tallyEl = document.getElementById("sfSupTally");
+  var checksEl = document.getElementById("sfSupChecks");
+  var printBtn = document.getElementById("sfSupPrint");
+  var greetEl = document.getElementById("sfSupGreet");
+
+  function findItem(id) {
+    for (var i = 0; i < ITEMS.length; i++) { if (ITEMS[i].id === id) return ITEMS[i]; }
+    return null;
+  }
+  function money(n) { return "$" + n.toLocaleString("en-US"); }
+
+  /* ---- Render the board ---- */
+  function renderBoard() {
+    var html = "";
+    for (var i = 0; i < ITEMS.length; i++) {
+      var it = ITEMS[i];
+      html += '<button type="button" class="sf-sup-row" data-id="' + it.id + '" aria-pressed="false">' +
+        '<span class="sf-sup-tick" aria-hidden="true"></span>' +
+        '<span class="sf-sup-row-emoji" aria-hidden="true">' + it.emoji + '</span>' +
+        '<span class="sf-sup-row-main">' +
+          '<span class="sf-sup-row-top">' +
+            '<span class="sf-sup-row-name">' + it.label + '</span>' +
+            '<span class="sf-sup-row-right"><span class="sf-sup-row-cost">$' + it.cost + '/mo</span>' + STAMP[it.verdict] + '</span>' +
+          '</span>' +
+          '<span class="sf-sup-row-line">' + it.line + '</span>' +
+        '</span>' +
+      '</button>';
+    }
+    boardEl.innerHTML = html;
+  }
+
+  /* ---- Live tally ---- */
+  function updateTally() {
+    var dropTotal = 0, depTotal = 0, keepTotal = 0;
+    for (var i = 0; i < state.selected.length; i++) {
+      var it = findItem(state.selected[i]);
+      if (!it) continue;
+      if (it.verdict === "drop") dropTotal += it.cost;
+      else if (it.verdict === "dep") depTotal += it.cost;
+      else keepTotal += it.cost;
+    }
+    var html = "";
+    if (!state.selected.length) {
+      html = '<div class="sf-sup-tally-label">Back in your pocket</div>' +
+        '<div class="sf-sup-tally-num">$0<small>a month</small></div>' +
+        '<p class="sf-sup-tally-note">Tap the rows you buy and the math shows up here.</p>';
+    } else if (dropTotal > 0) {
+      html = '<div class="sf-sup-tally-label">Back in your pocket</div>' +
+        '<div class="sf-sup-tally-num">' + money(dropTotal) + '<small>a month</small></div>' +
+        '<div class="sf-sup-tally-year">that is ' + money(dropTotal * 12) + ' a year, and you lose nothing that works</div>' +
+        (depTotal > 0 ? '<p class="sf-sup-tally-note">Another ' + money(depTotal) + ' a month is riding on the judgment calls. Read the notes, then decide.</p>' : "") +
+        (keepTotal > 0 ? '<p class="sf-sup-tally-note">The ' + money(keepTotal) + ' a month on your keepers stays. That money is working.</p>' : "");
+    } else {
+      html = '<div class="sf-sup-tally-label">Your verdict</div>' +
+        '<div class="sf-sup-tally-num">Clean shelf</div>' +
+        '<div class="sf-sup-tally-year">no drops in your picks, you are ahead of most of the unit</div>' +
+        (depTotal > 0 ? '<p class="sf-sup-tally-note">' + money(depTotal) + ' a month is riding on the judgment calls. Read the notes, then decide.</p>' : "") +
+        (keepTotal > 0 ? '<p class="sf-sup-tally-note">Your ' + money(keepTotal) + ' a month is on the three that earn it. The keeper card up top makes sure you get full value.</p>' : "");
+    }
+    tallyEl.innerHTML = html;
+  }
+
+  boardEl.addEventListener("click", function (e) {
+    var row = e.target.closest(".sf-sup-row");
+    if (!row) return;
+    var id = row.getAttribute("data-id");
+    var idx = state.selected.indexOf(id);
+    if (idx === -1) { state.selected.push(id); row.classList.add("sf-on"); row.setAttribute("aria-pressed", "true"); }
+    else { state.selected.splice(idx, 1); row.classList.remove("sf-on"); row.setAttribute("aria-pressed", "false"); }
+    updateTally();
+  });
+
+  /* ---- Checklist toggles ---- */
+  checksEl.addEventListener("click", function (e) {
+    var check = e.target.closest(".sf-sup-check");
+    if (!check) return;
+    var on = check.classList.toggle("sf-on");
+    check.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+
+  /* ---- Print ---- */
+  printBtn.addEventListener("click", function () { window.print(); });
+
+  /* ---- Greet by first name when she came through the opt-in ---- */
+  function greet() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var stored = "";
+      try { stored = window.localStorage.getItem("sf_sup_full") || ""; } catch (e) {}
+      if (params.get("unlocked") === "1" || stored === "1") {
+        var name = "";
+        try { name = window.localStorage.getItem("sf_sup_first") || ""; } catch (e) {}
+        greetEl.textContent = (name ? name + ", this" : "This") + " is your copy of the full kit. Print the keeper card, run the checklist on your next store run, and cancel the worst offender tonight.";
+      }
+    } catch (e) {}
+  }
+
+  /* ---- Meta pixel (PageView only on this page) ---- */
+  function initPixel() {
+    if (!SF_CONFIG.pixelId) return;
+    try {
+      if (!window.fbq) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = [];
+          t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+        }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      }
+      window.fbq("init", SF_CONFIG.pixelId);
+      window.fbq("track", "PageView");
+    } catch (e) {}
+  }
+
+  /* ---- Call CTA wiring (never hardcoded) ---- */
+  function wireCallLinks() {
+    var links = document.querySelectorAll("[data-sf-call]");
+    for (var i = 0; i < links.length; i++) {
+      if (isConfigured(SF_CONFIG.callUrl)) links[i].setAttribute("href", SF_CONFIG.callUrl);
+    }
+  }
+
+  /* ---- Scroll reveal ---- */
+  function reveal() {
+    var els = document.querySelectorAll(".sf-sup-reveal");
+    if (!els.length) return;
+    if ("IntersectionObserver" in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { entries[i].target.classList.add("sf-in"); obs.unobserve(entries[i].target); }
+        }
+      }, { threshold: 0.1 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add("sf-in");
+    }
+  }
+
+  /* ---- Init ---- */
+  renderBoard();
+  updateTally();
+  greet();
+  wireCallLinks();
+  initPixel();
+  reveal();
+})();
+</script>
+</body>
+</html>

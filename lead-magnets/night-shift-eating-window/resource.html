@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Night-Shift Eating Window | SmithFit</title>
+<meta name="description" content="Your eating clock for every night of the stretch: first night, the middle, and the flip back to days. Plus the 3-nights-in-a-row survival sequence and a printable fridge card. Built by a nurse, for nurses.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-ew *, .sf-ew *::before, .sf-ew *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-ew {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-night-deep: #14161d;
+  --sf-night-zone: #232733;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-green-deep: #2f6b41;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.sf-ew h1, .sf-ew h2, .sf-ew h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.15; }
+.sf-ew-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Header: night sky ===== */
+.sf-ew-header {
+  background: linear-gradient(180deg, #101219 0%, #191720 48%, #2a2118 100%);
+  padding: 44px 20px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sf-ew-header::before {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 58%;
+  background: radial-gradient(ellipse at 50% 120%, rgba(200,160,78,0.3) 0%, rgba(200,160,78,0.07) 48%, transparent 72%);
+  pointer-events: none;
+}
+.sf-ew-header::after {
+  content: ""; position: absolute; inset: 0 0 50% 0; pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 14% 30%, rgba(250,246,243,0.5), transparent 55%),
+    radial-gradient(1px 1px at 30% 14%, rgba(250,246,243,0.36), transparent 55%),
+    radial-gradient(1.3px 1.3px at 52% 38%, rgba(250,246,243,0.28), transparent 55%),
+    radial-gradient(1px 1px at 68% 12%, rgba(250,246,243,0.42), transparent 55%),
+    radial-gradient(1.4px 1.4px at 85% 28%, rgba(250,246,243,0.46), transparent 55%),
+    radial-gradient(1px 1px at 94% 48%, rgba(250,246,243,0.3), transparent 55%);
+}
+.sf-ew-header > * { position: relative; z-index: 1; }
+.sf-ew-badge {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4);
+  color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px;
+}
+.sf-ew-header h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(30px, 6vw, 50px); margin-bottom: 12px; }
+.sf-ew-header h1 .sf-ew-em { color: var(--sf-gold-soft); }
+.sf-ew-sub { color: rgba(250,246,243,0.84); font-size: clamp(15px, 2.2vw, 18px); max-width: 580px; margin: 0 auto; }
+
+/* ===== Validate banner ===== */
+.sf-ew-validate {
+  background: var(--sf-gold-hover);
+  border-left: 4px solid var(--sf-gold-raw);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 22px;
+  margin: 0 auto 8px;
+  max-width: 760px;
+  font-family: var(--sf-display);
+  font-style: italic;
+  font-size: clamp(15px, 2.2vw, 18px);
+  color: var(--sf-taupe-raw);
+}
+
+/* ===== Layout ===== */
+.sf-ew-wrap { max-width: 760px; margin: 0 auto; padding: 36px 20px 64px; }
+.sf-ew-section { margin-bottom: 44px; }
+.sf-ew-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 8px; }
+.sf-ew-h2 { font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; margin-bottom: 6px; }
+.sf-ew-lead { color: var(--sf-taupe-light); font-size: 15px; max-width: 560px; margin-bottom: 22px; }
+
+/* ===== Builder ===== */
+.sf-ew-builder { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 28px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-ew-step-h { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 12px; display: flex; align-items: center; gap: 9px; }
+.sf-ew-step-n { width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+.sf-ew-opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+.sf-ew-opts.sf-two { grid-template-columns: repeat(2, 1fr); }
+.sf-ew-opt {
+  background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 14px 8px;
+  text-align: center; cursor: pointer; font-family: var(--sf-sans);
+  -webkit-transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.sf-ew-opt:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-ew-opt:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-ew-opt.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-ew-opt-name { font-family: var(--sf-serif); font-weight: 700; font-size: 18px; color: var(--sf-dark-raw); display: block; }
+.sf-ew-opt-desc { font-size: 11px; color: var(--sf-taupe-light); margin-top: 3px; display: block; line-height: 1.4; }
+
+.sf-ew-custom { display: none; margin: -12px 0 24px; }
+.sf-ew-custom.sf-show { display: block; }
+.sf-ew-custom label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--sf-taupe-light); margin-bottom: 6px; }
+.sf-ew-custom input {
+  width: 100%; max-width: 220px; padding: 12px 14px; background: var(--sf-cream-raw);
+  border: 1.5px solid var(--sf-border); border-radius: 10px; color: var(--sf-dark-raw);
+  font-family: var(--sf-sans); font-size: 16px;
+  -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease;
+}
+.sf-ew-custom input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-ew-afternote { font-size: 12px; color: var(--sf-taupe-light); font-style: italic; margin: -14px 0 22px; min-height: 14px; }
+
+.sf-ew-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 4px; }
+
+/* ===== Result strip ===== */
+.sf-ew-result { margin-top: 4px; }
+.sf-ew-verdict-h { font-size: clamp(22px, 3.6vw, 28px); font-weight: 700; margin-bottom: 8px; }
+.sf-ew-verdict { font-size: 15px; color: var(--sf-taupe-raw); margin-bottom: 22px; }
+
+.sf-ew-patnote {
+  background: var(--sf-gold-hover); border-left: 4px solid var(--sf-gold-raw); border-radius: 0 10px 10px 0;
+  padding: 13px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-bottom: 20px;
+}
+.sf-ew-patnote strong { color: var(--sf-dark-raw); }
+
+.sf-ew-strip { position: relative; margin-bottom: 6px; }
+.sf-ew-track { display: flex; height: 56px; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 14px rgba(42,33,24,0.1); }
+.sf-ew-zone { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 0; }
+.sf-ew-z-anchor { background: var(--sf-gold-raw); }
+.sf-ew-z-steady { background: var(--sf-cream-deep); }
+.sf-ew-z-light {
+  background: var(--sf-night-zone);
+  background-image:
+    radial-gradient(1.2px 1.2px at 18% 30%, rgba(250,246,243,0.5), transparent 55%),
+    radial-gradient(1px 1px at 42% 62%, rgba(250,246,243,0.35), transparent 55%),
+    radial-gradient(1.3px 1.3px at 66% 24%, rgba(250,246,243,0.45), transparent 55%),
+    radial-gradient(1px 1px at 86% 55%, rgba(250,246,243,0.3), transparent 55%);
+}
+.sf-ew-z-land { background: var(--sf-green-soft); }
+.sf-ew-zlabel { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; overflow: hidden; }
+.sf-ew-z-anchor .sf-ew-zlabel { color: var(--sf-dark-raw); }
+.sf-ew-z-steady .sf-ew-zlabel { color: var(--sf-taupe-raw); }
+.sf-ew-z-light .sf-ew-zlabel { color: rgba(250,246,243,0.85); }
+.sf-ew-z-land .sf-ew-zlabel { color: var(--sf-green-deep); }
+.sf-ew-znum { width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.sf-ew-z-anchor .sf-ew-znum { background: var(--sf-dark-raw); color: var(--sf-gold-soft); }
+.sf-ew-z-steady .sf-ew-znum { background: var(--sf-taupe-raw); color: var(--sf-cream-raw); }
+.sf-ew-z-light .sf-ew-znum { background: var(--sf-gold-soft); color: var(--sf-dark-raw); }
+.sf-ew-z-land .sf-ew-znum { background: var(--sf-green-deep); color: var(--sf-cream-raw); }
+
+.sf-ew-mark3 { position: absolute; top: -13px; -webkit-transform: translateX(-50%); transform: translateX(-50%); text-align: center; pointer-events: none; }
+.sf-ew-mark3-dot { display: block; width: 8px; height: 8px; margin: 0 auto; border-radius: 50%; background: var(--sf-gold-soft); box-shadow: 0 0 9px 2px rgba(232,200,120,0.6); }
+.sf-ew-mark3-lab { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-raw); margin-top: 2px; }
+
+.sf-ew-ticks { position: relative; height: 26px; }
+.sf-ew-tick { position: absolute; top: 4px; font-size: 11px; font-weight: 600; color: var(--sf-taupe-light); white-space: nowrap; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+.sf-ew-tick.sf-first { -webkit-transform: none; transform: none; }
+.sf-ew-tick.sf-last { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+
+@-webkit-keyframes sfEwGrow { 0% { -webkit-transform: scaleX(0); } 100% { -webkit-transform: scaleX(1); } }
+@keyframes sfEwGrow { 0% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+.sf-ew-anim .sf-ew-zone { -webkit-transform-origin: left center; transform-origin: left center; -webkit-animation: sfEwGrow .55s ease both; animation: sfEwGrow .55s ease both; }
+.sf-ew-anim .sf-ew-zone:nth-child(2) { -webkit-animation-delay: .12s; animation-delay: .12s; }
+.sf-ew-anim .sf-ew-zone:nth-child(3) { -webkit-animation-delay: .24s; animation-delay: .24s; }
+.sf-ew-anim .sf-ew-zone:nth-child(4) { -webkit-animation-delay: .36s; animation-delay: .36s; }
+@-webkit-keyframes sfEwFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes sfEwFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+.sf-ew-anim .sf-ew-tick, .sf-ew-anim .sf-ew-mark3, .sf-ew-anim .sf-ew-zlabel, .sf-ew-anim .sf-ew-znum { -webkit-animation: sfEwFade .5s ease both .55s; animation: sfEwFade .5s ease both .55s; }
+
+@-webkit-keyframes sfEwPop { 0% { opacity: 0; -webkit-transform: translateY(14px); } 100% { opacity: 1; -webkit-transform: translateY(0); } }
+@keyframes sfEwPop { 0% { opacity: 0; transform: translateY(14px); } 100% { opacity: 1; transform: translateY(0); } }
+.sf-ew-pop { -webkit-animation: sfEwPop .5s ease both; animation: sfEwPop .5s ease both; }
+.sf-ew-pop.sf-d1 { -webkit-animation-delay: .15s; animation-delay: .15s; }
+.sf-ew-pop.sf-d2 { -webkit-animation-delay: .25s; animation-delay: .25s; }
+.sf-ew-pop.sf-d3 { -webkit-animation-delay: .35s; animation-delay: .35s; }
+.sf-ew-pop.sf-d4 { -webkit-animation-delay: .45s; animation-delay: .45s; }
+.sf-ew-pop.sf-d5 { -webkit-animation-delay: .55s; animation-delay: .55s; }
+
+/* Zone cards */
+.sf-ew-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+.sf-ew-card { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 18px 18px; }
+.sf-ew-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.sf-ew-card-n { width: 22px; height: 22px; flex: 0 0 22px; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.sf-ew-card.sf-c1 .sf-ew-card-n { background: var(--sf-gold-raw); color: var(--sf-dark-raw); }
+.sf-ew-card.sf-c2 .sf-ew-card-n { background: var(--sf-cream-deep); color: var(--sf-taupe-raw); }
+.sf-ew-card.sf-c3 .sf-ew-card-n { background: var(--sf-night-zone); color: var(--sf-cream-raw); }
+.sf-ew-card.sf-c4 .sf-ew-card-n { background: var(--sf-green-soft); color: var(--sf-green-deep); }
+.sf-ew-card h3 { font-size: 19px; font-weight: 700; }
+.sf-ew-card-time { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 8px; }
+.sf-ew-card p { font-size: 14px; color: var(--sf-taupe-raw); }
+.sf-ew-card .sf-ew-why { font-size: 12.5px; color: var(--sf-taupe-light); margin-top: 8px; }
+.sf-ew-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.sf-ew-chip-eg { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; color: var(--sf-taupe-raw); }
+
+/* Flip plan */
+.sf-ew-flip { background: var(--sf-bg-card); border: 1.5px solid var(--sf-gold-raw); border-radius: 16px; padding: 22px 20px; margin-top: 16px; }
+.sf-ew-flip h3 { font-size: 21px; font-weight: 700; margin-bottom: 4px; }
+.sf-ew-flip-sub { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 14px; }
+.sf-ew-flip-rows { list-style: none; }
+.sf-ew-flip-rows li { display: flex; gap: 14px; padding: 9px 0; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 14px; }
+.sf-ew-flip-rows li:last-child { border-bottom: none; }
+.sf-ew-flip-t { flex: 0 0 118px; font-weight: 700; color: var(--sf-gold-raw); font-size: 12.5px; letter-spacing: 0.04em; text-transform: uppercase; padding-top: 1px; }
+
+/* 3am mini-list */
+.sf-ew-3am { background: var(--sf-night-deep); border-radius: 16px; padding: 24px 22px; margin-top: 20px; position: relative; overflow: hidden; }
+.sf-ew-3am::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 20%, rgba(250,246,243,0.4), transparent 55%),
+    radial-gradient(1px 1px at 78% 16%, rgba(250,246,243,0.32), transparent 55%),
+    radial-gradient(1.2px 1.2px at 90% 70%, rgba(250,246,243,0.28), transparent 55%);
+}
+.sf-ew-3am > * { position: relative; z-index: 1; }
+.sf-ew-3am h3 { color: var(--sf-cream-raw); font-size: 21px; font-weight: 700; margin-bottom: 14px; }
+.sf-ew-3am h3 .sf-ew-em { color: var(--sf-gold-soft); }
+.sf-ew-3am-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.sf-ew-3am-col h4 { font-family: var(--sf-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.sf-ew-3am-col.sf-yes h4 { color: var(--sf-gold-soft); }
+.sf-ew-3am-col.sf-no h4 { color: rgba(250,246,243,0.5); }
+.sf-ew-3am-col ul { list-style: none; }
+.sf-ew-3am-col li { font-size: 14px; color: rgba(250,246,243,0.88); padding: 4px 0 4px 20px; position: relative; }
+.sf-ew-3am-col.sf-yes li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-ew-3am-col.sf-no li { color: rgba(250,246,243,0.55); }
+.sf-ew-3am-col.sf-no li::before { content: "\00d7"; position: absolute; left: 2px; color: rgba(192,80,77,0.9); font-weight: 700; }
+.sf-ew-3am-line { font-family: var(--sf-display); font-style: italic; font-size: 14.5px; color: rgba(250,246,243,0.72); margin-top: 16px; border-top: 1px solid rgba(250,246,243,0.12); padding-top: 14px; }
+
+/* ===== Survival sequence ===== */
+.sf-ew-seq { position: relative; padding-left: 40px; }
+.sf-ew-seq::before { content: ""; position: absolute; left: 15px; top: 10px; bottom: 12px; width: 2px; background: var(--sf-cream-deep); }
+.sf-ew-seq-item { position: relative; padding-bottom: 22px; }
+.sf-ew-seq-item:last-child { padding-bottom: 0; }
+.sf-ew-seq-dot {
+  position: absolute; left: -40px; top: 0; width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;
+  border: 2px solid var(--sf-cream-raw); box-shadow: 0 0 0 1.5px var(--sf-cream-deep);
+}
+.sf-ew-seq-item.sf-night .sf-ew-seq-dot { background: var(--sf-night-zone); color: var(--sf-gold-soft); }
+.sf-ew-seq-item.sf-day .sf-ew-seq-dot { background: var(--sf-gold-raw); color: var(--sf-dark-raw); }
+.sf-ew-seq-item h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.sf-ew-seq-item p { font-size: 14.5px; color: var(--sf-taupe-raw); max-width: 620px; }
+
+/* ===== Fridge card ===== */
+.sf-ew-fridge {
+  background: var(--sf-bg-card); border: 2px solid var(--sf-gold-raw); border-radius: 18px;
+  padding: 26px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06);
+}
+.sf-ew-fridge-head { text-align: center; border-bottom: 1px solid var(--sf-border); padding-bottom: 14px; margin-bottom: 6px; }
+.sf-ew-fridge-head h3 { font-size: 24px; font-weight: 700; }
+.sf-ew-fridge-head .sf-ew-fridge-sub { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-gold-raw); margin-top: 2px; }
+.sf-ew-fridge-rows { list-style: none; }
+.sf-ew-fridge-rows li { display: flex; gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-ew-fridge-rows li:last-child { border-bottom: none; }
+.sf-ew-fridge-zone { flex: 0 0 108px; font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-dark-raw); }
+.sf-ew-fridge-time { flex: 0 0 128px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sf-gold-raw); }
+.sf-ew-fridge-what { font-size: 13.5px; color: var(--sf-taupe-raw); }
+.sf-ew-fridge-foot { border-top: 1px solid var(--sf-border); margin-top: 6px; padding-top: 12px; font-size: 12.5px; color: var(--sf-taupe-light); }
+.sf-ew-fridge-foot strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 14px; }
+.sf-ew-cardactions { margin-top: 16px; }
+.sf-ew-btn2 {
+  display: inline-block; background: transparent; color: var(--sf-taupe-raw); border: 1.5px solid var(--sf-gold-raw);
+  border-radius: 12px; padding: 13px 28px; font-family: var(--sf-sans); font-weight: 700; font-size: 14px;
+  letter-spacing: 0.03em; cursor: pointer;
+  -webkit-transition: background .2s ease, transform .2s ease; transition: background .2s ease, transform .2s ease;
+}
+.sf-ew-btn2:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-ew-btn2:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 3px; }
+
+/* ===== CTA bridge ===== */
+.sf-ew-bridge {
+  background: linear-gradient(180deg, #101219 0%, #1d1922 55%, #2a2118 100%);
+  border-radius: 20px; padding: 40px 26px; text-align: center; position: relative; overflow: hidden;
+}
+.sf-ew-bridge::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.22) 0%, transparent 60%); pointer-events: none; }
+.sf-ew-bridge > * { position: relative; z-index: 1; }
+.sf-ew-bridge h2 { color: var(--sf-cream-raw); font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; margin-bottom: 12px; }
+.sf-ew-bridge h2 .sf-ew-em { color: var(--sf-gold-soft); }
+.sf-ew-bridge p { color: rgba(250,246,243,0.82); font-size: 16px; max-width: 520px; margin: 0 auto 26px; }
+.sf-ew-bridge-cta {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 40px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-ew-bridge-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-ew-bridge-cta:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-ew-bridge-note { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 16px; }
+
+/* ===== Proof ===== */
+.sf-ew-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+.sf-ew-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 10px; text-align: center; }
+.sf-ew-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold-raw); display: block; }
+.sf-ew-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 4px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-ew-footer { text-align: center; padding: 30px 20px 10px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-ew-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 15px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-ew-reveal { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-ew-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-ew-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-ew-wrap { padding: 28px 16px 54px; }
+  .sf-ew-builder { padding: 22px 16px; }
+  .sf-ew-opts { gap: 8px; }
+  .sf-ew-opt-name { font-size: 16px; }
+  .sf-ew-track { height: 46px; }
+  .sf-ew-zlabel { display: none; }
+  .sf-ew-cards { grid-template-columns: 1fr; }
+  .sf-ew-3am-grid { grid-template-columns: 1fr; }
+  .sf-ew-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-ew-tick { font-size: 10px; }
+  .sf-ew-flip-t { flex: 0 0 96px; }
+  .sf-ew-fridge-rows li { flex-wrap: wrap; gap: 4px 14px; }
+  .sf-ew-fridge-what { flex-basis: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-ew *, .sf-ew *::before, .sf-ew *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Print: the fridge card only ===== */
+@media print {
+  .sf-ew-header, .sf-ew-validate, .sf-ew-builder-section, .sf-ew-seq-section, .sf-ew-bridge, .sf-ew-proof, .sf-ew-footer, .sf-ew-cardactions, .sf-ew-fridge-lead { display: none !important; }
+  .sf-ew { background: #fff; }
+  .sf-ew-fridge { box-shadow: none; border: 1.5px solid #999; page-break-inside: avoid; }
+  .sf-ew-wrap { padding: 0; }
+  .sf-ew-section { margin-bottom: 0; }
+}
+</style>
+</head>
+<body>
+<div class="sf-ew">
+
+  <header class="sf-ew-header">
+    <span class="sf-ew-badge">The full version, free</span>
+    <h1>The Night-Shift <span class="sf-ew-em">Eating Window</span></h1>
+    <p class="sf-ew-sub" id="sfEwSub">Your eating clock for every night of the stretch: first night, the middle, and the flip back to days. Plus the survival sequence and your fridge card.</p>
+  </header>
+
+  <div class="sf-ew-wrap">
+
+    <div class="sf-ew-validate">
+      Eating big at 3am is not a character flaw, it is what an exhausted body asks for at its lowest hour. The clock below moves your real meal to where your body can use it, keeps you fed all night, and never asks you to fast through a 12. You eat all night. You eat on purpose.
+    </div>
+
+    <!-- BUILDER -->
+    <section class="sf-ew-section sf-ew-builder-section" style="margin-top: 36px;">
+      <div class="sf-ew-eyebrow">The full clock</div>
+      <h2 class="sf-ew-h2">Set your night</h2>
+      <p class="sf-ew-lead">Every tap re-draws the clock, the survival sequence, and your fridge card below. Set it for tonight, then come back and reset it for the flip.</p>
+
+      <div class="sf-ew-builder">
+        <div class="sf-ew-step-h"><span class="sf-ew-step-n">1</span> Which night is this?</div>
+        <div class="sf-ew-opts" id="sfEwPattern" role="group" aria-label="Choose which night of the stretch this is">
+          <button type="button" class="sf-ew-opt" data-pattern="first" aria-pressed="false">
+            <span class="sf-ew-opt-name">First night</span>
+            <span class="sf-ew-opt-desc">Coming off day life</span>
+          </button>
+          <button type="button" class="sf-ew-opt sf-on" data-pattern="middle" aria-pressed="true">
+            <span class="sf-ew-opt-name">Middle</span>
+            <span class="sf-ew-opt-desc">In the stretch</span>
+          </button>
+          <button type="button" class="sf-ew-opt" data-pattern="flip" aria-pressed="false">
+            <span class="sf-ew-opt-name">Last night</span>
+            <span class="sf-ew-opt-desc">Flipping back to days</span>
+          </button>
+        </div>
+
+        <div class="sf-ew-step-h"><span class="sf-ew-step-n">2</span> When do you clock in?</div>
+        <div class="sf-ew-opts" id="sfEwStart" role="group" aria-label="Choose your shift start time">
+          <button type="button" class="sf-ew-opt sf-on" data-start="1140" aria-pressed="true">
+            <span class="sf-ew-opt-name">7:00pm</span>
+            <span class="sf-ew-opt-desc">The classic night</span>
+          </button>
+          <button type="button" class="sf-ew-opt" data-start="1380" aria-pressed="false">
+            <span class="sf-ew-opt-name">11:00pm</span>
+            <span class="sf-ew-opt-desc">The late start</span>
+          </button>
+          <button type="button" class="sf-ew-opt" data-start="custom" aria-pressed="false">
+            <span class="sf-ew-opt-name">Custom</span>
+            <span class="sf-ew-opt-desc">Type your start</span>
+          </button>
+        </div>
+        <div class="sf-ew-custom" id="sfEwCustomWrap">
+          <label for="sfEwCustomTime">Your clock-in time</label>
+          <input type="time" id="sfEwCustomTime" name="customStart">
+        </div>
+
+        <div class="sf-ew-step-h"><span class="sf-ew-step-n">3</span> How long is the shift?</div>
+        <div class="sf-ew-opts" id="sfEwLen" role="group" aria-label="Choose your shift length">
+          <button type="button" class="sf-ew-opt" data-len="480" aria-pressed="false">
+            <span class="sf-ew-opt-name">8 hours</span>
+          </button>
+          <button type="button" class="sf-ew-opt" data-len="600" aria-pressed="false">
+            <span class="sf-ew-opt-name">10 hours</span>
+          </button>
+          <button type="button" class="sf-ew-opt sf-on" data-len="720" aria-pressed="true">
+            <span class="sf-ew-opt-name">12 hours</span>
+          </button>
+        </div>
+
+        <div class="sf-ew-step-h"><span class="sf-ew-step-n">4</span> When you get home?</div>
+        <div class="sf-ew-opts sf-two" id="sfEwAfter" role="group" aria-label="Choose what you do after the shift">
+          <button type="button" class="sf-ew-opt sf-on" data-after="bed" aria-pressed="true">
+            <span class="sf-ew-opt-name">Straight to bed</span>
+            <span class="sf-ew-opt-desc">Blinds down, asleep fast</span>
+          </button>
+          <button type="button" class="sf-ew-opt" data-after="family" aria-pressed="false">
+            <span class="sf-ew-opt-name">Up with the family</span>
+            <span class="sf-ew-opt-desc">School run, life, sleep later</span>
+          </button>
+        </div>
+        <p class="sf-ew-afternote" id="sfEwAfterNote"></p>
+
+        <div id="sfEwNudge"></div>
+        <div id="sfEwResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- SURVIVAL SEQUENCE -->
+    <section class="sf-ew-section sf-ew-seq-section sf-ew-reveal">
+      <div class="sf-ew-eyebrow">Three in a row</div>
+      <h2 class="sf-ew-h2">The 3-nights-in-a-row survival sequence</h2>
+      <p class="sf-ew-lead">The clock wins or loses on the days between. This sequence uses the times from your clock above, so set that first.</p>
+      <div class="sf-ew-seq" id="sfEwSeq"></div>
+    </section>
+
+    <!-- FRIDGE CARD -->
+    <section class="sf-ew-section sf-ew-reveal">
+      <div class="sf-ew-fridge-lead">
+        <div class="sf-ew-eyebrow">Keep it where you can see it</div>
+        <h2 class="sf-ew-h2">Your fridge card</h2>
+        <p class="sf-ew-lead">Your exact times, one card. Print it for the fridge and the locker, or screenshot it for the nurse on your unit who orders the pizza.</p>
+      </div>
+      <div class="sf-ew-fridge" id="sfEwFridge"></div>
+      <div class="sf-ew-cardactions">
+        <button type="button" class="sf-ew-btn2" id="sfEwPrint">Print my fridge card</button>
+      </div>
+    </section>
+
+    <!-- CTA BRIDGE -->
+    <section class="sf-ew-section sf-ew-reveal">
+      <div class="sf-ew-bridge">
+        <h2>Want the whole plan built <span class="sf-ew-em">around your rotation</span>?</h2>
+        <p>The clock handles the food timing. A real plan handles the meals, the sleep, the flip days, and the weeks your schedule falls apart. I take a few nurses a month for a free game-plan call. No pitch. A plan you can actually run on nights.</p>
+        <a href="#" data-sf-call class="sf-ew-bridge-cta">Book my free game-plan call</a>
+        <p class="sf-ew-bridge-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+
+      <div class="sf-ew-proof">
+        <div class="sf-ew-proof-item"><span class="sf-ew-proof-num">400+</span><div class="sf-ew-proof-label">Nurses coached</div></div>
+        <div class="sf-ew-proof-item"><span class="sf-ew-proof-num">87%</span><div class="sf-ew-proof-label">Feel a difference by Day 3</div></div>
+        <div class="sf-ew-proof-item"><span class="sf-ew-proof-num">~5 lbs</span><div class="sf-ew-proof-label">Average lost in Week 1</div></div>
+        <div class="sf-ew-proof-item"><span class="sf-ew-proof-num">60-day</span><div class="sf-ew-proof-label">Money-back guarantee</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="sf-ew-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Made for 12-hour nights, rotating stretches, and the 3am hour.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (edit lead-magnets/config.js, not this file) ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-night-shift-eating",
+    resourceUrl: "resource.html"
+  };
+  function isConfigured(v) { return v && v.charAt(0) !== "["; }
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    if (!SF_CONFIG.pixelId) return;
+    try {
+      (function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+        t = b.createElement(e); t.async = true; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      window.fbq("init", SF_CONFIG.pixelId);
+      window.fbq("track", "PageView");
+    } catch (e) {}
+  }
+
+  /* ---- Call links ---- */
+  function initCallLinks() {
+    var links = document.querySelectorAll("a[data-sf-call]");
+    for (var i = 0; i < links.length; i++) {
+      if (isConfigured(SF_CONFIG.callUrl)) {
+        links[i].setAttribute("href", SF_CONFIG.callUrl);
+        links[i].setAttribute("target", "_blank");
+        links[i].setAttribute("rel", "noopener");
+      }
+    }
+  }
+
+  /* ---- Time helpers ---- */
+  function fmt(m) {
+    m = ((m % 1440) + 1440) % 1440;
+    var h = Math.floor(m / 60), min = m % 60;
+    var ap = h >= 12 ? "pm" : "am";
+    var h12 = h % 12; if (h12 === 0) h12 = 12;
+    return min === 0 ? (h12 + ap) : (h12 + ":" + (min < 10 ? "0" + min : min) + ap);
+  }
+
+  /* ---- The clock math (same rules as the acquisition page) ---- */
+  function computeClock(S, L, after) {
+    var E = S + L;
+    var midRef = S >= 720 ? 1440 : 0;
+    var deepA = midRef, deepB = midRef + 360;
+    var crosses = (S < deepB) && (E > deepA);
+    var c = { S: S, E: E, L: L, after: after, crosses: crosses, midnightStart: false };
+    c.anchorA = S - 120;
+    c.anchorB = S - 60;
+    if (crosses) {
+      var ls;
+      if (S >= deepA && S < deepB) { ls = S + 60; c.midnightStart = true; }
+      else {
+        ls = Math.max(deepA + 30, S + 180);
+        ls = Math.min(ls, E - 90);
+        ls = Math.max(ls, S + 60);
+      }
+      c.lightStart = ls;
+    } else {
+      c.lightStart = null;
+    }
+    c.landA = E + 30;
+    c.landB = E + 90;
+    c.threeAm = midRef + 180;
+    c.showThreeAm = crosses && c.threeAm > S && c.threeAm < E;
+    return c;
+  }
+
+  var PATTERNS = {
+    first: {
+      label: "First night",
+      note: "<strong>First night:</strong> you have been up since this morning, so tonight is damage control, and that is fine. If you can steal a 60 to 90 minute nap before your anchor meal, take it. Your anchor is your normal dinner, eaten at the table like a person.",
+      verdictLead: "First night of the stretch. "
+    },
+    middle: {
+      label: "Middle of the stretch",
+      note: "<strong>Middle of the stretch:</strong> your body is in night rhythm now, and this is the night the clock runs cleanest. Run it exactly. Night two and three are when the 3am pull bargains hardest.",
+      verdictLead: "Middle of the stretch. "
+    },
+    flip: {
+      label: "Last night, flipping back",
+      note: "<strong>Last night:</strong> tonight the landing changes. You are not sleeping a full day tomorrow, you are stealing a short sleep and taking your day back. The flip plan below is scripted to the minute.",
+      verdictLead: "Last night before the flip. "
+    }
+  };
+
+  function verdictText(c, pattern) {
+    if (!c.crosses) {
+      return PATTERNS[pattern].verdictLead + "That start barely touches the deep night, so tonight reads more like a day schedule. The rule holds anyway: anchor before you clock in, eat steady through, land light at home.";
+    }
+    var v;
+    if (c.midnightStart) {
+      v = "You clock in inside the deep night, so your anchor meal is doing almost all the work. Eat it like a real dinner before you leave, and keep the whole shift on the light side.";
+    } else if (c.S >= 1320) {
+      v = "A late start means a short steady stretch. Your anchor plate carries most of tonight, so make it a real dinner, not a bite on the way out the door.";
+    } else {
+      v = "Your start gives you a real steady stretch. Eat like a normal person until " + fmt(c.lightStart) + ", then shift gears.";
+    }
+    if (c.L >= 720) { v += " A 12 means a long light window: stock the grazing list, because the break room will not save you."; }
+    else if (c.L <= 480) { v += " The good news about an 8: your light window is short. Hold the line and you are home before it gets loud."; }
+    else { v += " Ten hours sits in the middle: long enough to need the grazing list, short enough that the clock does most of the work."; }
+    return PATTERNS[pattern].verdictLead + v;
+  }
+
+  var LIGHT_EXAMPLES = ["Greek yogurt cup", "Two hard-boiled eggs", "String cheese", "Jerky", "Half a protein shake"];
+
+  function landingCopy(after, pattern) {
+    if (pattern === "flip") {
+      return {
+        name: "The landing: the flip",
+        time: "sleep short, then take the day back",
+        body: "Sleep 3 to 4 hours when you get home, alarm set, no snooze. Up in the early afternoon, real lunch, normal evening, bed near your usual time.",
+        why: "A full 8 after your last night steals your flip day and keeps you on night time all weekend."
+      };
+    }
+    if (after === "family") {
+      return {
+        name: "The landing",
+        time: "when you walk in",
+        body: "Keep breakfast with them light and protein-first: eggs, a yogurt bowl, coffee if you must. Your real meal comes after you sleep, so you are not running two food days at once.",
+        why: "A big plate before a delayed sleep leaves you waking up puffy and starving anyway."
+      };
+    }
+    return {
+      name: "The landing",
+      time: "when you walk in",
+      body: "One small protein bite, water, blinds down, bed. Greek yogurt or string cheese sized, not a plate.",
+      why: "A feast now sits on top of your sleep. The small bite keeps you asleep without weighing you down."
+    };
+  }
+
+  /* ---- Rendering ---- */
+  function pct(n, total) { return (Math.round(n / total * 1000) / 10) + "%"; }
+
+  function stripHtml(c) {
+    var start = c.anchorA, end = c.landB, total = end - start;
+    var zones = [];
+    zones.push({ cls: "sf-ew-z-anchor", label: "Anchor", n: "1", w: c.S - c.anchorA });
+    if (c.crosses) {
+      zones.push({ cls: "sf-ew-z-steady", label: "Steady", n: "2", w: c.lightStart - c.S });
+      zones.push({ cls: "sf-ew-z-light", label: "Go light", n: "3", w: c.E - c.lightStart });
+      zones.push({ cls: "sf-ew-z-land", label: "Land", n: "4", w: c.landB - c.E });
+    } else {
+      zones.push({ cls: "sf-ew-z-steady", label: "Steady", n: "2", w: c.E - c.S });
+      zones.push({ cls: "sf-ew-z-land", label: "Land", n: "3", w: c.landB - c.E });
+    }
+    var zHtml = "";
+    for (var i = 0; i < zones.length; i++) {
+      var wPct = zones[i].w / total * 100;
+      var labelHtml = wPct >= 12 ? ('<span class="sf-ew-zlabel">' + zones[i].label + "</span>") : "";
+      zHtml += '<div class="sf-ew-zone ' + zones[i].cls + '" style="width:' + pct(zones[i].w, total) + '">' +
+        '<span class="sf-ew-znum" aria-hidden="true">' + zones[i].n + '</span>' + labelHtml + "</div>";
+    }
+    var marks = c.crosses ? [c.anchorA, c.S, c.lightStart, c.E] : [c.anchorA, c.S, c.E];
+    var tHtml = "";
+    for (var t = 0; t < marks.length; t++) {
+      var cls = t === 0 ? " sf-first" : "";
+      tHtml += '<span class="sf-ew-tick' + cls + '" style="left:' + pct(marks[t] - start, total) + '">' + fmt(marks[t]) + "</span>";
+    }
+    var markHtml = "";
+    if (c.showThreeAm) {
+      markHtml = '<div class="sf-ew-mark3" style="left:' + pct(c.threeAm - start, total) + '"><span class="sf-ew-mark3-dot"></span><span class="sf-ew-mark3-lab">3am</span></div>';
+    }
+    var aria = "Your eating clock: anchor meal " + fmt(c.anchorA) + " to " + fmt(c.anchorB) +
+      (c.crosses ? (", steady " + fmt(c.S) + " to " + fmt(c.lightStart) + ", light " + fmt(c.lightStart) + " to " + fmt(c.E)) : (", steady " + fmt(c.S) + " to " + fmt(c.E))) +
+      ", landing about " + fmt(c.landA) + ".";
+    return '<div class="sf-ew-strip sf-ew-anim" role="img" aria-label="' + aria + '">' +
+      '<div class="sf-ew-track">' + zHtml + "</div>" + markHtml +
+      '<div class="sf-ew-ticks">' + tHtml + "</div></div>";
+  }
+
+  function cardHtml(idx, delay, name, time, body, why, chips) {
+    var chipsHtml = "";
+    if (chips) {
+      chipsHtml = '<div class="sf-ew-chips">';
+      for (var i = 0; i < chips.length; i++) { chipsHtml += '<span class="sf-ew-chip-eg">' + chips[i] + "</span>"; }
+      chipsHtml += "</div>";
+    }
+    return '<div class="sf-ew-card sf-c' + idx + ' sf-ew-pop sf-d' + delay + '">' +
+      '<div class="sf-ew-card-top"><span class="sf-ew-card-n" aria-hidden="true">' + idx + '</span><h3>' + name + "</h3></div>" +
+      '<div class="sf-ew-card-time">' + time + "</div>" +
+      "<p>" + body + "</p>" + chipsHtml +
+      (why ? '<p class="sf-ew-why">' + why + "</p>" : "") +
+      "</div>";
+  }
+
+  function flipPlanHtml(c) {
+    return '<div class="sf-ew-flip sf-ew-pop sf-d5">' +
+      "<h3>The flip, to the minute</h3>" +
+      '<p class="sf-ew-flip-sub">How you get your weekend back after the last night.</p>' +
+      '<ul class="sf-ew-flip-rows">' +
+        '<li><span class="sf-ew-flip-t">' + fmt(c.landA) + "</span><span>Walk in. Small protein bite, water, blinds down.</span></li>" +
+        '<li><span class="sf-ew-flip-t">' + fmt(c.landB) + " to " + fmt(c.E + 300) + "</span><span>The short sleep. Three to four hours, alarm on, no snooze.</span></li>" +
+        '<li><span class="sf-ew-flip-t">' + fmt(c.E + 330) + "</span><span>Real lunch. This is your anchor meal for the flip day.</span></li>" +
+        '<li><span class="sf-ew-flip-t">Evening</span><span>Normal dinner at the table with everyone.</span></li>' +
+        '<li><span class="sf-ew-flip-t">Usual bedtime</span><span>Lights out near normal. Tomorrow you wake up on day time.</span></li>' +
+      "</ul></div>";
+  }
+
+  function threeAmHtml() {
+    return '<div class="sf-ew-3am sf-ew-pop sf-d5">' +
+      '<h3>What counts as <span class="sf-ew-em">light</span> at 3am</h3>' +
+      '<div class="sf-ew-3am-grid">' +
+        '<div class="sf-ew-3am-col sf-yes"><h4>Reach for this</h4><ul>' +
+          "<li>Greek yogurt cup (one, not the tub)</li>" +
+          "<li>Two hard-boiled eggs</li>" +
+          "<li>String cheese, one or two</li>" +
+          "<li>Jerky, a palm-sized bag</li>" +
+          "<li>Half a protein shake, sipped slow</li>" +
+        "</ul></div>" +
+        '<div class="sf-ew-3am-col sf-no"><h4>Not this</h4><ul>' +
+          "<li>The group pizza order</li>" +
+          "<li>The vending machine dinner</li>" +
+          "<li>The gas-station pastry run</li>" +
+          "<li>Round three of energy drinks</li>" +
+        "</ul></div>" +
+      "</div>" +
+      '<p class="sf-ew-3am-line">And if you have made the 3am call before: that was exhaustion doing the ordering, not weakness. Set the clock and the call goes quiet.</p>' +
+      "</div>";
+  }
+
+  function renderResult(c, pattern) {
+    var land = landingCopy(c.after, pattern);
+    var html = '<div class="sf-ew-result">' +
+      '<h3 class="sf-ew-verdict-h sf-ew-pop">Your eating clock</h3>' +
+      '<p class="sf-ew-verdict sf-ew-pop">' + verdictText(c, pattern) + "</p>" +
+      '<div class="sf-ew-patnote sf-ew-pop">' + PATTERNS[pattern].note + "</div>" +
+      stripHtml(c) +
+      '<div class="sf-ew-cards">';
+
+    var anchorBody = pattern === "first"
+      ? "Your normal dinner, eaten like a person: protein, real carbs, something green, at the table if you can. Finish at least an hour before you clock in."
+      : "Your biggest plate of the day, eaten like dinner: protein, real carbs, something green. Finish it at least an hour before you clock in.";
+
+    html += cardHtml(1, 1, "The anchor meal", fmt(c.anchorA) + " to " + fmt(c.anchorB),
+      anchorBody,
+      "Fuel goes in while your body still handles it well, and the 3am pull starts the night already half beaten.", null);
+
+    if (c.crosses) {
+      html += cardHtml(2, 2, "The steady window", fmt(c.S) + " to " + fmt(c.lightStart),
+        "Eat like a normal person. Your packed meal break lives in here, and it is allowed to be a real meal.",
+        "The earlier in the shift you eat, the better your body handles it.", null);
+      html += cardHtml(3, 3, "The light window", fmt(c.lightStart) + " to " + fmt(c.E),
+        "From here to clock-out, graze instead of feast: protein-first and handful-sized.",
+        "The same meal hits harder at 3am than at 6pm. Big food in the deep night is one of the habits most tied to weight gain in shift workers.",
+        LIGHT_EXAMPLES);
+      html += cardHtml(4, 4, land.name, land.time + (pattern === "flip" ? "" : ", about " + fmt(c.landA)), land.body, land.why, null);
+    } else {
+      html += cardHtml(2, 2, "The steady window", fmt(c.S) + " to " + fmt(c.E),
+        "Normal meals on your normal breaks. No special rules while the sun is doing its job.",
+        "Save the strict stuff for the nights that need it.", null);
+      html += cardHtml(3, 4, land.name, land.time + (pattern === "flip" ? "" : ", about " + fmt(c.landA)), land.body, land.why, null);
+    }
+
+    html += "</div>";
+    if (pattern === "flip") { html += flipPlanHtml(c); }
+    html += threeAmHtml() + "</div>";
+    return html;
+  }
+
+  /* ---- Survival sequence (re-drawn from the current clock) ---- */
+  function seqHtml(c) {
+    var anchor = fmt(c.anchorA) + " to " + fmt(c.anchorB);
+    var light = c.crosses ? fmt(c.lightStart) : "the last stretch";
+    var items = [
+      { cls: "sf-night", dot: "N1", title: "Night one", body: "You have been up since morning, so tonight is damage control. Real dinner at " + anchor + ", a 60 to 90 minute nap before it if you can steal one, and everything after " + light + " is grazing territory. Do not force a meal at 3am to stay awake. It will not keep you awake, it will make you heavier and sleepier." },
+      { cls: "sf-day", dot: "D1", title: "The day between", body: "Protect the day sleep like it is a shift. Small bite when you land, water, blinds down. When you wake, eat a real meal. That plate plus your pre-shift anchor are the two meals that carry night two." },
+      { cls: "sf-night", dot: "N2", title: "Night two", body: "The loudest 3am of the stretch. Your body knows the drill now and it bargains hard. Same clock: anchor " + anchor + ", steady until " + light + ", light to the end. Pack the grazing list tonight. Do not trust the break room." },
+      { cls: "sf-day", dot: "D2", title: "The day between, again", body: "Same rhythm as yesterday, one addition: ten minutes of daylight after your wake-up meal. It keeps your body clock from drifting deeper into night mode, which makes the flip easier." },
+      { cls: "sf-night", dot: "N3", title: "Night three", body: "Run the clock on autopilot. The last 3am is the sneakiest one, because your brain is already at the weekend. The light window stays strict tonight, especially tonight." },
+      { cls: "sf-day", dot: "F", title: "The flip", body: "Home by " + fmt(c.landA) + ". Sleep short on purpose, 3 to 4 hours with an alarm. Up in the early afternoon, real lunch, normal dinner with everyone, bed near your usual time. You wake up tomorrow back on day time, weekend intact." }
+    ];
+    var html = "";
+    for (var i = 0; i < items.length; i++) {
+      html += '<div class="sf-ew-seq-item ' + items[i].cls + '">' +
+        '<span class="sf-ew-seq-dot" aria-hidden="true">' + items[i].dot + "</span>" +
+        "<h3>" + items[i].title + "</h3><p>" + items[i].body + "</p></div>";
+    }
+    return html;
+  }
+
+  /* ---- Fridge card (re-drawn from the current clock) ---- */
+  function fridgeHtml(c, pattern) {
+    var land = landingCopy(c.after, pattern);
+    var rows = "";
+    rows += '<li><span class="sf-ew-fridge-zone">Anchor meal</span><span class="sf-ew-fridge-time">' + fmt(c.anchorA) + " to " + fmt(c.anchorB) + '</span><span class="sf-ew-fridge-what">Real plate: protein, real carbs, something green</span></li>';
+    if (c.crosses) {
+      rows += '<li><span class="sf-ew-fridge-zone">Steady</span><span class="sf-ew-fridge-time">' + fmt(c.S) + " to " + fmt(c.lightStart) + '</span><span class="sf-ew-fridge-what">Normal eating. The packed meal break lives here</span></li>';
+      rows += '<li><span class="sf-ew-fridge-zone">Go light</span><span class="sf-ew-fridge-time">' + fmt(c.lightStart) + " to " + fmt(c.E) + '</span><span class="sf-ew-fridge-what">Protein-first grazing: yogurt cup, eggs, string cheese, jerky, half a shake</span></li>';
+    } else {
+      rows += '<li><span class="sf-ew-fridge-zone">Steady</span><span class="sf-ew-fridge-time">' + fmt(c.S) + " to " + fmt(c.E) + '</span><span class="sf-ew-fridge-what">Normal meals on your normal breaks</span></li>';
+    }
+    var landTime = pattern === "flip" ? "after the last night" : "about " + fmt(c.landA);
+    rows += '<li><span class="sf-ew-fridge-zone">Landing</span><span class="sf-ew-fridge-time">' + landTime + '</span><span class="sf-ew-fridge-what">' + land.body + "</span></li>";
+    return '<div class="sf-ew-fridge-head"><h3>My Night-Shift Eating Window</h3><div class="sf-ew-fridge-sub">' + PATTERNS[pattern].label + "</div></div>" +
+      '<ul class="sf-ew-fridge-rows">' + rows + "</ul>" +
+      '<div class="sf-ew-fridge-foot"><strong>SmithFit</strong> &nbsp;Built by a nurse, for nurses. Big meal before the shift, never at 3am.</div>';
+  }
+
+  /* ---- State + interactions ---- */
+  var state = { pattern: "middle", start: 1140, startMode: "preset", len: 720, after: "bed" };
+
+  var patternEl = document.getElementById("sfEwPattern");
+  var startEl = document.getElementById("sfEwStart");
+  var customWrap = document.getElementById("sfEwCustomWrap");
+  var customTime = document.getElementById("sfEwCustomTime");
+  var lenEl = document.getElementById("sfEwLen");
+  var afterEl = document.getElementById("sfEwAfter");
+  var afterNote = document.getElementById("sfEwAfterNote");
+  var nudgeEl = document.getElementById("sfEwNudge");
+  var resultEl = document.getElementById("sfEwResult");
+  var seqEl = document.getElementById("sfEwSeq");
+  var fridgeEl = document.getElementById("sfEwFridge");
+
+  function selectIn(groupEl, btn) {
+    var buttons = groupEl.querySelectorAll(".sf-ew-opt");
+    for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove("sf-on"); buttons[i].setAttribute("aria-pressed", "false"); }
+    btn.classList.add("sf-on");
+    btn.setAttribute("aria-pressed", "true");
+  }
+
+  function resolveStart() {
+    if (state.startMode === "preset") return state.start;
+    var v = customTime.value;
+    if (!v) return null;
+    var parts = v.split(":");
+    var mins = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+    return isNaN(mins) ? null : mins;
+  }
+
+  function rerender() {
+    afterNote.textContent = state.pattern === "flip" ? "On flip day the landing is scripted for you below, so this tap matters less today." : "";
+    var S = resolveStart();
+    if (S === null) {
+      nudgeEl.innerHTML = '<div class="sf-ew-nudge">Type your start time in the box (even 7:23pm works) and the clock re-draws around it.</div>';
+      resultEl.innerHTML = "";
+      seqEl.innerHTML = "";
+      fridgeEl.innerHTML = "";
+      return;
+    }
+    nudgeEl.innerHTML = "";
+    var c = computeClock(S, state.len, state.after);
+    resultEl.innerHTML = renderResult(c, state.pattern);
+    seqEl.innerHTML = seqHtml(c);
+    fridgeEl.innerHTML = fridgeHtml(c, state.pattern);
+  }
+
+  patternEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-ew-opt");
+    if (!btn) return;
+    selectIn(patternEl, btn);
+    state.pattern = btn.getAttribute("data-pattern");
+    rerender();
+  });
+
+  startEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-ew-opt");
+    if (!btn) return;
+    selectIn(startEl, btn);
+    var v = btn.getAttribute("data-start");
+    if (v === "custom") {
+      state.startMode = "custom";
+      customWrap.classList.add("sf-show");
+      customTime.focus();
+    } else {
+      state.startMode = "preset";
+      state.start = parseInt(v, 10);
+      customWrap.classList.remove("sf-show");
+    }
+    rerender();
+  });
+
+  customTime.addEventListener("change", rerender);
+
+  lenEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-ew-opt");
+    if (!btn) return;
+    selectIn(lenEl, btn);
+    state.len = parseInt(btn.getAttribute("data-len"), 10);
+    rerender();
+  });
+
+  afterEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-ew-opt");
+    if (!btn) return;
+    selectIn(afterEl, btn);
+    state.after = btn.getAttribute("data-after");
+    rerender();
+  });
+
+  document.getElementById("sfEwPrint").addEventListener("click", function () { window.print(); });
+
+  /* ---- Reveal ---- */
+  (function reveal() {
+    var els = document.querySelectorAll(".sf-ew-reveal");
+    if (!els.length) return;
+    if ("IntersectionObserver" in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { entries[i].target.classList.add("sf-in"); obs.unobserve(entries[i].target); }
+        }
+      }, { threshold: 0.1 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add("sf-in");
+    }
+  })();
+
+  /* ---- Greet visitors coming from the opt-in ---- */
+  function greet() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var stored = "";
+      try { stored = window.localStorage.getItem("sf_nw_unlocked") || ""; } catch (e) {}
+      if (params.get("unlocked") === "1" || stored === "1") {
+        var name = "";
+        try { name = window.localStorage.getItem("sf_nw_first") || ""; } catch (e) {}
+        var sub = document.getElementById("sfEwSub");
+        if (sub) {
+          sub.textContent = (name ? name + ", you" : "You") + " are in. Set your clock for any night of the stretch, and it re-draws the survival sequence and your fridge card to match.";
+        }
+      }
+    } catch (e) {}
+  }
+
+  /* ---- Init ---- */
+  initPixel();
+  initCallLinks();
+  greet();
+  rerender();
+})();
+</script>
+</body>
+</html>

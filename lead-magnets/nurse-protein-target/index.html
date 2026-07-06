@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Need One Number | The Nurse Protein Target | SmithFit</title>
+<meta name="description" content="Get your exact daily protein target, split around your 12-hour shift, and a no-cook way to hit it from the break room. Free, built by a nurse for nurses.">
+<meta property="og:title" content="You do not need another diet. You need one number.">
+<meta property="og:description" content="Your exact protein target, split around your shift, hit without cooking. Free, 30 seconds.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-pt *, .sf-pt *::before, .sf-pt *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-pt {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.sf-pt h1, .sf-pt h2, .sf-pt h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.12; }
+.sf-pt-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Brand bar ===== */
+.sf-pt-brandbar { display: flex; align-items: baseline; justify-content: space-between; max-width: 1020px; margin: 0 auto; padding: 22px 24px 0; }
+.sf-pt-mark { font-family: var(--sf-serif); font-weight: 700; font-size: 20px; letter-spacing: 0.06em; color: var(--sf-dark-raw); }
+.sf-pt-mark span { color: var(--sf-gold-raw); }
+.sf-pt-brandnote { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); }
+
+/* ===== Hero (light, split, the number teased) ===== */
+.sf-pt-hero { position: relative; overflow: hidden; padding: 44px 24px 64px; }
+.sf-pt-hero::before { content: ""; position: absolute; top: -220px; left: -160px; width: 560px; height: 560px; background: radial-gradient(circle, rgba(200,160,78,0.14) 0%, transparent 68%); pointer-events: none; }
+.sf-pt-hero-grid { position: relative; z-index: 1; max-width: 1020px; margin: 0 auto; display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 48px; align-items: center; }
+.sf-pt-eyebrow-pill { display: inline-block; border: 1px solid rgba(200,160,78,0.5); background: var(--sf-gold-hover); color: #8a6b2d; border-radius: 999px; padding: 7px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 20px; }
+.sf-pt-hero h1 { font-weight: 700; font-size: clamp(34px, 5.4vw, 58px); margin-bottom: 16px; }
+.sf-pt-hero h1 .sf-pt-em { color: var(--sf-gold-raw); }
+.sf-pt-hero-sub { font-size: clamp(16px, 2.2vw, 19px); color: var(--sf-taupe-raw); max-width: 460px; margin-bottom: 28px; }
+.sf-pt-hero-cta {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 38px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-pt-hero-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-pt-hero-cta:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-pt-hero-trust { font-size: 13px; color: var(--sf-taupe-light); margin-top: 14px; }
+
+/* Hero number card (a worked example, dark plate) */
+.sf-pt-herocard {
+  background: linear-gradient(150deg, #2a2118 0%, #3a2e22 58%, #2a2118 100%);
+  border-radius: 22px; padding: 34px 30px 28px; text-align: center; position: relative; overflow: hidden;
+  box-shadow: 0 18px 50px rgba(42,33,24,0.22);
+}
+.sf-pt-herocard::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.28) 0%, transparent 62%); pointer-events: none; }
+.sf-pt-herocard > * { position: relative; z-index: 1; }
+.sf-pt-herocard-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232,200,120,0.85); margin-bottom: 6px; }
+.sf-pt-herocard-num { font-family: var(--sf-serif); font-weight: 700; font-size: clamp(76px, 8vw, 104px); line-height: 1; color: var(--sf-gold-soft); }
+.sf-pt-herocard-num small { font-family: var(--sf-display); font-style: italic; font-weight: 600; font-size: 0.42em; margin-left: 2px; }
+.sf-pt-herocard-cap { font-size: 13px; color: rgba(250,246,243,0.62); margin: 8px 0 18px; }
+.sf-pt-herocard-split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; border-top: 1px solid rgba(250,246,243,0.14); padding-top: 16px; }
+.sf-pt-herocard-split div { text-align: center; }
+.sf-pt-herocard-split .sf-pt-sl { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,246,243,0.55); margin-bottom: 3px; }
+.sf-pt-herocard-split .sf-pt-sg { font-family: var(--sf-serif); font-weight: 700; font-size: 24px; color: var(--sf-cream-raw); }
+
+/* ===== Validate band (dark, full width) ===== */
+.sf-pt-validate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); padding: 56px 24px; position: relative; overflow: hidden; }
+.sf-pt-validate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 10%, rgba(200,160,78,0.16) 0%, transparent 55%); pointer-events: none; }
+.sf-pt-validate-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.sf-pt-validate h2 { color: var(--sf-cream-raw); font-size: clamp(26px, 4.2vw, 38px); font-weight: 700; margin-bottom: 16px; }
+.sf-pt-validate p { color: rgba(250,246,243,0.84); font-size: 16px; margin-bottom: 12px; max-width: 620px; }
+.sf-pt-validate .sf-pt-vline { font-family: var(--sf-display); font-style: italic; font-size: clamp(17px, 2.4vw, 20px); color: var(--sf-gold-soft); margin-top: 18px; border-left: 3px solid var(--sf-gold-raw); padding-left: 16px; }
+
+/* ===== Layout ===== */
+.sf-pt-wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.sf-pt-section { padding: 52px 0; }
+.sf-pt-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); text-align: center; margin-bottom: 10px; }
+.sf-pt-h2 { text-align: center; font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; margin-bottom: 8px; }
+.sf-pt-lead { text-align: center; color: var(--sf-taupe-light); font-size: 16px; max-width: 520px; margin: 0 auto 30px; }
+
+/* ===== Tool card ===== */
+.sf-pt-tool { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 22px; padding: 34px 28px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-pt-step { margin-bottom: 30px; }
+.sf-pt-step-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 4px; }
+.sf-pt-step h3 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+.sf-pt-step-hint { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 16px; }
+
+/* Weight */
+.sf-pt-wdisplay { font-family: var(--sf-serif); font-weight: 700; font-size: 46px; color: var(--sf-dark-raw); line-height: 1; margin-bottom: 14px; }
+.sf-pt-wdisplay small { font-family: var(--sf-sans); font-weight: 600; font-size: 15px; color: var(--sf-taupe-light); margin-left: 6px; letter-spacing: 0.06em; }
+.sf-pt-range { width: 100%; height: 34px; -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; }
+.sf-pt-range:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; border-radius: 8px; }
+.sf-pt-range::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--sf-gold-raw), var(--sf-gold-soft)); }
+.sf-pt-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--sf-dark-raw); border: 3px solid var(--sf-gold-raw); margin-top: -10px; box-shadow: 0 3px 10px rgba(42,33,24,0.3); }
+.sf-pt-range::-moz-range-track { height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--sf-gold-raw), var(--sf-gold-soft)); }
+.sf-pt-range::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--sf-dark-raw); border: 3px solid var(--sf-gold-raw); box-shadow: 0 3px 10px rgba(42,33,24,0.3); }
+.sf-pt-wfine { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.sf-pt-wfine label { font-size: 13px; color: var(--sf-taupe-light); }
+.sf-pt-wfine input { width: 88px; padding: 9px 10px; border: 1.5px solid var(--sf-border); border-radius: 10px; font-family: var(--sf-sans); font-size: 16px; color: var(--sf-dark-raw); background: var(--sf-cream-raw); -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-pt-wfine input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+
+/* Goals */
+.sf-pt-goals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.sf-pt-goal { background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 16px 12px; text-align: left; cursor: pointer; font-family: var(--sf-sans); -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-pt-goal:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-pt-goal:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pt-goal.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-pt-goal-name { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 19px; color: var(--sf-dark-raw); line-height: 1.2; margin-bottom: 4px; }
+.sf-pt-goal-desc { display: block; font-size: 12px; color: var(--sf-taupe-light); line-height: 1.45; }
+
+/* 45+ toggle */
+.sf-pt-agewrap { display: flex; align-items: center; gap: 14px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 14px 16px; }
+.sf-pt-switch { position: relative; width: 52px; height: 30px; flex: 0 0 52px; border-radius: 999px; border: none; background: var(--sf-cream-deep); cursor: pointer; -webkit-transition: background .25s ease; transition: background .25s ease; }
+.sf-pt-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #ffffff; box-shadow: 0 2px 6px rgba(42,33,24,0.25); -webkit-transition: -webkit-transform .25s ease; transition: transform .25s ease; }
+.sf-pt-switch[aria-pressed="true"] { background: var(--sf-gold-raw); }
+.sf-pt-switch[aria-pressed="true"]::after { -webkit-transform: translateX(22px); transform: translateX(22px); }
+.sf-pt-switch:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pt-agetext strong { display: block; font-size: 15px; color: var(--sf-dark-raw); font-weight: 600; }
+.sf-pt-agetext span { font-size: 12px; color: var(--sf-taupe-light); }
+
+/* Build button + nudge */
+.sf-pt-btn {
+  display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.4);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-pt-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-pt-btn:active { -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-pt-btn:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-pt-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+
+/* ===== The number plate (result hero) ===== */
+@-webkit-keyframes sfPtPlate { 0% { opacity: 0; -webkit-transform: translateY(16px) scale(.97); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
+@keyframes sfPtPlate { 0% { opacity: 0; transform: translateY(16px) scale(.97); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@-webkit-keyframes sfPtRule { 0% { width: 0; } 100% { width: 72px; } }
+@keyframes sfPtRule { 0% { width: 0; } 100% { width: 72px; } }
+.sf-pt-plate {
+  background: linear-gradient(150deg, #2a2118 0%, #3a2e22 58%, #2a2118 100%);
+  border-radius: 20px; padding: 36px 26px 30px; text-align: center; margin-top: 30px; position: relative; overflow: hidden;
+  -webkit-animation: sfPtPlate .55s ease forwards; animation: sfPtPlate .55s ease forwards;
+}
+.sf-pt-plate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.26) 0%, transparent 60%); pointer-events: none; }
+.sf-pt-plate > * { position: relative; z-index: 1; }
+.sf-pt-plate-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(232,200,120,0.9); }
+.sf-pt-plate-num { font-family: var(--sf-serif); font-weight: 700; font-size: clamp(84px, 18vw, 128px); line-height: 1.02; color: var(--sf-gold-soft); }
+.sf-pt-plate-num small { font-family: var(--sf-display); font-style: italic; font-weight: 600; font-size: 0.4em; margin-left: 2px; }
+.sf-pt-plate-rule { height: 2px; width: 72px; background: var(--sf-gold-raw); margin: 10px auto 14px; border-radius: 1px; -webkit-animation: sfPtRule .7s ease forwards .2s; animation: sfPtRule .7s ease forwards .2s; }
+.sf-pt-plate-rate { color: rgba(250,246,243,0.88); font-size: 15px; max-width: 420px; margin: 0 auto; }
+.sf-pt-plate-note { color: rgba(250,246,243,0.6); font-size: 13px; max-width: 420px; margin: 10px auto 0; }
+
+/* Split row */
+.sf-pt-split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+.sf-pt-split-item { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-top: 3px solid var(--sf-gold-raw); border-radius: 12px; padding: 16px 10px; text-align: center; }
+.sf-pt-split-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 4px; }
+.sf-pt-split-g { font-family: var(--sf-serif); font-weight: 700; font-size: 30px; color: var(--sf-dark-raw); line-height: 1; }
+.sf-pt-split-note { display: block; font-size: 11px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.4; }
+
+/* Why block */
+.sf-pt-why { background: var(--sf-gold-hover); border-radius: 12px; padding: 18px 20px; margin-top: 14px; }
+.sf-pt-why p { font-size: 14px; color: var(--sf-taupe-raw); margin-bottom: 6px; }
+.sf-pt-why p:last-child { margin-bottom: 0; }
+.sf-pt-why strong { color: var(--sf-dark-raw); }
+
+/* ===== Stack builder ===== */
+.sf-pt-stack { margin-top: 30px; }
+.sf-pt-stack h3 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+.sf-pt-stack-hint { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 16px; }
+.sf-pt-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 18px; }
+.sf-pt-chip { position: relative; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 999px; padding: 9px 16px; font-family: var(--sf-sans); font-size: 14px; font-weight: 500; color: var(--sf-taupe-raw); cursor: pointer; -webkit-transition: all .18s ease; transition: all .18s ease; }
+.sf-pt-chip:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-pt-chip:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pt-chip.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
+.sf-pt-chip .sf-pt-chip-g { font-size: 11px; color: var(--sf-taupe-light); font-weight: 600; margin-left: 5px; }
+.sf-pt-chip.sf-on .sf-pt-chip-g { color: var(--sf-dark-mid); }
+.sf-pt-chip .sf-pt-chip-x { position: absolute; top: -7px; right: -5px; min-width: 20px; height: 20px; border-radius: 999px; background: var(--sf-dark-raw); color: var(--sf-gold-soft); font-size: 11px; font-weight: 700; display: none; align-items: center; justify-content: center; padding: 0 5px; }
+.sf-pt-chip.sf-multi .sf-pt-chip-x { display: inline-flex; }
+
+/* Stack tally */
+.sf-pt-tally { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 18px 16px; }
+.sf-pt-tally-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.sf-pt-tally-total { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-dark-raw); }
+.sf-pt-tally-total span { color: var(--sf-taupe-light); font-size: 18px; }
+.sf-pt-tally-gap { font-size: 13px; color: var(--sf-taupe-light); }
+.sf-pt-bar { height: 10px; border-radius: 5px; background: var(--sf-cream-deep); overflow: hidden; }
+.sf-pt-bar-fill { height: 100%; width: 0; border-radius: 5px; background: linear-gradient(to right, var(--sf-gold-raw), var(--sf-gold-soft)); -webkit-transition: width .45s ease, background .45s ease; transition: width .45s ease, background .45s ease; }
+@-webkit-keyframes sfPtGlow { 0% { box-shadow: 0 0 0 0 rgba(74,140,92,0.4); } 100% { box-shadow: 0 0 0 12px rgba(74,140,92,0); } }
+@keyframes sfPtGlow { 0% { box-shadow: 0 0 0 0 rgba(74,140,92,0.4); } 100% { box-shadow: 0 0 0 12px rgba(74,140,92,0); } }
+.sf-pt-bar.sf-full .sf-pt-bar-fill { background: linear-gradient(to right, var(--sf-green-raw), #6aa87c); }
+.sf-pt-bar.sf-full { -webkit-animation: sfPtGlow .9s ease 1; animation: sfPtGlow .9s ease 1; }
+.sf-pt-hit { font-family: var(--sf-display); font-style: italic; font-size: 15px; color: var(--sf-green-raw); margin-top: 10px; display: none; }
+.sf-pt-hit.sf-show { display: block; }
+.sf-pt-stacklist { list-style: none; margin-top: 12px; }
+.sf-pt-stacklist li { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 14px; padding: 6px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-pt-stacklist li:last-child { border-bottom: none; }
+.sf-pt-stacklist .sf-pt-sl-g { font-weight: 600; color: var(--sf-taupe-light); white-space: nowrap; }
+.sf-pt-remove { background: transparent; border: 1.5px solid var(--sf-border); border-radius: 8px; width: 30px; height: 30px; font-size: 15px; line-height: 1; color: var(--sf-taupe-light); cursor: pointer; -webkit-transition: all .18s ease; transition: all .18s ease; }
+.sf-pt-remove:hover { border-color: var(--sf-red-raw); color: var(--sf-red-raw); }
+.sf-pt-remove:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pt-clear { background: transparent; border: none; font-family: var(--sf-sans); font-size: 13px; font-weight: 600; color: var(--sf-taupe-light); text-decoration: underline; cursor: pointer; margin-top: 10px; }
+.sf-pt-clear:hover { color: var(--sf-dark-raw); }
+.sf-pt-clear:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+
+/* ===== Email gate ===== */
+.sf-pt-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 36px 26px; margin-top: 30px; text-align: center; position: relative; overflow: hidden; }
+.sf-pt-gate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 62%); pointer-events: none; }
+.sf-pt-gate > * { position: relative; z-index: 1; }
+.sf-pt-gate h3 { color: var(--sf-cream-raw); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 10px; }
+.sf-pt-gate h3 .sf-pt-em { color: var(--sf-gold-soft); }
+.sf-pt-gate p { color: rgba(250,246,243,0.82); font-size: 15px; max-width: 440px; margin: 0 auto 20px; }
+.sf-pt-gate-list { list-style: none; max-width: 400px; margin: 0 auto 24px; text-align: left; }
+.sf-pt-gate-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
+.sf-pt-gate-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-pt-form { max-width: 400px; margin: 0 auto; }
+.sf-pt-field { margin-bottom: 12px; text-align: left; }
+.sf-pt-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,246,243,0.7); margin-bottom: 5px; }
+.sf-pt-field input { width: 100%; padding: 13px 15px; background: rgba(250,246,243,0.96); border: 1.5px solid transparent; border-radius: 10px; color: var(--sf-dark-raw); font-family: var(--sf-sans); font-size: 16px; -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-pt-field input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-pt-field input::placeholder { color: var(--sf-taupe-light); }
+.sf-pt-submit { display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 10px; padding: 15px 24px; font-family: var(--sf-sans); font-weight: 700; font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; margin-top: 6px; -webkit-transition: transform .2s ease, background .2s ease; transition: transform .2s ease, background .2s ease; }
+.sf-pt-submit:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); background: var(--sf-gold-light); }
+.sf-pt-submit:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-pt-submit:disabled { background: var(--sf-taupe-light); color: rgba(250,246,243,0.8); cursor: not-allowed; -webkit-transform: none; transform: none; }
+.sf-pt-formnote { color: rgba(250,246,243,0.55); font-size: 12px; margin-top: 14px; }
+.sf-pt-msg { border-radius: 10px; padding: 12px 16px; font-size: 14px; margin-top: 14px; text-align: left; }
+.sf-pt-msg.sf-err { background: var(--sf-red-soft); color: #8a3a37; }
+.sf-pt-msg.sf-ok { background: var(--sf-green-soft); color: #2f6b41; }
+.sf-pt-msg a { color: inherit; font-weight: 700; }
+
+/* ===== Bridge ===== */
+.sf-pt-bridge { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 36px 28px; text-align: center; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-pt-bridge h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 12px; }
+.sf-pt-bridge h2 .sf-pt-em { color: var(--sf-gold-raw); }
+.sf-pt-bridge p { color: var(--sf-taupe-raw); font-size: 16px; max-width: 500px; margin: 0 auto 24px; }
+.sf-pt-bridge-cta { display: inline-block; background: transparent; color: var(--sf-taupe-raw); text-decoration: none; border: 1.5px solid var(--sf-gold-raw); border-radius: 12px; padding: 15px 34px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-pt-bridge-cta:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-pt-bridge-cta:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 3px; }
+.sf-pt-bridge-note { color: var(--sf-taupe-light); font-size: 13px; margin-top: 14px; }
+
+/* ===== Proof (one card, hairline dividers) ===== */
+.sf-pt-proof { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 18px; display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; }
+.sf-pt-proof-item { padding: 22px 12px; text-align: center; border-left: 1px solid var(--sf-border); }
+.sf-pt-proof-item:first-child { border-left: none; }
+.sf-pt-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 28px; color: var(--sf-gold-raw); display: block; }
+.sf-pt-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-pt-footer { text-align: center; padding: 36px 20px 42px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-pt-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-pt-reveal { opacity: 0; -webkit-transform: translateY(22px); transform: translateY(22px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-pt-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-pt-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-pt-brandbar { padding: 18px 18px 0; }
+  .sf-pt-brandnote { display: none; }
+  .sf-pt-hero { padding: 32px 18px 48px; }
+  .sf-pt-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .sf-pt-hero-cta { display: block; text-align: center; }
+  .sf-pt-herocard { padding: 28px 22px 24px; }
+  .sf-pt-validate { padding: 44px 18px; }
+  .sf-pt-section { padding: 40px 0; }
+  .sf-pt-tool { padding: 26px 18px; }
+  .sf-pt-goals { grid-template-columns: 1fr; }
+  .sf-pt-goal { display: flex; flex-direction: column; }
+  .sf-pt-split { grid-template-columns: 1fr; }
+  .sf-pt-split-item { display: flex; align-items: baseline; justify-content: space-between; text-align: left; padding: 13px 16px; }
+  .sf-pt-split-label { margin-bottom: 0; }
+  .sf-pt-split-note { flex-basis: 100%; margin-top: 2px; }
+  .sf-pt-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-pt-proof-item { border-left: none; border-top: 1px solid var(--sf-border); }
+  .sf-pt-proof-item:nth-child(-n+2) { border-top: none; }
+  .sf-pt-proof-item:nth-child(even) { border-left: 1px solid var(--sf-border); }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-pt *, .sf-pt *::before, .sf-pt *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-pt">
+
+  <!-- BRAND BAR -->
+  <div class="sf-pt-brandbar">
+    <span class="sf-pt-mark">Smith<span>Fit</span></span>
+    <span class="sf-pt-brandnote">Built by a nurse, for nurses</span>
+  </div>
+
+  <!-- HERO -->
+  <header class="sf-pt-hero">
+    <div class="sf-pt-hero-grid">
+      <div>
+        <span class="sf-pt-eyebrow-pill">Free tool, 30 seconds</span>
+        <h1>You do not need another diet. You need <span class="sf-pt-em">one number</span>.</h1>
+        <p class="sf-pt-hero-sub">Your exact daily protein target, split around your 12s, and a break-room way to hit it without cooking a thing. Fix this one lever and the rest gets easier.</p>
+        <a href="#sf-pt-tool" class="sf-pt-hero-cta">Get my number</a>
+        <p class="sf-pt-hero-trust">No email needed to see it. Works for day, night, and rotating shifts.</p>
+      </div>
+      <div class="sf-pt-herocard" aria-label="Example protein target">
+        <div class="sf-pt-herocard-label">Your daily protein target</div>
+        <div class="sf-pt-herocard-num">150<small>g</small></div>
+        <p class="sf-pt-herocard-cap">Worked example: 165 lbs, fat-loss goal. Yours renders below.</p>
+        <div class="sf-pt-herocard-split">
+          <div><span class="sf-pt-sl">Before shift</span><span class="sf-pt-sg">45g</span></div>
+          <div><span class="sf-pt-sl">On shift</span><span class="sf-pt-sg">60g</span></div>
+          <div><span class="sf-pt-sl">After shift</span><span class="sf-pt-sg">45g</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VALIDATE -->
+  <section class="sf-pt-validate">
+    <div class="sf-pt-validate-inner sf-pt-reveal">
+      <h2>Nobody ever gave you your number. So you guessed.</h2>
+      <p>You have counted points, cut carbs, skipped breakfast, and white-knuckled the vending machine at 3am. When none of it stuck, you decided your body was the problem. It is not.</p>
+      <p>Every one of those plans skipped the one lever that makes the rest work: enough protein, every single day, in a form you can actually eat on a 12-hour shift. Protein is the most filling thing you can eat per calorie, your body burns 20 to 30 percent of its calories digesting it, and it is what keeps your muscle while the fat comes off.</p>
+      <p class="sf-pt-vline">Fix only your protein and change nothing else, and you still win. Here is your number.</p>
+    </div>
+  </section>
+
+  <div class="sf-pt-wrap">
+
+    <!-- THE TOOL -->
+    <section class="sf-pt-section" id="sf-pt-tool">
+      <div class="sf-pt-eyebrow">The tool</div>
+      <h2 class="sf-pt-h2">Three taps. Your number.</h2>
+      <p class="sf-pt-lead">No macros, no math homework. Set your weight, pick a goal, and the target is yours to keep.</p>
+
+      <div class="sf-pt-tool sf-pt-reveal">
+
+        <div class="sf-pt-step">
+          <div class="sf-pt-step-tag">Step 1</div>
+          <h3>Your weight</h3>
+          <p class="sf-pt-step-hint">Close is fine. Nobody is checking, and this is not a weigh-in.</p>
+          <div class="sf-pt-wdisplay"><span id="sfPtWNum">165</span><small>LBS</small></div>
+          <input type="range" class="sf-pt-range" id="sfPtRange" min="100" max="300" step="5" value="165" aria-label="Your weight in pounds, from 100 to 300">
+          <div class="sf-pt-wfine">
+            <label for="sfPtWInput">Or type it:</label>
+            <input type="number" id="sfPtWInput" min="100" max="300" inputmode="numeric" value="165" aria-label="Type your weight in pounds">
+          </div>
+        </div>
+
+        <div class="sf-pt-step">
+          <div class="sf-pt-step-tag">Step 2</div>
+          <h3>Your goal</h3>
+          <p class="sf-pt-step-hint">There is no wrong answer. It only tunes your number.</p>
+          <div class="sf-pt-goals" id="sfPtGoals" role="group" aria-label="Choose your goal">
+            <button type="button" class="sf-pt-goal" data-goal="fat-loss" aria-pressed="false">
+              <span class="sf-pt-goal-name">Lose fat, keep muscle</span>
+              <span class="sf-pt-goal-desc">The scale moves and your strength stays</span>
+            </button>
+            <button type="button" class="sf-pt-goal" data-goal="energy" aria-pressed="false">
+              <span class="sf-pt-goal-name">Steady energy on shift</span>
+              <span class="sf-pt-goal-desc">End the afternoon crash and the 3am snack spiral</span>
+            </button>
+            <button type="button" class="sf-pt-goal" data-goal="strength" aria-pressed="false">
+              <span class="sf-pt-goal-name">Rebuild strength</span>
+              <span class="sf-pt-goal-desc">Feel solid again, not only smaller</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="sf-pt-step">
+          <div class="sf-pt-step-tag">Step 3</div>
+          <h3>One more thing</h3>
+          <div class="sf-pt-agewrap">
+            <button type="button" class="sf-pt-switch" id="sfPtAge" aria-pressed="false" aria-label="I am 45 or older"></button>
+            <div class="sf-pt-agetext">
+              <strong>I am 45 or older</strong>
+              <span>The same protein does less with age, so your target nudges up. Not a flaw, a fact.</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="sf-pt-btn" id="sfPtShow">Show my number</button>
+        <div id="sfPtNudge"></div>
+
+        <!-- RESULT -->
+        <div id="sfPtResult" aria-live="polite"></div>
+
+        <!-- STACK BUILDER (revealed with result) -->
+        <div class="sf-pt-stack sf-pt-hidden" id="sfPtStack">
+          <h3>Now stack it without cooking</h3>
+          <p class="sf-pt-stack-hint">Tap what you would actually eat. Tap again for a second serving. Watch the bar fill toward your number.</p>
+          <div class="sf-pt-chips" id="sfPtChips"></div>
+          <div class="sf-pt-tally">
+            <div class="sf-pt-tally-row">
+              <span class="sf-pt-tally-total" id="sfPtTotal">0g <span>of 0g</span></span>
+              <span class="sf-pt-tally-gap" id="sfPtGap"></span>
+            </div>
+            <div class="sf-pt-bar" id="sfPtBar"><div class="sf-pt-bar-fill" id="sfPtBarFill"></div></div>
+            <p class="sf-pt-hit" id="sfPtHit">Target hit. That is the whole assignment. Everything else this shift is bonus.</p>
+            <ul class="sf-pt-stacklist" id="sfPtStackList"></ul>
+            <button type="button" class="sf-pt-clear sf-pt-hidden" id="sfPtClear">Start my stack over</button>
+          </div>
+        </div>
+
+        <!-- EMAIL GATE (revealed after first result) -->
+        <div class="sf-pt-gate sf-pt-hidden" id="sfPtGate">
+          <h3>That is your number. Now get the <span class="sf-pt-em">full kit</span> to hit it every shift.</h3>
+          <p>The number is free and it is yours. The kit makes it automatic:</p>
+          <ul class="sf-pt-gate-list">
+            <li>The full no-cook library: cafeteria, gas station, and home fridge picks with real gram counts</li>
+            <li>The 25g cheat sheet, so you know a real dose on sight</li>
+            <li>Your shift-day protein map for day, night, and chaos shifts</li>
+            <li>A printable card for your locker or your fridge door</li>
+          </ul>
+          <form class="sf-pt-form" id="sfPtForm" novalidate>
+            <div class="sf-pt-field">
+              <label for="sfPtFirst">First name (optional)</label>
+              <input type="text" id="sfPtFirst" name="firstName" placeholder="First name" autocomplete="given-name">
+            </div>
+            <div class="sf-pt-field">
+              <label for="sfPtEmail">Email</label>
+              <input type="email" id="sfPtEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
+            </div>
+            <button type="submit" class="sf-pt-submit" id="sfPtSubmit">Send me the full kit</button>
+            <div id="sfPtFormMsg" aria-live="polite"></div>
+            <p class="sf-pt-formnote">No spam. Unsubscribe any time.</p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOFT HIGH-TICKET BRIDGE -->
+    <section class="sf-pt-section" style="padding-top: 0;">
+      <div class="sf-pt-bridge sf-pt-reveal">
+        <h2>Want the whole plan handled, <span class="sf-pt-em">not only the protein</span>?</h2>
+        <p>Your number is the start. If you want the rest built around your actual schedule (the shifts, the sleep, the food, the weeks that fall apart) I take a few nurses a month for a free game-plan call. No pitch. You leave with a plan either way.</p>
+        <a href="#" data-sf-call class="sf-pt-bridge-cta" target="_blank" rel="noopener">Book my free game-plan call</a>
+        <p class="sf-pt-bridge-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="sf-pt-section" style="padding-top: 0;">
+      <div class="sf-pt-proof sf-pt-reveal">
+        <div class="sf-pt-proof-item"><span class="sf-pt-proof-num">400+</span><div class="sf-pt-proof-label">Nurses coached</div></div>
+        <div class="sf-pt-proof-item"><span class="sf-pt-proof-num">87%</span><div class="sf-pt-proof-label">Feel a difference by Day 3</div></div>
+        <div class="sf-pt-proof-item"><span class="sf-pt-proof-num">~5 lbs</span><div class="sf-pt-proof-label">Average lost in Week 1</div></div>
+        <div class="sf-pt-proof-item"><span class="sf-pt-proof-num">60-day</span><div class="sf-pt-proof-label">Money-back guarantee</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-pt-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Gram counts are rounded per-serving estimates to help you build, not to track.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (lead-magnets/config.js), with safe fallbacks ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-protein-target",
+    resourceUrl: "resource.html"
+  };
+  function isConfigured(v) { return v && v.indexOf('[') !== 0; }
+
+  /* ---- Math (0.7 to 1.0 g per lb, goal-scaled, 45+ nudges up, 200 lb anchor) ---- */
+  var GOALS = {
+    'fat-loss': { rate: 0.9, label: 'losing fat while keeping muscle', why: 'In a calorie deficit, protein is the signal that says burn the fat, keep the muscle.' },
+    'energy':   { rate: 0.7, label: 'steady energy on shift', why: 'This is the floor that ends the crash-and-crave cycle without changing anything else you eat.' },
+    'strength': { rate: 1.0, label: 'rebuilding strength', why: 'Muscle is built from this. There is no substitute, only timing.' }
+  };
+  var SPLITS = {
+    'fat-loss': [0.30, 0.40, 0.30],
+    'energy':   [0.35, 0.40, 0.25],
+    'strength': [0.25, 0.35, 0.40]
+  };
+
+  function computeTarget(weight, goal, is45) {
+    var eff = Math.min(weight, 200);
+    var rate = GOALS[goal].rate + (is45 ? 0.1 : 0);
+    if (rate > 1.0) rate = 1.0;
+    return { grams: Math.round((eff * rate) / 5) * 5, rate: rate, anchored: weight > 200 };
+  }
+  function computeSplit(target, goal) {
+    var s = SPLITS[goal];
+    var before = Math.round(target * s[0]);
+    var during = Math.round(target * s[1]);
+    var after = target - before - during;
+    return { before: before, during: during, after: after, hit: Math.round(during / 2) };
+  }
+
+  /* ---- No-cook sources (the starter nine) ---- */
+  var SOURCES = [
+    { id: 'chicken', label: 'Rotisserie chicken', emoji: '🍗', p: 30, gap: 'a palm of rotisserie chicken' },
+    { id: 'shake',   label: 'Protein shake',      emoji: '🥤', p: 25, gap: 'one shake' },
+    { id: 'cottage', label: 'Cottage cheese',     emoji: '🥣', p: 25, gap: 'a cup of cottage cheese' },
+    { id: 'tuna',    label: 'Tuna pouch',         emoji: '🐟', p: 20, gap: 'a tuna pouch' },
+    { id: 'bar',     label: 'Protein bar',        emoji: '🍫', p: 20, gap: 'a protein bar' },
+    { id: 'turkey',  label: 'Deli turkey',        emoji: '🦃', p: 18, gap: 'a deli turkey stack' },
+    { id: 'yogurt',  label: 'Greek yogurt',       emoji: '🥛', p: 17, gap: 'a Greek yogurt' },
+    { id: 'string',  label: 'String cheese (2)',  emoji: '🧀', p: 14, gap: 'a string cheese or two' },
+    { id: 'eggs',    label: 'Hard-boiled eggs (2)', emoji: '🥚', p: 12, gap: 'a couple of boiled eggs' }
+  ];
+  function sourceById(id) {
+    for (var i = 0; i < SOURCES.length; i++) { if (SOURCES[i].id === id) return SOURCES[i]; }
+    return null;
+  }
+
+  /* ---- State ---- */
+  var state = { weight: 165, goal: null, is45: false, target: null, stack: {}, celebrated: false };
+
+  /* ---- DOM ---- */
+  var wNum = document.getElementById('sfPtWNum');
+  var wRange = document.getElementById('sfPtRange');
+  var wInput = document.getElementById('sfPtWInput');
+  var goalsEl = document.getElementById('sfPtGoals');
+  var ageBtn = document.getElementById('sfPtAge');
+  var showBtn = document.getElementById('sfPtShow');
+  var nudgeEl = document.getElementById('sfPtNudge');
+  var resultEl = document.getElementById('sfPtResult');
+  var stackEl = document.getElementById('sfPtStack');
+  var chipsEl = document.getElementById('sfPtChips');
+  var totalEl = document.getElementById('sfPtTotal');
+  var gapEl = document.getElementById('sfPtGap');
+  var barEl = document.getElementById('sfPtBar');
+  var barFillEl = document.getElementById('sfPtBarFill');
+  var hitEl = document.getElementById('sfPtHit');
+  var stackListEl = document.getElementById('sfPtStackList');
+  var clearBtn = document.getElementById('sfPtClear');
+  var gateEl = document.getElementById('sfPtGate');
+  var formEl = document.getElementById('sfPtForm');
+  var submitBtn = document.getElementById('sfPtSubmit');
+  var formMsg = document.getElementById('sfPtFormMsg');
+
+  /* ---- Weight sync ---- */
+  function setWeight(w, fromRange) {
+    state.weight = w;
+    wNum.textContent = w;
+    if (!fromRange) wRange.value = Math.min(300, Math.max(100, w));
+    if (fromRange) wInput.value = w;
+  }
+  wRange.addEventListener('input', function () { setWeight(parseInt(wRange.value, 10), true); });
+  wInput.addEventListener('input', function () {
+    var v = parseInt(wInput.value, 10);
+    if (!isNaN(v)) { state.weight = v; wNum.textContent = v; wRange.value = Math.min(300, Math.max(100, v)); }
+  });
+
+  /* ---- Goal picker ---- */
+  goalsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-pt-goal');
+    if (!btn) return;
+    var all = goalsEl.querySelectorAll('.sf-pt-goal');
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove('sf-on'); all[i].setAttribute('aria-pressed', 'false'); }
+    btn.classList.add('sf-on');
+    btn.setAttribute('aria-pressed', 'true');
+    state.goal = btn.getAttribute('data-goal');
+    nudgeEl.innerHTML = '';
+  });
+
+  /* ---- 45+ toggle ---- */
+  ageBtn.addEventListener('click', function () {
+    state.is45 = !state.is45;
+    ageBtn.setAttribute('aria-pressed', state.is45 ? 'true' : 'false');
+  });
+
+  /* ---- Show my number ---- */
+  showBtn.addEventListener('click', function () {
+    var w = parseInt(wInput.value, 10);
+    if (isNaN(w) || w < 100 || w > 300) {
+      nudgeEl.innerHTML = '<div class="sf-pt-nudge">Set your weight first. Anywhere from 100 to 300 lbs works, and close is fine.</div>';
+      return;
+    }
+    if (!state.goal) {
+      nudgeEl.innerHTML = '<div class="sf-pt-nudge">Tap the goal that sounds most like you. There is no wrong answer, it only tunes your number.</div>';
+      return;
+    }
+    nudgeEl.innerHTML = '';
+    state.weight = w;
+    renderResult();
+  });
+
+  function renderResult() {
+    var calc = computeTarget(state.weight, state.goal, state.is45);
+    state.target = calc.grams;
+    var split = computeSplit(calc.grams, state.goal);
+    var g = GOALS[state.goal];
+
+    var notes = '';
+    if (calc.anchored) {
+      notes += '<p class="sf-pt-plate-note">At ' + state.weight + ' lbs we set your number from a 200 lb anchor, closer to goal-weight math, so it stays realistic to actually eat.</p>';
+    }
+    if (state.is45) {
+      notes += state.goal === 'strength'
+        ? '<p class="sf-pt-plate-note">After 45 needs rise, and your goal already has you at the top of the range.</p>'
+        : '<p class="sf-pt-plate-note">Nudged toward the top of the range because the same protein does less after 45.</p>';
+    }
+
+    resultEl.innerHTML = '' +
+      '<div class="sf-pt-plate">' +
+        '<div class="sf-pt-plate-label">Your daily protein target</div>' +
+        '<div class="sf-pt-plate-num">' + calc.grams + '<small>g</small></div>' +
+        '<div class="sf-pt-plate-rule"></div>' +
+        '<p class="sf-pt-plate-rate">That is ' + calc.rate.toFixed(1) + ' grams per pound, tuned for ' + g.label + '. ' + g.why + '</p>' +
+        notes +
+      '</div>' +
+      '<div class="sf-pt-split">' +
+        '<div class="sf-pt-split-item"><span class="sf-pt-split-label">Before shift</span><span class="sf-pt-split-g">' + split.before + 'g</span><span class="sf-pt-split-note">Eat it before report. It decides your morning.</span></div>' +
+        '<div class="sf-pt-split-item"><span class="sf-pt-split-label">On shift</span><span class="sf-pt-split-g">' + split.during + 'g</span><span class="sf-pt-split-note">Two hits of about ' + split.hit + 'g, whenever breaks actually happen.</span></div>' +
+        '<div class="sf-pt-split-item"><span class="sf-pt-split-label">After shift</span><span class="sf-pt-split-g">' + split.after + 'g</span><span class="sf-pt-split-note">The dose that locks the day in overnight.</span></div>' +
+      '</div>' +
+      '<div class="sf-pt-why">' +
+        '<p><strong>It fills you up.</strong> Protein is the most filling thing you can eat per calorie, so the cravings quiet down without willpower.</p>' +
+        '<p><strong>It burns hotter.</strong> Your body spends 20 to 30 percent of protein calories digesting it.</p>' +
+        '<p><strong>It guards your muscle.</strong> Through a deficit, through your 40s and 50s, through menopause. This number is the shield.</p>' +
+      '</div>';
+
+    /* Remember her inputs so the full kit page picks up where she left off */
+    try {
+      window.localStorage.setItem('sf_pt_weight', String(state.weight));
+      window.localStorage.setItem('sf_pt_goal', state.goal);
+      window.localStorage.setItem('sf_pt_45', state.is45 ? '1' : '0');
+      window.localStorage.setItem('sf_pt_target', String(state.target));
+    } catch (e) {}
+
+    stackEl.classList.remove('sf-pt-hidden');
+    gateEl.classList.remove('sf-pt-hidden');
+    state.celebrated = false;
+    renderStack();
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ---- Stack builder ---- */
+  function renderChips() {
+    var html = '';
+    for (var i = 0; i < SOURCES.length; i++) {
+      var s = SOURCES[i];
+      html += '<button type="button" class="sf-pt-chip" data-id="' + s.id + '" aria-label="Add ' + s.label + ', ' + s.p + ' grams of protein">' +
+        s.emoji + ' ' + s.label + '<span class="sf-pt-chip-g">' + s.p + 'g</span><span class="sf-pt-chip-x" aria-hidden="true"></span></button>';
+    }
+    chipsEl.innerHTML = html;
+  }
+
+  function stackTotal() {
+    var t = 0;
+    for (var id in state.stack) { if (state.stack.hasOwnProperty(id)) { var s = sourceById(id); if (s) t += s.p * state.stack[id]; } }
+    return t;
+  }
+
+  function gapLine(remaining) {
+    if (remaining <= 0) return 'Done. Screenshot it.';
+    var best = null;
+    for (var i = SOURCES.length - 1; i >= 0; i--) { if (SOURCES[i].p >= remaining) { best = SOURCES[i]; break; } }
+    if (best) return remaining + 'g to go. That is ' + best.gap + '.';
+    var n = Math.ceil(remaining / 25);
+    return remaining + 'g to go. About ' + n + ' solid picks: a shake here, a chicken portion there.';
+  }
+
+  function renderStack() {
+    var total = stackTotal();
+    var target = state.target || 0;
+
+    /* chips visual state */
+    var chips = chipsEl.querySelectorAll('.sf-pt-chip');
+    for (var i = 0; i < chips.length; i++) {
+      var id = chips[i].getAttribute('data-id');
+      var n = state.stack[id] || 0;
+      chips[i].classList.toggle('sf-on', n > 0);
+      chips[i].classList.toggle('sf-multi', n > 1);
+      var badge = chips[i].querySelector('.sf-pt-chip-x');
+      if (badge) badge.textContent = n > 1 ? ('x' + n) : '';
+    }
+
+    totalEl.innerHTML = total + 'g <span>of ' + target + 'g</span>';
+    gapEl.textContent = gapLine(target - total);
+
+    var pct = target > 0 ? Math.min(100, Math.round((total / target) * 100)) : 0;
+    barFillEl.style.width = pct + '%';
+
+    var full = target > 0 && total >= target;
+    if (full && !state.celebrated) { state.celebrated = true; barEl.classList.remove('sf-full'); void barEl.offsetWidth; barEl.classList.add('sf-full'); }
+    if (!full) { state.celebrated = false; barEl.classList.remove('sf-full'); }
+    hitEl.classList.toggle('sf-show', full);
+
+    /* stack list */
+    var listHtml = '';
+    for (var j = 0; j < SOURCES.length; j++) {
+      var s = SOURCES[j];
+      var count = state.stack[s.id] || 0;
+      if (!count) continue;
+      listHtml += '<li><span>' + s.emoji + ' ' + s.label + (count > 1 ? ' x' + count : '') + '</span>' +
+        '<span class="sf-pt-sl-g">' + (s.p * count) + 'g</span>' +
+        '<button type="button" class="sf-pt-remove" data-id="' + s.id + '" aria-label="Remove one ' + s.label + '">&minus;</button></li>';
+    }
+    stackListEl.innerHTML = listHtml;
+    clearBtn.classList.toggle('sf-pt-hidden', total === 0);
+  }
+
+  chipsEl.addEventListener('click', function (e) {
+    var chip = e.target.closest('.sf-pt-chip');
+    if (!chip) return;
+    var id = chip.getAttribute('data-id');
+    state.stack[id] = (state.stack[id] || 0) + 1;
+    renderStack();
+  });
+  stackListEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-pt-remove');
+    if (!btn) return;
+    var id = btn.getAttribute('data-id');
+    if (state.stack[id]) { state.stack[id] -= 1; if (state.stack[id] <= 0) delete state.stack[id]; }
+    renderStack();
+  });
+  clearBtn.addEventListener('click', function () { state.stack = {}; renderStack(); });
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    try {
+      if (!SF_CONFIG.pixelId) return;
+      if (!window.fbq) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+          t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      }
+      window.fbq('init', SF_CONFIG.pixelId);
+      window.fbq('track', 'PageView');
+    } catch (e) {}
+  }
+  function fireLeadPixel() {
+    try { if (typeof window.fbq === 'function') { window.fbq('track', 'Lead', { content_name: 'The Nurse Protein Target' }); } } catch (e) {}
+  }
+
+  /* ---- Email capture (never a dead end) ---- */
+  function goToResource(first) {
+    try {
+      if (first) window.localStorage.setItem('sf_pt_first', first);
+      window.localStorage.setItem('sf_pt_unlocked', '1');
+    } catch (e) {}
+    window.location.href = SF_CONFIG.resourceUrl + '?unlocked=1';
+  }
+
+  formEl.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first = document.getElementById('sfPtFirst').value.trim();
+    var email = document.getElementById('sfPtEmail').value.trim();
+
+    if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+      formMsg.innerHTML = '<div class="sf-pt-msg sf-err">That email looks off. Mind checking it?</div>';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    formMsg.innerHTML = '';
+
+    var payload = {
+      firstName: first,
+      email: email,
+      magnet: 'nurse-protein-target',
+      tag: SF_CONFIG.leadTag,
+      goal: state.goal || '',
+      proteinTarget: state.target || '',
+      source: 'lead-magnet-site',
+      timestamp: new Date().toISOString()
+    };
+
+    /* Not yet wired: still deliver value so the form is never a dead end */
+    if (!isConfigured(SF_CONFIG.webhookUrl)) {
+      formMsg.innerHTML = '<div class="sf-pt-msg sf-ok">You are in. Opening your full kit...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 700);
+      return;
+    }
+
+    var done = false;
+    var timer = setTimeout(function () {
+      if (done) return; done = true;
+      /* Slow network: do not trap her, let her through */
+      formMsg.innerHTML = '<div class="sf-pt-msg sf-ok">You are in. Opening your full kit...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 500);
+    }, 8000);
+
+    fetch(SF_CONFIG.webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (done) return; done = true; clearTimeout(timer);
+      if (res && (res.ok || res.status === 0 || res.type === 'opaque')) {
+        formMsg.innerHTML = '<div class="sf-pt-msg sf-ok">You are in. Opening your full kit...</div>';
+        fireLeadPixel();
+        setTimeout(function () { goToResource(first); }, 700);
+      } else {
+        throw new Error('bad status');
+      }
+    }).catch(function () {
+      if (done) return; done = true; clearTimeout(timer);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send me the full kit';
+      formMsg.innerHTML = '<div class="sf-pt-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full kit now</a> and I will catch your email next time.</div>';
+    });
+  });
+
+  /* ---- Call CTA wiring ---- */
+  function wireCallLinks() {
+    var links = document.querySelectorAll('[data-sf-call]');
+    for (var i = 0; i < links.length; i++) { links[i].setAttribute('href', SF_CONFIG.callUrl); }
+  }
+
+  /* ---- Reveal ---- */
+  (function reveal() {
+    var els = document.querySelectorAll('.sf-pt-reveal');
+    if (!els.length) return;
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { entries[i].target.classList.add('sf-in'); obs.unobserve(entries[i].target); } }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add('sf-in');
+    }
+  })();
+
+  /* ---- Init ---- */
+  renderChips();
+  wireCallLinks();
+  initPixel();
+})();
+</script>
+</body>
+</html>

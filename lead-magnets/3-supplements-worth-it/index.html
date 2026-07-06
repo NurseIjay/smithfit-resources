@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 3 Supplements Worth It | The Cabinet Audit | SmithFit</title>
+<meta name="description" content="90% of the supplement shelf is marketing. Audit your cabinet in 60 seconds, get an honest verdict on every jar, and see how much money goes back in your pocket. Free, built by a nurse.">
+<meta property="og:title" content="The Cabinet Audit: 90% of supplements are junk. Only 3 are worth it.">
+<meta property="og:description" content="Tap what you buy, get an honest KEEP or DROP verdict on every jar, and see the dollars you get back every month. Free, 60 seconds.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-sup *, .sf-sup *::before, .sf-sup *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-sup {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-deep: #96762f;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-deep: #2f6b41;
+  --sf-green-soft: #e8f5ec;
+  --sf-orange-deep: #a8702a;
+  --sf-orange-soft: #fdf3e6;
+  --sf-red-raw: #c0504d;
+  --sf-red-deep: #8a3a37;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.sf-sup h1, .sf-sup h2, .sf-sup h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.12; }
+.sf-sup-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Top brand bar ===== */
+.sf-sup-topbar {
+  max-width: 1060px; margin: 0 auto; padding: 18px 24px 0;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+}
+.sf-sup-mark { font-family: var(--sf-serif); font-weight: 700; font-size: 20px; color: var(--sf-dark-raw); letter-spacing: 0.02em; }
+.sf-sup-mark span { color: var(--sf-gold-raw); }
+.sf-sup-topnote { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); }
+
+/* ===== Hero (editorial, cream, receipt) ===== */
+.sf-sup-hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--sf-border); }
+.sf-sup-hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 82% 10%, rgba(200,160,78,0.14) 0%, transparent 52%);
+}
+.sf-sup-hero-grid {
+  position: relative; z-index: 1;
+  max-width: 1060px; margin: 0 auto; padding: 44px 24px 64px;
+  display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 52px; align-items: center;
+}
+.sf-sup-eyebrow {
+  display: inline-block; border: 1px solid rgba(200,160,78,0.5); background: var(--sf-gold-hover);
+  color: var(--sf-gold-deep); border-radius: 999px; padding: 7px 16px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 22px;
+}
+.sf-sup-hero h1 { font-weight: 700; font-size: clamp(34px, 5vw, 56px); margin-bottom: 18px; }
+.sf-sup-hero h1 .sf-sup-em { color: var(--sf-gold-deep); }
+.sf-sup-hero-sub { font-size: clamp(15px, 1.8vw, 18px); color: var(--sf-taupe-raw); max-width: 480px; margin-bottom: 28px; }
+.sf-sup-hero-cta {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 17px 42px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-sup-hero-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-sup-hero-cta:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-sup-hero-trust { font-size: 13px; color: var(--sf-taupe-light); margin-top: 14px; }
+
+/* Receipt visual */
+.sf-sup-receipt-wrap { position: relative; padding: 10px 6px 22px; }
+.sf-sup-receipt {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-bottom: none;
+  border-radius: 6px 6px 0 0; box-shadow: 0 20px 48px rgba(42,33,24,0.14);
+  padding: 22px 22px 16px; max-width: 340px; margin: 0 auto; position: relative;
+  -webkit-transform: rotate(1.5deg); transform: rotate(1.5deg);
+  font-variant-numeric: tabular-nums;
+}
+.sf-sup-receipt::after {
+  content: ""; position: absolute; top: 100%; left: 0; width: 100%; height: 9px;
+  background:
+    linear-gradient(45deg, #ffffff 4.5px, transparent 0) 0 0,
+    linear-gradient(-45deg, #ffffff 4.5px, transparent 0) 0 0;
+  background-size: 9px 9px; background-repeat: repeat-x;
+}
+.sf-sup-receipt-head { text-align: center; border-bottom: 1.5px dashed var(--sf-cream-deep); padding-bottom: 12px; margin-bottom: 6px; }
+.sf-sup-receipt-brand { font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-dark-raw); letter-spacing: 0.12em; text-transform: uppercase; }
+.sf-sup-receipt-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-taupe-light); margin-top: 3px; }
+.sf-sup-rrow { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 0; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 13px; color: var(--sf-taupe-raw); }
+.sf-sup-rrow-name { flex: 1; }
+.sf-sup-rrow-cost { color: var(--sf-taupe-light); font-size: 12px; }
+.sf-sup-receipt-total { padding: 12px 0 4px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.sf-sup-receipt-total-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-taupe-light); line-height: 1.5; }
+.sf-sup-receipt-total-num { font-family: var(--sf-serif); font-weight: 700; font-size: 30px; color: var(--sf-green-deep); white-space: nowrap; }
+.sf-sup-receipt-year { text-align: right; font-family: var(--sf-display); font-style: italic; font-size: 13px; color: var(--sf-gold-deep); padding-bottom: 6px; }
+.sf-sup-receipt-cap { text-align: center; font-size: 12px; color: var(--sf-taupe-light); margin-top: 24px; }
+
+/* Verdict stamps */
+.sf-sup-stamp {
+  display: inline-block; border: 1.5px solid; border-radius: 4px; padding: 2px 7px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;
+  -webkit-transform: rotate(-2deg); transform: rotate(-2deg);
+}
+.sf-sup-stamp.sf-keep { color: var(--sf-green-deep); border-color: var(--sf-green-raw); background: var(--sf-green-soft); }
+.sf-sup-stamp.sf-dep  { color: var(--sf-orange-deep); border-color: #d4944a; background: var(--sf-orange-soft); }
+.sf-sup-stamp.sf-drop { color: var(--sf-red-deep); border-color: var(--sf-red-raw); background: var(--sf-red-soft); }
+
+@-webkit-keyframes sfSupStamp { 0% { opacity: 0; -webkit-transform: scale(1.55) rotate(-7deg); } 100% { opacity: 1; -webkit-transform: scale(1) rotate(-2deg); } }
+@keyframes sfSupStamp { 0% { opacity: 0; transform: scale(1.55) rotate(-7deg); } 100% { opacity: 1; transform: scale(1) rotate(-2deg); } }
+.sf-sup-stamped { opacity: 0; -webkit-animation: sfSupStamp .38s ease-out forwards; animation: sfSupStamp .38s ease-out forwards; }
+
+/* ===== Layout ===== */
+.sf-sup-wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.sf-sup-section { padding: 52px 0; }
+
+/* ===== Validate ===== */
+.sf-sup-validate {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-left: 4px solid var(--sf-gold-raw);
+  border-radius: 0 16px 16px 0; padding: 28px 28px; margin-top: 44px;
+  box-shadow: 0 2px 16px rgba(42,33,24,0.06);
+}
+.sf-sup-validate h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 12px; }
+.sf-sup-validate p { font-size: 16px; margin-bottom: 12px; }
+.sf-sup-validate p:last-child { margin-bottom: 0; }
+.sf-sup-validate .sf-sup-line { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-light); }
+
+/* ===== Section heads ===== */
+.sf-sup-kicker { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-deep); margin-bottom: 10px; }
+.sf-sup-h2 { font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; margin-bottom: 10px; }
+.sf-sup-lead { color: var(--sf-taupe-light); font-size: 16px; max-width: 560px; margin-bottom: 26px; }
+
+/* ===== The Cabinet Audit tool ===== */
+.sf-sup-tool { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 30px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-sup-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 10px; margin-bottom: 22px; }
+.sf-sup-item {
+  display: flex; align-items: center; gap: 10px; text-align: left; width: 100%; min-height: 54px;
+  background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 10px 12px;
+  font-family: var(--sf-sans); cursor: pointer;
+  -webkit-transition: border-color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.sf-sup-item:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-1px); transform: translateY(-1px); }
+.sf-sup-item:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-sup-item.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-sup-item-emoji { font-size: 20px; flex: 0 0 auto; }
+.sf-sup-item-txt { flex: 1; min-width: 0; }
+.sf-sup-item-name { display: block; font-size: 14px; font-weight: 600; color: var(--sf-dark-raw); line-height: 1.3; }
+.sf-sup-item-cost { display: block; font-size: 12px; color: var(--sf-taupe-light); }
+.sf-sup-tick { flex: 0 0 20px; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--sf-border); position: relative; -webkit-transition: background .18s ease, border-color .18s ease; transition: background .18s ease, border-color .18s ease; }
+.sf-sup-item.sf-on .sf-sup-tick { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); }
+.sf-sup-item.sf-on .sf-sup-tick::after { content: "\2713"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--sf-dark-raw); }
+
+.sf-sup-btn {
+  display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.4);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-sup-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-sup-btn:active { -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-sup-btn:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-sup-hint { text-align: center; font-size: 13px; color: var(--sf-taupe-light); margin-top: 12px; min-height: 18px; }
+.sf-sup-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 13px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+
+/* ===== Results receipt ===== */
+@-webkit-keyframes sfSupPop { 0% { opacity: 0; -webkit-transform: translateY(14px) scale(.985); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
+@keyframes sfSupPop { 0% { opacity: 0; transform: translateY(14px) scale(.985); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+.sf-sup-pop { -webkit-animation: sfSupPop .5s ease forwards; animation: sfSupPop .5s ease forwards; }
+
+.sf-sup-audit { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 24px 22px 14px; margin-top: 24px; font-variant-numeric: tabular-nums; }
+.sf-sup-audit-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1.5px dashed var(--sf-cream-deep); padding-bottom: 12px; margin-bottom: 6px; }
+.sf-sup-audit-title { font-family: var(--sf-serif); font-weight: 700; font-size: 21px; color: var(--sf-dark-raw); }
+.sf-sup-audit-date { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); white-space: nowrap; }
+.sf-sup-vgroup { padding-top: 12px; }
+.sf-sup-vgroup-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; padding-bottom: 6px; }
+.sf-sup-vgroup-head.sf-vg-drop { color: var(--sf-red-deep); }
+.sf-sup-vgroup-head.sf-vg-dep { color: var(--sf-orange-deep); }
+.sf-sup-vgroup-head.sf-vg-keep { color: var(--sf-green-deep); }
+.sf-sup-vrow { padding: 10px 0 12px; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-sup-vrow:last-child { border-bottom: none; }
+.sf-sup-vrow-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.sf-sup-vrow-name { font-size: 15px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-sup-vrow-right { display: inline-flex; align-items: center; gap: 10px; }
+.sf-sup-vrow-cost { font-size: 12px; color: var(--sf-taupe-light); }
+.sf-sup-vrow-line { font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 4px; max-width: 560px; }
+
+/* Tally */
+.sf-sup-tally {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border-radius: 16px; padding: 28px 26px; margin-top: 18px; position: relative; overflow: hidden;
+}
+.sf-sup-tally::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.22) 0%, transparent 60%); pointer-events: none; }
+.sf-sup-tally > * { position: relative; z-index: 1; }
+.sf-sup-tally-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 6px; }
+.sf-sup-tally-num { font-family: var(--sf-serif); font-weight: 700; font-size: clamp(38px, 6vw, 52px); color: var(--sf-cream-raw); line-height: 1.05; }
+.sf-sup-tally-num small { font-family: var(--sf-sans); font-size: 15px; font-weight: 600; color: rgba(250,246,243,0.7); margin-left: 6px; letter-spacing: 0.02em; }
+.sf-sup-tally-year { font-family: var(--sf-display); font-style: italic; font-size: 16px; color: var(--sf-gold-soft); margin-top: 8px; }
+.sf-sup-tally-note { font-size: 13.5px; color: rgba(250,246,243,0.78); margin-top: 12px; max-width: 480px; }
+
+/* The three */
+.sf-sup-three-head { margin-top: 40px; margin-bottom: 18px; }
+.sf-sup-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sf-sup-keeper { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-top: 3px solid var(--sf-green-raw); border-radius: 14px; padding: 20px 18px; }
+.sf-sup-keeper-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.sf-sup-keeper-name { font-family: var(--sf-serif); font-weight: 700; font-size: 19px; color: var(--sf-dark-raw); }
+.sf-sup-keeper-dose { display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4); color: var(--sf-gold-deep); border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 10px; }
+.sf-sup-keeper p { font-size: 13.5px; color: var(--sf-taupe-raw); margin-bottom: 8px; }
+.sf-sup-keeper-cost { font-size: 12px; color: var(--sf-taupe-light); }
+.sf-sup-smallprint { font-family: var(--sf-display); font-style: italic; font-size: 13.5px; color: var(--sf-taupe-light); margin-top: 18px; }
+
+/* ===== Email gate ===== */
+.sf-sup-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 36px 26px; margin-top: 34px; text-align: center; position: relative; overflow: hidden; }
+.sf-sup-gate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 62%); pointer-events: none; }
+.sf-sup-gate > * { position: relative; z-index: 1; }
+.sf-sup-gate h3 { color: var(--sf-cream-raw); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 10px; }
+.sf-sup-gate h3 .sf-sup-em { color: var(--sf-gold-soft); }
+.sf-sup-gate p { color: rgba(250,246,243,0.82); font-size: 15px; max-width: 460px; margin: 0 auto 20px; }
+.sf-sup-gate-list { list-style: none; max-width: 420px; margin: 0 auto 24px; text-align: left; }
+.sf-sup-gate-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
+.sf-sup-gate-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-sup-form { max-width: 400px; margin: 0 auto; }
+.sf-sup-field { margin-bottom: 12px; text-align: left; }
+.sf-sup-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,246,243,0.7); margin-bottom: 5px; }
+.sf-sup-field input { width: 100%; padding: 13px 15px; background: rgba(250,246,243,0.96); border: 1.5px solid transparent; border-radius: 10px; color: var(--sf-dark-raw); font-family: var(--sf-sans); font-size: 16px; -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-sup-field input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-sup-field input::placeholder { color: var(--sf-taupe-light); }
+.sf-sup-submit { display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 10px; padding: 15px 24px; font-family: var(--sf-sans); font-weight: 700; font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; margin-top: 6px; -webkit-transition: transform .2s ease, background .2s ease; transition: transform .2s ease, background .2s ease; }
+.sf-sup-submit:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); background: var(--sf-gold-light); }
+.sf-sup-submit:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-sup-submit:disabled { background: var(--sf-taupe-light); color: rgba(250,246,243,0.8); cursor: not-allowed; -webkit-transform: none; transform: none; }
+.sf-sup-formnote { color: rgba(250,246,243,0.55); font-size: 12px; margin-top: 14px; }
+.sf-sup-msg { border-radius: 10px; padding: 12px 16px; font-size: 14px; margin-top: 14px; text-align: left; }
+.sf-sup-msg.sf-err { background: var(--sf-red-soft); color: var(--sf-red-deep); }
+.sf-sup-msg.sf-ok { background: var(--sf-green-soft); color: var(--sf-green-deep); }
+.sf-sup-msg a { color: inherit; font-weight: 700; }
+
+/* ===== Bridge ===== */
+.sf-sup-bridge { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 36px 28px; text-align: center; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-sup-bridge h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 12px; }
+.sf-sup-bridge h2 .sf-sup-em { color: var(--sf-gold-deep); }
+.sf-sup-bridge p { font-size: 16px; max-width: 520px; margin: 0 auto 24px; }
+.sf-sup-bridge-cta { display: inline-block; background: transparent; color: var(--sf-taupe-raw); text-decoration: none; border: 1.5px solid var(--sf-gold-raw); border-radius: 12px; padding: 15px 34px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; -webkit-transition: background .2s ease, transform .2s ease; transition: background .2s ease, transform .2s ease; }
+.sf-sup-bridge-cta:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-sup-bridge-cta:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 3px; }
+.sf-sup-bridge-note { color: var(--sf-taupe-light); font-size: 13px; margin-top: 14px; }
+
+/* ===== Proof ===== */
+.sf-sup-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.sf-sup-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 20px 10px; text-align: center; }
+.sf-sup-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 28px; color: var(--sf-gold-deep); display: block; }
+.sf-sup-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-sup-footer { text-align: center; padding: 36px 20px 42px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-sup-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-sup-reveal { opacity: 0; -webkit-transform: translateY(22px); transform: translateY(22px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-sup-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-sup-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 900px) {
+  .sf-sup-hero-grid { grid-template-columns: 1fr; gap: 40px; padding-bottom: 52px; }
+  .sf-sup-receipt { -webkit-transform: rotate(1deg); transform: rotate(1deg); }
+}
+@media (max-width: 600px) {
+  .sf-sup-topbar { padding: 16px 18px 0; }
+  .sf-sup-hero-grid { padding: 34px 18px 46px; gap: 34px; }
+  .sf-sup-section { padding: 40px 0; }
+  .sf-sup-validate { padding: 22px 18px; margin-top: 36px; }
+  .sf-sup-tool { padding: 24px 16px; }
+  .sf-sup-items { grid-template-columns: 1fr; }
+  .sf-sup-three { grid-template-columns: 1fr; }
+  .sf-sup-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-sup-audit { padding: 20px 16px 10px; }
+  .sf-sup-tally { padding: 24px 20px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-sup *, .sf-sup *::before, .sf-sup *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+    -webkit-animation-delay: 0ms !important; animation-delay: 0ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-sup">
+
+  <div class="sf-sup-topbar">
+    <span class="sf-sup-mark">Smith<span>Fit</span></span>
+    <span class="sf-sup-topnote">Built by a nurse, for nurses</span>
+  </div>
+
+  <!-- HERO -->
+  <header class="sf-sup-hero">
+    <div class="sf-sup-hero-grid">
+      <div>
+        <span class="sf-sup-eyebrow">The Cabinet Audit. Free, 60 seconds</span>
+        <h1>90% of that supplement shelf is marketing. <span class="sf-sup-em">Three things</span> are worth your money.</h1>
+        <p class="sf-sup-hero-sub">Tap what you currently buy. Sixty seconds later you have an honest KEEP, DEPENDS, or DROP verdict on every jar, and a number: the dollars that go back in your pocket every month.</p>
+        <a href="#sf-sup-tool" class="sf-sup-hero-cta" id="sfSupHeroCta">Audit my cabinet</a>
+        <p class="sf-sup-hero-trust">14 items. Honest verdicts. No email needed to see yours.</p>
+      </div>
+      <div class="sf-sup-receipt-wrap">
+        <div class="sf-sup-receipt" aria-hidden="true">
+          <div class="sf-sup-receipt-head">
+            <div class="sf-sup-receipt-brand">SmithFit</div>
+            <div class="sf-sup-receipt-label">Cabinet audit. Sample</div>
+          </div>
+          <div class="sf-sup-rrow"><span class="sf-sup-rrow-name">Fat burner</span><span class="sf-sup-rrow-cost">$45/mo</span><span class="sf-sup-stamp sf-drop">Drop</span></div>
+          <div class="sf-sup-rrow"><span class="sf-sup-rrow-name">Greens powder</span><span class="sf-sup-rrow-cost">$50/mo</span><span class="sf-sup-stamp sf-drop">Drop</span></div>
+          <div class="sf-sup-rrow"><span class="sf-sup-rrow-name">Melatonin</span><span class="sf-sup-rrow-cost">$10/mo</span><span class="sf-sup-stamp sf-dep">Depends</span></div>
+          <div class="sf-sup-rrow"><span class="sf-sup-rrow-name">Creatine</span><span class="sf-sup-rrow-cost">$12/mo</span><span class="sf-sup-stamp sf-keep">Keep</span></div>
+          <div class="sf-sup-rrow"><span class="sf-sup-rrow-name">Vitamin D</span><span class="sf-sup-rrow-cost">$10/mo</span><span class="sf-sup-stamp sf-keep">Keep</span></div>
+          <div class="sf-sup-receipt-total">
+            <span class="sf-sup-receipt-total-label">Back in<br>your pocket</span>
+            <span class="sf-sup-receipt-total-num">$95/mo</span>
+          </div>
+          <div class="sf-sup-receipt-year">that is $1,140 a year</div>
+        </div>
+        <p class="sf-sup-receipt-cap">One nurse's shelf. Yours takes 60 seconds, below.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="sf-sup-wrap">
+
+    <!-- VALIDATE -->
+    <div class="sf-sup-validate sf-sup-reveal">
+      <h2>You did not buy that shelf because you are gullible</h2>
+      <p>You bought it at hour 30 of a three-shift stretch, because someone promised your energy back. The supplement industry has a favorite customer: an exhausted woman who takes care of everyone else. Fat burners, detox teas, adrenal blends. They are aimed at her on purpose.</p>
+      <p class="sf-sup-line">You read labs for a living. This audit reads your shelf the same way: what the evidence supports, what it does not, and what that means for your card statement.</p>
+    </div>
+
+    <!-- THE TOOL -->
+    <section class="sf-sup-section" id="sf-sup-tool">
+      <div class="sf-sup-kicker">The Cabinet Audit</div>
+      <h2 class="sf-sup-h2">What is on your shelf right now?</h2>
+      <p class="sf-sup-lead">Tap everything you currently buy or subscribe to. Prices are honest ballpark figures for a typical month, close enough for the math to sting.</p>
+
+      <div class="sf-sup-tool sf-sup-reveal">
+        <div class="sf-sup-items" id="sfSupItems" role="group" aria-label="Tap the supplements you currently buy"></div>
+        <button type="button" class="sf-sup-btn" id="sfSupRun">Run my audit</button>
+        <p class="sf-sup-hint" id="sfSupHint"></p>
+        <div id="sfSupNudge"></div>
+
+        <div id="sfSupResults" aria-live="polite"></div>
+
+        <!-- EMAIL GATE (revealed after first audit) -->
+        <div class="sf-sup-gate sf-sup-hidden" id="sfSupGate">
+          <h3>That is the audit. Take the <span class="sf-sup-em">full kit</span> with you.</h3>
+          <p>The audit stays free. Your email opens the full version, built to survive an actual store run:</p>
+          <ul class="sf-sup-gate-list">
+            <li>The printable dosing card for the three (fridge door and locker sized)</li>
+            <li>The label-reading checklist: third-party seals, plain monohydrate, no proprietary blends</li>
+            <li>The cancel-first order, so the worst offender comes off your card this week</li>
+          </ul>
+          <form class="sf-sup-form" id="sfSupForm" novalidate>
+            <div class="sf-sup-field">
+              <label for="sfSupFirst">First name (optional)</label>
+              <input type="text" id="sfSupFirst" name="firstName" placeholder="First name" autocomplete="given-name">
+            </div>
+            <div class="sf-sup-field">
+              <label for="sfSupEmail">Email</label>
+              <input type="email" id="sfSupEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
+            </div>
+            <button type="submit" class="sf-sup-submit" id="sfSupSubmit">Send me the full audit kit</button>
+            <div id="sfSupFormMsg" aria-live="polite"></div>
+            <p class="sf-sup-formnote">No spam. Unsubscribe any time.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOFT HIGH-TICKET BRIDGE -->
+    <section class="sf-sup-section" style="padding-top: 0;">
+      <div class="sf-sup-bridge sf-sup-reveal">
+        <h2>Supplements are the last <span class="sf-sup-em">five percent</span>.</h2>
+        <p>The other ninety five is food that survives a 12, sleep that survives rotating shifts, and a plan for the weeks that fall apart. If you want that built around your actual schedule, I take a few nurses a month for a free game-plan call. No pitch, you leave with a plan either way.</p>
+        <a href="#" data-sf-call class="sf-sup-bridge-cta" target="_blank" rel="noopener">Book my free game-plan call</a>
+        <p class="sf-sup-bridge-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="sf-sup-section" style="padding-top: 0;">
+      <div class="sf-sup-proof sf-sup-reveal">
+        <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">400+</span><div class="sf-sup-proof-label">Nurses coached</div></div>
+        <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">87%</span><div class="sf-sup-proof-label">Feel a difference by Day 3</div></div>
+        <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">~5 lbs</span><div class="sf-sup-proof-label">Average lost in Week 1</div></div>
+        <div class="sf-sup-proof-item"><span class="sf-sup-proof-num">60-day</span><div class="sf-sup-proof-label">Money-back guarantee</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-sup-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Verdicts reflect published evidence and honest math. Check with your provider before starting anything new.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (lead-magnets/config.js) with safe fallbacks ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-supplements",
+    resourceUrl: "resource.html"
+  };
+  function isConfigured(v) { return v && v.indexOf("[") !== 0; }
+
+  /* ---- The cabinet (verdicts: keep / dep / drop) ---- */
+  var ITEMS = [
+    { id: "fatburner", label: "Fat burner", emoji: "🔥", cost: 45, verdict: "drop",
+      line: "Mostly caffeine in a costume. No fat burner on the shelf outperforms a slightly longer walk, and you already run on caffeine." },
+    { id: "detox", label: "Detox tea", emoji: "🍵", cost: 30, verdict: "drop",
+      line: "Detox is an organ function. You chart liver panels for a living, and no tea is doing that work. This one is a laxative with branding." },
+    { id: "adrenal", label: "Adrenal cocktail mix", emoji: "🍊", cost: 40, verdict: "drop",
+      line: "Orange juice, salt, and a story. 'Adrenal fatigue' is not a diagnosis in any chart you have ever opened." },
+    { id: "ashwagandha", label: "Ashwagandha", emoji: "🌿", cost: 25, verdict: "drop",
+      line: "A handful of small trials on stress, and most gummies are dosed below even those. Not worth a standing monthly charge." },
+    { id: "greens", label: "Greens powder", emoji: "🥬", cost: 50, verdict: "drop",
+      line: "Dehydrated produce at a luxury markup. A bag of frozen vegetables covers it for a tenth of the price." },
+    { id: "bcaa", label: "BCAAs", emoji: "🧪", cost: 30, verdict: "drop",
+      line: "If you eat protein, you already own these. They are amino acids that come inside the food." },
+    { id: "collagen", label: "Collagen (weight-loss)", emoji: "☕", cost: 35, verdict: "drop",
+      line: "Fine as a coffee flavor. As a weight-loss product it is a weak protein with strong marketing." },
+    { id: "acv", label: "ACV gummies", emoji: "🍬", cost: 20, verdict: "drop",
+      line: "The vinegar studies were tiny, and the gummy version is mostly sugar. Candy with a health label." },
+    { id: "magspray", label: "Magnesium spray", emoji: "💦", cost: 15, verdict: "dep",
+      line: "Magnesium itself has a case if you run low, especially at night. The spray is the wrong vehicle. If you keep it, switch to an oral form like glycinate." },
+    { id: "multi", label: "Multivitamin", emoji: "💊", cost: 15, verdict: "drop",
+      line: "Insurance at best. If you eat protein and produce most weeks, a lot of it becomes expensive urine. Put the $15 toward the produce." },
+    { id: "melatonin", label: "Melatonin", emoji: "😴", cost: 10, verdict: "dep",
+      line: "A short reset tool after a run of nights, at a low dose, before your target sleep window. As an every-night habit it stops being a tool." },
+    { id: "protein", label: "Protein powder", emoji: "🥤", cost: 35, verdict: "keep",
+      line: "Not magic, convenient food. One scoop is 25 to 30 grams of protein with zero cooking at hour 11 of a 12." },
+    { id: "creatine", label: "Creatine", emoji: "💪", cost: 12, verdict: "keep",
+      line: "One of the most studied supplements in existence. Muscle and strength, plus early signals for a sleep-deprived brain. Pennies a day." },
+    { id: "vitd", label: "Vitamin D", emoji: "☀️", cost: 10, verdict: "keep",
+      line: "You clock in before sunrise and drive home after dark. Shift workers barely see sun, and this is the cheapest fix on the shelf." }
+  ];
+  var VERDICT_META = {
+    drop: { stamp: "Drop", cls: "sf-drop", group: "Drop these", groupCls: "sf-vg-drop" },
+    dep:  { stamp: "Depends", cls: "sf-dep", group: "Your call", groupCls: "sf-vg-dep" },
+    keep: { stamp: "Keep", cls: "sf-keep", group: "Keep these", groupCls: "sf-vg-keep" }
+  };
+
+  var state = { selected: [], lastBack: 0, audited: false };
+
+  var itemsEl = document.getElementById("sfSupItems");
+  var runBtn = document.getElementById("sfSupRun");
+  var hintEl = document.getElementById("sfSupHint");
+  var nudgeEl = document.getElementById("sfSupNudge");
+  var resultsEl = document.getElementById("sfSupResults");
+  var gateEl = document.getElementById("sfSupGate");
+  var formEl = document.getElementById("sfSupForm");
+  var submitBtn = document.getElementById("sfSupSubmit");
+  var formMsg = document.getElementById("sfSupFormMsg");
+
+  function findItem(id) {
+    for (var i = 0; i < ITEMS.length; i++) { if (ITEMS[i].id === id) return ITEMS[i]; }
+    return null;
+  }
+  function money(n) { return "$" + n.toLocaleString("en-US"); }
+
+  /* ---- Render the shelf ---- */
+  function renderItems() {
+    var html = "";
+    for (var i = 0; i < ITEMS.length; i++) {
+      var it = ITEMS[i];
+      html += '<button type="button" class="sf-sup-item" data-id="' + it.id + '" aria-pressed="false">' +
+        '<span class="sf-sup-item-emoji" aria-hidden="true">' + it.emoji + '</span>' +
+        '<span class="sf-sup-item-txt">' +
+          '<span class="sf-sup-item-name">' + it.label + '</span>' +
+          '<span class="sf-sup-item-cost">about $' + it.cost + '/mo</span>' +
+        '</span>' +
+        '<span class="sf-sup-tick" aria-hidden="true"></span>' +
+      '</button>';
+    }
+    itemsEl.innerHTML = html;
+  }
+
+  function updateHint() {
+    var n = state.selected.length;
+    if (n === 0) { hintEl.textContent = "Tap what you buy. Every shelf has a story, no judgment here."; return; }
+    hintEl.textContent = n + " item" + (n === 1 ? "" : "s") + " on your shelf. Run the audit when you are ready.";
+  }
+
+  itemsEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-sup-item");
+    if (!btn) return;
+    var id = btn.getAttribute("data-id");
+    var idx = state.selected.indexOf(id);
+    if (idx === -1) { state.selected.push(id); btn.classList.add("sf-on"); btn.setAttribute("aria-pressed", "true"); }
+    else { state.selected.splice(idx, 1); btn.classList.remove("sf-on"); btn.setAttribute("aria-pressed", "false"); }
+    nudgeEl.innerHTML = "";
+    updateHint();
+  });
+
+  /* ---- The audit ---- */
+  function stampHtml(verdict, delayMs) {
+    var m = VERDICT_META[verdict];
+    return '<span class="sf-sup-stamp sf-sup-stamped ' + m.cls + '" style="-webkit-animation-delay:' + delayMs + 'ms;animation-delay:' + delayMs + 'ms;">' + m.stamp + '</span>';
+  }
+
+  function runAudit() {
+    if (!state.selected.length) {
+      nudgeEl.innerHTML = '<div class="sf-sup-nudge">Tap what is actually on your shelf first. No judgment, we have all bought at least one of these after a rough stretch of nights.</div>';
+      return;
+    }
+    nudgeEl.innerHTML = "";
+
+    var groups = { drop: [], dep: [], keep: [] };
+    for (var i = 0; i < state.selected.length; i++) {
+      var it = findItem(state.selected[i]);
+      if (it) groups[it.verdict].push(it);
+    }
+    var dropTotal = 0, depTotal = 0, keepTotal = 0, j;
+    for (j = 0; j < groups.drop.length; j++) dropTotal += groups.drop[j].cost;
+    for (j = 0; j < groups.dep.length; j++) depTotal += groups.dep[j].cost;
+    for (j = 0; j < groups.keep.length; j++) keepTotal += groups.keep[j].cost;
+    state.lastBack = dropTotal;
+    state.audited = true;
+
+    var delay = 100;
+    var order = ["drop", "dep", "keep"];
+    var groupsHtml = "";
+    for (var g = 0; g < order.length; g++) {
+      var key = order[g];
+      var list = groups[key];
+      if (!list.length) continue;
+      var meta = VERDICT_META[key];
+      var subtotal = key === "drop" ? dropTotal : (key === "dep" ? depTotal : keepTotal);
+      groupsHtml += '<div class="sf-sup-vgroup">' +
+        '<div class="sf-sup-vgroup-head ' + meta.groupCls + '"><span>' + meta.group + '</span><span>' + money(subtotal) + ' a month</span></div>';
+      for (var r = 0; r < list.length; r++) {
+        var it2 = list[r];
+        groupsHtml += '<div class="sf-sup-vrow">' +
+          '<div class="sf-sup-vrow-top">' +
+            '<span class="sf-sup-vrow-name"><span aria-hidden="true">' + it2.emoji + '</span> ' + it2.label + '</span>' +
+            '<span class="sf-sup-vrow-right"><span class="sf-sup-vrow-cost">$' + it2.cost + '/mo</span>' + stampHtml(it2.verdict, delay) + '</span>' +
+          '</div>' +
+          '<p class="sf-sup-vrow-line">' + it2.line + '</p>' +
+        '</div>';
+        delay = Math.min(delay + 70, 680);
+      }
+      groupsHtml += '</div>';
+    }
+
+    var dateStr = "";
+    try { dateStr = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); } catch (e) {}
+
+    var tallyHtml = "";
+    if (dropTotal > 0) {
+      tallyHtml = '<div class="sf-sup-tally sf-sup-pop">' +
+        '<div class="sf-sup-tally-label">Back in your pocket</div>' +
+        '<div class="sf-sup-tally-num">' + money(dropTotal) + '<small>a month</small></div>' +
+        '<div class="sf-sup-tally-year">that is ' + money(dropTotal * 12) + ' a year, and you lose nothing that works</div>' +
+        (depTotal > 0 ? '<p class="sf-sup-tally-note">Another ' + money(depTotal) + ' a month is riding on the judgment calls above. Read the notes, then decide.</p>' : "") +
+        (keepTotal > 0 ? '<p class="sf-sup-tally-note">The ' + money(keepTotal) + ' a month on your keepers stays. That money is working.</p>' : "") +
+      '</div>';
+    } else {
+      tallyHtml = '<div class="sf-sup-tally sf-sup-pop">' +
+        '<div class="sf-sup-tally-label">Your verdict</div>' +
+        '<div class="sf-sup-tally-num">Clean shelf</div>' +
+        '<div class="sf-sup-tally-year">no drops in your selection, you are ahead of most of the unit</div>' +
+        (depTotal > 0 ? '<p class="sf-sup-tally-note">' + money(depTotal) + ' a month is riding on the judgment calls above. Read the notes, then decide.</p>' : "") +
+        (keepTotal > 0 ? '<p class="sf-sup-tally-note">Your ' + money(keepTotal) + ' a month is on the three that earn it. The dosing details below make sure you get full value.</p>' : "") +
+      '</div>';
+    }
+
+    var threeHtml = '<div class="sf-sup-three-head">' +
+      '<div class="sf-sup-kicker">The keepers</div>' +
+      '<h3 class="sf-sup-h2" style="font-size:clamp(22px,3.6vw,30px);">The three that earn their spot</h3>' +
+      '<p class="sf-sup-lead" style="margin-bottom:16px;">Whatever the audit said, these are the only three I tell my nurses to buy. Practical doses, no mystery:</p>' +
+    '</div>' +
+    '<div class="sf-sup-three">' +
+      '<div class="sf-sup-keeper">' +
+        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">🥤 Protein</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
+        '<span class="sf-sup-keeper-dose">1 scoop when real food will not happen</span>' +
+        '<p>A scoop is convenient food, not a magic shake. Aim it at your daily protein target, especially the shifts where lunch never happens.</p>' +
+        '<span class="sf-sup-keeper-cost">about $35 a month</span>' +
+      '</div>' +
+      '<div class="sf-sup-keeper">' +
+        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">💪 Creatine</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
+        '<span class="sf-sup-keeper-dose">3 to 5g every day, any time</span>' +
+        '<p>Timing does not matter, the daily streak does. Plain creatine monohydrate, the cheapest tub on the shelf, is exactly the right one.</p>' +
+        '<span class="sf-sup-keeper-cost">about $12 a month</span>' +
+      '</div>' +
+      '<div class="sf-sup-keeper">' +
+        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">☀️ Vitamin D</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
+        '<span class="sf-sup-keeper-dose">1000 to 2000 IU, with food</span>' +
+        '<p>Shift workers barely see sun. Take it with a meal that has some fat, and you know the move: get a level drawn before going higher.</p>' +
+        '<span class="sf-sup-keeper-cost">about $10 a month</span>' +
+      '</div>' +
+    '</div>' +
+    '<p class="sf-sup-smallprint">Educational resource, not medical advice. You know the drill: run new supplements past your provider, especially with prescriptions, kidney concerns, or pregnancy.</p>';
+
+    resultsEl.innerHTML = '<div class="sf-sup-audit sf-sup-pop">' +
+      '<div class="sf-sup-audit-head">' +
+        '<span class="sf-sup-audit-title">Your shelf, audited</span>' +
+        '<span class="sf-sup-audit-date">' + dateStr + '</span>' +
+      '</div>' +
+      groupsHtml +
+    '</div>' + tallyHtml + threeHtml;
+
+    gateEl.classList.remove("sf-sup-hidden");
+    resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  runBtn.addEventListener("click", runAudit);
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    if (!SF_CONFIG.pixelId) return;
+    try {
+      if (!window.fbq) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = [];
+          t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+        }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      }
+      window.fbq("init", SF_CONFIG.pixelId);
+      window.fbq("track", "PageView");
+    } catch (e) {}
+  }
+  function fireLeadPixel() {
+    try { if (typeof window.fbq === "function") { window.fbq("track", "Lead", { content_name: "The 3 Supplements Worth It" }); } } catch (e) {}
+  }
+
+  /* ---- Email capture ---- */
+  function goToResource(first) {
+    try {
+      if (first) window.localStorage.setItem("sf_sup_first", first);
+      window.localStorage.setItem("sf_sup_full", "1");
+    } catch (e) {}
+    window.location.href = SF_CONFIG.resourceUrl + "?unlocked=1";
+  }
+
+  formEl.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var first = document.getElementById("sfSupFirst").value.trim();
+    var email = document.getElementById("sfSupEmail").value.trim();
+
+    if (!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+      formMsg.innerHTML = '<div class="sf-sup-msg sf-err">That email looks off. Mind checking it?</div>';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formMsg.innerHTML = "";
+
+    var payload = {
+      firstName: first,
+      email: email,
+      magnet: "3-supplements-worth-it",
+      tag: SF_CONFIG.leadTag,
+      itemsAudited: state.selected.length,
+      monthlyBack: state.lastBack,
+      source: "lead-magnet-site",
+      timestamp: new Date().toISOString()
+    };
+
+    /* Not yet wired: still deliver value so the form is never a dead end */
+    if (!isConfigured(SF_CONFIG.webhookUrl)) {
+      formMsg.innerHTML = '<div class="sf-sup-msg sf-ok">You are in. Opening your full kit...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 700);
+      return;
+    }
+
+    var done = false;
+    var timer = setTimeout(function () {
+      if (done) return; done = true;
+      /* Slow network: do not trap her, let her through */
+      formMsg.innerHTML = '<div class="sf-sup-msg sf-ok">You are in. Opening your full kit...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 500);
+    }, 8000);
+
+    fetch(SF_CONFIG.webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (done) return; done = true; clearTimeout(timer);
+      if (res && (res.ok || res.status === 0 || res.type === "opaque")) {
+        formMsg.innerHTML = '<div class="sf-sup-msg sf-ok">You are in. Opening your full kit...</div>';
+        fireLeadPixel();
+        setTimeout(function () { goToResource(first); }, 700);
+      } else {
+        throw new Error("bad status");
+      }
+    }).catch(function () {
+      if (done) return; done = true; clearTimeout(timer);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send me the full audit kit";
+      formMsg.innerHTML = '<div class="sf-sup-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full kit now</a> and I will catch your email next time.</div>';
+    });
+  });
+
+  /* ---- Call CTA wiring (never hardcoded) ---- */
+  function wireCallLinks() {
+    var links = document.querySelectorAll("[data-sf-call]");
+    for (var i = 0; i < links.length; i++) {
+      if (isConfigured(SF_CONFIG.callUrl)) links[i].setAttribute("href", SF_CONFIG.callUrl);
+    }
+  }
+
+  /* ---- Smooth scroll for the hero CTA ---- */
+  var heroCta = document.getElementById("sfSupHeroCta");
+  if (heroCta) {
+    heroCta.addEventListener("click", function (e) {
+      var target = document.getElementById("sf-sup-tool");
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  /* ---- Scroll reveal ---- */
+  function reveal() {
+    var els = document.querySelectorAll(".sf-sup-reveal");
+    if (!els.length) return;
+    if ("IntersectionObserver" in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { entries[i].target.classList.add("sf-in"); obs.unobserve(entries[i].target); }
+        }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add("sf-in");
+    }
+  }
+
+  /* ---- Preview mode (?sfdemo=1 pre-runs a sample audit for QA) ---- */
+  function demoIfRequested() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get("sfdemo") !== "1") return;
+      var pick = ["fatburner", "detox", "greens", "melatonin", "creatine", "vitd"];
+      for (var i = 0; i < pick.length; i++) {
+        var btn = itemsEl.querySelector('[data-id="' + pick[i] + '"]');
+        if (btn) { state.selected.push(pick[i]); btn.classList.add("sf-on"); btn.setAttribute("aria-pressed", "true"); }
+      }
+      updateHint();
+      runAudit();
+    } catch (e) {}
+  }
+
+  /* ---- Init ---- */
+  renderItems();
+  updateHint();
+  wireCallLinks();
+  initPixel();
+  reveal();
+  demoIfRequested();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Never Meal Prep Again | The 3-Minute Shift Meal Builder | SmithFit</title>
+<meta name="description" content="Build a shift meal in 3 minutes from what is already in your fridge. No cooking, no tracking, no Tupperware graveyard. Free, built by a nurse for nurses.">
+<meta property="og:title" content="Never Meal Prep Again. The 3-Minute Shift Meal Builder">
+<meta property="og:description" content="Build a shift meal in 3 minutes from what you already have. No cooking, no tracking. Free.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-lm *, .sf-lm *::before, .sf-lm *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-lm {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.sf-lm h1, .sf-lm h2, .sf-lm h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.14; }
+.sf-lm-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Hero ===== */
+.sf-lm-hero {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 52%, #2a2118 100%);
+  padding: 56px 20px 62px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sf-lm-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.30) 0%, transparent 60%); pointer-events: none; }
+.sf-lm-hero > * { position: relative; z-index: 1; }
+.sf-lm-badge {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4);
+  color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px;
+}
+.sf-lm-hero h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(32px, 6.2vw, 54px); max-width: 720px; margin: 0 auto 16px; }
+.sf-lm-hero h1 .sf-lm-em { color: var(--sf-gold-soft); }
+.sf-lm-hero-sub { color: rgba(250,246,243,0.84); font-size: clamp(16px, 2.4vw, 20px); max-width: 580px; margin: 0 auto 30px; }
+.sf-lm-hero-cta {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 40px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-lm-hero-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-lm-hero-cta:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-lm-hero-trust { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 16px; }
+
+/* ===== Layout ===== */
+.sf-lm-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+.sf-lm-section { padding: 48px 0; }
+
+/* ===== Validate ===== */
+.sf-lm-validate {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-left: 4px solid var(--sf-gold-raw);
+  border-radius: 0 16px 16px 0; padding: 26px 26px; margin-top: -34px; position: relative; z-index: 2;
+  box-shadow: 0 8px 32px rgba(42,33,24,0.08);
+}
+.sf-lm-validate h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 12px; }
+.sf-lm-validate p { color: var(--sf-taupe-raw); font-size: 16px; margin-bottom: 10px; }
+.sf-lm-validate p:last-child { margin-bottom: 0; }
+.sf-lm-validate .sf-lm-line { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-light); }
+
+/* ===== Section heads ===== */
+.sf-lm-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); text-align: center; margin-bottom: 10px; }
+.sf-lm-h2 { text-align: center; font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; margin-bottom: 8px; }
+.sf-lm-lead { text-align: center; color: var(--sf-taupe-light); font-size: 16px; max-width: 520px; margin: 0 auto 28px; }
+
+/* ===== Mini builder ===== */
+.sf-lm-builder { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 30px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-lm-step-h { font-family: var(--sf-sans); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 12px; display: flex; align-items: center; gap: 9px; }
+.sf-lm-step-n { width: 24px; height: 24px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+.sf-lm-shifts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 26px; }
+.sf-lm-shift { background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 14px 8px; text-align: center; cursor: pointer; -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-lm-shift:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-lm-shift:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-lm-shift.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-lm-shift-emoji { font-size: 24px; display: block; margin-bottom: 4px; }
+.sf-lm-shift-name { font-family: var(--sf-serif); font-weight: 700; font-size: 18px; color: var(--sf-dark-raw); }
+.sf-lm-shift-desc { font-size: 11px; color: var(--sf-taupe-light); margin-top: 2px; }
+
+.sf-lm-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.sf-lm-chip { background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 999px; padding: 8px 15px; font-family: var(--sf-sans); font-size: 14px; font-weight: 500; color: var(--sf-taupe-raw); cursor: pointer; -webkit-transition: all .18s ease; transition: all .18s ease; }
+.sf-lm-chip:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-lm-chip:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-lm-chip.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
+.sf-lm-chip.sf-on::before { content: "\2713  "; }
+
+.sf-lm-btn {
+  display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.4);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-lm-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-lm-btn:active { -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-lm-btn:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-lm-hint { text-align: center; font-size: 13px; color: var(--sf-taupe-light); margin-top: 12px; min-height: 16px; }
+
+.sf-lm-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+
+/* ===== The free plate ===== */
+.sf-lm-plate { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 22px; }
+.sf-lm-plate-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--sf-border); }
+.sf-lm-plate-name { font-family: var(--sf-serif); font-weight: 700; font-size: 21px; color: var(--sf-dark-raw); }
+.sf-lm-plate-time { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-taupe-light); white-space: nowrap; }
+.sf-lm-parts { list-style: none; margin-bottom: 14px; }
+.sf-lm-part { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-lm-part:last-child { border-bottom: none; }
+.sf-lm-part-label { display: flex; align-items: center; gap: 9px; font-size: 15px; color: var(--sf-taupe-raw); }
+.sf-lm-part-emoji { font-size: 18px; }
+.sf-lm-part-role { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-raw); }
+.sf-lm-protein { display: inline-flex; align-items: center; gap: 8px; background: var(--sf-green-soft); color: #2f6b41; border-radius: 999px; padding: 7px 15px; font-size: 14px; font-weight: 700; }
+.sf-lm-protein.sf-under { background: #fdf3e6; color: #a8702a; }
+
+@-webkit-keyframes sfLmPop { 0% { opacity: 0; -webkit-transform: translateY(14px) scale(.98); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
+@keyframes sfLmPop { 0% { opacity: 0; transform: translateY(14px) scale(.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+.sf-lm-pop { -webkit-animation: sfLmPop .5s ease forwards; animation: sfLmPop .5s ease forwards; }
+
+/* ===== Email gate ===== */
+.sf-lm-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 34px 26px; margin-top: 24px; text-align: center; position: relative; overflow: hidden; }
+.sf-lm-gate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 62%); pointer-events: none; }
+.sf-lm-gate > * { position: relative; z-index: 1; }
+.sf-lm-gate h3 { color: var(--sf-cream-raw); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 10px; }
+.sf-lm-gate h3 .sf-lm-em { color: var(--sf-gold-soft); }
+.sf-lm-gate p { color: rgba(250,246,243,0.82); font-size: 15px; max-width: 440px; margin: 0 auto 22px; }
+.sf-lm-unlock-list { list-style: none; max-width: 380px; margin: 0 auto 24px; text-align: left; }
+.sf-lm-unlock-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
+.sf-lm-unlock-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-lm-form { max-width: 400px; margin: 0 auto; }
+.sf-lm-field { margin-bottom: 12px; text-align: left; }
+.sf-lm-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,246,243,0.7); margin-bottom: 5px; }
+.sf-lm-field input { width: 100%; padding: 13px 15px; background: rgba(250,246,243,0.96); border: 1.5px solid transparent; border-radius: 10px; color: var(--sf-dark-raw); font-family: var(--sf-sans); font-size: 16px; -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-lm-field input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-lm-field input::placeholder { color: var(--sf-taupe-light); }
+.sf-lm-submit { display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 10px; padding: 15px 24px; font-family: var(--sf-sans); font-weight: 700; font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; margin-top: 6px; -webkit-transition: transform .2s ease, background .2s ease; transition: transform .2s ease, background .2s ease; }
+.sf-lm-submit:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); background: var(--sf-gold-light); }
+.sf-lm-submit:disabled { background: var(--sf-taupe-light); color: rgba(250,246,243,0.8); cursor: not-allowed; -webkit-transform: none; transform: none; }
+.sf-lm-formnote { color: rgba(250,246,243,0.55); font-size: 12px; margin-top: 14px; }
+.sf-lm-msg { border-radius: 10px; padding: 12px 16px; font-size: 14px; margin-top: 14px; text-align: left; }
+.sf-lm-msg.sf-err { background: var(--sf-red-soft); color: #8a3a37; }
+.sf-lm-msg.sf-ok { background: var(--sf-green-soft); color: #2f6b41; }
+.sf-lm-msg a { color: inherit; font-weight: 700; }
+
+/* ===== Soft high-ticket bridge ===== */
+.sf-lm-bridge { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 34px 26px; text-align: center; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-lm-bridge h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 12px; }
+.sf-lm-bridge h2 .sf-lm-em { color: var(--sf-gold-raw); }
+.sf-lm-bridge p { color: var(--sf-taupe-raw); font-size: 16px; max-width: 500px; margin: 0 auto 24px; }
+.sf-lm-bridge-cta { display: inline-block; background: transparent; color: var(--sf-taupe-raw); text-decoration: none; border: 1.5px solid var(--sf-gold-raw); border-radius: 12px; padding: 15px 34px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-lm-bridge-cta:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-lm-bridge-note { color: var(--sf-taupe-light); font-size: 13px; margin-top: 14px; }
+
+/* ===== Proof ===== */
+.sf-lm-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.sf-lm-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 20px 10px; text-align: center; }
+.sf-lm-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 28px; color: var(--sf-gold-raw); display: block; }
+.sf-lm-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-lm-footer { text-align: center; padding: 36px 20px 40px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-lm-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-lm-reveal { opacity: 0; -webkit-transform: translateY(22px); transform: translateY(22px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-lm-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-lm-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-lm-hero { padding: 44px 18px 52px; }
+  .sf-lm-section { padding: 38px 0; }
+  .sf-lm-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-lm-builder { padding: 24px 18px; }
+  .sf-lm-shift-name { font-size: 16px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-lm *, .sf-lm *::before, .sf-lm *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-lm">
+
+  <!-- HERO -->
+  <header class="sf-lm-hero">
+    <span class="sf-lm-badge">Free tool, built by a nurse</span>
+    <h1>Never meal prep again. Build a shift meal in <span class="sf-lm-em">3 minutes</span> from what is already in your fridge.</h1>
+    <p class="sf-lm-hero-sub">No cooking. No tracking. No Tupperware graveyard. Tap your shift, tap what you have, and get plates that actually survive your week.</p>
+    <a href="#sf-lm-tool" class="sf-lm-hero-cta">Build my first plate free</a>
+    <p class="sf-lm-hero-trust">3 minutes. No cooking. Works for day, night, and chaos shifts.</p>
+  </header>
+
+  <div class="sf-lm-wrap">
+
+    <!-- VALIDATE -->
+    <div class="sf-lm-validate sf-lm-reveal">
+      <h2>The rotting containers are not your fault</h2>
+      <p>Sunday meal prep is one perfect day holding up your whole week. Miss it to a swap shift or a sick kid, and the whole plan collapses. Then Wednesday you order out and write off the week.</p>
+      <p class="sf-lm-line">The method failed, not you. Assembly beats prep. Stock a few defaults you can throw together in 3 minutes, and your food stops depending on a perfect Sunday.</p>
+    </div>
+
+    <!-- MINI BUILDER -->
+    <section class="sf-lm-section" id="sf-lm-tool">
+      <div class="sf-lm-eyebrow">Try it right now</div>
+      <h2 class="sf-lm-h2">Build your first plate</h2>
+      <p class="sf-lm-lead">Pick your shift, tap a few things you have on hand, and watch a real grab-and-go plate come together. No email needed to see it work.</p>
+
+      <div class="sf-lm-builder sf-lm-reveal">
+        <div class="sf-lm-step-h"><span class="sf-lm-step-n">1</span> Pick your shift</div>
+        <div class="sf-lm-shifts" id="sfLmShifts" role="group" aria-label="Choose your shift type">
+          <button type="button" class="sf-lm-shift" data-shift="day" aria-pressed="false">
+            <span class="sf-lm-shift-emoji" aria-hidden="true">☀️</span>
+            <span class="sf-lm-shift-name">Day</span>
+            <span class="sf-lm-shift-desc">Front-load fuel</span>
+          </button>
+          <button type="button" class="sf-lm-shift" data-shift="night" aria-pressed="false">
+            <span class="sf-lm-shift-emoji" aria-hidden="true">🌙</span>
+            <span class="sf-lm-shift-name">Night</span>
+            <span class="sf-lm-shift-desc">Eat before, graze light</span>
+          </button>
+          <button type="button" class="sf-lm-shift" data-shift="chaos" aria-pressed="false">
+            <span class="sf-lm-shift-emoji" aria-hidden="true">🌀</span>
+            <span class="sf-lm-shift-name">Chaos</span>
+            <span class="sf-lm-shift-desc">Fewest parts</span>
+          </button>
+        </div>
+
+        <div class="sf-lm-step-h"><span class="sf-lm-step-n">2</span> Tap what you have</div>
+        <div class="sf-lm-chips" id="sfLmChips"></div>
+
+        <button type="button" class="sf-lm-btn" id="sfLmBuild">Build my plate</button>
+        <p class="sf-lm-hint" id="sfLmHint"></p>
+        <div id="sfLmNudge"></div>
+
+        <div id="sfLmPlate"></div>
+
+        <!-- EMAIL GATE (revealed after first plate) -->
+        <div class="sf-lm-gate sf-lm-hidden" id="sfLmGate">
+          <h3>That is one plate. Unlock <span class="sf-lm-em">all 3, for every shift</span>.</h3>
+          <p>Get the full builder plus the extras that keep it working on your worst weeks:</p>
+          <ul class="sf-lm-unlock-list">
+            <li>3 grab-and-go combos for Day, Night, and Chaos</li>
+            <li>Your shift-proof restock list (the defaults to always keep)</li>
+            <li>A printable card for your fridge and your locker</li>
+          </ul>
+          <form class="sf-lm-form" id="sfLmForm" novalidate>
+            <div class="sf-lm-field">
+              <label for="sfLmFirst">First name (optional)</label>
+              <input type="text" id="sfLmFirst" name="firstName" placeholder="First name" autocomplete="given-name">
+            </div>
+            <div class="sf-lm-field">
+              <label for="sfLmEmail">Email</label>
+              <input type="email" id="sfLmEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
+            </div>
+            <button type="submit" class="sf-lm-submit" id="sfLmSubmit">Unlock the full builder</button>
+            <div id="sfLmFormMsg" aria-live="polite"></div>
+            <p class="sf-lm-formnote">No spam. Unsubscribe any time.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOFT HIGH-TICKET BRIDGE -->
+    <section class="sf-lm-section">
+      <div class="sf-lm-bridge sf-lm-reveal">
+        <h2>Want the plan built <span class="sf-lm-em">around your schedule</span>?</h2>
+        <p>The builder handles the food. If you want the whole thing (the shifts, the sleep, the protein, the days everything falls apart) I take a few nurses a month for a free game-plan call. No pitch, just a plan you can actually run.</p>
+        <a href="#" data-sf-call class="sf-lm-bridge-cta" target="_blank" rel="noopener">Book my free game-plan call</a>
+        <p class="sf-lm-bridge-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="sf-lm-section" style="padding-top: 0;">
+      <div class="sf-lm-proof sf-lm-reveal">
+        <div class="sf-lm-proof-item"><span class="sf-lm-proof-num">400+</span><div class="sf-lm-proof-label">Nurses coached</div></div>
+        <div class="sf-lm-proof-item"><span class="sf-lm-proof-num">87%</span><div class="sf-lm-proof-label">Feel a difference by Day 3</div></div>
+        <div class="sf-lm-proof-item"><span class="sf-lm-proof-num">~5 lbs</span><div class="sf-lm-proof-label">Average lost in Week 1</div></div>
+        <div class="sf-lm-proof-item"><span class="sf-lm-proof-num">60-day</span><div class="sf-lm-proof-label">Money-back guarantee</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-lm-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    No macros, no punishing cardio, no meal-prep martyrdom.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- CONFIG (shared: edit lead-magnets/config.js, not this file) ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || '[GHL_WEBHOOK_URL]',
+    resourceUrl: 'resource.html',
+    leadTag: (G.tagPrefix || 'lead-') + 'meal-builder',
+    pixelId: (G.pixelEnabled === false ? '' : (G.pixelId || '')),
+    callUrl: G.callUrl || '[GAMEPLAN_CALL_URL]'
+  };
+  function isConfigured(v) { return v && v.indexOf('[') !== 0; }
+
+  /* ---- Meta pixel (PageView on load, Lead fired on opt-in) ---- */
+  (function initPixel() {
+    if (!isConfigured(SF_CONFIG.pixelId)) return;
+    try {
+      if (window.fbq) return;
+      var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!window._fbq) window._fbq = n;
+      n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+      var t = document.createElement('script'); t.async = true;
+      t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s);
+      window.fbq('init', SF_CONFIG.pixelId);
+      window.fbq('track', 'PageView');
+    } catch (e) {}
+  })();
+
+  /* ---- Game-plan call CTAs read the shared config ---- */
+  (function wireCallLinks() {
+    if (!isConfigured(SF_CONFIG.callUrl)) return;
+    var links = document.querySelectorAll('[data-sf-call]');
+    for (var i = 0; i < links.length; i++) links[i].setAttribute('href', SF_CONFIG.callUrl);
+  })();
+
+  /* ---- Food library (a curated subset for the preview) ---- */
+  var FOODS = {
+    protein: [
+      { id: 'rotisserie', label: 'Rotisserie chicken', emoji: '🍗', p: 30 },
+      { id: 'shake', label: 'Protein shake', emoji: '🥤', p: 25 },
+      { id: 'tuna', label: 'Tuna pouch', emoji: '🐟', p: 20 },
+      { id: 'turkey', label: 'Deli turkey', emoji: '🦃', p: 18 },
+      { id: 'greekyog', label: 'Greek yogurt', emoji: '🥛', p: 17 },
+      { id: 'string', label: 'String cheese (2)', emoji: '🧀', p: 14 },
+      { id: 'eggs', label: 'Hard-boiled eggs (2)', emoji: '🥚', p: 12 }
+    ],
+    anchor: [
+      { id: 'ricepouch', label: 'Microwave rice', emoji: '🍚', p: 4 },
+      { id: 'wrap', label: 'Whole-grain wrap', emoji: '🌯', p: 4 },
+      { id: 'crackers', label: 'Whole-grain crackers', emoji: '🍘', p: 3 },
+      { id: 'fruit', label: 'Fruit', emoji: '🍎', p: 1 }
+    ],
+    veg: [
+      { id: 'salad', label: 'Bagged salad', emoji: '🥗', p: 2 },
+      { id: 'carrots', label: 'Baby carrots', emoji: '🥕', p: 1 },
+      { id: 'tomatoes', label: 'Cherry tomatoes', emoji: '🍅', p: 1 }
+    ],
+    fat: [
+      { id: 'cheese', label: 'Cheese cubes', emoji: '🧀', p: 6 },
+      { id: 'nuts', label: 'Almonds', emoji: '🥜', p: 6 },
+      { id: 'avocado', label: 'Avocado', emoji: '🥑', p: 2 },
+      { id: 'hummus', label: 'Hummus', emoji: '🧆', p: 2 }
+    ]
+  };
+  var ROLE_LABEL = { protein: 'Protein', anchor: 'Anchor', veg: 'Veg', fat: 'Flavor' };
+  var SHIFT_CFG = {
+    day: { target: 35, includeVeg: true, name: 'The Pre-Shift Plate' },
+    night: { target: 28, includeVeg: true, name: 'The Pre-Clock-In Plate' },
+    chaos: { target: 22, includeVeg: false, name: 'The Grab-and-Dash' }
+  };
+
+  var state = { shift: null, selected: [] };
+
+  var shiftsEl = document.getElementById('sfLmShifts');
+  var chipsEl = document.getElementById('sfLmChips');
+  var buildBtn = document.getElementById('sfLmBuild');
+  var hintEl = document.getElementById('sfLmHint');
+  var nudgeEl = document.getElementById('sfLmNudge');
+  var plateEl = document.getElementById('sfLmPlate');
+  var gateEl = document.getElementById('sfLmGate');
+  var formEl = document.getElementById('sfLmForm');
+  var submitBtn = document.getElementById('sfLmSubmit');
+  var formMsg = document.getElementById('sfLmFormMsg');
+
+  function allFoods() {
+    var out = [];
+    ['protein', 'anchor', 'veg', 'fat'].forEach(function (cat) {
+      FOODS[cat].forEach(function (f) { out.push({ cat: cat, f: f }); });
+    });
+    return out;
+  }
+  function findFood(id) {
+    var cats = ['protein', 'anchor', 'veg', 'fat'];
+    for (var c = 0; c < cats.length; c++) {
+      for (var i = 0; i < FOODS[cats[c]].length; i++) { if (FOODS[cats[c]][i].id === id) return { cat: cats[c], f: FOODS[cats[c]][i] }; }
+    }
+    return null;
+  }
+
+  /* Render chips (mixed, since preview is quick) */
+  function renderChips() {
+    var html = '';
+    allFoods().forEach(function (item) {
+      html += '<button type="button" class="sf-lm-chip" data-id="' + item.f.id + '" aria-pressed="false">' + item.f.emoji + ' ' + item.f.label + '</button>';
+    });
+    chipsEl.innerHTML = html;
+  }
+
+  function updateHint() {
+    if (!state.shift) { hintEl.textContent = 'Start by tapping a shift.'; return; }
+    if (!state.selected.length) { hintEl.textContent = 'Tap a few things you have, then build.'; return; }
+    hintEl.textContent = state.selected.length + ' selected.';
+  }
+
+  shiftsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-lm-shift');
+    if (!btn) return;
+    shiftsEl.querySelectorAll('.sf-lm-shift').forEach(function (b) { b.classList.remove('sf-on'); b.setAttribute('aria-pressed', 'false'); });
+    btn.classList.add('sf-on'); btn.setAttribute('aria-pressed', 'true');
+    state.shift = btn.getAttribute('data-shift');
+    nudgeEl.innerHTML = '';
+    updateHint();
+  });
+
+  chipsEl.addEventListener('click', function (e) {
+    var chip = e.target.closest('.sf-lm-chip');
+    if (!chip) return;
+    var id = chip.getAttribute('data-id');
+    var idx = state.selected.indexOf(id);
+    if (idx === -1) { state.selected.push(id); chip.classList.add('sf-on'); chip.setAttribute('aria-pressed', 'true'); }
+    else { state.selected.splice(idx, 1); chip.classList.remove('sf-on'); chip.setAttribute('aria-pressed', 'false'); }
+    updateHint();
+  });
+
+  function selectedByCat() {
+    var byCat = { protein: [], anchor: [], veg: [], fat: [] };
+    state.selected.forEach(function (id) { var item = findFood(id); if (item) byCat[item.cat].push(item.f); });
+    return byCat;
+  }
+
+  buildBtn.addEventListener('click', function () {
+    if (!state.shift) {
+      nudgeEl.innerHTML = '<div class="sf-lm-nudge">Tap a shift first (Day, Night, or Chaos) so I can size the plate to your day.</div>';
+      return;
+    }
+    var byCat = selectedByCat();
+    if (!byCat.protein.length) {
+      nudgeEl.innerHTML = '<div class="sf-lm-nudge">Tap at least one protein. It is the one thing that carries you through a shift.</div>';
+      return;
+    }
+    if (state.selected.length < 2) {
+      nudgeEl.innerHTML = '<div class="sf-lm-nudge">Add one more thing (an anchor, a veg, or a fat) and I will build your plate.</div>';
+      return;
+    }
+    nudgeEl.innerHTML = '';
+    renderPlate(byCat);
+  });
+
+  function renderPlate(byCat) {
+    var cfg = SHIFT_CFG[state.shift];
+    var parts = [];
+    var total = 0;
+    var used = {};
+
+    parts.push({ role: 'protein', f: byCat.protein[0] }); used[byCat.protein[0].id] = 1; total += byCat.protein[0].p;
+    if (byCat.anchor.length) { parts.push({ role: 'anchor', f: byCat.anchor[0] }); total += byCat.anchor[0].p; }
+    if (cfg.includeVeg && byCat.veg.length) { parts.push({ role: 'veg', f: byCat.veg[0] }); total += byCat.veg[0].p; }
+    if (byCat.fat.length) { parts.push({ role: 'fat', f: byCat.fat[0] }); total += byCat.fat[0].p; }
+    if (total < cfg.target && byCat.protein.length > 1 && !used[byCat.protein[1].id]) {
+      parts.push({ role: 'protein', f: byCat.protein[1] }); total += byCat.protein[1].p;
+    }
+
+    var partsHtml = '';
+    parts.forEach(function (part) {
+      partsHtml += '<li class="sf-lm-part"><span class="sf-lm-part-label"><span class="sf-lm-part-emoji" aria-hidden="true">' + part.f.emoji + '</span>' + part.f.label + '</span><span class="sf-lm-part-role">' + ROLE_LABEL[part.role] + '</span></li>';
+    });
+    var hit = total >= cfg.target;
+    var pClass = hit ? 'sf-lm-protein' : 'sf-lm-protein sf-under';
+    var pText = hit ? total + 'g protein, target hit' : total + 'g protein, add one more protein to top it off';
+
+    plateEl.innerHTML = '' +
+      '<div class="sf-lm-plate sf-lm-pop">' +
+        '<div class="sf-lm-plate-top"><span class="sf-lm-plate-name">' + cfg.name + '</span><span class="sf-lm-plate-time">3 min, no cook</span></div>' +
+        '<ul class="sf-lm-parts">' + partsHtml + '</ul>' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">' +
+          '<span class="' + pClass + '">' + pText + '</span>' +
+          '<span style="font-family:var(--sf-display);font-style:italic;font-size:14px;color:var(--sf-taupe-light);">Throw it in a bag. Done.</span>' +
+        '</div>' +
+      '</div>';
+
+    gateEl.classList.remove('sf-lm-hidden');
+    gateEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ---- Email capture ---- */
+  function fireLeadPixel() {
+    try { if (typeof window.fbq === 'function') { window.fbq('track', 'Lead', { content_name: '3-Minute Shift Meal Builder' }); } } catch (e) {}
+  }
+
+  function goToResource(first) {
+    try {
+      if (first) window.localStorage.setItem('sf_mb_first', first);
+      window.localStorage.setItem('sf_mb_unlocked', '1');
+    } catch (e) {}
+    var url = SF_CONFIG.resourceUrl + '?unlocked=1';
+    window.location.href = url;
+  }
+
+  formEl.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first = document.getElementById('sfLmFirst').value.trim();
+    var email = document.getElementById('sfLmEmail').value.trim();
+
+    if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+      formMsg.innerHTML = '<div class="sf-lm-msg sf-err">That email looks off. Mind checking it?</div>';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Unlocking...';
+    formMsg.innerHTML = '';
+
+    var payload = {
+      firstName: first,
+      email: email,
+      magnet: '3-minute-shift-meal-builder',
+      tag: SF_CONFIG.leadTag,
+      shift: state.shift || '',
+      source: 'lead-magnet-site',
+      timestamp: new Date().toISOString()
+    };
+
+    /* Not yet wired: still deliver value so the form is never a dead end */
+    if (!isConfigured(SF_CONFIG.webhookUrl)) {
+      formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full builder...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 700);
+      return;
+    }
+
+    var done = false;
+    var timer = setTimeout(function () {
+      if (done) return; done = true;
+      /* Slow network: do not trap her, let her through */
+      formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full builder...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 500);
+    }, 8000);
+
+    fetch(SF_CONFIG.webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (done) return; done = true; clearTimeout(timer);
+      if (res && (res.ok || res.status === 0 || res.type === 'opaque')) {
+        formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full builder...</div>';
+        fireLeadPixel();
+        setTimeout(function () { goToResource(first); }, 700);
+      } else {
+        throw new Error('bad status');
+      }
+    }).catch(function () {
+      if (done) return; done = true; clearTimeout(timer);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Unlock the full builder';
+      formMsg.innerHTML = '<div class="sf-lm-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the builder now</a> and I will catch your email next time.</div>';
+    });
+  });
+
+  /* ---- Reveal ---- */
+  (function reveal() {
+    var els = document.querySelectorAll('.sf-lm-reveal');
+    if (!els.length) return;
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { entries[i].target.classList.add('sf-in'); obs.unobserve(entries[i].target); } }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add('sf-in');
+    }
+  })();
+
+  /* ---- Init ---- */
+  renderChips();
+  updateHint();
+})();
+</script>
+</body>
+</html>

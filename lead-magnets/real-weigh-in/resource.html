@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 4-Week Trend Tracker | The Real Weigh-In | SmithFit</title>
+<meta name="description" content="Type one number a morning. The weekly averages compute themselves, the month chart draws itself, and the rules tell you when a change is actually earned. Built by a nurse, for nurses.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-rwt *, .sf-rwt *::before, .sf-rwt *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-rwt {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-deep: #a5813a;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-orange-raw: #d4944a;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.sf-rwt h1, .sf-rwt h2, .sf-rwt h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.14; }
+.sf-rwt-em { font-family: var(--sf-display); font-style: italic; }
+.sf-rwt svg text { font-family: var(--sf-sans); }
+
+/* ===== Header ===== */
+.sf-rwt-hero {
+  background: linear-gradient(150deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  padding: 44px 20px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sf-rwt-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.28) 0%, transparent 58%); pointer-events: none; }
+.sf-rwt-hero > * { position: relative; z-index: 1; }
+.sf-rwt-badge {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4);
+  color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px;
+}
+.sf-rwt-hero h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(30px, 6vw, 50px); margin-bottom: 12px; }
+.sf-rwt-hero h1 .sf-rwt-em { color: var(--sf-gold-soft); }
+.sf-rwt-sub { color: rgba(250,246,243,0.82); font-size: clamp(15px, 2.2vw, 18px); max-width: 560px; margin: 0 auto; }
+
+/* ===== Layout ===== */
+.sf-rwt-wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 64px; }
+.sf-rwt-section { margin-bottom: 44px; }
+.sf-rwt-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 8px; }
+.sf-rwt-h2 { font-size: clamp(24px, 4.2vw, 32px); font-weight: 700; margin-bottom: 6px; }
+.sf-rwt-leadline { color: var(--sf-taupe-light); font-size: 15px; margin-bottom: 20px; max-width: 560px; }
+
+/* ===== Ritual steps ===== */
+.sf-rwt-ritual { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.sf-rwt-step { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 14px; }
+.sf-rwt-step-n { width: 28px; height: 28px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+.sf-rwt-step h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.sf-rwt-step p { font-size: 13px; color: var(--sf-taupe-light); line-height: 1.5; }
+
+/* ===== Week cards ===== */
+.sf-rwt-week { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-bottom: 16px; box-shadow: 0 2px 16px rgba(42,33,24,0.05); }
+.sf-rwt-week-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.sf-rwt-week-top h3 { font-size: 24px; font-weight: 700; }
+.sf-rwt-avg {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--sf-cream-mid); color: var(--sf-taupe-light);
+  border-radius: 999px; padding: 7px 15px; font-size: 13px; font-weight: 600; white-space: nowrap;
+  -webkit-transition: background .25s ease, color .25s ease; transition: background .25s ease, color .25s ease;
+}
+.sf-rwt-avg.sf-live { background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
+.sf-rwt-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.sf-rwt-day label { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--sf-taupe-light); text-align: center; margin-bottom: 4px; }
+.sf-rwt-day input {
+  width: 100%; padding: 10px 3px; text-align: center; background: var(--sf-cream-raw);
+  border: 1.5px solid var(--sf-border); border-radius: 10px; color: var(--sf-dark-raw);
+  font-family: var(--sf-sans); font-size: 16px; font-weight: 600;
+  -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease;
+  -moz-appearance: textfield; appearance: textfield;
+}
+.sf-rwt-day input::-webkit-inner-spin-button, .sf-rwt-day input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.sf-rwt-day input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-rwt-day input.sf-bad { border-color: var(--sf-orange-raw); background: #fdf3e6; }
+.sf-rwt-week-verdict { font-size: 14px; color: var(--sf-taupe-raw); margin-top: 12px; min-height: 20px; }
+.sf-rwt-week-verdict.sf-down { color: #2f6b41; font-weight: 600; }
+.sf-rwt-week-verdict.sf-up { color: #a8702a; }
+.sf-rwt-week-verdict.sf-muted { color: var(--sf-taupe-light); }
+.sf-rwt-typo-note { font-size: 13px; color: #a8702a; margin-top: 8px; }
+
+/* ===== Month chart ===== */
+.sf-rwt-chartwrap { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 18px 12px 8px; }
+.sf-rwt-chartwrap svg { display: block; width: 100%; height: auto; }
+.sf-rwt-empty { text-align: center; color: var(--sf-taupe-light); font-family: var(--sf-display); font-style: italic; font-size: 15.5px; padding: 42px 20px; }
+.sf-rwt-monthverdict {
+  background: var(--sf-gold-hover); border-left: 4px solid var(--sf-gold-raw); border-radius: 0 12px 12px 0;
+  padding: 16px 20px; margin-top: 14px; font-size: 15px; color: var(--sf-taupe-raw);
+}
+.sf-rwt-monthverdict strong { color: var(--sf-dark-raw); }
+
+/* ===== Rules ===== */
+.sf-rwt-rules { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 26px 24px; }
+.sf-rwt-rules ol { list-style: none; counter-reset: sfrwt; }
+.sf-rwt-rules li { counter-increment: sfrwt; position: relative; padding: 12px 0 12px 46px; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 15px; }
+.sf-rwt-rules li:last-child { border-bottom: none; padding-bottom: 4px; }
+.sf-rwt-rules li::before {
+  content: counter(sfrwt); position: absolute; left: 0; top: 12px;
+  width: 30px; height: 30px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw);
+  font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center;
+}
+.sf-rwt-rules li strong { color: var(--sf-dark-raw); }
+
+/* ===== Actions ===== */
+.sf-rwt-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+.sf-rwt-ghost {
+  flex: 1; min-width: 200px; background: transparent; color: var(--sf-taupe-raw);
+  border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 14px 20px;
+  font-family: var(--sf-sans); font-size: 15px; font-weight: 600; cursor: pointer;
+  -webkit-transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.sf-rwt-ghost:hover { background: var(--sf-cream-mid); border-color: var(--sf-gold-soft); -webkit-transform: translateY(-1px); transform: translateY(-1px); }
+.sf-rwt-ghost:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-rwt-ghost.sf-arm { border-color: var(--sf-red-raw); color: #8a3a37; background: var(--sf-red-soft); }
+
+/* ===== CTA bridge ===== */
+.sf-rwt-cta {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border-radius: 20px; padding: 40px 26px; text-align: center; position: relative; overflow: hidden;
+}
+.sf-rwt-cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.22) 0%, transparent 60%); pointer-events: none; }
+.sf-rwt-cta > * { position: relative; z-index: 1; }
+.sf-rwt-cta h2 { color: var(--sf-cream-raw); font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; margin-bottom: 12px; }
+.sf-rwt-cta h2 .sf-rwt-em { color: var(--sf-gold-soft); }
+.sf-rwt-cta p { color: rgba(250,246,243,0.82); font-size: 16px; max-width: 500px; margin: 0 auto 26px; }
+.sf-rwt-cta-btn {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 40px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-rwt-cta-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-rwt-cta-btn:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-rwt-cta-note { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 16px; }
+
+/* ===== Proof ===== */
+.sf-rwt-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+.sf-rwt-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 10px; text-align: center; }
+.sf-rwt-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold-raw); display: block; }
+.sf-rwt-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 4px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-rwt-footer { text-align: center; padding: 30px 20px 8px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-rwt-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 15px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-rwt-reveal { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-rwt-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-rwt-hidden { display: none !important; }
+.sf-rwt-printhead { display: none; }
+
+@-webkit-keyframes sfRwtPop { 0% { opacity: 0; -webkit-transform: translateY(12px); } 100% { opacity: 1; -webkit-transform: translateY(0); } }
+@keyframes sfRwtPop { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
+.sf-rwt-pop { -webkit-animation: sfRwtPop .45s ease forwards; animation: sfRwtPop .45s ease forwards; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-rwt-wrap { padding: 30px 16px 54px; }
+  .sf-rwt-ritual { grid-template-columns: repeat(2, 1fr); }
+  .sf-rwt-days { grid-template-columns: repeat(4, 1fr); }
+  .sf-rwt-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-rwt-week { padding: 18px 14px; }
+  .sf-rwt-actions .sf-rwt-ghost { min-width: 100%; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-rwt *, .sf-rwt *::before, .sf-rwt *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-animation-delay: 0s !important; animation-delay: 0s !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Print (the log she can pin up) ===== */
+@media print {
+  .sf-rwt-hero, .sf-rwt-actions, .sf-rwt-cta, .sf-rwt-proof, .sf-rwt-monthchart-section { display: none !important; }
+  .sf-rwt { background: #fff; }
+  .sf-rwt-printhead { display: block; text-align: center; font-family: var(--sf-serif); font-size: 22px; font-weight: 700; color: #2a2118; margin-bottom: 4px; }
+  .sf-rwt-printhead small { display: block; font-family: var(--sf-sans); font-size: 11px; font-weight: 400; color: #4a3f35; margin-top: 2px; }
+  .sf-rwt-wrap { padding: 10px 0 0; }
+  .sf-rwt-section { margin-bottom: 18px; }
+  .sf-rwt-week, .sf-rwt-rules, .sf-rwt-step { box-shadow: none; border: 1.2px solid #bbb; page-break-inside: avoid; }
+  .sf-rwt-day input { border: none; border-bottom: 1.2px solid #999; border-radius: 0; background: #fff; }
+  .sf-rwt-avg { border: 1px solid #999; background: #fff; color: #2a2118; }
+}
+</style>
+</head>
+<body>
+<div class="sf-rwt">
+
+  <!-- HEADER -->
+  <header class="sf-rwt-hero">
+    <span class="sf-rwt-badge">The full version</span>
+    <h1>The 4-Week <span class="sf-rwt-em">Trend</span> Tracker</h1>
+    <p class="sf-rwt-sub" id="sfRwtGreet">One number a morning, in scrubs or pajamas. Type it here and let the month tell the truth.</p>
+  </header>
+
+  <div class="sf-rwt-wrap">
+
+    <div class="sf-rwt-printhead">The Real Weigh-In: 4-Week Trend Tracker<small>SmithFit, built by IJ Smith RN. Weigh daily. Read weekly. Judge never.</small></div>
+
+    <!-- RITUAL -->
+    <section class="sf-rwt-section">
+      <div class="sf-rwt-eyebrow">Before you start</div>
+      <h2 class="sf-rwt-h2">The 20-second ritual</h2>
+      <p class="sf-rwt-leadline">Weigh-ins only compare cleanly when the conditions match. Same as any vital you chart.</p>
+      <div class="sf-rwt-ritual sf-rwt-reveal">
+        <div class="sf-rwt-step"><span class="sf-rwt-step-n">1</span><h3>Same scale, same spot</h3><p>Hard floor, same corner. Scales argue with carpet.</p></div>
+        <div class="sf-rwt-step"><span class="sf-rwt-step-n">2</span><h3>Same time, every time</h3><p>After the bathroom, before coffee, before clothes.</p></div>
+        <div class="sf-rwt-step"><span class="sf-rwt-step-n">3</span><h3>Missed a day? Blank it</h3><p>Never guess a number. A blank is honest data.</p></div>
+        <div class="sf-rwt-step"><span class="sf-rwt-step-n">4</span><h3>React weekly, never daily</h3><p>Only the weekly average gets a vote.</p></div>
+      </div>
+    </section>
+
+    <!-- TRACKER -->
+    <section class="sf-rwt-section">
+      <div class="sf-rwt-eyebrow">Your month</div>
+      <h2 class="sf-rwt-h2">Type it, and the math does itself</h2>
+      <p class="sf-rwt-leadline">Every entry saves to this device automatically. Three mornings in a week and your average appears. Two weeks in and the verdicts start.</p>
+      <div id="sfRwtWeeks"></div>
+      <div class="sf-rwt-typo-note sf-rwt-hidden" id="sfRwtTypoNote">One or two entries look like typos (outlined in orange). I left them out of the math.</div>
+    </section>
+
+    <!-- MONTH CHART -->
+    <section class="sf-rwt-section sf-rwt-monthchart-section">
+      <div class="sf-rwt-eyebrow">The payoff</div>
+      <h2 class="sf-rwt-h2">Your month at a glance</h2>
+      <p class="sf-rwt-leadline">Faint dots are your daily weigh-ins. The gold line is the only number with a vote.</p>
+      <div class="sf-rwt-chartwrap" id="sfRwtChart">
+        <div class="sf-rwt-empty">Your month chart draws itself as you add mornings.</div>
+      </div>
+      <div class="sf-rwt-monthverdict sf-rwt-hidden" id="sfRwtMonthVerdict" aria-live="polite"></div>
+    </section>
+
+    <!-- RULES -->
+    <section class="sf-rwt-section">
+      <div class="sf-rwt-eyebrow">Hold the line</div>
+      <h2 class="sf-rwt-h2">When to actually adjust</h2>
+      <p class="sf-rwt-leadline">Most people change the plan two weeks too early, then call the plan broken. These are the rules I hold my clients to.</p>
+      <div class="sf-rwt-rules sf-rwt-reveal">
+        <ol>
+          <li><strong>Never adjust off one week.</strong> One week is a single data point. It does not get a vote on your plan.</li>
+          <li><strong>Trending down at all? Change nothing.</strong> Even 0.3 lbs a week is the right direction. Slow down is still down.</li>
+          <li><strong>Flat means two straight weeks.</strong> Weekly averages within about half a pound of each other, twice in a row. That is the earliest moment an adjustment is earned.</li>
+          <li><strong>Change one thing, then wait two weeks.</strong> A little more protein, a shorter grazing window after shift, one more walk. One change, two weeks of data, then judge it.</li>
+          <li><strong>Chaos weeks get an asterisk, not an adjustment.</strong> Sick kid, travel, period week, a stretch of nights. Read around them, the way you read around a vital taken mid-transfer.</li>
+        </ol>
+      </div>
+      <div class="sf-rwt-actions">
+        <button type="button" class="sf-rwt-ghost" id="sfRwtPrint">Print my log</button>
+        <button type="button" class="sf-rwt-ghost" id="sfRwtErase">Erase the month and start fresh</button>
+      </div>
+    </section>
+
+    <!-- BRIDGE -->
+    <section class="sf-rwt-section">
+      <div class="sf-rwt-cta sf-rwt-reveal">
+        <h2>The chart says when. The call is <span class="sf-rwt-em">what and how</span>.</h2>
+        <p>When your trend finally earns an adjustment, the right move depends on your shifts, your sleep, and what your weeks actually look like. I take a few nurses a month for a free game-plan call, and we map the one change worth making. No pitch, no homework, no shame.</p>
+        <a href="#" data-sf-call class="sf-rwt-cta-btn">Book my free game-plan call</a>
+        <p class="sf-rwt-cta-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+
+      <!-- PROOF -->
+      <div class="sf-rwt-proof">
+        <div class="sf-rwt-proof-item"><span class="sf-rwt-proof-num">400+</span><div class="sf-rwt-proof-label">Nurses coached</div></div>
+        <div class="sf-rwt-proof-item"><span class="sf-rwt-proof-num">87%</span><div class="sf-rwt-proof-label">Feel a difference by Day 3</div></div>
+        <div class="sf-rwt-proof-item"><span class="sf-rwt-proof-num">~5 lbs</span><div class="sf-rwt-proof-label">Average lost in Week 1</div></div>
+        <div class="sf-rwt-proof-item"><span class="sf-rwt-proof-num">60-day</span><div class="sf-rwt-proof-label">Money-back guarantee</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="sf-rwt-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Your entries stay on this device. Nothing here is uploaded anywhere.
+  </div>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (lead-magnets/config.js) with safe fallbacks ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-real-weigh-in",
+    resourceUrl: "resource.html"
+  };
+  function isReal(v) { return !!(v && String(v).charAt(0) !== "["); }
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    try {
+      if (!SF_CONFIG.pixelId) return;
+      if (!window.fbq) {
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      }
+      window.fbq('init', SF_CONFIG.pixelId);
+      window.fbq('track', 'PageView');
+    } catch (e) {}
+  }
+
+  /* ---- Call CTA links ---- */
+  function initCallLinks() {
+    var links = document.querySelectorAll('[data-sf-call]');
+    for (var i = 0; i < links.length; i++) {
+      if (isReal(SF_CONFIG.callUrl)) {
+        links[i].setAttribute('href', SF_CONFIG.callUrl);
+        links[i].setAttribute('target', '_blank');
+        links[i].setAttribute('rel', 'noopener');
+      }
+    }
+  }
+
+  /* ---- Storage ---- */
+  var STORE_KEY = 'sf_rw_tracker';
+  var WEEKS = 4, DAYS = 7, SLOTS = WEEKS * DAYS;
+  var data = [];
+  for (var z = 0; z < SLOTS; z++) { data.push(''); }
+
+  function load() {
+    try {
+      var raw = window.localStorage.getItem(STORE_KEY);
+      if (!raw) return;
+      var arr = JSON.parse(raw);
+      if (arr && arr.length) {
+        for (var i = 0; i < SLOTS && i < arr.length; i++) { data[i] = String(arr[i] || ''); }
+      }
+    } catch (e) {}
+  }
+  function save() {
+    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch (e) {}
+  }
+
+  /* ---- Build the tracker DOM ---- */
+  var weeksEl = document.getElementById('sfRwtWeeks');
+  var typoNote = document.getElementById('sfRwtTypoNote');
+  var chartEl = document.getElementById('sfRwtChart');
+  var monthVerdictEl = document.getElementById('sfRwtMonthVerdict');
+
+  function buildTracker() {
+    var html = '';
+    for (var w = 0; w < WEEKS; w++) {
+      html += '<div class="sf-rwt-week sf-rwt-reveal">';
+      html += '<div class="sf-rwt-week-top"><h3>Week ' + (w + 1) + '</h3><span class="sf-rwt-avg" id="sfRwtAvg' + w + '">waiting on mornings</span></div>';
+      html += '<div class="sf-rwt-days">';
+      for (var d = 0; d < DAYS; d++) {
+        var idx = w * DAYS + d;
+        var val = data[idx] ? ' value="' + String(data[idx]).replace(/"/g, '') + '"' : '';
+        html += '<div class="sf-rwt-day"><label for="sfRwtI' + idx + '">Day ' + (d + 1) + '</label>' +
+          '<input type="number" id="sfRwtI' + idx + '" data-idx="' + idx + '" inputmode="decimal" step="0.1"' + val +
+          ' aria-label="Week ' + (w + 1) + ' Day ' + (d + 1) + ' weight in pounds"></div>';
+      }
+      html += '</div>';
+      html += '<div class="sf-rwt-week-verdict sf-muted" id="sfRwtV' + w + '"></div>';
+      html += '</div>';
+    }
+    weeksEl.innerHTML = html;
+  }
+
+  /* ---- Math ---- */
+  function weekStats() {
+    var out = [];
+    var anyTypo = false;
+    for (var w = 0; w < WEEKS; w++) {
+      var vals = [];
+      for (var d = 0; d < DAYS; d++) {
+        var idx = w * DAYS + d;
+        var input = document.getElementById('sfRwtI' + idx);
+        var raw = data[idx];
+        if (input) input.classList.remove('sf-bad');
+        if (raw === '' || raw == null) continue;
+        var num = parseFloat(raw);
+        if (isNaN(num) || num < 50 || num > 800) {
+          if (input) input.classList.add('sf-bad');
+          anyTypo = true;
+          continue;
+        }
+        vals.push({ dayAbs: idx + 1, w: num });
+      }
+      var avg = null;
+      if (vals.length >= 3) {
+        var s = 0;
+        for (var i = 0; i < vals.length; i++) { s += vals[i].w; }
+        avg = s / vals.length;
+      }
+      out.push({ week: w, vals: vals, count: vals.length, avg: avg });
+    }
+    typoNote.classList.toggle('sf-rwt-hidden', !anyTypo);
+    return out;
+  }
+
+  function prevAvg(stats, w) {
+    for (var k = w - 1; k >= 0; k--) { if (stats[k].avg !== null) return stats[k]; }
+    return null;
+  }
+
+  function weekVerdict(stats, w) {
+    var st = stats[w];
+    var el = document.getElementById('sfRwtV' + w);
+    var pill = document.getElementById('sfRwtAvg' + w);
+
+    if (st.avg === null) {
+      pill.classList.remove('sf-live');
+      pill.textContent = st.count === 0 ? 'waiting on mornings' : st.count + ' of 3 mornings';
+      el.className = 'sf-rwt-week-verdict sf-muted';
+      el.textContent = st.count === 0 ? '' : ((3 - st.count) + ' more morning' + (3 - st.count === 1 ? '' : 's') + ' and this week gets an average.');
+      return;
+    }
+
+    pill.classList.add('sf-live');
+    pill.textContent = 'avg ' + st.avg.toFixed(1) + ' lbs';
+
+    var prev = prevAvg(stats, w);
+    if (!prev) {
+      el.className = 'sf-rwt-week-verdict sf-muted';
+      el.textContent = w === 0 ? 'Baseline set. Week one is data, not a grade.' : 'Baseline set here. Comparisons start next week.';
+      return;
+    }
+    var diff = st.avg - prev.avg;
+    var pw = prev.week + 1;
+    if (diff <= -0.4) {
+      el.className = 'sf-rwt-week-verdict sf-down';
+      el.textContent = 'Down ' + Math.abs(diff).toFixed(1) + ' lbs from Week ' + pw + '. That is real movement, not water.';
+    } else if (diff >= 0.4) {
+      el.className = 'sf-rwt-week-verdict sf-up';
+      el.textContent = 'Up ' + diff.toFixed(1) + ' lbs from Week ' + pw + '. One week up is a watch, not a verdict. Hold steady and let next week vote.';
+    } else {
+      el.className = 'sf-rwt-week-verdict';
+      el.textContent = 'Within half a pound of Week ' + pw + '. Flat. One flat week is information, two in a row is a signal (rules below).';
+    }
+  }
+
+  /* ---- Month chart (hand-built SVG) ---- */
+  function monthChart(stats) {
+    var allVals = [];
+    var avgs = [];
+    for (var w = 0; w < WEEKS; w++) {
+      for (var i = 0; i < stats[w].vals.length; i++) { allVals.push(stats[w].vals[i]); }
+      if (stats[w].avg !== null) { avgs.push({ week: w, avg: stats[w].avg }); }
+    }
+
+    if (!allVals.length) {
+      chartEl.innerHTML = '<div class="sf-rwt-empty">Your month chart draws itself as you add mornings.</div>';
+      return avgs;
+    }
+
+    var lo = Infinity, hi = -Infinity;
+    for (var a = 0; a < allVals.length; a++) {
+      if (allVals[a].w < lo) lo = allVals[a].w;
+      if (allVals[a].w > hi) hi = allVals[a].w;
+    }
+    for (var b = 0; b < avgs.length; b++) {
+      if (avgs[b].avg < lo) lo = avgs[b].avg;
+      if (avgs[b].avg > hi) hi = avgs[b].avg;
+    }
+    var pad = Math.max((hi - lo) * 0.3, 1.5);
+    var dHi = hi + pad, dLo = lo - pad;
+
+    var W = 460, H = 240, padL = 14, padR = 14, padT = 26, padB = 34;
+    function X(dayAbs) { return padL + (dayAbs - 1) * (W - padL - padR) / (SLOTS - 1); }
+    function Y(v) { return padT + (dHi - v) * (H - padT - padB) / (dHi - dLo); }
+
+    var s = '';
+    /* week dividers + labels */
+    for (var wd = 1; wd < WEEKS; wd++) {
+      var dx = X(wd * DAYS + 0.5);
+      s += '<line x1="' + dx.toFixed(1) + '" y1="' + padT + '" x2="' + dx.toFixed(1) + '" y2="' + (H - padB + 6) + '" stroke="#e8dfd4" stroke-width="1" stroke-dasharray="3 4"/>';
+    }
+    for (var wl = 0; wl < WEEKS; wl++) {
+      var cxw = X(wl * DAYS + 4);
+      s += '<text x="' + cxw.toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11.5" font-weight="600" fill="#7a6e62">Week ' + (wl + 1) + '</text>';
+    }
+    s += '<line x1="' + padL + '" y1="' + (H - padB + 6) + '" x2="' + (W - padR) + '" y2="' + (H - padB + 6) + '" stroke="#e8dfd4" stroke-width="1"/>';
+
+    /* daily dots, faint */
+    for (var v = 0; v < allVals.length; v++) {
+      s += '<circle cx="' + X(allVals[v].dayAbs).toFixed(1) + '" cy="' + Y(allVals[v].w).toFixed(1) + '" r="3" fill="#9b8c7c" opacity="0.55"/>';
+    }
+
+    /* weekly average line + dots */
+    if (avgs.length > 1) {
+      var pts = [];
+      for (var p = 0; p < avgs.length; p++) { pts.push(X(avgs[p].week * DAYS + 4).toFixed(1) + ' ' + Y(avgs[p].avg).toFixed(1)); }
+      s += '<path d="M ' + pts.join(' L ') + '" fill="none" stroke="#c8a04e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
+    }
+    for (var q = 0; q < avgs.length; q++) {
+      var cx = X(avgs[q].week * DAYS + 4), cy = Y(avgs[q].avg);
+      s += '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="5.5" fill="#c8a04e" stroke="#ffffff" stroke-width="1.5"/>';
+      var ly = (cy < padT + 18) ? cy + 21 : cy - 11;
+      s += '<text x="' + cx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="middle" font-size="12" font-weight="700" fill="#a5813a">' + avgs[q].avg.toFixed(1) + '</text>';
+    }
+
+    var label = 'Month chart: ' + allVals.length + ' daily weigh-ins and ' + avgs.length + ' weekly averages.';
+    chartEl.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + label + '" focusable="false">' + s + '</svg>';
+    return avgs;
+  }
+
+  /* ---- Month verdict ---- */
+  function monthVerdict(avgs) {
+    if (!avgs.length) {
+      monthVerdictEl.classList.add('sf-rwt-hidden');
+      return;
+    }
+    monthVerdictEl.classList.remove('sf-rwt-hidden');
+    if (avgs.length === 1) {
+      monthVerdictEl.innerHTML = 'One weekly average logged: <strong>' + avgs[0].avg.toFixed(1) + ' lbs</strong>. One more week and the trend line starts talking.';
+      return;
+    }
+    var first = avgs[0], last = avgs[avgs.length - 1];
+    var overall = last.avg - first.avg;
+    var k = avgs.length;
+    var lastTwoFlat = Math.abs(last.avg - avgs[k - 2].avg) < 0.5;
+
+    if (overall <= -0.5) {
+      monthVerdictEl.innerHTML = 'Trend across your ' + k + ' logged weeks: <strong>down ' + Math.abs(overall).toFixed(1) + ' lbs</strong>. Whatever you are doing, it is working. Change nothing.';
+    } else if (overall >= 0.5) {
+      monthVerdictEl.innerHTML = 'Up <strong>' + overall.toFixed(1) + ' lbs</strong> across ' + k + ' weeks. Before you declare anything broken: one calm change (rule 4), then two more weeks of data.';
+    } else if (lastTwoFlat && k >= 2) {
+      monthVerdictEl.innerHTML = 'Your last two weekly averages sit within half a pound of each other. <strong>That is a true flat trend</strong>, and it is the first moment an adjustment is earned. The rules below are for exactly this.';
+    } else {
+      monthVerdictEl.innerHTML = 'Basically flat across ' + k + ' weeks (' + (overall >= 0 ? '+' : '') + overall.toFixed(1) + ' lbs). Read rule 3 before you change anything.';
+    }
+  }
+
+  /* ---- Recompute everything ---- */
+  function computeAll() {
+    var stats = weekStats();
+    for (var w = 0; w < WEEKS; w++) { weekVerdict(stats, w); }
+    var avgs = monthChart(stats);
+    monthVerdict(avgs);
+  }
+
+  /* ---- Input handling ---- */
+  weeksEl.addEventListener('input', function (e) {
+    var input = e.target;
+    if (!input || !input.hasAttribute('data-idx')) return;
+    var idx = parseInt(input.getAttribute('data-idx'), 10);
+    if (isNaN(idx) || idx < 0 || idx >= SLOTS) return;
+    if (sampleMode) { exitSampleMode(idx); }
+    data[idx] = input.value.trim();
+    save();
+    computeAll();
+  });
+
+  /* ---- Print ---- */
+  document.getElementById('sfRwtPrint').addEventListener('click', function () { window.print(); });
+
+  /* ---- Erase (two-step, no accidental wipes) ---- */
+  var eraseBtn = document.getElementById('sfRwtErase');
+  var eraseArmed = false, eraseTimer = null;
+  eraseBtn.addEventListener('click', function () {
+    if (!eraseArmed) {
+      eraseArmed = true;
+      eraseBtn.classList.add('sf-arm');
+      eraseBtn.textContent = 'Tap again to erase all 4 weeks';
+      eraseTimer = setTimeout(function () {
+        eraseArmed = false;
+        eraseBtn.classList.remove('sf-arm');
+        eraseBtn.textContent = 'Erase the month and start fresh';
+      }, 4000);
+      return;
+    }
+    clearTimeout(eraseTimer);
+    eraseArmed = false;
+    eraseBtn.classList.remove('sf-arm');
+    eraseBtn.textContent = 'Erase the month and start fresh';
+    if (sampleMode) {
+      /* Erasing the sample preview restores her real saved month, never wipes it */
+      exitSampleMode(-1);
+      computeAll();
+      return;
+    }
+    for (var i = 0; i < SLOTS; i++) {
+      data[i] = '';
+      var input = document.getElementById('sfRwtI' + i);
+      if (input) { input.value = ''; input.classList.remove('sf-bad'); }
+    }
+    save();
+    computeAll();
+  });
+
+  /* ---- Greeting ---- */
+  function greet() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var fromGate = params.get('unlocked') === '1';
+      var stored = '';
+      try { stored = window.localStorage.getItem('sf_rw_unlocked') || ''; } catch (e) {}
+      if (!fromGate && stored !== '1') return;
+      var name = '';
+      try { name = window.localStorage.getItem('sf_rw_first') || ''; } catch (e) {}
+      var sub = document.getElementById('sfRwtGreet');
+      if (sub) {
+        sub.textContent = (name ? name + ', you' : 'You') + ' are in. One number a morning, the chart does the rest. Come back any time, your month is saved on this device.';
+      }
+    } catch (e) {}
+  }
+
+  /* ---- Scroll reveal ---- */
+  function reveal() {
+    var els = document.querySelectorAll('.sf-rwt-reveal');
+    if (!els.length) return;
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { entries[i].target.classList.add('sf-in'); obs.unobserve(entries[i].target); }
+        }
+      }, { threshold: 0.1 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add('sf-in');
+    }
+  }
+
+  /* ---- QA preview: ?sample=1 shows a filled example month, in memory only.
+     sampleMode guards save(): the moment she types (or erases), the sample is
+     swapped back out for her real saved month first, so it is never persisted. ---- */
+  var sampleMode = false;
+  function exitSampleMode(keepIdx) {
+    sampleMode = false;
+    for (var r = 0; r < SLOTS; r++) data[r] = '';
+    load();
+    for (var i = 0; i < SLOTS; i++) {
+      if (i === keepIdx) continue;
+      var el = document.getElementById('sfRwtI' + i);
+      if (el) { el.value = data[i] || ''; el.classList.remove('sf-bad'); }
+    }
+  }
+  function maybeSample() {
+    try {
+      if (window.location.search.indexOf('sample=1') === -1) return;
+      var sample = [
+        '186.4', '187.9', '186.2', '186.8', '185.9', '186.6', '185.8',
+        '185.9', '185.2', '186.4', '185.5', '185.0', '185.7', '184.9',
+        '185.1', '184.6', '185.4', '184.8', '184.3', '', '184.5',
+        '184.7', '184.1', '', '', '', '', ''
+      ];
+      sampleMode = true;
+      for (var i = 0; i < SLOTS; i++) {
+        data[i] = sample[i];
+        var input = document.getElementById('sfRwtI' + i);
+        if (input) input.value = sample[i];
+      }
+    } catch (e) {}
+  }
+
+  /* ---- Init ---- */
+  load();
+  buildTracker();
+  maybeSample();
+  computeAll();
+  initPixel();
+  initCallLinks();
+  greet();
+  reveal();
+})();
+</script>
+</body>
+</html>

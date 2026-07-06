@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Nurse Protein Target: The Full Kit | SmithFit</title>
+<meta name="description" content="Your exact protein number, your shift-day protein map, the full no-cook library, and the 25g cheat sheet. Built by a nurse, for nurses.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-pk *, .sf-pk *::before, .sf-pk *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-pk {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.sf-pk h1, .sf-pk h2, .sf-pk h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.12; }
+.sf-pk-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Header ===== */
+.sf-pk-header { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 52%, #2a2118 100%); padding: 42px 20px 46px; text-align: center; position: relative; overflow: hidden; }
+.sf-pk-header::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.28) 0%, transparent 58%); pointer-events: none; }
+.sf-pk-header > * { position: relative; z-index: 1; }
+.sf-pk-badge { display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4); color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; }
+.sf-pk-header h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(30px, 6vw, 50px); margin-bottom: 12px; }
+.sf-pk-header h1 .sf-pk-em { color: var(--sf-gold-soft); }
+.sf-pk-sub { color: rgba(250,246,243,0.82); font-size: clamp(15px, 2.2vw, 18px); max-width: 560px; margin: 0 auto; }
+
+/* ===== Validate strip ===== */
+.sf-pk-validate { max-width: 760px; margin: 0 auto; padding: 26px 20px 0; text-align: center; font-family: var(--sf-display); font-style: italic; font-size: clamp(15px, 2.2vw, 18px); color: var(--sf-taupe-raw); }
+.sf-pk-validate span { color: var(--sf-gold-raw); }
+
+/* ===== Layout ===== */
+.sf-pk-wrap { max-width: 760px; margin: 0 auto; padding: 34px 20px 64px; }
+.sf-pk-section { margin-bottom: 46px; }
+.sf-pk-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 6px; }
+.sf-pk-h2 { font-size: clamp(24px, 4.4vw, 34px); font-weight: 700; margin-bottom: 6px; }
+.sf-pk-lead { color: var(--sf-taupe-light); font-size: 15px; max-width: 560px; margin-bottom: 22px; }
+
+/* ===== Tool card ===== */
+.sf-pk-tool { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 22px; padding: 30px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-pk-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.sf-pk-step { margin-bottom: 24px; }
+.sf-pk-step-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 4px; }
+.sf-pk-step h3 { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+
+.sf-pk-wdisplay { font-family: var(--sf-serif); font-weight: 700; font-size: 40px; color: var(--sf-dark-raw); line-height: 1; margin-bottom: 12px; }
+.sf-pk-wdisplay small { font-family: var(--sf-sans); font-weight: 600; font-size: 14px; color: var(--sf-taupe-light); margin-left: 6px; letter-spacing: 0.06em; }
+.sf-pk-range { width: 100%; height: 34px; -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; }
+.sf-pk-range:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; border-radius: 8px; }
+.sf-pk-range::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--sf-gold-raw), var(--sf-gold-soft)); }
+.sf-pk-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--sf-dark-raw); border: 3px solid var(--sf-gold-raw); margin-top: -10px; box-shadow: 0 3px 10px rgba(42,33,24,0.3); }
+.sf-pk-range::-moz-range-track { height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--sf-gold-raw), var(--sf-gold-soft)); }
+.sf-pk-range::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--sf-dark-raw); border: 3px solid var(--sf-gold-raw); box-shadow: 0 3px 10px rgba(42,33,24,0.3); }
+.sf-pk-wfine { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.sf-pk-wfine label { font-size: 13px; color: var(--sf-taupe-light); }
+.sf-pk-wfine input { width: 84px; padding: 8px 10px; border: 1.5px solid var(--sf-border); border-radius: 10px; font-family: var(--sf-sans); font-size: 16px; color: var(--sf-dark-raw); background: var(--sf-cream-raw); -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-pk-wfine input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+
+.sf-pk-goals { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.sf-pk-goal { background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 11px 14px; text-align: left; cursor: pointer; font-family: var(--sf-sans); -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-pk-goal:hover { border-color: var(--sf-gold-soft); }
+.sf-pk-goal:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pk-goal.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); }
+.sf-pk-goal-name { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-dark-raw); line-height: 1.2; }
+.sf-pk-goal-desc { display: block; font-size: 12px; color: var(--sf-taupe-light); }
+
+.sf-pk-agewrap { display: flex; align-items: center; gap: 12px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 12px 14px; }
+.sf-pk-switch { position: relative; width: 52px; height: 30px; flex: 0 0 52px; border-radius: 999px; border: none; background: var(--sf-cream-deep); cursor: pointer; -webkit-transition: background .25s ease; transition: background .25s ease; }
+.sf-pk-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #ffffff; box-shadow: 0 2px 6px rgba(42,33,24,0.25); -webkit-transition: -webkit-transform .25s ease; transition: transform .25s ease; }
+.sf-pk-switch[aria-pressed="true"] { background: var(--sf-gold-raw); }
+.sf-pk-switch[aria-pressed="true"]::after { -webkit-transform: translateX(22px); transform: translateX(22px); }
+.sf-pk-switch:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pk-agetext strong { display: block; font-size: 14px; color: var(--sf-dark-raw); font-weight: 600; }
+.sf-pk-agetext span { font-size: 12px; color: var(--sf-taupe-light); }
+
+.sf-pk-shifts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.sf-pk-shift { background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 12px 8px; text-align: center; cursor: pointer; font-family: var(--sf-sans); -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-pk-shift:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-pk-shift:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pk-shift.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-pk-shift-name { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-dark-raw); }
+.sf-pk-shift-desc { display: block; font-size: 11px; color: var(--sf-taupe-light); margin-top: 2px; }
+
+.sf-pk-btn { display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px; padding: 16px 24px; font-family: var(--sf-sans); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; box-shadow: 0 4px 20px rgba(200,160,78,0.4); -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease; transition: transform .22s ease, box-shadow .22s ease, background .22s ease; }
+.sf-pk-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-pk-btn:active { -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-pk-btn:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-pk-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+
+/* ===== Number plate ===== */
+@-webkit-keyframes sfPkPlate { 0% { opacity: 0; -webkit-transform: translateY(16px) scale(.97); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
+@keyframes sfPkPlate { 0% { opacity: 0; transform: translateY(16px) scale(.97); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@-webkit-keyframes sfPkRule { 0% { width: 0; } 100% { width: 72px; } }
+@keyframes sfPkRule { 0% { width: 0; } 100% { width: 72px; } }
+.sf-pk-plate { background: linear-gradient(150deg, #2a2118 0%, #3a2e22 58%, #2a2118 100%); border-radius: 20px; padding: 34px 24px 28px; text-align: center; margin-top: 28px; position: relative; overflow: hidden; -webkit-animation: sfPkPlate .55s ease forwards; animation: sfPkPlate .55s ease forwards; }
+.sf-pk-plate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.26) 0%, transparent 60%); pointer-events: none; }
+.sf-pk-plate > * { position: relative; z-index: 1; }
+.sf-pk-plate-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(232,200,120,0.9); }
+.sf-pk-plate-num { font-family: var(--sf-serif); font-weight: 700; font-size: clamp(80px, 16vw, 118px); line-height: 1.02; color: var(--sf-gold-soft); }
+.sf-pk-plate-num small { font-family: var(--sf-display); font-style: italic; font-weight: 600; font-size: 0.4em; margin-left: 2px; }
+.sf-pk-plate-rule { height: 2px; width: 72px; background: var(--sf-gold-raw); margin: 10px auto 14px; border-radius: 1px; -webkit-animation: sfPkRule .7s ease forwards .2s; animation: sfPkRule .7s ease forwards .2s; }
+.sf-pk-plate-rate { color: rgba(250,246,243,0.88); font-size: 15px; max-width: 440px; margin: 0 auto; }
+.sf-pk-plate-note { color: rgba(250,246,243,0.6); font-size: 13px; max-width: 440px; margin: 10px auto 0; }
+
+.sf-pk-split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+.sf-pk-split-item { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-top: 3px solid var(--sf-gold-raw); border-radius: 12px; padding: 15px 10px; text-align: center; }
+.sf-pk-split-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 4px; }
+.sf-pk-split-g { font-family: var(--sf-serif); font-weight: 700; font-size: 28px; color: var(--sf-dark-raw); line-height: 1; }
+.sf-pk-split-note { display: block; font-size: 11px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.4; }
+
+/* ===== Shift map (timeline) ===== */
+.sf-pk-map { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 28px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-pk-map-head { margin-bottom: 18px; }
+.sf-pk-map-head h3 { font-size: 24px; font-weight: 700; }
+.sf-pk-map-head p { font-size: 13px; color: var(--sf-taupe-light); }
+.sf-pk-rows { list-style: none; position: relative; padding-left: 4px; }
+.sf-pk-row { display: flex; gap: 16px; padding: 0 0 22px 0; position: relative; }
+.sf-pk-row::before { content: ""; position: absolute; left: 44px; top: 34px; bottom: -4px; width: 2px; background: var(--sf-cream-deep); }
+.sf-pk-row:last-child::before { display: none; }
+.sf-pk-row-time { flex: 0 0 90px; text-align: center; }
+.sf-pk-row-time span { display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4); color: #8a6b2d; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; min-width: 88px; }
+.sf-pk-row-body { flex: 1; padding-top: 2px; }
+.sf-pk-row-body strong { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 18px; color: var(--sf-dark-raw); line-height: 1.2; }
+.sf-pk-row-body p { font-size: 13px; color: var(--sf-taupe-light); margin-top: 2px; }
+.sf-pk-row-g { flex: 0 0 64px; text-align: right; font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold-raw); padding-top: 2px; }
+.sf-pk-map-empty { background: var(--sf-cream-mid); border-radius: 12px; padding: 16px 18px; font-size: 14px; color: var(--sf-taupe-raw); }
+
+/* ===== Stack (library + sticky bar) ===== */
+.sf-pk-stackbar { position: -webkit-sticky; position: sticky; top: 0; z-index: 30; background: linear-gradient(to bottom, var(--sf-cream-raw) 78%, rgba(250,246,243,0)); padding: 12px 0 16px; }
+.sf-pk-stackbar-card { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 14px 16px 13px; box-shadow: 0 4px 18px rgba(42,33,24,0.08); }
+.sf-pk-tally-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.sf-pk-tally-total { font-family: var(--sf-serif); font-weight: 700; font-size: 24px; color: var(--sf-dark-raw); }
+.sf-pk-tally-total span { color: var(--sf-taupe-light); font-size: 17px; }
+.sf-pk-tally-gap { font-size: 13px; color: var(--sf-taupe-light); }
+.sf-pk-bar { height: 10px; border-radius: 5px; background: var(--sf-cream-deep); overflow: hidden; }
+.sf-pk-bar-fill { height: 100%; width: 0; border-radius: 5px; background: linear-gradient(to right, var(--sf-gold-raw), var(--sf-gold-soft)); -webkit-transition: width .45s ease, background .45s ease; transition: width .45s ease, background .45s ease; }
+@-webkit-keyframes sfPkGlow { 0% { box-shadow: 0 0 0 0 rgba(74,140,92,0.4); } 100% { box-shadow: 0 0 0 12px rgba(74,140,92,0); } }
+@keyframes sfPkGlow { 0% { box-shadow: 0 0 0 0 rgba(74,140,92,0.4); } 100% { box-shadow: 0 0 0 12px rgba(74,140,92,0); } }
+.sf-pk-bar.sf-full .sf-pk-bar-fill { background: linear-gradient(to right, var(--sf-green-raw), #6aa87c); }
+.sf-pk-bar.sf-full { -webkit-animation: sfPkGlow .9s ease 1; animation: sfPkGlow .9s ease 1; }
+.sf-pk-hit { font-family: var(--sf-display); font-style: italic; font-size: 14px; color: var(--sf-green-raw); margin-top: 8px; display: none; }
+.sf-pk-hit.sf-show { display: block; }
+
+.sf-pk-group { margin-bottom: 26px; }
+.sf-pk-group-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.sf-pk-group-head h3 { font-size: 22px; font-weight: 700; }
+.sf-pk-group-hint { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 12px; }
+.sf-pk-chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.sf-pk-chip { position: relative; background: var(--sf-bg-card); border: 1.5px solid var(--sf-border); border-radius: 999px; padding: 9px 16px; font-family: var(--sf-sans); font-size: 14px; font-weight: 500; color: var(--sf-taupe-raw); cursor: pointer; -webkit-transition: all .18s ease; transition: all .18s ease; }
+.sf-pk-chip:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-pk-chip:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pk-chip.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
+.sf-pk-chip .sf-pk-chip-g { font-size: 11px; color: var(--sf-taupe-light); font-weight: 600; margin-left: 5px; }
+.sf-pk-chip.sf-on .sf-pk-chip-g { color: var(--sf-dark-mid); }
+.sf-pk-chip .sf-pk-chip-x { position: absolute; top: -7px; right: -5px; min-width: 20px; height: 20px; border-radius: 999px; background: var(--sf-dark-raw); color: var(--sf-gold-soft); font-size: 11px; font-weight: 700; display: none; align-items: center; justify-content: center; padding: 0 5px; }
+.sf-pk-chip.sf-multi .sf-pk-chip-x { display: inline-flex; }
+
+.sf-pk-stacklist { list-style: none; margin-top: 14px; background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 6px 16px; }
+.sf-pk-stacklist:empty { display: none; }
+.sf-pk-stacklist li { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 14px; padding: 8px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-pk-stacklist li:last-child { border-bottom: none; }
+.sf-pk-stacklist .sf-pk-sl-g { font-weight: 600; color: var(--sf-taupe-light); white-space: nowrap; }
+.sf-pk-remove { background: transparent; border: 1.5px solid var(--sf-border); border-radius: 8px; width: 30px; height: 30px; font-size: 15px; line-height: 1; color: var(--sf-taupe-light); cursor: pointer; -webkit-transition: all .18s ease; transition: all .18s ease; }
+.sf-pk-remove:hover { border-color: var(--sf-red-raw); color: var(--sf-red-raw); }
+.sf-pk-remove:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-pk-clear { background: transparent; border: none; font-family: var(--sf-sans); font-size: 13px; font-weight: 600; color: var(--sf-taupe-light); text-decoration: underline; cursor: pointer; margin-top: 10px; }
+.sf-pk-clear:hover { color: var(--sf-dark-raw); }
+.sf-pk-clear:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+
+/* ===== 25g cheat sheet ===== */
+.sf-pk-cheat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sf-pk-cheat-tile { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 20px 14px; text-align: center; -webkit-transition: transform .25s ease, box-shadow .25s ease; transition: transform .25s ease, box-shadow .25s ease; }
+.sf-pk-cheat-tile:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(42,33,24,0.08); }
+.sf-pk-cheat-emoji { font-size: 30px; display: block; margin-bottom: 8px; }
+.sf-pk-cheat-name { font-size: 13px; color: var(--sf-taupe-raw); line-height: 1.4; min-height: 38px; }
+.sf-pk-cheat-g { font-family: var(--sf-serif); font-weight: 700; font-size: 24px; color: var(--sf-gold-raw); margin-top: 6px; }
+.sf-pk-cheat-note { background: var(--sf-gold-hover); border-radius: 12px; padding: 14px 18px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+
+/* ===== Print row ===== */
+.sf-pk-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.sf-pk-actions .sf-pk-btn { flex: 1; min-width: 200px; }
+.sf-pk-btn.sf-secondary { background: transparent; color: var(--sf-taupe-raw); border: 1.5px solid var(--sf-border); box-shadow: none; text-transform: none; letter-spacing: 0; font-weight: 600; }
+.sf-pk-btn.sf-secondary:hover { background: var(--sf-cream-mid); border-color: var(--sf-gold-soft); box-shadow: none; }
+
+/* ===== CTA bridge ===== */
+.sf-pk-cta { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 40px 26px; text-align: center; position: relative; overflow: hidden; }
+.sf-pk-cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.22) 0%, transparent 60%); pointer-events: none; }
+.sf-pk-cta > * { position: relative; z-index: 1; }
+.sf-pk-cta h2 { color: var(--sf-cream-raw); font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; margin-bottom: 12px; }
+.sf-pk-cta h2 .sf-pk-em { color: var(--sf-gold-soft); }
+.sf-pk-cta p { color: rgba(250,246,243,0.82); font-size: 16px; max-width: 500px; margin: 0 auto 26px; }
+.sf-pk-cta-btn { display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none; border-radius: 12px; padding: 16px 40px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; box-shadow: 0 4px 20px rgba(200,160,78,0.45); -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease; transition: transform .22s ease, box-shadow .22s ease, background .22s ease; }
+.sf-pk-cta-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-pk-cta-btn:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-pk-cta-note { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 16px; }
+
+/* ===== Proof ===== */
+.sf-pk-proof { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 18px; display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; margin-top: 40px; }
+.sf-pk-proof-item { padding: 20px 10px; text-align: center; border-left: 1px solid var(--sf-border); }
+.sf-pk-proof-item:first-child { border-left: none; }
+.sf-pk-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold-raw); display: block; }
+.sf-pk-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 4px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-pk-footer { text-align: center; padding: 30px 20px 8px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-pk-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 15px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-pk-reveal { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-pk-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-pk-hidden { display: none !important; }
+
+/* ===== Print card ===== */
+.sf-pk-print { display: none; }
+@media print {
+  .sf-pk-app { display: none !important; }
+  .sf-pk-print { display: block !important; font-family: Georgia, serif; color: #2a2118; padding: 24px; }
+  .sf-pk-print h1 { font-size: 22px; margin-bottom: 2px; }
+  .sf-pk-print .sf-pk-print-sub { font-size: 12px; color: #4a3f35; margin-bottom: 14px; }
+  .sf-pk-print .sf-pk-print-num { font-size: 64px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+  .sf-pk-print .sf-pk-print-rate { font-size: 12px; color: #4a3f35; margin-bottom: 14px; }
+  .sf-pk-print table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+  .sf-pk-print th, .sf-pk-print td { border: 1px solid #b9ab97; padding: 7px 9px; font-size: 12px; text-align: left; }
+  .sf-pk-print th { background: #f1ebe3; }
+  .sf-pk-print .sf-pk-print-foot { font-size: 10px; color: #7a6e62; margin-top: 10px; }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-pk-wrap { padding: 26px 16px 54px; }
+  .sf-pk-tool { padding: 24px 18px; }
+  .sf-pk-grid2 { grid-template-columns: 1fr; gap: 0; }
+  .sf-pk-split { grid-template-columns: 1fr; }
+  .sf-pk-split-item { display: flex; align-items: baseline; justify-content: space-between; text-align: left; padding: 12px 16px; flex-wrap: wrap; }
+  .sf-pk-split-label { margin-bottom: 0; }
+  .sf-pk-split-note { flex-basis: 100%; margin-top: 2px; }
+  .sf-pk-row-time { flex: 0 0 74px; }
+  .sf-pk-row-time span { min-width: 72px; padding: 5px 7px; font-size: 11px; }
+  .sf-pk-row::before { left: 37px; }
+  .sf-pk-row-g { flex: 0 0 52px; font-size: 22px; }
+  .sf-pk-cheat { grid-template-columns: repeat(2, 1fr); }
+  .sf-pk-cheat-name { min-height: 0; }
+  .sf-pk-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-pk-proof-item { border-left: none; border-top: 1px solid var(--sf-border); }
+  .sf-pk-proof-item:nth-child(-n+2) { border-top: none; }
+  .sf-pk-proof-item:nth-child(even) { border-left: 1px solid var(--sf-border); }
+  .sf-pk-actions .sf-pk-btn { min-width: 100%; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-pk *, .sf-pk *::before, .sf-pk *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-pk">
+
+<div class="sf-pk-app">
+
+  <header class="sf-pk-header">
+    <span class="sf-pk-badge">The full kit, free</span>
+    <h1>The Nurse <span class="sf-pk-em">Protein Target</span></h1>
+    <p class="sf-pk-sub" id="sfPkGreeting">Your number, your shift map, and every no-cook way to hit it. Save this page, you will use it all week.</p>
+  </header>
+
+  <p class="sf-pk-validate">You have run on coffee and vibes through enough 12s. <span>One number, hit most days,</span> beats every perfect plan you were never going to have time for.</p>
+
+  <div class="sf-pk-wrap">
+
+    <!-- SECTION 1: THE NUMBER -->
+    <section class="sf-pk-section">
+      <div class="sf-pk-eyebrow">Part 1</div>
+      <h2 class="sf-pk-h2">Your number</h2>
+      <p class="sf-pk-lead">Set it once. If your weight or goal changes, come back and reset it. The whole kit updates with it.</p>
+
+      <div class="sf-pk-tool">
+        <div class="sf-pk-grid2">
+          <div class="sf-pk-step">
+            <div class="sf-pk-step-tag">Step 1</div>
+            <h3>Your weight</h3>
+            <div class="sf-pk-wdisplay"><span id="sfPkWNum">165</span><small>LBS</small></div>
+            <input type="range" class="sf-pk-range" id="sfPkRange" min="100" max="300" step="5" value="165" aria-label="Your weight in pounds, from 100 to 300">
+            <div class="sf-pk-wfine">
+              <label for="sfPkWInput">Or type it:</label>
+              <input type="number" id="sfPkWInput" min="100" max="300" inputmode="numeric" value="165" aria-label="Type your weight in pounds">
+            </div>
+          </div>
+          <div class="sf-pk-step">
+            <div class="sf-pk-step-tag">Step 2</div>
+            <h3>Your goal</h3>
+            <div class="sf-pk-goals" id="sfPkGoals" role="group" aria-label="Choose your goal">
+              <button type="button" class="sf-pk-goal" data-goal="fat-loss" aria-pressed="false">
+                <span class="sf-pk-goal-name">Lose fat, keep muscle</span>
+                <span class="sf-pk-goal-desc">The scale moves and your strength stays</span>
+              </button>
+              <button type="button" class="sf-pk-goal" data-goal="energy" aria-pressed="false">
+                <span class="sf-pk-goal-name">Steady energy on shift</span>
+                <span class="sf-pk-goal-desc">End the crash-and-crave cycle</span>
+              </button>
+              <button type="button" class="sf-pk-goal" data-goal="strength" aria-pressed="false">
+                <span class="sf-pk-goal-name">Rebuild strength</span>
+                <span class="sf-pk-goal-desc">Feel solid again, not only smaller</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="sf-pk-grid2">
+          <div class="sf-pk-step">
+            <div class="sf-pk-step-tag">Step 3</div>
+            <h3>Age check</h3>
+            <div class="sf-pk-agewrap">
+              <button type="button" class="sf-pk-switch" id="sfPkAge" aria-pressed="false" aria-label="I am 45 or older"></button>
+              <div class="sf-pk-agetext">
+                <strong>I am 45 or older</strong>
+                <span>Needs go up with age. Your target nudges to the higher end.</span>
+              </div>
+            </div>
+          </div>
+          <div class="sf-pk-step">
+            <div class="sf-pk-step-tag">Step 4</div>
+            <h3>Your usual shift</h3>
+            <div class="sf-pk-shifts" id="sfPkShifts" role="group" aria-label="Choose your shift type">
+              <button type="button" class="sf-pk-shift" data-shift="day" aria-pressed="false">
+                <span class="sf-pk-shift-name">Day</span>
+                <span class="sf-pk-shift-desc">0700 to 1930</span>
+              </button>
+              <button type="button" class="sf-pk-shift" data-shift="night" aria-pressed="false">
+                <span class="sf-pk-shift-name">Night</span>
+                <span class="sf-pk-shift-desc">1900 to 0730</span>
+              </button>
+              <button type="button" class="sf-pk-shift" data-shift="chaos" aria-pressed="false">
+                <span class="sf-pk-shift-name">Chaos</span>
+                <span class="sf-pk-shift-desc">Swaps, rotations</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="sf-pk-btn" id="sfPkShow">Set my number</button>
+        <div id="sfPkNudge"></div>
+        <div id="sfPkResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SHIFT MAP -->
+    <section class="sf-pk-section" id="sfPkMapSection">
+      <div class="sf-pk-eyebrow">Part 2</div>
+      <h2 class="sf-pk-h2">Your shift-day protein map</h2>
+      <p class="sf-pk-lead">Where the grams land across a real shift, with real clock times. Doses of 25 to 40g are what your body uses best in one sitting, so the day splits into four hits.</p>
+      <div class="sf-pk-map">
+        <div id="sfPkMap">
+          <div class="sf-pk-map-empty">Set your number and your usual shift above, and your map builds itself right here with your grams on the clock.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE LIBRARY -->
+    <section class="sf-pk-section">
+      <div class="sf-pk-eyebrow">Part 3</div>
+      <h2 class="sf-pk-h2">The no-cook library</h2>
+      <p class="sf-pk-lead">Everything here works cold, in a hurry, mid-chaos. Tap what you would eat today and watch the bar fill toward your number. Tap again for a second serving.</p>
+
+      <div class="sf-pk-stackbar">
+        <div class="sf-pk-stackbar-card">
+          <div class="sf-pk-tally-row">
+            <span class="sf-pk-tally-total" id="sfPkTotal">0g <span>stacked</span></span>
+            <span class="sf-pk-tally-gap" id="sfPkGap">Tap foods below to start your stack.</span>
+          </div>
+          <div class="sf-pk-bar" id="sfPkBar"><div class="sf-pk-bar-fill" id="sfPkBarFill"></div></div>
+          <p class="sf-pk-hit" id="sfPkHit">Target hit. That is the whole assignment. Everything else today is bonus.</p>
+        </div>
+      </div>
+
+      <div id="sfPkGroups"></div>
+
+      <ul class="sf-pk-stacklist" id="sfPkStackList"></ul>
+      <button type="button" class="sf-pk-clear sf-pk-hidden" id="sfPkClear">Start my stack over</button>
+    </section>
+
+    <!-- SECTION 4: 25G CHEAT SHEET -->
+    <section class="sf-pk-section sf-pk-reveal">
+      <div class="sf-pk-eyebrow">Part 4</div>
+      <h2 class="sf-pk-h2">What 25 grams actually looks like</h2>
+      <p class="sf-pk-lead">Learn these six on sight and you can eyeball a real dose anywhere, no app, no scale, no label math.</p>
+      <div class="sf-pk-cheat">
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥤</span><div class="sf-pk-cheat-name">One scoop of protein powder</div><div class="sf-pk-cheat-g">25g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥣</span><div class="sf-pk-cheat-name">A cup of cottage cheese</div><div class="sf-pk-cheat-g">25g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🍗</span><div class="sf-pk-cheat-name">A palm of rotisserie chicken</div><div class="sf-pk-cheat-g">~25g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🐟</span><div class="sf-pk-cheat-name">Tuna pouch + a string cheese</div><div class="sf-pk-cheat-g">27g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥛</span><div class="sf-pk-cheat-name">Greek yogurt + a boiled egg</div><div class="sf-pk-cheat-g">23g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🍳</span><div class="sf-pk-cheat-name">3 eggs + a carton of milk</div><div class="sf-pk-cheat-g">26g</div></div>
+      </div>
+      <div class="sf-pk-cheat-note">Two or three of these across your day and your number is mostly done. The stack builder above does the exact math when you want it.</div>
+    </section>
+
+    <!-- SECTION 5: PRINT -->
+    <section class="sf-pk-section sf-pk-reveal">
+      <div class="sf-pk-eyebrow">Part 5</div>
+      <h2 class="sf-pk-h2">Take it to the floor</h2>
+      <p class="sf-pk-lead">Print the card and tape it inside your locker or on the fridge. Your number, your map, your quick picks, on one page.</p>
+      <div class="sf-pk-actions">
+        <button type="button" class="sf-pk-btn" id="sfPkPrintBtn">Print my card</button>
+      </div>
+      <div id="sfPkPrintNudge"></div>
+    </section>
+
+    <!-- CTA BRIDGE -->
+    <div class="sf-pk-cta sf-pk-reveal">
+      <h2>Want the whole plan handled, <span class="sf-pk-em">not only the protein</span>?</h2>
+      <p>The kit handles your number. If you want the rest built around your actual schedule (the shifts, the sleep, the food, the weeks that fall apart) I take a few nurses a month for a free game-plan call. No pitch. You leave with a plan either way.</p>
+      <a href="#" data-sf-call class="sf-pk-cta-btn" target="_blank" rel="noopener">Book my free game-plan call</a>
+      <p class="sf-pk-cta-note">30 minutes, free, nurse to nurse.</p>
+    </div>
+
+    <!-- PROOF -->
+    <div class="sf-pk-proof">
+      <div class="sf-pk-proof-item"><span class="sf-pk-proof-num">400+</span><div class="sf-pk-proof-label">Nurses coached</div></div>
+      <div class="sf-pk-proof-item"><span class="sf-pk-proof-num">87%</span><div class="sf-pk-proof-label">Feel a difference by Day 3</div></div>
+      <div class="sf-pk-proof-item"><span class="sf-pk-proof-num">~5 lbs</span><div class="sf-pk-proof-label">Average lost in Week 1</div></div>
+      <div class="sf-pk-proof-item"><span class="sf-pk-proof-num">60-day</span><div class="sf-pk-proof-label">Money-back guarantee</div></div>
+    </div>
+
+  </div>
+
+  <div class="sf-pk-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Gram counts are rounded per-serving estimates to help you build, not to track.
+  </div>
+
+</div>
+
+<!-- PRINT CARD (print only) -->
+<div class="sf-pk-print" id="sfPkPrint"></div>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (lead-magnets/config.js), with safe fallbacks ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-protein-target",
+    resourceUrl: "resource.html"
+  };
+
+  /* ---- Math (matches index.html exactly) ---- */
+  var GOALS = {
+    'fat-loss': { rate: 0.9, label: 'losing fat while keeping muscle', why: 'In a calorie deficit, protein is the signal that says burn the fat, keep the muscle.' },
+    'energy':   { rate: 0.7, label: 'steady energy on shift', why: 'This is the floor that ends the crash-and-crave cycle without changing anything else you eat.' },
+    'strength': { rate: 1.0, label: 'rebuilding strength', why: 'Muscle is built from this. There is no substitute, only timing.' }
+  };
+  var SPLITS = {
+    'fat-loss': [0.30, 0.40, 0.30],
+    'energy':   [0.35, 0.40, 0.25],
+    'strength': [0.25, 0.35, 0.40]
+  };
+  function computeTarget(weight, goal, is45) {
+    var eff = Math.min(weight, 200);
+    var rate = GOALS[goal].rate + (is45 ? 0.1 : 0);
+    if (rate > 1.0) rate = 1.0;
+    return { grams: Math.round((eff * rate) / 5) * 5, rate: rate, anchored: weight > 200 };
+  }
+  function computeSplit(target, goal) {
+    var s = SPLITS[goal];
+    var before = Math.round(target * s[0]);
+    var during = Math.round(target * s[1]);
+    var after = target - before - during;
+    return { before: before, during: during, after: after, hit: Math.round(during / 2) };
+  }
+
+  /* ---- Shift maps (percent of her target per dose) ---- */
+  var MAPS = {
+    day: {
+      title: 'Day shift, 0700 to 1930',
+      rows: [
+        { t: '5:45a', l: 'Before shift', pct: 0.25, n: 'Protein before report. It decides your whole morning.' },
+        { t: '11:00a', l: 'First real chance', pct: 0.25, n: 'Cold from the cooler bag counts. Nobody is grading presentation.' },
+        { t: '3:30p', l: 'The afternoon save', pct: 0.20, n: 'This is the dose that kills the vending machine run.' },
+        { t: '8:00p', l: 'Home, real dinner', pct: 0.30, n: 'You already won the day. This locks it in overnight.' }
+      ]
+    },
+    night: {
+      title: 'Night shift, 1900 to 0730',
+      rows: [
+        { t: '5:00p', l: 'Real meal before', pct: 0.30, n: 'Your biggest dose lands before the floor gets loud.' },
+        { t: '11:00p', l: 'Mid-shift', pct: 0.25, n: 'Planned, not scavenged. Keep it in your locker.' },
+        { t: '3:00a', l: 'The 3am hit', pct: 0.20, n: 'Small, cold, done in two minutes. This is the craving killer.' },
+        { t: '8:30a', l: 'Before sleep, light', pct: 0.25, n: 'A light dose guards your muscle while you sleep the day away.' }
+      ]
+    },
+    chaos: {
+      title: 'Chaos days: swaps, rotations, no clock',
+      rows: [
+        { t: 'Wake up', l: 'Whenever that is', pct: 0.30, n: 'No clock on chaos days. Anchor to waking, not the hour.' },
+        { t: '+4 to 5 hrs', l: 'Second dose', pct: 0.25, n: 'Set one phone alarm. Future you will be glad.' },
+        { t: '+4 to 5 hrs', l: 'Third dose', pct: 0.25, n: 'Grab-and-go beats perfect. A shake in the car counts.' },
+        { t: 'Before bed', l: 'Close it out', pct: 0.20, n: 'Get close to whatever is left and call it a win.' }
+      ]
+    }
+  };
+  function mapDoses(target, shift) {
+    var rows = MAPS[shift].rows;
+    var out = [];
+    var used = 0;
+    for (var i = 0; i < rows.length; i++) {
+      var g = (i === rows.length - 1) ? (target - used) : Math.round(target * rows[i].pct);
+      used += g;
+      out.push({ t: rows[i].t, l: rows[i].l, n: rows[i].n, g: g });
+    }
+    return out;
+  }
+
+  /* ---- The full no-cook library, grouped by where she is ---- */
+  var LIB = [
+    { key: 'cafeteria', title: 'The hospital cafeteria', hint: 'Real trays, real portions. Find the protein first and build the tray around it.',
+      items: [
+        { id: 'caf-chicken', label: 'Grilled chicken entree', emoji: '🍗', p: 35, gap: 'the grilled chicken entree' },
+        { id: 'caf-sand', label: 'Turkey sandwich', emoji: '🥪', p: 25, gap: 'a turkey sandwich' },
+        { id: 'caf-burger', label: 'Burger patty', emoji: '🍔', p: 22, gap: 'a burger patty' },
+        { id: 'caf-chili', label: 'Cup of chili', emoji: '🍲', p: 18, gap: 'a cup of chili' },
+        { id: 'caf-eggs', label: '3-egg breakfast', emoji: '🍳', p: 18, gap: 'the 3-egg breakfast' },
+        { id: 'caf-parfait', label: 'Yogurt parfait', emoji: '🥛', p: 12, gap: 'a yogurt parfait' },
+        { id: 'caf-milk', label: 'Carton of milk', emoji: '🥛', p: 8, gap: 'a carton of milk' }
+      ] },
+    { key: 'gas', title: 'The gas station on the way in', hint: 'The cooler case beats the candy aisle. Cold counts, fast counts.',
+      items: [
+        { id: 'gas-shake', label: 'Bottled protein shake', emoji: '🥤', p: 26, gap: 'a bottled shake' },
+        { id: 'gas-jerky', label: 'Jerky (bag)', emoji: '🥩', p: 20, gap: 'a bag of jerky' },
+        { id: 'gas-bar', label: 'Protein bar', emoji: '🍫', p: 20, gap: 'a protein bar' },
+        { id: 'gas-tuna', label: 'Tuna + crackers kit', emoji: '🐟', p: 17, gap: 'a tuna kit' },
+        { id: 'gas-milk', label: 'Pint of milk', emoji: '🥛', p: 16, gap: 'a pint of milk' },
+        { id: 'gas-string', label: 'String cheese (2)', emoji: '🧀', p: 14, gap: 'a string cheese or two' },
+        { id: 'gas-eggs', label: 'Boiled egg 2-pack', emoji: '🥚', p: 12, gap: 'the boiled-egg 2-pack' },
+        { id: 'gas-sticks', label: 'Meat snack sticks (2)', emoji: '🌭', p: 12, gap: 'a couple of meat sticks' }
+      ] },
+    { key: 'home', title: 'Your fridge at home', hint: 'Stock two or three of these on grocery day and the whole week gets easier.',
+      items: [
+        { id: 'home-shakemilk', label: 'Shake made with milk', emoji: '🥤', p: 33, gap: 'a shake made with milk' },
+        { id: 'home-chicken', label: 'Rotisserie chicken', emoji: '🍗', p: 30, gap: 'a palm of rotisserie chicken' },
+        { id: 'home-cottage', label: 'Cottage cheese (1 cup)', emoji: '🥣', p: 25, gap: 'a cup of cottage cheese' },
+        { id: 'home-shrimp', label: 'Pre-cooked shrimp (cup)', emoji: '🦐', p: 20, gap: 'a cup of cooked shrimp' },
+        { id: 'home-tuna', label: 'Tuna pouch', emoji: '🐟', p: 20, gap: 'a tuna pouch' },
+        { id: 'home-turkey', label: 'Deli turkey (5 slices)', emoji: '🦃', p: 18, gap: 'a deli turkey stack' },
+        { id: 'home-yogurt', label: 'Greek yogurt', emoji: '🥛', p: 17, gap: 'a Greek yogurt' },
+        { id: 'home-edamame', label: 'Edamame (cup)', emoji: '🫛', p: 17, gap: 'a cup of edamame' },
+        { id: 'home-salmon', label: 'Smoked salmon (3 oz)', emoji: '🐟', p: 16, gap: 'some smoked salmon' },
+        { id: 'home-eggs', label: 'Hard-boiled eggs (2)', emoji: '🥚', p: 12, gap: 'a couple of boiled eggs' }
+      ] }
+  ];
+  function libById(id) {
+    for (var g = 0; g < LIB.length; g++) {
+      var items = LIB[g].items;
+      for (var i = 0; i < items.length; i++) { if (items[i].id === id) return items[i]; }
+    }
+    return null;
+  }
+  function allItems() {
+    var out = [];
+    for (var g = 0; g < LIB.length; g++) { out = out.concat(LIB[g].items); }
+    return out;
+  }
+
+  /* ---- State ---- */
+  var state = { weight: 165, goal: null, is45: false, shift: null, target: null, stack: {}, celebrated: false };
+
+  /* ---- DOM ---- */
+  var wNum = document.getElementById('sfPkWNum');
+  var wRange = document.getElementById('sfPkRange');
+  var wInput = document.getElementById('sfPkWInput');
+  var goalsEl = document.getElementById('sfPkGoals');
+  var ageBtn = document.getElementById('sfPkAge');
+  var shiftsEl = document.getElementById('sfPkShifts');
+  var showBtn = document.getElementById('sfPkShow');
+  var nudgeEl = document.getElementById('sfPkNudge');
+  var resultEl = document.getElementById('sfPkResult');
+  var mapEl = document.getElementById('sfPkMap');
+  var groupsEl = document.getElementById('sfPkGroups');
+  var totalEl = document.getElementById('sfPkTotal');
+  var gapEl = document.getElementById('sfPkGap');
+  var barEl = document.getElementById('sfPkBar');
+  var barFillEl = document.getElementById('sfPkBarFill');
+  var hitEl = document.getElementById('sfPkHit');
+  var stackListEl = document.getElementById('sfPkStackList');
+  var clearBtn = document.getElementById('sfPkClear');
+  var printBtn = document.getElementById('sfPkPrintBtn');
+  var printNudgeEl = document.getElementById('sfPkPrintNudge');
+  var printEl = document.getElementById('sfPkPrint');
+  var greetEl = document.getElementById('sfPkGreeting');
+
+  /* ---- Weight sync ---- */
+  function setWeightUI(w) {
+    wNum.textContent = w;
+    wInput.value = w;
+    wRange.value = Math.min(300, Math.max(100, w));
+  }
+  wRange.addEventListener('input', function () { state.weight = parseInt(wRange.value, 10); wNum.textContent = state.weight; wInput.value = state.weight; });
+  wInput.addEventListener('input', function () {
+    var v = parseInt(wInput.value, 10);
+    if (!isNaN(v)) { state.weight = v; wNum.textContent = v; wRange.value = Math.min(300, Math.max(100, v)); }
+  });
+
+  /* ---- Pickers ---- */
+  function pressGroup(container, selector, btn) {
+    var all = container.querySelectorAll(selector);
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove('sf-on'); all[i].setAttribute('aria-pressed', 'false'); }
+    btn.classList.add('sf-on');
+    btn.setAttribute('aria-pressed', 'true');
+  }
+  goalsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-pk-goal');
+    if (!btn) return;
+    pressGroup(goalsEl, '.sf-pk-goal', btn);
+    state.goal = btn.getAttribute('data-goal');
+    nudgeEl.innerHTML = '';
+  });
+  shiftsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-pk-shift');
+    if (!btn) return;
+    pressGroup(shiftsEl, '.sf-pk-shift', btn);
+    state.shift = btn.getAttribute('data-shift');
+    try { window.localStorage.setItem('sf_pt_shift', state.shift); } catch (err) {}
+    if (state.target) renderMap();
+  });
+  ageBtn.addEventListener('click', function () {
+    state.is45 = !state.is45;
+    ageBtn.setAttribute('aria-pressed', state.is45 ? 'true' : 'false');
+  });
+
+  /* ---- Render: number ---- */
+  showBtn.addEventListener('click', function () {
+    var w = parseInt(wInput.value, 10);
+    if (isNaN(w) || w < 100 || w > 300) {
+      nudgeEl.innerHTML = '<div class="sf-pk-nudge">Set your weight first. Anywhere from 100 to 300 lbs works, and close is fine.</div>';
+      return;
+    }
+    if (!state.goal) {
+      nudgeEl.innerHTML = '<div class="sf-pk-nudge">Tap the goal that sounds most like you. There is no wrong answer, it only tunes your number.</div>';
+      return;
+    }
+    nudgeEl.innerHTML = '';
+    state.weight = w;
+    renderResult(false);
+  });
+
+  function renderResult(quiet) {
+    var calc = computeTarget(state.weight, state.goal, state.is45);
+    state.target = calc.grams;
+    var split = computeSplit(calc.grams, state.goal);
+    var g = GOALS[state.goal];
+
+    var notes = '';
+    if (calc.anchored) {
+      notes += '<p class="sf-pk-plate-note">At ' + state.weight + ' lbs we set your number from a 200 lb anchor, closer to goal-weight math, so it stays realistic to actually eat.</p>';
+    }
+    if (state.is45) {
+      notes += state.goal === 'strength'
+        ? '<p class="sf-pk-plate-note">After 45 needs rise, and your goal already has you at the top of the range.</p>'
+        : '<p class="sf-pk-plate-note">Nudged toward the top of the range because the same protein does less after 45.</p>';
+    }
+
+    resultEl.innerHTML = '' +
+      '<div class="sf-pk-plate">' +
+        '<div class="sf-pk-plate-label">Your daily protein target</div>' +
+        '<div class="sf-pk-plate-num">' + calc.grams + '<small>g</small></div>' +
+        '<div class="sf-pk-plate-rule"></div>' +
+        '<p class="sf-pk-plate-rate">That is ' + calc.rate.toFixed(1) + ' grams per pound, tuned for ' + g.label + '. ' + g.why + '</p>' +
+        notes +
+      '</div>' +
+      '<div class="sf-pk-split">' +
+        '<div class="sf-pk-split-item"><span class="sf-pk-split-label">Before shift</span><span class="sf-pk-split-g">' + split.before + 'g</span><span class="sf-pk-split-note">Eat it before report. It decides your morning.</span></div>' +
+        '<div class="sf-pk-split-item"><span class="sf-pk-split-label">On shift</span><span class="sf-pk-split-g">' + split.during + 'g</span><span class="sf-pk-split-note">Two hits of about ' + split.hit + 'g, whenever breaks actually happen.</span></div>' +
+        '<div class="sf-pk-split-item"><span class="sf-pk-split-label">After shift</span><span class="sf-pk-split-g">' + split.after + 'g</span><span class="sf-pk-split-note">The dose that locks the day in overnight.</span></div>' +
+      '</div>';
+
+    try {
+      window.localStorage.setItem('sf_pt_weight', String(state.weight));
+      window.localStorage.setItem('sf_pt_goal', state.goal);
+      window.localStorage.setItem('sf_pt_45', state.is45 ? '1' : '0');
+      window.localStorage.setItem('sf_pt_target', String(state.target));
+    } catch (e) {}
+
+    renderMap();
+    renderStack();
+    if (!quiet) resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ---- Render: shift map ---- */
+  function renderMap() {
+    if (!state.target) return;
+    if (!state.shift) {
+      mapEl.innerHTML = '<div class="sf-pk-map-empty">Your number is set. Now tap your usual shift above (Day, Night, or Chaos) and the map fills in with your grams on the clock.</div>';
+      return;
+    }
+    var doses = mapDoses(state.target, state.shift);
+    var html = '<div class="sf-pk-map-head"><h3>' + MAPS[state.shift].title + '</h3><p>' + state.target + 'g total, split so no single sitting is a chore.</p></div><ul class="sf-pk-rows">';
+    for (var i = 0; i < doses.length; i++) {
+      html += '<li class="sf-pk-row">' +
+        '<div class="sf-pk-row-time"><span>' + doses[i].t + '</span></div>' +
+        '<div class="sf-pk-row-body"><strong>' + doses[i].l + '</strong><p>' + doses[i].n + '</p></div>' +
+        '<div class="sf-pk-row-g">' + doses[i].g + 'g</div>' +
+      '</li>';
+    }
+    html += '</ul>';
+    mapEl.innerHTML = html;
+  }
+
+  /* ---- Render: library + stack ---- */
+  function renderGroups() {
+    var html = '';
+    for (var g = 0; g < LIB.length; g++) {
+      var grp = LIB[g];
+      html += '<div class="sf-pk-group"><div class="sf-pk-group-head"><h3>' + grp.title + '</h3></div><p class="sf-pk-group-hint">' + grp.hint + '</p><div class="sf-pk-chips">';
+      for (var i = 0; i < grp.items.length; i++) {
+        var s = grp.items[i];
+        html += '<button type="button" class="sf-pk-chip" data-id="' + s.id + '" aria-label="Add ' + s.label + ', ' + s.p + ' grams of protein">' +
+          s.emoji + ' ' + s.label + '<span class="sf-pk-chip-g">' + s.p + 'g</span><span class="sf-pk-chip-x" aria-hidden="true"></span></button>';
+      }
+      html += '</div></div>';
+    }
+    groupsEl.innerHTML = html;
+  }
+
+  function stackTotal() {
+    var t = 0;
+    for (var id in state.stack) { if (state.stack.hasOwnProperty(id)) { var s = libById(id); if (s) t += s.p * state.stack[id]; } }
+    return t;
+  }
+
+  function gapLine(total) {
+    if (!state.target) {
+      return total > 0 ? 'Set your number in Part 1 and this bar fills toward it.' : 'Tap foods below to start your stack.';
+    }
+    var remaining = state.target - total;
+    if (remaining <= 0) return 'Done. Screenshot it.';
+    var items = allItems();
+    var best = null;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].p >= remaining && (!best || items[i].p < best.p)) best = items[i];
+    }
+    if (best) return remaining + 'g to go. That is ' + best.gap + '.';
+    var n = Math.ceil(remaining / 25);
+    return remaining + 'g to go. About ' + n + ' solid picks: a shake here, a chicken portion there.';
+  }
+
+  function renderStack() {
+    var total = stackTotal();
+
+    var chips = groupsEl.querySelectorAll('.sf-pk-chip');
+    for (var i = 0; i < chips.length; i++) {
+      var id = chips[i].getAttribute('data-id');
+      var n = state.stack[id] || 0;
+      chips[i].classList.toggle('sf-on', n > 0);
+      chips[i].classList.toggle('sf-multi', n > 1);
+      var badge = chips[i].querySelector('.sf-pk-chip-x');
+      if (badge) badge.textContent = n > 1 ? ('x' + n) : '';
+    }
+
+    totalEl.innerHTML = state.target ? (total + 'g <span>of ' + state.target + 'g</span>') : (total + 'g <span>stacked</span>');
+    gapEl.textContent = gapLine(total);
+
+    var pct = state.target ? Math.min(100, Math.round((total / state.target) * 100)) : 0;
+    barFillEl.style.width = pct + '%';
+
+    var full = !!state.target && total >= state.target;
+    if (full && !state.celebrated) { state.celebrated = true; barEl.classList.remove('sf-full'); void barEl.offsetWidth; barEl.classList.add('sf-full'); }
+    if (!full) { state.celebrated = false; barEl.classList.remove('sf-full'); }
+    hitEl.classList.toggle('sf-show', full);
+
+    var listHtml = '';
+    var items = allItems();
+    for (var j = 0; j < items.length; j++) {
+      var s = items[j];
+      var count = state.stack[s.id] || 0;
+      if (!count) continue;
+      listHtml += '<li><span>' + s.emoji + ' ' + s.label + (count > 1 ? ' x' + count : '') + '</span>' +
+        '<span class="sf-pk-sl-g">' + (s.p * count) + 'g</span>' +
+        '<button type="button" class="sf-pk-remove" data-id="' + s.id + '" aria-label="Remove one ' + s.label + '">&minus;</button></li>';
+    }
+    stackListEl.innerHTML = listHtml;
+    clearBtn.classList.toggle('sf-pk-hidden', total === 0);
+  }
+
+  groupsEl.addEventListener('click', function (e) {
+    var chip = e.target.closest('.sf-pk-chip');
+    if (!chip) return;
+    var id = chip.getAttribute('data-id');
+    state.stack[id] = (state.stack[id] || 0) + 1;
+    renderStack();
+  });
+  stackListEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-pk-remove');
+    if (!btn) return;
+    var id = btn.getAttribute('data-id');
+    if (state.stack[id]) { state.stack[id] -= 1; if (state.stack[id] <= 0) delete state.stack[id]; }
+    renderStack();
+  });
+  clearBtn.addEventListener('click', function () { state.stack = {}; renderStack(); });
+
+  /* ---- Print card ---- */
+  printBtn.addEventListener('click', function () {
+    if (!state.target || !state.goal) {
+      printNudgeEl.innerHTML = '<div class="sf-pk-nudge">Set your number in Part 1 first, so the card prints with your real target on it.</div>';
+      return;
+    }
+    printNudgeEl.innerHTML = '';
+    var split = computeSplit(state.target, state.goal);
+    var mapHtml = '';
+    if (state.shift) {
+      var doses = mapDoses(state.target, state.shift);
+      mapHtml = '<table><tr><th>When</th><th>Dose</th><th>What it does</th></tr>';
+      for (var i = 0; i < doses.length; i++) {
+        mapHtml += '<tr><td>' + doses[i].t + ' (' + doses[i].l + ')</td><td>' + doses[i].g + 'g</td><td>' + doses[i].n + '</td></tr>';
+      }
+      mapHtml += '</table>';
+    } else {
+      mapHtml = '<table><tr><th>When</th><th>Dose</th></tr>' +
+        '<tr><td>Before shift</td><td>' + split.before + 'g</td></tr>' +
+        '<tr><td>On shift (two hits)</td><td>' + split.during + 'g</td></tr>' +
+        '<tr><td>After shift</td><td>' + split.after + 'g</td></tr></table>';
+    }
+    printEl.innerHTML = '' +
+      '<h1>The Nurse Protein Target</h1>' +
+      '<div class="sf-pk-print-sub">SmithFit, built by IJ Smith, RN. Rounded estimates, built to help, not to track.</div>' +
+      '<div class="sf-pk-print-num">' + state.target + 'g per day</div>' +
+      '<div class="sf-pk-print-rate">Tuned for ' + GOALS[state.goal].label + (state.is45 ? ', adjusted for 45+' : '') + '.</div>' +
+      mapHtml +
+      '<table><tr><th>Quick pick</th><th>Protein</th></tr>' +
+      '<tr><td>Rotisserie chicken (palm)</td><td>30g</td></tr>' +
+      '<tr><td>Protein shake</td><td>25g</td></tr>' +
+      '<tr><td>Cottage cheese (1 cup)</td><td>25g</td></tr>' +
+      '<tr><td>Tuna pouch</td><td>20g</td></tr>' +
+      '<tr><td>Greek yogurt</td><td>17g</td></tr>' +
+      '<tr><td>String cheese (2)</td><td>14g</td></tr></table>' +
+      '<div class="sf-pk-print-foot">Hit the number most days. That is the whole assignment.</div>';
+    window.print();
+  });
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    try {
+      if (!SF_CONFIG.pixelId) return;
+      if (!window.fbq) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+          t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      }
+      window.fbq('init', SF_CONFIG.pixelId);
+      window.fbq('track', 'PageView');
+    } catch (e) {}
+  }
+
+  /* ---- Call CTA wiring ---- */
+  function wireCallLinks() {
+    var links = document.querySelectorAll('[data-sf-call]');
+    for (var i = 0; i < links.length; i++) { links[i].setAttribute('href', SF_CONFIG.callUrl); }
+  }
+
+  /* ---- Reveal ---- */
+  (function reveal() {
+    var els = document.querySelectorAll('.sf-pk-reveal');
+    if (!els.length) return;
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { entries[i].target.classList.add('sf-in'); obs.unobserve(entries[i].target); } }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add('sf-in');
+    }
+  })();
+
+  /* ---- Prefill: query params, then localStorage (from the opt-in page) ---- */
+  function prefill() {
+    var w = null, g = null, a = false, s = null, unlocked = false, first = '';
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var pw = parseInt(p.get('w'), 10);
+      if (!isNaN(pw)) w = pw;
+      g = p.get('goal');
+      a = p.get('a45') === '1';
+      s = p.get('shift');
+      unlocked = p.get('unlocked') === '1';
+    } catch (e) {}
+    try {
+      if (w === null) { var lw = parseInt(window.localStorage.getItem('sf_pt_weight'), 10); if (!isNaN(lw)) w = lw; }
+      if (!g) g = window.localStorage.getItem('sf_pt_goal');
+      if (!a) a = window.localStorage.getItem('sf_pt_45') === '1';
+      if (!s) s = window.localStorage.getItem('sf_pt_shift');
+      if (!unlocked) unlocked = window.localStorage.getItem('sf_pt_unlocked') === '1';
+      first = window.localStorage.getItem('sf_pt_first') || '';
+    } catch (e) {}
+
+    if (unlocked && greetEl) {
+      greetEl.textContent = (first ? first + ', this' : 'This') + ' is yours now. Your number, your shift map, and every no-cook way to hit it. Save this page.';
+    }
+
+    if (w !== null && w >= 100 && w <= 300) { state.weight = w; setWeightUI(w); }
+    if (g && GOALS[g]) {
+      state.goal = g;
+      var gb = goalsEl.querySelector('[data-goal="' + g + '"]');
+      if (gb) pressGroup(goalsEl, '.sf-pk-goal', gb);
+    }
+    if (a) { state.is45 = true; ageBtn.setAttribute('aria-pressed', 'true'); }
+    if (s && MAPS[s]) {
+      state.shift = s;
+      var sb = shiftsEl.querySelector('[data-shift="' + s + '"]');
+      if (sb) pressGroup(shiftsEl, '.sf-pk-shift', sb);
+    }
+    if (state.goal && state.weight) renderResult(true);
+  }
+
+  /* ---- Init ---- */
+  renderGroups();
+  renderStack();
+  wireCallLinks();
+  initPixel();
+  prefill();
+})();
+</script>
+</body>
+</html>

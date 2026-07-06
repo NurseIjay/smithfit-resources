@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Tools for Nurses Who Work Shifts | SmithFit</title>
+<meta name="description" content="Free interactive tools built by a nurse, for nurses over 35 on 12-hour shifts. Meal builder, caffeine cutoff, protein target, night-shift eating window and more. No email needed to try them.">
+<meta property="og:title" content="Free Tools for Nurses Who Work Shifts">
+<meta property="og:description" content="Try every one of them without giving an email. Built by IJ Smith, RN.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-hub *, .sf-hub *::before, .sf-hub *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-hub {
+  --sf-gold: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-card: #ffffff;
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe);
+  background-color: var(--sf-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.sf-hub h1, .sf-hub h2, .sf-hub h3 { font-family: var(--sf-serif); color: var(--sf-dark); line-height: 1.14; }
+.sf-hub-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Hero ===== */
+.sf-hub-hero {
+  background: linear-gradient(150deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  padding: 54px 20px 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sf-hub-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.28) 0%, transparent 58%); pointer-events: none; }
+.sf-hub-hero > * { position: relative; z-index: 1; }
+.sf-hub-badge {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4);
+  color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px;
+}
+.sf-hub-hero h1 { color: var(--sf-cream); font-weight: 700; font-size: clamp(32px, 5.5vw, 50px); max-width: 640px; margin: 0 auto 14px; }
+.sf-hub-hero h1 .sf-hub-em { color: var(--sf-gold-soft); }
+.sf-hub-hero-sub { color: rgba(250,246,243,0.84); font-size: clamp(15px, 2.2vw, 18px); max-width: 520px; margin: 0 auto; }
+.sf-hub-hero-sub strong { color: var(--sf-cream); font-weight: 600; }
+
+/* ===== Layout ===== */
+.sf-hub-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== Start here (featured) ===== */
+.sf-hub-featured {
+  background: var(--sf-card); border: 1px solid var(--sf-cream-deep); border-radius: 20px;
+  padding: 28px 26px; margin-top: -56px; position: relative; z-index: 2;
+  box-shadow: 0 12px 40px rgba(42,33,24,0.12);
+  display: block; text-decoration: none;
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.sf-hub-featured:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); box-shadow: 0 18px 48px rgba(42,33,24,0.16); border-color: var(--sf-gold-soft); }
+.sf-hub-featured:focus-visible { outline: 3px solid var(--sf-gold); outline-offset: 3px; }
+.sf-hub-feat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold); margin-bottom: 10px; }
+.sf-hub-featured h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 8px; }
+.sf-hub-featured p { color: var(--sf-taupe); font-size: 15px; margin-bottom: 14px; }
+.sf-hub-feat-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sf-hub-chip { display: inline-block; background: var(--sf-cream); border: 1px solid var(--sf-cream-deep); border-radius: 999px; padding: 5px 13px; font-size: 12px; font-weight: 600; color: var(--sf-taupe-light); }
+.sf-hub-go { font-size: 14px; font-weight: 700; color: var(--sf-dark); letter-spacing: 0.02em; margin-left: auto; white-space: nowrap; }
+.sf-hub-go::after { content: " \2192"; color: var(--sf-gold); }
+
+/* ===== Library list ===== */
+.sf-hub-section { padding: 46px 0 10px; }
+.sf-hub-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold); text-align: center; margin-bottom: 10px; }
+.sf-hub-h2 { text-align: center; font-size: clamp(26px, 4.2vw, 36px); font-weight: 700; margin-bottom: 6px; }
+.sf-hub-lead { text-align: center; color: var(--sf-taupe-light); font-size: 15px; max-width: 460px; margin: 0 auto 30px; }
+
+.sf-hub-list { list-style: none; }
+.sf-hub-item { margin-bottom: 14px; }
+.sf-hub-card {
+  display: flex; align-items: flex-start; gap: 18px;
+  background: var(--sf-card); border: 1px solid var(--sf-cream-deep); border-left: 3px solid var(--sf-cream-deep);
+  border-radius: 16px; padding: 22px 22px; text-decoration: none;
+  -webkit-transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.sf-hub-card:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(42,33,24,0.10); border-left-color: var(--sf-gold); }
+.sf-hub-card:focus-visible { outline: 3px solid var(--sf-gold); outline-offset: 3px; }
+.sf-hub-num { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold); line-height: 1; min-width: 34px; padding-top: 3px; }
+.sf-hub-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.sf-hub-card p { color: var(--sf-taupe); font-size: 14px; margin-bottom: 8px; }
+.sf-hub-meta { font-size: 12px; font-weight: 600; color: var(--sf-taupe-light); letter-spacing: 0.04em; }
+.sf-hub-meta span { color: var(--sf-gold); }
+
+/* ===== Bridge ===== */
+.sf-hub-bridge-wrap { padding: 40px 0 52px; }
+.sf-hub-bridge {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border-radius: 20px; padding: 36px 28px; text-align: center; position: relative; overflow: hidden;
+}
+.sf-hub-bridge::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 62%); pointer-events: none; }
+.sf-hub-bridge > * { position: relative; z-index: 1; }
+.sf-hub-bridge h2 { color: var(--sf-cream); font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 10px; }
+.sf-hub-bridge h2 .sf-hub-em { color: var(--sf-gold-soft); }
+.sf-hub-bridge p { color: rgba(250,246,243,0.84); font-size: 15px; max-width: 480px; margin: 0 auto 22px; }
+.sf-hub-bridge-cta {
+  display: inline-block; background: var(--sf-gold); color: var(--sf-dark); text-decoration: none;
+  border-radius: 12px; padding: 15px 36px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-hub-bridge-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-hub-bridge-cta:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-hub-bridge-note { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 14px; }
+
+/* ===== Proof ===== */
+.sf-hub-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding-bottom: 8px; }
+.sf-hub-proof-item { background: var(--sf-card); border: 1px solid var(--sf-cream-deep); border-radius: 14px; padding: 18px 10px; text-align: center; }
+.sf-hub-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold); display: block; }
+.sf-hub-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 4px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-hub-footer { text-align: center; padding: 34px 20px 40px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-hub-footer strong { color: var(--sf-taupe); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-hub-reveal { opacity: 0; -webkit-transform: translateY(18px); transform: translateY(18px); -webkit-transition: opacity .55s ease, transform .55s ease; transition: opacity .55s ease, transform .55s ease; }
+.sf-hub-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-hub-hero { padding: 44px 18px 88px; }
+  .sf-hub-card { padding: 18px 16px; gap: 13px; }
+  .sf-hub-num { font-size: 22px; min-width: 26px; }
+  .sf-hub-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-hub-go { display: none; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-hub *, .sf-hub *::before, .sf-hub *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-hub">
+
+  <!-- HERO -->
+  <header class="sf-hub-hero">
+    <span class="sf-hub-badge">Built by a nurse, for nurses</span>
+    <h1>Free tools built for the way nurses <span class="sf-hub-em">actually live</span>.</h1>
+    <p class="sf-hub-hero-sub">Every one of them works <strong>before you give an email</strong>. Built by IJ Smith, RN, for nurses over 35 running 12-hour shifts.</p>
+  </header>
+
+  <div class="sf-hub-wrap">
+
+    <!-- START HERE -->
+    <a class="sf-hub-featured" href="3-minute-shift-meal-builder/">
+      <div class="sf-hub-feat-label">Start here</div>
+      <h2>The 3-Minute Shift Meal Builder</h2>
+      <p>Never meal prep again. Build a shift meal in 3 minutes from what is already in your fridge. No cooking, no tracking, no Tupperware graveyard.</p>
+      <div class="sf-hub-feat-meta">
+        <span class="sf-hub-chip">Interactive builder</span>
+        <span class="sf-hub-chip">3 minutes</span>
+        <span class="sf-hub-go">Build a plate</span>
+      </div>
+    </a>
+
+    <!-- LIBRARY -->
+    <section class="sf-hub-section">
+      <div class="sf-hub-eyebrow">The library</div>
+      <h2 class="sf-hub-h2">Pick the one that hits home</h2>
+      <p class="sf-hub-lead">Each one solves a single shift-life problem in a couple of minutes. Take what you need.</p>
+
+      <ul class="sf-hub-list">
+        <li class="sf-hub-item sf-hub-reveal">
+          <a class="sf-hub-card" href="caffeine-cutoff-calculator/">
+            <span class="sf-hub-num" aria-hidden="true">1</span>
+            <span>
+              <h3>The Caffeine Cutoff Calculator</h3>
+              <p>Keep your coffee. Find the exact time your last cup has to land so it stops stealing your sleep.</p>
+              <span class="sf-hub-meta"><span>Calculator</span> &middot; 60 seconds</span>
+            </span>
+          </a>
+        </li>
+        <li class="sf-hub-item sf-hub-reveal">
+          <a class="sf-hub-card" href="night-shift-eating-window/">
+            <span class="sf-hub-num" aria-hidden="true">2</span>
+            <span>
+              <h3>The Night-Shift Eating Window</h3>
+              <p>What and when to eat around a night shift, so 3am stops deciding for you.</p>
+              <span class="sf-hub-meta"><span>Your eating clock</span> &middot; 60 seconds</span>
+            </span>
+          </a>
+        </li>
+        <li class="sf-hub-item sf-hub-reveal">
+          <a class="sf-hub-card" href="nurse-protein-target/">
+            <span class="sf-hub-num" aria-hidden="true">3</span>
+            <span>
+              <h3>The Nurse Protein Target</h3>
+              <p>Your exact daily protein number, and how to hit it on a 12 without cooking a thing.</p>
+              <span class="sf-hub-meta"><span>Your number</span> &middot; 30 seconds</span>
+            </span>
+          </a>
+        </li>
+        <li class="sf-hub-item sf-hub-reveal">
+          <a class="sf-hub-card" href="real-weigh-in/">
+            <span class="sf-hub-num" aria-hidden="true">4</span>
+            <span>
+              <h3>The Real Weigh-In</h3>
+              <p>Weigh daily, ignore the noise. See what your scale is actually saying.</p>
+              <span class="sf-hub-meta"><span>Trend chart</span> &middot; 2 minutes</span>
+            </span>
+          </a>
+        </li>
+        <li class="sf-hub-item sf-hub-reveal">
+          <a class="sf-hub-card" href="3-supplements-worth-it/">
+            <span class="sf-hub-num" aria-hidden="true">5</span>
+            <span>
+              <h3>The 3 Supplements Worth It</h3>
+              <p>Most of the aisle is a receipt for nothing. The three worth your money, with doses.</p>
+              <span class="sf-hub-meta"><span>Cabinet audit</span> &middot; 2 minutes</span>
+            </span>
+          </a>
+        </li>
+        <li class="sf-hub-item sf-hub-reveal">
+          <a class="sf-hub-card" href="cortisol-scam/">
+            <span class="sf-hub-num" aria-hidden="true">6</span>
+            <span>
+              <h3>The Cortisol Scam</h3>
+              <p>The $60 powders are not lowering anything. What actually calms your system is free.</p>
+              <span class="sf-hub-meta"><span>Guide + audit</span> &middot; 3 minutes</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- BRIDGE -->
+    <section class="sf-hub-bridge-wrap">
+      <div class="sf-hub-bridge sf-hub-reveal">
+        <h2>Want the whole plan, built <span class="sf-hub-em">around your schedule</span>?</h2>
+        <p>The tools each fix one thing. If you want all of it handled (the shifts, the sleep, the protein, the days everything falls apart), I take a few nurses a month for a free game-plan call. No pitch, just a plan you can actually run.</p>
+        <a href="#" data-sf-call class="sf-hub-bridge-cta" target="_blank" rel="noopener">Book my free game-plan call</a>
+        <p class="sf-hub-bridge-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="sf-hub-proof sf-hub-reveal">
+      <div class="sf-hub-proof-item"><span class="sf-hub-proof-num">400+</span><div class="sf-hub-proof-label">Nurses coached</div></div>
+      <div class="sf-hub-proof-item"><span class="sf-hub-proof-num">87%</span><div class="sf-hub-proof-label">Feel a difference by Day 3</div></div>
+      <div class="sf-hub-proof-item"><span class="sf-hub-proof-num">~5 lbs</span><div class="sf-hub-proof-label">Average lost in Week 1</div></div>
+      <div class="sf-hub-proof-item"><span class="sf-hub-proof-num">60-day</span><div class="sf-hub-proof-label">Money-back guarantee</div></div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-hub-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resources, not medical advice.<br>
+    No macros, no punishing cardio, no meal-prep martyrdom.
+  </footer>
+
+</div>
+
+<script src="config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    callUrl: G.callUrl || '[GAMEPLAN_CALL_URL]',
+    pixelId: (G.pixelEnabled === false ? '' : (G.pixelId || ''))
+  };
+  function isConfigured(v) { return v && v.indexOf('[') !== 0; }
+
+  /* ---- Meta pixel (PageView) ---- */
+  (function initPixel() {
+    if (!isConfigured(SF_CONFIG.pixelId)) return;
+    try {
+      if (window.fbq) return;
+      var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!window._fbq) window._fbq = n;
+      n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+      var t = document.createElement('script'); t.async = true;
+      t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s);
+      window.fbq('init', SF_CONFIG.pixelId);
+      window.fbq('track', 'PageView');
+    } catch (e) {}
+  })();
+
+  /* ---- Call CTAs from shared config ---- */
+  (function wireCallLinks() {
+    if (!isConfigured(SF_CONFIG.callUrl)) return;
+    var links = document.querySelectorAll('[data-sf-call]');
+    for (var i = 0; i < links.length; i++) links[i].setAttribute('href', SF_CONFIG.callUrl);
+  })();
+
+  /* ---- Reveal ---- */
+  (function reveal() {
+    var els = document.querySelectorAll('.sf-hub-reveal');
+    if (!els.length) return;
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { entries[i].target.classList.add('sf-in'); obs.unobserve(entries[i].target); } }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add('sf-in');
+    }
+  })();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eat Before the Shift, Not at 3am | The Night-Shift Eating Window | SmithFit</title>
+<meta name="description" content="Your big meal belongs before your night shift, not at 3am. Get your personal eating clock: when to eat big, when to hold steady, when to go light. Free, built by a nurse for nurses.">
+<meta property="og:title" content="Your big meal belongs before the shift. Not at 3am.">
+<meta property="og:description" content="Get your personal night-shift eating clock in ten seconds. When to eat big, when to hold steady, when to go light. Free.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-nw *, .sf-nw *::before, .sf-nw *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-nw {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-night-deep: #14161d;
+  --sf-night-zone: #232733;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-green-deep: #2f6b41;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.sf-nw h1, .sf-nw h2, .sf-nw h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.14; }
+.sf-nw-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Hero: the night sky ===== */
+.sf-nw-hero {
+  background: linear-gradient(180deg, #101219 0%, #191720 46%, #2a2118 100%);
+  padding: 60px 20px 78px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sf-nw-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 62%;
+  background: radial-gradient(ellipse at 50% 118%, rgba(200,160,78,0.34) 0%, rgba(200,160,78,0.08) 46%, transparent 72%);
+  pointer-events: none;
+}
+.sf-nw-stars {
+  position: absolute;
+  inset: 0 0 45% 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.6px 1.6px at 11% 28%, rgba(250,246,243,0.55), transparent 55%),
+    radial-gradient(1px 1px at 23% 14%, rgba(250,246,243,0.38), transparent 55%),
+    radial-gradient(1.3px 1.3px at 34% 41%, rgba(250,246,243,0.30), transparent 55%),
+    radial-gradient(1px 1px at 47% 9%, rgba(250,246,243,0.45), transparent 55%),
+    radial-gradient(1.5px 1.5px at 61% 24%, rgba(250,246,243,0.42), transparent 55%),
+    radial-gradient(1px 1px at 72% 12%, rgba(250,246,243,0.32), transparent 55%),
+    radial-gradient(1.4px 1.4px at 83% 33%, rgba(250,246,243,0.5), transparent 55%),
+    radial-gradient(1px 1px at 91% 18%, rgba(250,246,243,0.35), transparent 55%),
+    radial-gradient(1.2px 1.2px at 55% 47%, rgba(250,246,243,0.24), transparent 55%),
+    radial-gradient(1px 1px at 6% 8%, rgba(250,246,243,0.3), transparent 55%);
+}
+.sf-nw-hero > * { position: relative; z-index: 1; }
+.sf-nw-badge {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4);
+  color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 22px;
+}
+.sf-nw-hero h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(34px, 6.4vw, 56px); max-width: 700px; margin: 0 auto 16px; }
+.sf-nw-hero h1 .sf-nw-em { color: var(--sf-gold-soft); }
+.sf-nw-hero-sub { color: rgba(250,246,243,0.84); font-size: clamp(16px, 2.4vw, 19px); max-width: 600px; margin: 0 auto 34px; }
+
+/* Hero clock strip: dusk to dawn */
+.sf-nw-hs { max-width: 560px; margin: 0 auto 36px; }
+.sf-nw-hs-bar { position: relative; height: 14px; border-radius: 999px; overflow: visible; display: flex; box-shadow: 0 2px 18px rgba(0,0,0,0.45); }
+.sf-nw-hs-seg { height: 100%; }
+.sf-nw-hs-seg:first-child { border-radius: 999px 0 0 999px; }
+.sf-nw-hs-seg:last-child { border-radius: 0 999px 999px 0; }
+.sf-nw-hs-a { width: 13%; background: var(--sf-gold-raw); }
+.sf-nw-hs-s { width: 35%; background: rgba(232,200,120,0.38); }
+.sf-nw-hs-l { width: 42%; background: #0d0f16; box-shadow: inset 0 0 0 1px rgba(250,246,243,0.12); }
+.sf-nw-hs-d { width: 10%; background: rgba(122,164,136,0.75); }
+.sf-nw-hs-dot {
+  position: absolute; top: -7px; left: 64%; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--sf-gold-soft); box-shadow: 0 0 10px 2px rgba(232,200,120,0.55);
+}
+.sf-nw-hs-dot::after {
+  content: "3am"; position: absolute; top: -20px; left: 50%;
+  -webkit-transform: translateX(-50%); transform: translateX(-50%);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--sf-gold-soft); text-transform: uppercase;
+}
+.sf-nw-hs-labels { position: relative; height: 34px; margin-top: 9px; }
+.sf-nw-hs-lab { position: absolute; top: 0; font-size: 11px; line-height: 1.35; color: rgba(250,246,243,0.62); text-align: left; white-space: nowrap; }
+.sf-nw-hs-lab strong { display: block; color: rgba(250,246,243,0.9); font-weight: 600; }
+.sf-nw-hs-lab.sf-l1 { left: 0; }
+.sf-nw-hs-lab.sf-l2 { left: 13%; }
+.sf-nw-hs-lab.sf-l3 { left: 48%; }
+.sf-nw-hs-lab.sf-l4 { left: auto; right: 0; text-align: right; }
+.sf-nw-hs-cap { font-family: var(--sf-display); font-style: italic; font-size: 13px; color: rgba(250,246,243,0.55); margin-top: 6px; }
+
+.sf-nw-hero-cta {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 42px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-nw-hero-cta:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-nw-hero-cta:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-nw-hero-trust { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 16px; }
+
+/* ===== Layout ===== */
+.sf-nw-wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.sf-nw-section { padding: 48px 0; }
+
+/* ===== Validate ===== */
+.sf-nw-validate {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-left: 4px solid var(--sf-gold-raw);
+  border-radius: 0 16px 16px 0; padding: 26px 26px; margin-top: -38px; position: relative; z-index: 2;
+  box-shadow: 0 8px 32px rgba(42,33,24,0.08);
+}
+.sf-nw-validate h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 12px; }
+.sf-nw-validate p { color: var(--sf-taupe-raw); font-size: 16px; margin-bottom: 10px; }
+.sf-nw-validate p:last-child { margin-bottom: 0; }
+.sf-nw-validate .sf-nw-line { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-light); }
+
+/* ===== Section heads ===== */
+.sf-nw-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-raw); text-align: center; margin-bottom: 10px; }
+.sf-nw-h2 { text-align: center; font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; margin-bottom: 8px; }
+.sf-nw-lead { text-align: center; color: var(--sf-taupe-light); font-size: 16px; max-width: 520px; margin: 0 auto 28px; }
+
+/* ===== The clock builder ===== */
+.sf-nw-builder { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 30px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-nw-step-h { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 12px; display: flex; align-items: center; gap: 9px; }
+.sf-nw-step-n { width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+.sf-nw-opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+.sf-nw-opts.sf-two { grid-template-columns: repeat(2, 1fr); }
+.sf-nw-opt {
+  background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 14px 8px;
+  text-align: center; cursor: pointer; font-family: var(--sf-sans);
+  -webkit-transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.sf-nw-opt:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-nw-opt:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-nw-opt.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-nw-opt-name { font-family: var(--sf-serif); font-weight: 700; font-size: 19px; color: var(--sf-dark-raw); display: block; }
+.sf-nw-opt-desc { font-size: 11px; color: var(--sf-taupe-light); margin-top: 3px; display: block; line-height: 1.4; }
+
+.sf-nw-custom { display: none; margin: -12px 0 24px; }
+.sf-nw-custom.sf-show { display: block; }
+.sf-nw-custom label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--sf-taupe-light); margin-bottom: 6px; }
+.sf-nw-custom input {
+  width: 100%; max-width: 220px; padding: 12px 14px; background: var(--sf-cream-raw);
+  border: 1.5px solid var(--sf-border); border-radius: 10px; color: var(--sf-dark-raw);
+  font-family: var(--sf-sans); font-size: 16px;
+  -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease;
+}
+.sf-nw-custom input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+
+.sf-nw-btn {
+  display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.4);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-nw-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-nw-btn:active { -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-nw-btn:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+.sf-nw-hint { text-align: center; font-size: 13px; color: var(--sf-taupe-light); margin-top: 12px; min-height: 16px; }
+
+.sf-nw-nudge { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+
+/* ===== Result: the eating clock ===== */
+.sf-nw-result { margin-top: 26px; }
+.sf-nw-verdict-h { font-size: clamp(22px, 3.6vw, 28px); font-weight: 700; margin-bottom: 8px; }
+.sf-nw-verdict { font-size: 15px; color: var(--sf-taupe-raw); margin-bottom: 22px; }
+
+.sf-nw-strip { position: relative; margin-bottom: 6px; }
+.sf-nw-track { display: flex; height: 56px; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 14px rgba(42,33,24,0.1); }
+.sf-nw-zone { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 0; }
+.sf-nw-z-anchor { background: var(--sf-gold-raw); }
+.sf-nw-z-steady { background: var(--sf-cream-deep); }
+.sf-nw-z-light {
+  background: var(--sf-night-zone);
+  background-image:
+    radial-gradient(1.2px 1.2px at 18% 30%, rgba(250,246,243,0.5), transparent 55%),
+    radial-gradient(1px 1px at 42% 62%, rgba(250,246,243,0.35), transparent 55%),
+    radial-gradient(1.3px 1.3px at 66% 24%, rgba(250,246,243,0.45), transparent 55%),
+    radial-gradient(1px 1px at 86% 55%, rgba(250,246,243,0.3), transparent 55%);
+}
+.sf-nw-z-land { background: var(--sf-green-soft); }
+.sf-nw-zlabel { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; overflow: hidden; }
+.sf-nw-z-anchor .sf-nw-zlabel { color: var(--sf-dark-raw); }
+.sf-nw-z-steady .sf-nw-zlabel { color: var(--sf-taupe-raw); }
+.sf-nw-z-light .sf-nw-zlabel { color: rgba(250,246,243,0.85); }
+.sf-nw-z-land .sf-nw-zlabel { color: var(--sf-green-deep); }
+.sf-nw-znum {
+  width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.sf-nw-z-anchor .sf-nw-znum { background: var(--sf-dark-raw); color: var(--sf-gold-soft); }
+.sf-nw-z-steady .sf-nw-znum { background: var(--sf-taupe-raw); color: var(--sf-cream-raw); }
+.sf-nw-z-light .sf-nw-znum { background: var(--sf-gold-soft); color: var(--sf-dark-raw); }
+.sf-nw-z-land .sf-nw-znum { background: var(--sf-green-deep); color: var(--sf-cream-raw); }
+
+.sf-nw-mark3 { position: absolute; top: -13px; -webkit-transform: translateX(-50%); transform: translateX(-50%); text-align: center; pointer-events: none; }
+.sf-nw-mark3-dot { display: block; width: 8px; height: 8px; margin: 0 auto; border-radius: 50%; background: var(--sf-gold-soft); box-shadow: 0 0 9px 2px rgba(232,200,120,0.6); }
+.sf-nw-mark3-lab { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-raw); margin-top: 2px; }
+
+.sf-nw-ticks { position: relative; height: 26px; }
+.sf-nw-tick { position: absolute; top: 4px; font-size: 11px; font-weight: 600; color: var(--sf-taupe-light); white-space: nowrap; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+.sf-nw-tick.sf-first { -webkit-transform: none; transform: none; }
+.sf-nw-tick.sf-last { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+
+@-webkit-keyframes sfNwGrow { 0% { -webkit-transform: scaleX(0); } 100% { -webkit-transform: scaleX(1); } }
+@keyframes sfNwGrow { 0% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+.sf-nw-anim .sf-nw-zone { -webkit-transform-origin: left center; transform-origin: left center; -webkit-animation: sfNwGrow .55s ease both; animation: sfNwGrow .55s ease both; }
+.sf-nw-anim .sf-nw-zone:nth-child(2) { -webkit-animation-delay: .12s; animation-delay: .12s; }
+.sf-nw-anim .sf-nw-zone:nth-child(3) { -webkit-animation-delay: .24s; animation-delay: .24s; }
+.sf-nw-anim .sf-nw-zone:nth-child(4) { -webkit-animation-delay: .36s; animation-delay: .36s; }
+@-webkit-keyframes sfNwFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes sfNwFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+.sf-nw-anim .sf-nw-tick, .sf-nw-anim .sf-nw-mark3, .sf-nw-anim .sf-nw-zlabel, .sf-nw-anim .sf-nw-znum { -webkit-animation: sfNwFade .5s ease both .55s; animation: sfNwFade .5s ease both .55s; }
+
+@-webkit-keyframes sfNwPop { 0% { opacity: 0; -webkit-transform: translateY(14px); } 100% { opacity: 1; -webkit-transform: translateY(0); } }
+@keyframes sfNwPop { 0% { opacity: 0; transform: translateY(14px); } 100% { opacity: 1; transform: translateY(0); } }
+.sf-nw-pop { -webkit-animation: sfNwPop .5s ease both; animation: sfNwPop .5s ease both; }
+.sf-nw-pop.sf-d1 { -webkit-animation-delay: .15s; animation-delay: .15s; }
+.sf-nw-pop.sf-d2 { -webkit-animation-delay: .25s; animation-delay: .25s; }
+.sf-nw-pop.sf-d3 { -webkit-animation-delay: .35s; animation-delay: .35s; }
+.sf-nw-pop.sf-d4 { -webkit-animation-delay: .45s; animation-delay: .45s; }
+.sf-nw-pop.sf-d5 { -webkit-animation-delay: .55s; animation-delay: .55s; }
+
+/* Zone cards */
+.sf-nw-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+.sf-nw-card { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 18px 18px; }
+.sf-nw-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.sf-nw-card-n { width: 22px; height: 22px; flex: 0 0 22px; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.sf-nw-card.sf-c1 .sf-nw-card-n { background: var(--sf-gold-raw); color: var(--sf-dark-raw); }
+.sf-nw-card.sf-c2 .sf-nw-card-n { background: var(--sf-cream-deep); color: var(--sf-taupe-raw); }
+.sf-nw-card.sf-c3 .sf-nw-card-n { background: var(--sf-night-zone); color: var(--sf-cream-raw); }
+.sf-nw-card.sf-c4 .sf-nw-card-n { background: var(--sf-green-soft); color: var(--sf-green-deep); }
+.sf-nw-card h3 { font-size: 19px; font-weight: 700; }
+.sf-nw-card-time { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 8px; }
+.sf-nw-card p { font-size: 14px; color: var(--sf-taupe-raw); }
+.sf-nw-card .sf-nw-why { font-size: 12.5px; color: var(--sf-taupe-light); margin-top: 8px; }
+.sf-nw-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.sf-nw-chip-eg { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; color: var(--sf-taupe-raw); }
+
+/* 3am mini-list */
+.sf-nw-3am { background: var(--sf-night-deep); border-radius: 16px; padding: 24px 22px; margin-top: 20px; position: relative; overflow: hidden; }
+.sf-nw-3am::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 20%, rgba(250,246,243,0.4), transparent 55%),
+    radial-gradient(1px 1px at 78% 16%, rgba(250,246,243,0.32), transparent 55%),
+    radial-gradient(1.2px 1.2px at 90% 70%, rgba(250,246,243,0.28), transparent 55%);
+}
+.sf-nw-3am > * { position: relative; z-index: 1; }
+.sf-nw-3am h3 { color: var(--sf-cream-raw); font-size: 21px; font-weight: 700; margin-bottom: 14px; }
+.sf-nw-3am h3 .sf-nw-em { color: var(--sf-gold-soft); }
+.sf-nw-3am-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.sf-nw-3am-col h4 { font-family: var(--sf-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.sf-nw-3am-col.sf-yes h4 { color: var(--sf-gold-soft); }
+.sf-nw-3am-col.sf-no h4 { color: rgba(250,246,243,0.5); }
+.sf-nw-3am-col ul { list-style: none; }
+.sf-nw-3am-col li { font-size: 14px; color: rgba(250,246,243,0.88); padding: 4px 0 4px 20px; position: relative; }
+.sf-nw-3am-col.sf-yes li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-nw-3am-col.sf-no li { color: rgba(250,246,243,0.55); }
+.sf-nw-3am-col.sf-no li::before { content: "\00d7"; position: absolute; left: 2px; color: rgba(192,80,77,0.9); font-weight: 700; }
+.sf-nw-3am-line { font-family: var(--sf-display); font-style: italic; font-size: 14.5px; color: rgba(250,246,243,0.72); margin-top: 16px; border-top: 1px solid rgba(250,246,243,0.12); padding-top: 14px; }
+
+/* ===== Email gate ===== */
+.sf-nw-gate { background: linear-gradient(180deg, #101219 0%, #1d1922 55%, #2a2118 100%); border-radius: 20px; padding: 34px 26px; margin-top: 24px; text-align: center; position: relative; overflow: hidden; }
+.sf-nw-gate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 62%); pointer-events: none; }
+.sf-nw-gate > * { position: relative; z-index: 1; }
+.sf-nw-gate h3 { color: var(--sf-cream-raw); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 10px; }
+.sf-nw-gate h3 .sf-nw-em { color: var(--sf-gold-soft); }
+.sf-nw-gate p { color: rgba(250,246,243,0.82); font-size: 15px; max-width: 460px; margin: 0 auto 22px; }
+.sf-nw-gate-list { list-style: none; max-width: 420px; margin: 0 auto 24px; text-align: left; }
+.sf-nw-gate-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
+.sf-nw-gate-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-nw-form { max-width: 400px; margin: 0 auto; }
+.sf-nw-field { margin-bottom: 12px; text-align: left; }
+.sf-nw-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,246,243,0.7); margin-bottom: 5px; }
+.sf-nw-field input { width: 100%; padding: 13px 15px; background: rgba(250,246,243,0.96); border: 1.5px solid transparent; border-radius: 10px; color: var(--sf-dark-raw); font-family: var(--sf-sans); font-size: 16px; -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
+.sf-nw-field input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-nw-field input::placeholder { color: var(--sf-taupe-light); }
+.sf-nw-submit { display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 10px; padding: 15px 24px; font-family: var(--sf-sans); font-weight: 700; font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; margin-top: 6px; -webkit-transition: transform .2s ease, background .2s ease; transition: transform .2s ease, background .2s ease; }
+.sf-nw-submit:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); background: var(--sf-gold-light); }
+.sf-nw-submit:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-nw-submit:disabled { background: var(--sf-taupe-light); color: rgba(250,246,243,0.8); cursor: not-allowed; -webkit-transform: none; transform: none; }
+.sf-nw-formnote { color: rgba(250,246,243,0.55); font-size: 12px; margin-top: 14px; }
+.sf-nw-msg { border-radius: 10px; padding: 12px 16px; font-size: 14px; margin-top: 14px; text-align: left; }
+.sf-nw-msg.sf-err { background: var(--sf-red-soft); color: #8a3a37; }
+.sf-nw-msg.sf-ok { background: var(--sf-green-soft); color: var(--sf-green-deep); }
+.sf-nw-msg a { color: inherit; font-weight: 700; }
+
+/* ===== Bridge ===== */
+.sf-nw-bridge { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 34px 26px; text-align: center; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-nw-bridge h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 12px; }
+.sf-nw-bridge h2 .sf-nw-em { color: var(--sf-gold-raw); }
+.sf-nw-bridge p { color: var(--sf-taupe-raw); font-size: 16px; max-width: 520px; margin: 0 auto 24px; }
+.sf-nw-bridge-cta { display: inline-block; background: transparent; color: var(--sf-taupe-raw); text-decoration: none; border: 1.5px solid var(--sf-gold-raw); border-radius: 12px; padding: 15px 34px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; -webkit-transition: background .2s ease, transform .2s ease; transition: background .2s ease, transform .2s ease; }
+.sf-nw-bridge-cta:hover { background: var(--sf-gold-hover); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-nw-bridge-cta:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 3px; }
+.sf-nw-bridge-note { color: var(--sf-taupe-light); font-size: 13px; margin-top: 14px; }
+
+/* ===== Proof ===== */
+.sf-nw-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.sf-nw-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 20px 10px; text-align: center; }
+.sf-nw-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 28px; color: var(--sf-gold-raw); display: block; }
+.sf-nw-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 5px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-nw-footer { text-align: center; padding: 36px 20px 40px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-nw-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-nw-reveal { opacity: 0; -webkit-transform: translateY(22px); transform: translateY(22px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-nw-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-nw-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-nw-hero { padding: 46px 18px 66px; }
+  .sf-nw-section { padding: 38px 0; }
+  .sf-nw-builder { padding: 24px 18px; }
+  .sf-nw-opts { gap: 8px; }
+  .sf-nw-opt-name { font-size: 17px; }
+  .sf-nw-track { height: 46px; }
+  .sf-nw-zlabel { display: none; }
+  .sf-nw-cards { grid-template-columns: 1fr; }
+  .sf-nw-3am-grid { grid-template-columns: 1fr; }
+  .sf-nw-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-nw-hs-lab { font-size: 10px; }
+  .sf-nw-tick { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sf-nw *, .sf-nw *::before, .sf-nw *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sf-nw">
+
+  <!-- HERO -->
+  <header class="sf-nw-hero">
+    <div class="sf-nw-stars" aria-hidden="true"></div>
+    <span class="sf-nw-badge">Free tool, built by a nurse</span>
+    <h1>Your big meal belongs <span class="sf-nw-em">before the shift</span>. Not at 3am.</h1>
+    <p class="sf-nw-hero-sub">Night shifts do not have to end in the 3am pizza call and a scale that creeps every stretch. Three taps and you get your exact eating clock for tonight: when to eat big, when to hold steady, when to go light.</p>
+
+    <div class="sf-nw-hs" aria-hidden="true">
+      <div class="sf-nw-hs-bar">
+        <span class="sf-nw-hs-seg sf-nw-hs-a"></span><span class="sf-nw-hs-seg sf-nw-hs-s"></span><span class="sf-nw-hs-seg sf-nw-hs-l"></span><span class="sf-nw-hs-seg sf-nw-hs-d"></span>
+        <span class="sf-nw-hs-dot"></span>
+      </div>
+      <div class="sf-nw-hs-labels">
+        <span class="sf-nw-hs-lab sf-l1"><strong>5pm</strong>eat big</span>
+        <span class="sf-nw-hs-lab sf-l2"><strong>7pm</strong>steady</span>
+        <span class="sf-nw-hs-lab sf-l3"><strong>12:30am</strong>go light</span>
+        <span class="sf-nw-hs-lab sf-l4"><strong>7am</strong>land</span>
+      </div>
+      <div class="sf-nw-hs-cap">A 7pm 12, on purpose. Yours takes ten seconds below.</div>
+    </div>
+
+    <a href="#sf-nw-tool" class="sf-nw-hero-cta">Build my eating clock</a>
+    <p class="sf-nw-hero-trust">Free. Ten seconds. Built for 7pm and 11pm starts, 8s, 10s, and 12s.</p>
+  </header>
+
+  <div class="sf-nw-wrap">
+
+    <!-- VALIDATE -->
+    <div class="sf-nw-validate sf-nw-reveal">
+      <h2>The 3am order is exhaustion, not weakness</h2>
+      <p>By 3am you have been awake most of a day, the floor finally goes quiet, and your body is at its lowest point of the night, screaming for fast fuel. Of course pizza sounds like survival. Every night shifter knows that call.</p>
+      <p>Here is the part nobody told you: the same meal hits your body harder at 3am than it does at 6pm. Big food in the deep night is one of the habits most tied to weight gain in shift workers. The fix is not more willpower at 3am. It is a bigger meal at 5pm.</p>
+      <p class="sf-nw-line">This is a window, not a fasting plan. Fasting through a 12 is how you end up shaky at 4am pushing meds. You eat all night. You eat on purpose.</p>
+    </div>
+
+    <!-- THE TOOL -->
+    <section class="sf-nw-section" id="sf-nw-tool">
+      <div class="sf-nw-eyebrow">Try it now, no email needed</div>
+      <h2 class="sf-nw-h2">Set your eating clock</h2>
+      <p class="sf-nw-lead">Three taps: when you clock in, how long you are on, and what happens when you get home. The clock does the rest.</p>
+
+      <div class="sf-nw-builder sf-nw-reveal">
+        <div class="sf-nw-step-h"><span class="sf-nw-step-n">1</span> When do you clock in?</div>
+        <div class="sf-nw-opts" id="sfNwStart" role="group" aria-label="Choose your shift start time">
+          <button type="button" class="sf-nw-opt" data-start="1140" aria-pressed="false">
+            <span class="sf-nw-opt-name">7:00pm</span>
+            <span class="sf-nw-opt-desc">The classic night</span>
+          </button>
+          <button type="button" class="sf-nw-opt" data-start="1380" aria-pressed="false">
+            <span class="sf-nw-opt-name">11:00pm</span>
+            <span class="sf-nw-opt-desc">The late start</span>
+          </button>
+          <button type="button" class="sf-nw-opt" data-start="custom" aria-pressed="false">
+            <span class="sf-nw-opt-name">Custom</span>
+            <span class="sf-nw-opt-desc">Type your start</span>
+          </button>
+        </div>
+        <div class="sf-nw-custom" id="sfNwCustomWrap">
+          <label for="sfNwCustomTime">Your clock-in time</label>
+          <input type="time" id="sfNwCustomTime" name="customStart">
+        </div>
+
+        <div class="sf-nw-step-h"><span class="sf-nw-step-n">2</span> How long is the shift?</div>
+        <div class="sf-nw-opts" id="sfNwLen" role="group" aria-label="Choose your shift length">
+          <button type="button" class="sf-nw-opt" data-len="480" aria-pressed="false">
+            <span class="sf-nw-opt-name">8 hours</span>
+          </button>
+          <button type="button" class="sf-nw-opt" data-len="600" aria-pressed="false">
+            <span class="sf-nw-opt-name">10 hours</span>
+          </button>
+          <button type="button" class="sf-nw-opt sf-on" data-len="720" aria-pressed="true">
+            <span class="sf-nw-opt-name">12 hours</span>
+          </button>
+        </div>
+
+        <div class="sf-nw-step-h"><span class="sf-nw-step-n">3</span> When you get home?</div>
+        <div class="sf-nw-opts sf-two" id="sfNwAfter" role="group" aria-label="Choose what you do after the shift">
+          <button type="button" class="sf-nw-opt" data-after="bed" aria-pressed="false">
+            <span class="sf-nw-opt-name">Straight to bed</span>
+            <span class="sf-nw-opt-desc">Blinds down, asleep fast</span>
+          </button>
+          <button type="button" class="sf-nw-opt" data-after="family" aria-pressed="false">
+            <span class="sf-nw-opt-name">Up with the family</span>
+            <span class="sf-nw-opt-desc">School run, life, sleep later</span>
+          </button>
+        </div>
+
+        <button type="button" class="sf-nw-btn" id="sfNwBuild">Build my eating clock</button>
+        <p class="sf-nw-hint" id="sfNwHint"></p>
+        <div id="sfNwNudge"></div>
+
+        <div id="sfNwResult" aria-live="polite"></div>
+
+        <!-- EMAIL GATE (revealed after first clock) -->
+        <div class="sf-nw-gate sf-nw-hidden" id="sfNwGate">
+          <h3>That is tonight. Get the <span class="sf-nw-em">whole stretch</span>.</h3>
+          <p>The clock above covers one night. The full set covers the week that comes with it:</p>
+          <ul class="sf-nw-gate-list">
+            <li>Full clocks for all three nights: first night, the middle, and the flip back to days</li>
+            <li>The 3-nights-in-a-row survival sequence, including the days between</li>
+            <li>A printable fridge card with your exact times on it</li>
+          </ul>
+          <form class="sf-nw-form" id="sfNwForm" novalidate>
+            <div class="sf-nw-field">
+              <label for="sfNwFirst">First name (optional)</label>
+              <input type="text" id="sfNwFirst" name="firstName" placeholder="First name" autocomplete="given-name">
+            </div>
+            <div class="sf-nw-field">
+              <label for="sfNwEmail">Email</label>
+              <input type="email" id="sfNwEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
+            </div>
+            <button type="submit" class="sf-nw-submit" id="sfNwSubmit">Send me the full night set</button>
+            <div id="sfNwFormMsg" aria-live="polite"></div>
+            <p class="sf-nw-formnote">No spam. Unsubscribe any time.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOFT HIGH-TICKET BRIDGE -->
+    <section class="sf-nw-section">
+      <div class="sf-nw-bridge sf-nw-reveal">
+        <h2>Want the whole plan built <span class="sf-nw-em">around your rotation</span>?</h2>
+        <p>The clock handles tonight. If you want the whole thing (the meals, the sleep, the flip days, the weeks your schedule falls apart) I take a few nurses a month for a free game-plan call. No pitch. A plan you can actually run on nights.</p>
+        <a href="#" data-sf-call class="sf-nw-bridge-cta">Book my free game-plan call</a>
+        <p class="sf-nw-bridge-note">30 minutes, free, nurse to nurse.</p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="sf-nw-section" style="padding-top: 0;">
+      <div class="sf-nw-proof sf-nw-reveal">
+        <div class="sf-nw-proof-item"><span class="sf-nw-proof-num">400+</span><div class="sf-nw-proof-label">Nurses coached</div></div>
+        <div class="sf-nw-proof-item"><span class="sf-nw-proof-num">87%</span><div class="sf-nw-proof-label">Feel a difference by Day 3</div></div>
+        <div class="sf-nw-proof-item"><span class="sf-nw-proof-num">~5 lbs</span><div class="sf-nw-proof-label">Average lost in Week 1</div></div>
+        <div class="sf-nw-proof-item"><span class="sf-nw-proof-num">60-day</span><div class="sf-nw-proof-label">Money-back guarantee</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sf-nw-footer">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Made for 12-hour nights, rotating stretches, and the 3am hour.
+  </footer>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (edit lead-magnets/config.js, not this file) ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-night-shift-eating",
+    resourceUrl: "resource.html"
+  };
+  function isConfigured(v) { return v && v.charAt(0) !== "["; }
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    if (!SF_CONFIG.pixelId) return;
+    try {
+      (function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+        t = b.createElement(e); t.async = true; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      window.fbq("init", SF_CONFIG.pixelId);
+      window.fbq("track", "PageView");
+    } catch (e) {}
+  }
+  function fireLeadPixel() {
+    try { if (SF_CONFIG.pixelId && typeof window.fbq === "function") { window.fbq("track", "Lead", { content_name: "The Night-Shift Eating Window" }); } } catch (e) {}
+  }
+
+  /* ---- Call links ---- */
+  function initCallLinks() {
+    var links = document.querySelectorAll("a[data-sf-call]");
+    for (var i = 0; i < links.length; i++) {
+      if (isConfigured(SF_CONFIG.callUrl)) {
+        links[i].setAttribute("href", SF_CONFIG.callUrl);
+        links[i].setAttribute("target", "_blank");
+        links[i].setAttribute("rel", "noopener");
+      }
+    }
+  }
+
+  /* ---- Time helpers ---- */
+  function fmt(m) {
+    m = ((m % 1440) + 1440) % 1440;
+    var h = Math.floor(m / 60), min = m % 60;
+    var ap = h >= 12 ? "pm" : "am";
+    var h12 = h % 12; if (h12 === 0) h12 = 12;
+    return min === 0 ? (h12 + ap) : (h12 + ":" + (min < 10 ? "0" + min : min) + ap);
+  }
+
+  /* ---- The clock math (plain-language rules)
+     Anchor: real meal 1 to 2 hours before clock-in.
+     Steady: normal eating from clock-in until roughly midnight
+             (or about 3 hours in for late starts).
+     Light:  protein-first grazing from there to clock-out, because
+             the body handles the same food worse in the deep night.
+     Landing: small protein bite at home, never a feast.           ---- */
+  function computeClock(S, L, after) {
+    var E = S + L;
+    var midRef = S >= 720 ? 1440 : 0;
+    var deepA = midRef, deepB = midRef + 360;
+    var crosses = (S < deepB) && (E > deepA);
+    var c = { S: S, E: E, L: L, after: after, crosses: crosses, midnightStart: false };
+    c.anchorA = S - 120;
+    c.anchorB = S - 60;
+    if (crosses) {
+      var ls;
+      if (S >= deepA && S < deepB) { ls = S + 60; c.midnightStart = true; }
+      else {
+        ls = Math.max(deepA + 30, S + 180);
+        ls = Math.min(ls, E - 90);
+        ls = Math.max(ls, S + 60);
+      }
+      c.lightStart = ls;
+    } else {
+      c.lightStart = null;
+    }
+    c.landA = E + 30;
+    c.landB = E + 90;
+    c.threeAm = midRef + 180;
+    c.showThreeAm = crosses && c.threeAm > S && c.threeAm < E;
+    return c;
+  }
+
+  function verdictText(c) {
+    if (!c.crosses) {
+      return "That start barely touches the deep night, so tonight reads more like a day schedule. The rule holds anyway: anchor before you clock in, eat steady through, land light at home.";
+    }
+    var v;
+    if (c.midnightStart) {
+      v = "You clock in inside the deep night, so your anchor meal is doing almost all the work. Eat it like a real dinner before you leave, and keep the whole shift on the light side.";
+    } else if (c.S >= 1320) {
+      v = "A late start means a short steady stretch. Your anchor plate carries most of tonight, so make it a real dinner, not a bite on the way out the door.";
+    } else {
+      v = "Your start gives you a real steady stretch. Eat like a normal person until " + fmt(c.lightStart) + ", then shift gears.";
+    }
+    if (c.L >= 720) { v += " And a 12 means a long light window: stock the grazing list, because the break room will not save you."; }
+    else if (c.L <= 480) { v += " The good news about an 8: your light window is short. Hold the line and you are home before it gets loud."; }
+    else { v += " Ten hours sits in the middle: long enough to need the grazing list, short enough that the clock does most of the work."; }
+    return v;
+  }
+
+  var LIGHT_EXAMPLES = ["Greek yogurt cup", "Two hard-boiled eggs", "String cheese", "Jerky", "Half a protein shake"];
+
+  function landingCopy(after) {
+    if (after === "family") {
+      return {
+        time: "when you walk in",
+        body: "Keep breakfast with them light and protein-first: eggs, a yogurt bowl, coffee if you must. Your real meal comes after you sleep, so you are not running two food days at once.",
+        why: "A big plate before a delayed sleep leaves you waking up puffy and starving anyway."
+      };
+    }
+    return {
+      time: "when you walk in",
+      body: "One small protein bite, water, blinds down, bed. Greek yogurt or string cheese sized, not a plate.",
+      why: "A feast now sits on top of your sleep. The small bite keeps you asleep without weighing you down."
+    };
+  }
+
+  /* ---- Strip + cards rendering ---- */
+  function pct(n, total) { return (Math.round(n / total * 1000) / 10) + "%"; }
+
+  function stripHtml(c) {
+    var start = c.anchorA, end = c.landB, total = end - start;
+    var zones = [];
+    zones.push({ cls: "sf-nw-z-anchor", label: "Anchor", n: "1", w: c.S - c.anchorA });
+    if (c.crosses) {
+      zones.push({ cls: "sf-nw-z-steady", label: "Steady", n: "2", w: c.lightStart - c.S });
+      zones.push({ cls: "sf-nw-z-light", label: "Go light", n: "3", w: c.E - c.lightStart });
+      zones.push({ cls: "sf-nw-z-land", label: "Land", n: "4", w: c.landB - c.E });
+    } else {
+      zones.push({ cls: "sf-nw-z-steady", label: "Steady", n: "2", w: c.E - c.S });
+      zones.push({ cls: "sf-nw-z-land", label: "Land", n: "3", w: c.landB - c.E });
+    }
+    var zHtml = "";
+    for (var i = 0; i < zones.length; i++) {
+      var wPct = zones[i].w / total * 100;
+      var labelHtml = wPct >= 12 ? ('<span class="sf-nw-zlabel">' + zones[i].label + "</span>") : "";
+      zHtml += '<div class="sf-nw-zone ' + zones[i].cls + '" style="width:' + pct(zones[i].w, total) + '">' +
+        '<span class="sf-nw-znum" aria-hidden="true">' + zones[i].n + '</span>' + labelHtml + "</div>";
+    }
+    var marks = c.crosses ? [c.anchorA, c.S, c.lightStart, c.E] : [c.anchorA, c.S, c.E];
+    var tHtml = "";
+    for (var t = 0; t < marks.length; t++) {
+      var cls = t === 0 ? " sf-first" : "";
+      tHtml += '<span class="sf-nw-tick' + cls + '" style="left:' + pct(marks[t] - start, total) + '">' + fmt(marks[t]) + "</span>";
+    }
+    var markHtml = "";
+    if (c.showThreeAm) {
+      markHtml = '<div class="sf-nw-mark3" style="left:' + pct(c.threeAm - start, total) + '"><span class="sf-nw-mark3-dot"></span><span class="sf-nw-mark3-lab">3am</span></div>';
+    }
+    var aria = "Your eating clock: anchor meal " + fmt(c.anchorA) + " to " + fmt(c.anchorB) +
+      (c.crosses ? (", steady " + fmt(c.S) + " to " + fmt(c.lightStart) + ", light " + fmt(c.lightStart) + " to " + fmt(c.E)) : (", steady " + fmt(c.S) + " to " + fmt(c.E))) +
+      ", landing about " + fmt(c.landA) + ".";
+    return '<div class="sf-nw-strip sf-nw-anim" role="img" aria-label="' + aria + '">' +
+      '<div class="sf-nw-track">' + zHtml + "</div>" + markHtml +
+      '<div class="sf-nw-ticks">' + tHtml + "</div></div>";
+  }
+
+  function cardHtml(idx, delay, name, time, body, why, chips) {
+    var chipsHtml = "";
+    if (chips) {
+      chipsHtml = '<div class="sf-nw-chips">';
+      for (var i = 0; i < chips.length; i++) { chipsHtml += '<span class="sf-nw-chip-eg">' + chips[i] + "</span>"; }
+      chipsHtml += "</div>";
+    }
+    return '<div class="sf-nw-card sf-c' + idx + ' sf-nw-pop sf-d' + delay + '">' +
+      '<div class="sf-nw-card-top"><span class="sf-nw-card-n" aria-hidden="true">' + idx + '</span><h3>' + name + "</h3></div>" +
+      '<div class="sf-nw-card-time">' + time + "</div>" +
+      "<p>" + body + "</p>" + chipsHtml +
+      (why ? '<p class="sf-nw-why">' + why + "</p>" : "") +
+      "</div>";
+  }
+
+  function threeAmHtml() {
+    return '<div class="sf-nw-3am sf-nw-pop sf-d5">' +
+      '<h3>What counts as <span class="sf-nw-em">light</span> at 3am</h3>' +
+      '<div class="sf-nw-3am-grid">' +
+        '<div class="sf-nw-3am-col sf-yes"><h4>Reach for this</h4><ul>' +
+          "<li>Greek yogurt cup (one, not the tub)</li>" +
+          "<li>Two hard-boiled eggs</li>" +
+          "<li>String cheese, one or two</li>" +
+          "<li>Jerky, a palm-sized bag</li>" +
+          "<li>Half a protein shake, sipped slow</li>" +
+        "</ul></div>" +
+        '<div class="sf-nw-3am-col sf-no"><h4>Not this</h4><ul>' +
+          "<li>The group pizza order</li>" +
+          "<li>The vending machine dinner</li>" +
+          "<li>The gas-station pastry run</li>" +
+          "<li>Round three of energy drinks</li>" +
+        "</ul></div>" +
+      "</div>" +
+      '<p class="sf-nw-3am-line">And if you have made the 3am call before: that was exhaustion doing the ordering, not weakness. Set the clock and the call goes quiet.</p>' +
+      "</div>";
+  }
+
+  function renderResult(c) {
+    var land = landingCopy(c.after);
+    var html = '<div class="sf-nw-result">' +
+      '<h3 class="sf-nw-verdict-h sf-nw-pop">Your eating clock for tonight</h3>' +
+      '<p class="sf-nw-verdict sf-nw-pop">' + verdictText(c) + "</p>" +
+      stripHtml(c) +
+      '<div class="sf-nw-cards">';
+
+    html += cardHtml(1, 1, "The anchor meal", fmt(c.anchorA) + " to " + fmt(c.anchorB),
+      "Your biggest plate of the day, eaten like dinner: protein, real carbs, something green. Finish it at least an hour before you clock in.",
+      "Fuel goes in while your body still handles it well, and the 3am pull starts the night already half beaten.", null);
+
+    if (c.crosses) {
+      html += cardHtml(2, 2, "The steady window", fmt(c.S) + " to " + fmt(c.lightStart),
+        "Eat like a normal person. Your packed meal break lives in here, and it is allowed to be a real meal.",
+        "The earlier in the shift you eat, the better your body handles it.", null);
+      html += cardHtml(3, 3, "The light window", fmt(c.lightStart) + " to " + fmt(c.E),
+        "From here to clock-out, graze instead of feast: protein-first and handful-sized.",
+        "The same meal hits harder at 3am than at 6pm. Big food in the deep night is one of the habits most tied to weight gain in shift workers.",
+        LIGHT_EXAMPLES);
+      html += cardHtml(4, 4, "The landing", land.time + ", about " + fmt(c.landA), land.body, land.why, null);
+    } else {
+      html += cardHtml(2, 2, "The steady window", fmt(c.S) + " to " + fmt(c.E),
+        "Normal meals on your normal breaks. No special rules while the sun is doing its job.",
+        "Save the strict stuff for the nights that need it.", null);
+      html += cardHtml(3, 4, "The landing", land.time + ", about " + fmt(c.landA), land.body, land.why, null);
+    }
+
+    html += "</div>" + threeAmHtml() + "</div>";
+    return html;
+  }
+
+  /* ---- State + interactions ---- */
+  var state = { start: null, startMode: null, len: 720, after: null };
+
+  var startEl = document.getElementById("sfNwStart");
+  var customWrap = document.getElementById("sfNwCustomWrap");
+  var customTime = document.getElementById("sfNwCustomTime");
+  var lenEl = document.getElementById("sfNwLen");
+  var afterEl = document.getElementById("sfNwAfter");
+  var buildBtn = document.getElementById("sfNwBuild");
+  var hintEl = document.getElementById("sfNwHint");
+  var nudgeEl = document.getElementById("sfNwNudge");
+  var resultEl = document.getElementById("sfNwResult");
+  var gateEl = document.getElementById("sfNwGate");
+  var formEl = document.getElementById("sfNwForm");
+  var submitBtn = document.getElementById("sfNwSubmit");
+  var formMsg = document.getElementById("sfNwFormMsg");
+
+  function selectIn(groupEl, btn) {
+    var buttons = groupEl.querySelectorAll(".sf-nw-opt");
+    for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove("sf-on"); buttons[i].setAttribute("aria-pressed", "false"); }
+    btn.classList.add("sf-on");
+    btn.setAttribute("aria-pressed", "true");
+  }
+
+  function updateHint() {
+    if (state.startMode === null) { hintEl.textContent = "Start with your clock-in time."; return; }
+    if (state.after === null) { hintEl.textContent = "One more tap: what happens when you get home?"; return; }
+    hintEl.textContent = "Ready. Build your clock.";
+  }
+
+  startEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-nw-opt");
+    if (!btn) return;
+    selectIn(startEl, btn);
+    var v = btn.getAttribute("data-start");
+    if (v === "custom") {
+      state.startMode = "custom";
+      state.start = null;
+      customWrap.classList.add("sf-show");
+      customTime.focus();
+    } else {
+      state.startMode = "preset";
+      state.start = parseInt(v, 10);
+      customWrap.classList.remove("sf-show");
+    }
+    nudgeEl.innerHTML = "";
+    updateHint();
+  });
+
+  lenEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-nw-opt");
+    if (!btn) return;
+    selectIn(lenEl, btn);
+    state.len = parseInt(btn.getAttribute("data-len"), 10);
+    nudgeEl.innerHTML = "";
+    updateHint();
+  });
+
+  afterEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-nw-opt");
+    if (!btn) return;
+    selectIn(afterEl, btn);
+    state.after = btn.getAttribute("data-after");
+    nudgeEl.innerHTML = "";
+    updateHint();
+  });
+
+  function nudge(text) {
+    nudgeEl.innerHTML = '<div class="sf-nw-nudge">' + text + "</div>";
+  }
+
+  function resolveStart() {
+    if (state.startMode === "preset") return state.start;
+    if (state.startMode === "custom") {
+      var v = customTime.value;
+      if (!v) return null;
+      var parts = v.split(":");
+      var mins = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+      return isNaN(mins) ? null : mins;
+    }
+    return null;
+  }
+
+  buildBtn.addEventListener("click", function () {
+    if (state.startMode === null) {
+      nudge("Tap your clock-in time first (7pm, 11pm, or custom) so I can anchor the whole night to it.");
+      return;
+    }
+    if (state.startMode === "custom" && resolveStart() === null) {
+      nudge("Type your start time in the box (even 7:23pm works) and I will build the clock around it.");
+      return;
+    }
+    if (state.after === null) {
+      nudge("One more: straight to bed, or up with the family? Your landing changes with it.");
+      return;
+    }
+    nudgeEl.innerHTML = "";
+    var S = resolveStart();
+    var c = computeClock(S, state.len, state.after);
+    resultEl.innerHTML = renderResult(c);
+    gateEl.classList.remove("sf-nw-hidden");
+    var sfNwReduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    resultEl.scrollIntoView({ behavior: sfNwReduce ? "auto" : "smooth", block: "start" });
+    state.builtStart = fmt(S);
+  });
+
+  /* ---- Email capture ---- */
+  function goToResource(first) {
+    try {
+      if (first) window.localStorage.setItem("sf_nw_first", first);
+      window.localStorage.setItem("sf_nw_unlocked", "1");
+    } catch (e) {}
+    window.location.href = SF_CONFIG.resourceUrl + "?unlocked=1";
+  }
+
+  formEl.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var first = document.getElementById("sfNwFirst").value.trim();
+    var email = document.getElementById("sfNwEmail").value.trim();
+
+    if (!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+      formMsg.innerHTML = '<div class="sf-nw-msg sf-err">That email looks off. Mind checking it?</div>';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formMsg.innerHTML = "";
+
+    var payload = {
+      firstName: first,
+      email: email,
+      magnet: "night-shift-eating-window",
+      tag: SF_CONFIG.leadTag,
+      shiftStart: state.builtStart || "",
+      afterShift: state.after || "",
+      source: "lead-magnet-site",
+      timestamp: new Date().toISOString()
+    };
+
+    /* Not yet wired: still deliver value so the form is never a dead end */
+    if (!isConfigured(SF_CONFIG.webhookUrl)) {
+      formMsg.innerHTML = '<div class="sf-nw-msg sf-ok">You are in. Opening your full night set...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 700);
+      return;
+    }
+
+    var done = false;
+    var timer = setTimeout(function () {
+      if (done) return; done = true;
+      /* Slow network: do not trap her, let her through */
+      formMsg.innerHTML = '<div class="sf-nw-msg sf-ok">You are in. Opening your full night set...</div>';
+      fireLeadPixel();
+      setTimeout(function () { goToResource(first); }, 500);
+    }, 8000);
+
+    fetch(SF_CONFIG.webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (done) return; done = true; clearTimeout(timer);
+      if (res && (res.ok || res.status === 0 || res.type === "opaque")) {
+        formMsg.innerHTML = '<div class="sf-nw-msg sf-ok">You are in. Opening your full night set...</div>';
+        fireLeadPixel();
+        setTimeout(function () { goToResource(first); }, 700);
+      } else {
+        throw new Error("bad status");
+      }
+    }).catch(function () {
+      if (done) return; done = true; clearTimeout(timer);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send me the full night set";
+      formMsg.innerHTML = '<div class="sf-nw-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full set now</a> and I will catch your email next time.</div>';
+    });
+  });
+
+  /* ---- Reveal ---- */
+  (function reveal() {
+    var els = document.querySelectorAll(".sf-nw-reveal");
+    if (!els.length) return;
+    if ("IntersectionObserver" in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { entries[i].target.classList.add("sf-in"); obs.unobserve(entries[i].target); }
+        }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add("sf-in");
+    }
+  })();
+
+  /* ---- Init ---- */
+  initPixel();
+  initCallLinks();
+  updateHint();
+})();
+</script>
+</body>
+</html>

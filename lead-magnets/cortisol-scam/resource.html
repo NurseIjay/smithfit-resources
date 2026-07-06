@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The $0 Reset, In Full | The Cortisol Scam | SmithFit</title>
+<meta name="description" content="The full shift-proof reset protocol for days, nights, and rotating schedules, the 5-question scam check, and a printable one-pager. Free, built by a nurse for nurses.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body { margin: 0; padding: 0; background: #faf6f3; }
+
+.sf-cs *, .sf-cs *::before, .sf-cs *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sf-cs {
+  --sf-gold-raw: #c8a04e;
+  --sf-gold-light: #d4b05e;
+  --sf-gold-soft: #e8c878;
+  --sf-gold-glow: rgba(200, 160, 78, 0.18);
+  --sf-gold-hover: rgba(200, 160, 78, 0.12);
+  --sf-cream-raw: #faf6f3;
+  --sf-cream-mid: #f1ebe3;
+  --sf-cream-deep: #e8dfd4;
+  --sf-dark-raw: #2a2118;
+  --sf-dark-mid: #3a2e22;
+  --sf-taupe-raw: #4a3f35;
+  --sf-taupe-light: #7a6e62;
+  --sf-green-raw: #4a8c5c;
+  --sf-green-soft: #e8f5ec;
+  --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
+  --sf-bg-card: #ffffff;
+  --sf-border: var(--sf-cream-deep);
+  --sf-serif: 'Cormorant Garamond', Georgia, serif;
+  --sf-display: 'Playfair Display', Georgia, serif;
+  --sf-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--sf-sans);
+  color: var(--sf-taupe-raw);
+  background-color: var(--sf-cream-raw);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.sf-cs h1, .sf-cs h2, .sf-cs h3 { font-family: var(--sf-serif); color: var(--sf-dark-raw); line-height: 1.12; font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; }
+.sf-cs-em { font-family: var(--sf-display); font-style: italic; }
+
+/* ===== Header ===== */
+.sf-cs-header {
+  background: linear-gradient(150deg, #2a2118 0%, #3a2e22 55%, #241c14 100%);
+  padding: 46px 20px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sf-cs-header::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.28) 0%, transparent 58%); pointer-events: none; }
+.sf-cs-header > * { position: relative; z-index: 1; }
+.sf-cs-badge {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4);
+  color: var(--sf-gold-soft); border-radius: 999px; padding: 7px 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px;
+}
+.sf-cs-header h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(30px, 6vw, 50px); margin-bottom: 12px; }
+.sf-cs-header h1 .sf-cs-em { color: var(--sf-gold-soft); }
+.sf-cs-sub { color: rgba(250,246,243,0.82); font-size: clamp(15px, 2.2vw, 18px); max-width: 560px; margin: 0 auto; }
+
+/* ===== Validate strip ===== */
+.sf-cs-validate {
+  background: var(--sf-gold-hover);
+  border-left: 4px solid var(--sf-gold-raw);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 22px;
+  margin: 32px auto 0;
+  max-width: 720px;
+  font-family: var(--sf-display);
+  font-style: italic;
+  font-size: clamp(15px, 2.2vw, 18px);
+  color: var(--sf-taupe-raw);
+}
+
+/* ===== Layout ===== */
+.sf-cs-wrap { max-width: 760px; margin: 0 auto; padding: 10px 20px 64px; }
+.sf-cs-section { padding: 44px 0 6px; }
+.sf-cs-secnum { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 10px; }
+.sf-cs-secnum::before { content: ""; display: inline-block; width: 26px; height: 1px; background: var(--sf-gold-raw); vertical-align: middle; margin-right: 12px; }
+.sf-cs-h2 { font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; margin-bottom: 10px; }
+.sf-cs-lead { color: var(--sf-taupe-light); font-size: 16px; max-width: 600px; margin-bottom: 26px; }
+
+/* ===== Tabs ===== */
+.sf-cs-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+.sf-cs-tab {
+  background: var(--sf-bg-card); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 16px 10px; text-align: center; cursor: pointer; font-family: var(--sf-sans);
+  -webkit-transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.sf-cs-tab:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); border-color: var(--sf-gold-soft); box-shadow: 0 8px 24px rgba(42,33,24,0.08); }
+.sf-cs-tab:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-cs-tab.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 20px var(--sf-gold-glow); }
+.sf-cs-tab-emoji { font-size: 24px; display: block; margin-bottom: 4px; }
+.sf-cs-tab-name { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 18px; color: var(--sf-dark-raw); }
+.sf-cs-tab-desc { display: block; font-size: 11px; color: var(--sf-taupe-light); margin-top: 2px; }
+
+/* ===== Protocol panel ===== */
+.sf-cs-panel-intro { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-raw); font-size: 15.5px; background: var(--sf-gold-hover); border-radius: 12px; padding: 12px 18px; margin-bottom: 18px; }
+.sf-cs-move { display: flex; gap: 16px; background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-bottom: 12px; box-shadow: 0 2px 16px rgba(42,33,24,0.05); }
+.sf-cs-move-n { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sf-cs-move h4 { font-family: var(--sf-serif); font-size: 20px; font-weight: 700; color: var(--sf-dark-raw); margin-bottom: 5px; }
+.sf-cs-move p { font-size: 14.5px; margin-bottom: 8px; }
+.sf-cs-stick { font-size: 13.5px; color: var(--sf-taupe-light); }
+.sf-cs-stick strong { color: var(--sf-gold-raw); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 2px; }
+
+.sf-cs-week { background: var(--sf-cream-mid); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 22px; margin-top: 20px; }
+.sf-cs-week h4 { font-family: var(--sf-serif); font-size: 21px; font-weight: 700; color: var(--sf-dark-raw); margin-bottom: 12px; }
+.sf-cs-week ol { list-style: none; counter-reset: sfcsweek; }
+.sf-cs-week li { counter-increment: sfcsweek; font-size: 14.5px; padding: 7px 0 7px 36px; position: relative; }
+.sf-cs-week li::before { content: counter(sfcsweek); position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+.sf-cs-explode { border-left: 4px solid var(--sf-gold-raw); background: var(--sf-bg-card); border-radius: 0 12px 12px 0; padding: 16px 20px; margin-top: 14px; font-size: 14.5px; box-shadow: 0 2px 16px rgba(42,33,24,0.05); }
+.sf-cs-explode strong { color: var(--sf-dark-raw); }
+
+/* ===== Scam check ===== */
+.sf-cs-check { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 26px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-cs-q { padding: 16px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-cs-q:last-of-type { border-bottom: none; }
+.sf-cs-q-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.sf-cs-q-text { flex: 1; }
+.sf-cs-q-text h4 { font-family: var(--sf-sans); font-size: 15px; font-weight: 700; color: var(--sf-dark-raw); line-height: 1.45; }
+.sf-cs-q-sub { font-size: 13px; color: var(--sf-taupe-light); margin-top: 3px; }
+.sf-cs-q-btns { display: flex; gap: 8px; flex: 0 0 auto; }
+.sf-cs-yn {
+  min-width: 56px; padding: 9px 14px; border-radius: 999px; border: 1.5px solid var(--sf-border);
+  background: var(--sf-cream-raw); font-family: var(--sf-sans); font-size: 13px; font-weight: 700; color: var(--sf-taupe-raw); cursor: pointer;
+  -webkit-transition: all .18s ease; transition: all .18s ease;
+}
+.sf-cs-yn:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-cs-yn:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-cs-yn.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); }
+.sf-cs-check-progress { text-align: center; font-size: 13px; color: var(--sf-taupe-light); margin-top: 16px; min-height: 18px; }
+.sf-cs-checknote { font-size: 13px; color: var(--sf-taupe-light); margin-top: 10px; text-align: center; font-family: var(--sf-display); font-style: italic; }
+
+.sf-cs-verdict { border-radius: 16px; padding: 22px 22px; margin-top: 16px; }
+.sf-cs-verdict h3 { font-size: clamp(20px, 3.4vw, 26px); font-weight: 700; margin-bottom: 8px; }
+.sf-cs-verdict p { font-size: 14.5px; }
+.sf-cs-verdict.sf-v-scam { background: var(--sf-red-soft); border: 1px solid rgba(192,80,77,0.3); }
+.sf-cs-verdict.sf-v-scam h3 { color: #8a3a37; }
+.sf-cs-verdict.sf-v-walk { background: #fdf3e6; border: 1px solid rgba(212,148,74,0.35); }
+.sf-cs-verdict.sf-v-walk h3 { color: #a8702a; }
+.sf-cs-verdict.sf-v-ok { background: var(--sf-green-soft); border: 1px solid rgba(74,140,92,0.3); }
+.sf-cs-verdict.sf-v-ok h3 { color: #2f6b41; }
+
+@-webkit-keyframes sfCsPop { 0% { opacity: 0; -webkit-transform: translateY(14px) scale(.985); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
+@keyframes sfCsPop { 0% { opacity: 0; transform: translateY(14px) scale(.985); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+.sf-cs-pop { -webkit-animation: sfCsPop .5s ease forwards; animation: sfCsPop .5s ease forwards; }
+
+/* ===== One-pager ===== */
+.sf-cs-onepager { background: var(--sf-bg-card); border: 1.5px solid var(--sf-border); border-radius: 16px; padding: 28px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-cs-op-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--sf-gold-raw); padding-bottom: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.sf-cs-op-title { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-dark-raw); font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; }
+.sf-cs-op-brand { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-taupe-light); }
+.sf-cs-op-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 18px; }
+.sf-cs-op-col h5 { font-family: var(--sf-sans); font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 8px; }
+.sf-cs-op-col ul { list-style: none; }
+.sf-cs-op-col li { font-size: 12.5px; line-height: 1.5; padding: 4px 0 4px 16px; position: relative; color: var(--sf-taupe-raw); }
+.sf-cs-op-col li::before { content: "\2022"; position: absolute; left: 2px; color: var(--sf-gold-raw); font-weight: 700; }
+.sf-cs-op-strip { border-top: 1.5px dashed var(--sf-cream-deep); padding-top: 14px; margin-top: 4px; font-size: 12.5px; line-height: 1.6; }
+.sf-cs-op-strip strong { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-gold-raw); display: block; margin-bottom: 4px; }
+.sf-cs-op-rule { font-family: var(--sf-display); font-style: italic; }
+.sf-cs-printbtn {
+  display: block; width: 100%; max-width: 400px; margin: 22px auto 0;
+  background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
+  padding: 16px 24px; font-family: var(--sf-sans); font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.4);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-cs-printbtn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.55); background: var(--sf-gold-light); }
+.sf-cs-printbtn:focus-visible { outline: 3px solid var(--sf-dark-raw); outline-offset: 3px; }
+
+/* ===== CTA bridge ===== */
+.sf-cs-cta {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border-radius: 20px; padding: 40px 26px; text-align: center; margin-top: 52px; position: relative; overflow: hidden;
+}
+.sf-cs-cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.22) 0%, transparent 60%); pointer-events: none; }
+.sf-cs-cta > * { position: relative; z-index: 1; }
+.sf-cs-cta h2 { color: var(--sf-cream-raw); font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; margin-bottom: 12px; }
+.sf-cs-cta h2 .sf-cs-em { color: var(--sf-gold-soft); }
+.sf-cs-cta p { color: rgba(250,246,243,0.82); font-size: 16px; max-width: 520px; margin: 0 auto 26px; }
+.sf-cs-cta-btn {
+  display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); text-decoration: none;
+  border-radius: 12px; padding: 16px 40px; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(200,160,78,0.45);
+  -webkit-transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.sf-cs-cta-btn:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,160,78,0.6); background: var(--sf-gold-light); }
+.sf-cs-cta-btn:focus-visible { outline: 3px solid var(--sf-gold-soft); outline-offset: 3px; }
+.sf-cs-cta-note { color: rgba(250,246,243,0.6); font-size: 13px; margin-top: 16px; }
+
+/* ===== Proof ===== */
+.sf-cs-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+.sf-cs-proof-item { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 10px; text-align: center; }
+.sf-cs-proof-num { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-gold-raw); display: block; font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; }
+.sf-cs-proof-label { font-size: 12px; color: var(--sf-taupe-light); margin-top: 4px; line-height: 1.35; }
+
+/* ===== Footer ===== */
+.sf-cs-footer { text-align: center; padding: 34px 20px 10px; color: var(--sf-taupe-light); font-size: 13px; line-height: 1.7; }
+.sf-cs-footer strong { color: var(--sf-taupe-raw); font-family: var(--sf-serif); font-size: 15px; letter-spacing: 0.02em; }
+
+/* ===== Reveal ===== */
+.sf-cs-reveal { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); -webkit-transition: opacity .6s ease, transform .6s ease; transition: opacity .6s ease, transform .6s ease; }
+.sf-cs-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+.sf-cs-hidden { display: none !important; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sf-cs-wrap { padding: 6px 16px 54px; }
+  .sf-cs-section { padding: 36px 0 4px; }
+  .sf-cs-tab-name { font-size: 15px; }
+  .sf-cs-tab { padding: 13px 6px; }
+  .sf-cs-move { padding: 16px 15px; gap: 12px; }
+  .sf-cs-q-row { flex-direction: column; gap: 10px; }
+  .sf-cs-q-btns { align-self: flex-start; }
+  .sf-cs-op-grid { grid-template-columns: 1fr; }
+  .sf-cs-proof { grid-template-columns: repeat(2, 1fr); }
+  .sf-cs-check { padding: 20px 16px; }
+  .sf-cs-onepager { padding: 22px 18px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .sf-cs *, .sf-cs *::before, .sf-cs *::after {
+    -webkit-animation-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Print: the one-pager only ===== */
+@media print {
+  .sf-cs-noprint { display: none !important; }
+  .sf-cs { background: #fff; }
+  .sf-cs-onepager { box-shadow: none; border: 1.5px solid #999; page-break-inside: avoid; }
+  .sf-cs-printbtn { display: none !important; }
+  .sf-cs-wrap { padding: 0; }
+  .sf-cs-section { padding: 0; }
+}
+</style>
+</head>
+<body>
+<div class="sf-cs">
+
+  <header class="sf-cs-header sf-cs-noprint">
+    <span class="sf-cs-badge">The full version, free</span>
+    <h1>The $0 Reset, <span class="sf-cs-em">in full</span></h1>
+    <p class="sf-cs-sub" id="sfCsGreet">All three shift patterns, the scam checklist, and your printable one-pager. Save this page, it does not expire.</p>
+  </header>
+
+  <div class="sf-cs-validate sf-cs-noprint">
+    A reminder before you scroll: your adrenals were never tired, and you were never the problem. Nothing on this page is for sale. That is the point of it.
+  </div>
+
+  <div class="sf-cs-wrap">
+
+    <!-- 01: FULL PROTOCOL -->
+    <section class="sf-cs-section sf-cs-noprint">
+      <p class="sf-cs-secnum">01 / The full protocol</p>
+      <h2 class="sf-cs-h2">All three patterns, in depth</h2>
+      <p class="sf-cs-lead">Schedules change. When yours does, switch tabs instead of starting over. Each pattern gets the four moves, a first week, and the rule for when the week explodes.</p>
+
+      <div class="sf-cs-tabs" id="sfCsTabs" role="group" aria-label="Pick your shift pattern">
+        <button type="button" class="sf-cs-tab" data-pattern="days" aria-pressed="false">
+          <span class="sf-cs-tab-emoji" aria-hidden="true">&#9728;&#65039;</span>
+          <span class="sf-cs-tab-name">Days</span>
+          <span class="sf-cs-tab-desc">7a to 7p and friends</span>
+        </button>
+        <button type="button" class="sf-cs-tab" data-pattern="nights" aria-pressed="false">
+          <span class="sf-cs-tab-emoji" aria-hidden="true">&#127769;</span>
+          <span class="sf-cs-tab-name">Nights</span>
+          <span class="sf-cs-tab-desc">The 3am club</span>
+        </button>
+        <button type="button" class="sf-cs-tab" data-pattern="rotating" aria-pressed="false">
+          <span class="sf-cs-tab-emoji" aria-hidden="true">&#128260;</span>
+          <span class="sf-cs-tab-name">Rotating</span>
+          <span class="sf-cs-tab-desc">The roughest ride</span>
+        </button>
+      </div>
+      <div id="sfCsPanel" aria-live="polite"></div>
+    </section>
+
+    <!-- 02: SCAM CHECK -->
+    <section class="sf-cs-section sf-cs-noprint">
+      <p class="sf-cs-secnum">02 / The scam check</p>
+      <h2 class="sf-cs-h2">Is it a scam? Run the 5 questions</h2>
+      <p class="sf-cs-lead">Before any powder, cocktail, or "hormone-balancing" bundle gets your card number, run it through these. Answer for the product you have in mind.</p>
+
+      <div class="sf-cs-check sf-cs-reveal">
+        <div id="sfCsQs"></div>
+        <div class="sf-cs-check-progress" id="sfCsProgress">Answer all 5 and I will call it.</div>
+        <div id="sfCsCheckVerdict" aria-live="polite"></div>
+        <p class="sf-cs-checknote">A yes on one question is not a verdict. A pattern of them is.</p>
+      </div>
+    </section>
+
+    <!-- 03: ONE-PAGER -->
+    <section class="sf-cs-section">
+      <div class="sf-cs-noprint">
+        <p class="sf-cs-secnum">03 / The one-pager</p>
+        <h2 class="sf-cs-h2">Print it, stick it in your locker</h2>
+        <p class="sf-cs-lead">The whole system on one page: every pattern, the checklist, and the rule that survives any week.</p>
+      </div>
+
+      <div class="sf-cs-onepager sf-cs-reveal">
+        <div class="sf-cs-op-head">
+          <span class="sf-cs-op-title">The $0 Reset</span>
+          <span class="sf-cs-op-brand">SmithFit &middot; IJ Smith, RN</span>
+        </div>
+        <div class="sf-cs-op-grid">
+          <div class="sf-cs-op-col">
+            <h5>Days</h5>
+            <ul>
+              <li>One wake time, every day, within an hour</li>
+              <li>Ten minutes of outdoor light before 9am, dim the house after 8pm</li>
+              <li>Protein breakfast, real lunch, nothing heavy 2 to 3 hours before bed</li>
+              <li>Train before shifts or on off days. After a 12, walk.</li>
+            </ul>
+          </div>
+          <div class="sf-cs-op-col">
+            <h5>Nights</h5>
+            <ul>
+              <li>Protect a 4-hour anchor sleep window (9am to 1pm) every day</li>
+              <li>Sunglasses home, blackout room, bright light at shift start</li>
+              <li>Main meal pre-shift, keep 2am to 5am light, small snack before day-sleep</li>
+              <li>Sleep first, then train. Short sessions on night stretches.</li>
+            </ul>
+          </div>
+          <div class="sf-cs-op-col">
+            <h5>Rotating</h5>
+            <ul>
+              <li>Anchor within each block, reset the anchor when the block changes</li>
+              <li>Light when your day starts, dark when it ends, yours not the sun's</li>
+              <li>Meals on body time: waking, personal midday, personal evening</li>
+              <li>Train mid-block. Flip days are for sleep, food, and walks.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sf-cs-op-strip">
+          <strong>Before you buy calm, ask</strong>
+          1. Diagnosed by a quiz, not a lab? &nbsp; 2. Proof is a story, not a study? &nbsp; 3. Renews monthly? &nbsp; 4. Promises sleep results without sleep? &nbsp; 5. Would it be medicine if it worked?
+        </div>
+        <div class="sf-cs-op-strip">
+          <strong>The rule that survives any week</strong>
+          <span class="sf-cs-op-rule">Keep the sleep anchor, drop the rest guilt-free, rebuild next week.</span>
+        </div>
+      </div>
+      <button type="button" class="sf-cs-printbtn sf-cs-noprint" id="sfCsPrint">Save or print my one-pager</button>
+    </section>
+
+    <!-- BRIDGE -->
+    <div class="sf-cs-cta sf-cs-reveal sf-cs-noprint">
+      <h2>Want this mapped to <span class="sf-cs-em">your exact schedule</span>?</h2>
+      <p>The four moves are the free layer, and they work. If you want the whole thing built around your actual roster (the rotation, the sleep, the food, the training), I take a few nurses a month for a free game-plan call. No pitch. You leave with a plan either way.</p>
+      <a href="#" data-sf-call class="sf-cs-cta-btn" target="_blank" rel="noopener">Book my free game-plan call</a>
+      <p class="sf-cs-cta-note">30 minutes, free, nurse to nurse.</p>
+    </div>
+
+    <!-- PROOF -->
+    <div class="sf-cs-proof sf-cs-reveal sf-cs-noprint">
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">400+</span><div class="sf-cs-proof-label">Nurses coached</div></div>
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">87%</span><div class="sf-cs-proof-label">Feel a difference by Day 3</div></div>
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">~5 lbs</span><div class="sf-cs-proof-label">Average lost in Week 1</div></div>
+      <div class="sf-cs-proof-item"><span class="sf-cs-proof-num">60-day</span><div class="sf-cs-proof-label">Money-back guarantee</div></div>
+    </div>
+
+  </div>
+
+  <div class="sf-cs-footer sf-cs-noprint">
+    <strong>SmithFit</strong><br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Supplement notes here are general education. Talk with your own provider before starting or stopping anything.
+  </div>
+
+</div>
+
+<script src="../config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Shared config (lead-magnets/config.js) ---- */
+  var G = window.SMITHFIT_CONFIG || {};
+  var SF_CONFIG = {
+    webhookUrl: G.webhookUrl || "[GHL_WEBHOOK_URL]",
+    callUrl: G.callUrl || "[GAMEPLAN_CALL_URL]",
+    pixelId: (G.pixelEnabled === false ? "" : (G.pixelId || "")),
+    leadTag: "lead-cortisol-scam",
+    resourceUrl: "resource.html"
+  };
+
+  /* ---- Meta pixel ---- */
+  function initPixel() {
+    if (!SF_CONFIG.pixelId) return;
+    try {
+      if (!window.fbq) {
+        var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+        if (!window._fbq) window._fbq = n;
+        n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+        var t = document.createElement("script"); t.async = true;
+        t.src = "https://connect.facebook.net/en_US/fbevents.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(t, s);
+      }
+      window.fbq("init", SF_CONFIG.pixelId);
+      window.fbq("track", "PageView");
+    } catch (e) {}
+  }
+
+  /* ---- Call CTA links ---- */
+  function initCallLinks() {
+    try {
+      var links = document.querySelectorAll("[data-sf-call]");
+      for (var i = 0; i < links.length; i++) { links[i].setAttribute("href", SF_CONFIG.callUrl); }
+    } catch (e) {}
+  }
+
+  /* ---- The full protocol data ---- */
+  var FULL = {
+    days: {
+      intro: "Days are the friendliest pattern on the body clock, which is exactly why it stings when the fatigue and cravings still will not move. Run all four together and give it a week.",
+      moves: [
+        { t: "Anchor your sleep", b: "Pick one wake time and hold it every day, work or off, within one hour. That single fixed point is what your body sets everything else by. The night before a 12, work backward from the alarm and protect 7.5 hours.", s: "Save the wake time as one repeating alarm with the same label every day. The bedtime can flex. The wake time does not." },
+        { t: "Time your light", b: "Ten minutes of outdoor light within an hour of waking, before the fluorescents get to you. In the evening, dim the big lights after 8pm and keep screens low and warm. Bright mornings and dark evenings keep your sleep pressure honest.", s: "Tie it to something you already do: coffee on the porch, park at the far end of the lot, visor up on the drive in." },
+        { t: "Time your meals", b: "Protein-first breakfast, a real lunch, and a hard stop on heavy food 2 to 3 hours before bed. The classic day-shift trap is starving through the shift and landing a 9pm feast. Move the calories earlier and both the 3pm crash and the late-night cravings shrink.", s: "Pack tomorrow's lunch while tonight's dinner is cooking. Same kitchen, zero extra willpower." },
+        { t: "Manage the load", b: "Train before shifts or on off days. After a 12, the workout is a walk, full stop. Three shifts in a row means day three is recovery on purpose, not a test you are failing.", s: "Schedule workouts against your actual roster each week, not against the week you wish you had." }
+      ],
+      week: [
+        "Tonight: pick the one wake time and set the repeating alarm.",
+        "Tomorrow: ten minutes of outdoor light before 9am, protein at breakfast.",
+        "This week: pull dinner earlier by 30 minutes every few days until there is a 2 to 3 hour gap before bed."
+      ],
+      explode: "Keep the wake time. Drop everything else guilt-free. One anchored morning keeps the whole system from unravelling, and you can rebuild the rest next week."
+    },
+    nights: {
+      intro: "Nights are the pattern the calm aisle preys on hardest, because 3am you will consider anything that promises to feel human. This is how night-shift nurses actually get steady.",
+      moves: [
+        { t: "Anchor your sleep", b: "Choose a 4-hour anchor window (9am to 1pm works for most) and protect it every single day, on nights and off. Sleep longer when you can, but that window is non-negotiable: blackout curtains, phone on do not disturb, household briefed.", s: "Treat the window like a shift. You would not skip a shift because someone texted." },
+        { t: "Time your light", b: "Sunglasses on the drive home, every time. Morning sun is a wake-up signal hitting you at the exact moment you need the opposite. Keep the bedroom cave-dark, then get your bright light at the start of your night: before and into the front half of the shift.", s: "Keep a pair of sunglasses in the car door so there is no decision to make at 7am." },
+        { t: "Time your meals", b: "Eat your main meal before the shift, plan a protein snack around midnight, and keep 2am to 5am light. That stretch is when your body handles food worst, and it is exactly when the vending machine sings. Land on something small before day-sleep, not a full plate.", s: "Pack the 2am answer before you leave the house. If it is in your bag, the machine loses." },
+        { t: "Manage the load", b: "Never train straight off a night shift. Sleep first, then train, and keep sessions short during a stretch of nights. Save the harder work for your first real off day, after the anchor sleep. A hard session on no sleep digs the hole deeper.", s: "Put workouts after sleep on your calendar, never after work." }
+      ],
+      week: [
+        "Today: pick your anchor window and tell the people you live with.",
+        "Tonight: pack the midnight protein snack and put sunglasses in the car door.",
+        "This week: blackout the room properly. Curtains, tape over the LED lights, phone out of reach."
+      ],
+      explode: "Keep the anchor window. Four protected hours beats eight broken ones, and it is the one move the rest of the system hangs on."
+    },
+    rotating: {
+      intro: "Rotating is the roughest ride in healthcare, and no powder has ever cared. The trick is rules that travel with the block, not with the clock.",
+      moves: [
+        { t: "Anchor inside the block", b: "You cannot hold one bedtime across a rotation, so hold it within each block. On days: one wake time daily. On nights: one protected day-sleep window daily. The moment a block starts, its anchor starts, and it does not move until the block ends.", s: "When the new roster drops, mark the anchors for each block first, before anything else goes on the calendar." },
+        { t: "Light as a lever", b: "Light is the fastest lever your body clock has, so pull it on purpose. Day block: bright light on waking, dim evenings. Night block: sunglasses home, cave bedroom, bright light at the front of the shift. Switch day: get light at your new morning, whatever the wall clock says.", s: "One line to remember: light when your day starts, dark when it ends. Yours, not the sun's." },
+        { t: "Meals on body time", b: "First meal within two hours of waking. Biggest meal in your personal midday. Light eating in your personal evening. When the block flips, the meals flip with it, and that regularity does more for cravings than anything in the aisle.", s: "Anchor meals to events, not clock times: waking, mid-shift, wind-down." },
+        { t: "Load around the flips", b: "Train in the middle of stable blocks. The 48 hours around a switch are for walking, food, and sleep, not workouts. Skipping the flip-day session is not lost progress. It is the thing that keeps the rest of the week trainable.", s: "When the roster drops, cross out the flip days for training first. Whatever is left is your real training week." }
+      ],
+      week: [
+        "Today: screenshot your roster and circle every switch day.",
+        "This block: set the block's anchor (wake time or day-sleep window) and hold it daily.",
+        "This week: move any planned workout off a flip day and into the middle of a stable stretch."
+      ],
+      explode: "Keep the current block's anchor and the sunglasses rule. Those two survive any roster."
+    }
+  };
+
+  /* ---- The scam check ---- */
+  var QS = [
+    { q: "Does it treat a condition no lab test or doctor visit actually diagnosed you with?", sub: "Adrenal fatigue, \"cortisol belly,\" a hormone imbalance you learned about from a quiz." },
+    { q: "Is the proof a story, a before-photo, or an influencer, instead of research you could read?", sub: "\"It changed my life\" is a testimonial, not a trial." },
+    { q: "Does the price renew every month?", sub: "Subscriptions are the business model when the product never finishes the job." },
+    { q: "Does it promise the results of sleep, food, light, and rest, without changing any of them?", sub: "Calm, energy, deep sleep, and a flat stomach, all from a scoop." },
+    { q: "If it truly did what the caption claims, would it be prescription medicine instead of a powder with a promo code?", sub: "Things that reliably change hormone levels are drugs, and they are regulated like drugs." }
+  ];
+
+  var tabsEl = document.getElementById("sfCsTabs");
+  var panelEl = document.getElementById("sfCsPanel");
+  var qsEl = document.getElementById("sfCsQs");
+  var progressEl = document.getElementById("sfCsProgress");
+  var checkVerdictEl = document.getElementById("sfCsCheckVerdict");
+  var printBtn = document.getElementById("sfCsPrint");
+  var greetEl = document.getElementById("sfCsGreet");
+
+  /* ---- Protocol panel render ---- */
+  function renderPanel(pattern) {
+    var p = FULL[pattern];
+    if (!p) return;
+    var moves = "";
+    for (var i = 0; i < p.moves.length; i++) {
+      moves += '<div class="sf-cs-move"><span class="sf-cs-move-n">' + (i + 1) + '</span><div>' +
+        '<h4>' + p.moves[i].t + '</h4>' +
+        '<p>' + p.moves[i].b + '</p>' +
+        '<div class="sf-cs-stick"><strong>Make it stick</strong>' + p.moves[i].s + '</div>' +
+      '</div></div>';
+    }
+    var week = "";
+    for (var j = 0; j < p.week.length; j++) { week += "<li>" + p.week[j] + "</li>"; }
+    panelEl.innerHTML = "" +
+      '<div class="sf-cs-pop">' +
+        '<div class="sf-cs-panel-intro">' + p.intro + '</div>' +
+        moves +
+        '<div class="sf-cs-week"><h4>Your first week</h4><ol>' + week + '</ol></div>' +
+        '<div class="sf-cs-explode"><strong>If the week explodes:</strong> ' + p.explode + '</div>' +
+      '</div>';
+  }
+
+  tabsEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-cs-tab");
+    if (!btn) return;
+    var buttons = tabsEl.querySelectorAll(".sf-cs-tab");
+    for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove("sf-on"); buttons[i].setAttribute("aria-pressed", "false"); }
+    btn.classList.add("sf-on");
+    btn.setAttribute("aria-pressed", "true");
+    renderPanel(btn.getAttribute("data-pattern"));
+  });
+
+  /* ---- Scam check render + scoring ---- */
+  var answers = {};
+
+  function renderQs() {
+    var html = "";
+    for (var i = 0; i < QS.length; i++) {
+      html += '<div class="sf-cs-q"><div class="sf-cs-q-row">' +
+        '<div class="sf-cs-q-text"><h4>' + (i + 1) + ". " + QS[i].q + '</h4><div class="sf-cs-q-sub">' + QS[i].sub + '</div></div>' +
+        '<div class="sf-cs-q-btns" role="group" aria-label="Question ' + (i + 1) + '">' +
+          '<button type="button" class="sf-cs-yn" data-q="' + i + '" data-a="yes" aria-pressed="false">Yes</button>' +
+          '<button type="button" class="sf-cs-yn" data-q="' + i + '" data-a="no" aria-pressed="false">No</button>' +
+        '</div>' +
+      '</div></div>';
+    }
+    qsEl.innerHTML = html;
+  }
+
+  function checkVerdict() {
+    var answered = 0, yes = 0;
+    for (var i = 0; i < QS.length; i++) {
+      if (answers[i]) { answered++; if (answers[i] === "yes") yes++; }
+    }
+    if (answered < QS.length) {
+      progressEl.textContent = "Answered " + answered + " of 5. Keep going and I will call it.";
+      checkVerdictEl.innerHTML = "";
+      return;
+    }
+    progressEl.textContent = "";
+    var v;
+    if (yes >= 4) {
+      v = { cls: "sf-v-scam", h: "That is a scam.", p: "Keep your $60. Nothing that checks " + yes + " of these boxes outperforms the free moves you already have. Screenshot this and send it to the friend who was about to buy it too." };
+    } else if (yes >= 2) {
+      v = { cls: "sf-v-walk", h: "Walk away slowly.", p: "It has the fingerprints (" + yes + " of 5). Maybe it is harmless, but harmless and helpful are different products. Ask what specific, testable gap it fills. If the answer is a vibe, it is a no." };
+    } else {
+      v = { cls: "sf-v-ok", h: "Probably not a scam.", p: "It may even be useful. Still ask the money question: what does this do that sleep, food, light, and rest do not already do for free? If there is a real answer (a lab-confirmed deficiency, your own provider's call), fine. That is healthcare, not the calm aisle." };
+    }
+    checkVerdictEl.innerHTML = '<div class="sf-cs-verdict sf-cs-pop ' + v.cls + '"><h3>' + v.h + '</h3><p>' + v.p + '</p></div>';
+  }
+
+  qsEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-cs-yn");
+    if (!btn) return;
+    var q = btn.getAttribute("data-q");
+    var a = btn.getAttribute("data-a");
+    var pair = qsEl.querySelectorAll('.sf-cs-yn[data-q="' + q + '"]');
+    for (var i = 0; i < pair.length; i++) { pair[i].classList.remove("sf-on"); pair[i].setAttribute("aria-pressed", "false"); }
+    btn.classList.add("sf-on");
+    btn.setAttribute("aria-pressed", "true");
+    answers[q] = a;
+    checkVerdict();
+  });
+
+  /* ---- Print ---- */
+  if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+
+  /* ---- Greet opted-in visitors by name, graceful when absent ---- */
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var name = "";
+    try { name = window.localStorage.getItem("sf_cs_first") || ""; } catch (e) {}
+    if (params.get("unlocked") === "1" || name) {
+      greetEl.textContent = (name ? name + ", you" : "You") + " are in. All three patterns, the scam checklist, and your printable one-pager. Save this page, it does not expire.";
+    }
+  } catch (e) {}
+
+  /* ---- Reveal on scroll ---- */
+  (function reveal() {
+    var els = document.querySelectorAll(".sf-cs-reveal");
+    if (!els.length) return;
+    if ("IntersectionObserver" in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { entries[i].target.classList.add("sf-in"); obs.unobserve(entries[i].target); } }
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+    } else {
+      for (var k = 0; k < els.length; k++) els[k].classList.add("sf-in");
+    }
+  })();
+
+  /* ---- Init: default to nights (the 3am club is who this page is for) ---- */
+  renderQs();
+  initCallLinks();
+  initPixel();
+  var defaultTab = tabsEl.querySelector('.sf-cs-tab[data-pattern="nights"]');
+  if (defaultTab) { defaultTab.classList.add("sf-on"); defaultTab.setAttribute("aria-pressed", "true"); renderPanel("nights"); }
+})();
+</script>
+</body>
+</html>
