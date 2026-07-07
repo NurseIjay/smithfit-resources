@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The 3-Minute Shift Meal Builder | SmithFit</title>
-<meta name="description" content="Build a shift meal in 3 minutes from what is already in your fridge. No cooking, no tracking. Built by a nurse, for nurses.">
+<meta name="description" content="Build your shift-day eating map in 3 minutes: exact portions, exact clock times, and a no-break backup plan. Built by a nurse, for nurses.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -29,6 +29,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   --sf-green-raw: #4a8c5c;
   --sf-green-soft: #e8f5ec;
   --sf-red-raw: #c0504d;
+  --sf-red-soft: #fff0ed;
   /* Semantic */
   --sf-bg-card: #ffffff;
   --sf-border: var(--sf-cream-deep);
@@ -241,12 +242,25 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   font-style: italic;
   color: var(--sf-taupe-raw);
   font-size: 16px;
-  max-width: 520px;
+  max-width: 560px;
   margin: 8px auto 0;
   background: var(--sf-gold-hover);
   border-radius: 12px;
   padding: 12px 18px;
 }
+.sf-mb-examplebar {
+  display: inline-block;
+  background: var(--sf-dark-raw);
+  color: var(--sf-gold-soft);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.sf-mb-clockline { font-size: 13px; color: var(--sf-taupe-light); margin-top: 10px; }
 
 .sf-mb-plate {
   background: var(--sf-bg-card);
@@ -259,17 +273,24 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   transition: box-shadow .3s ease, transform .3s ease;
 }
 .sf-mb-plate:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); box-shadow: 0 10px 34px rgba(42,33,24,0.1); }
-.sf-mb-plate-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--sf-border); }
+.sf-mb-plate-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--sf-border); }
 .sf-mb-plate-name { font-family: var(--sf-serif); font-weight: 700; font-size: 22px; color: var(--sf-dark-raw); }
 .sf-mb-plate-time { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-taupe-light); white-space: nowrap; }
-.sf-mb-parts { list-style: none; margin-bottom: 16px; }
+
+.sf-mb-when { display: flex; align-items: flex-start; gap: 12px; background: var(--sf-gold-hover); border-radius: 10px; padding: 11px 14px; margin-bottom: 14px; }
+.sf-mb-when-t { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6a24; white-space: nowrap; padding-top: 2px; }
+.sf-mb-when-why { font-size: 13.5px; color: var(--sf-taupe-raw); line-height: 1.55; }
+
+.sf-mb-parts { list-style: none; margin-bottom: 14px; }
 .sf-mb-part { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
 .sf-mb-part:last-child { border-bottom: none; }
 .sf-mb-part-label { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--sf-taupe-raw); }
 .sf-mb-part-emoji { font-size: 18px; }
-.sf-mb-part-role { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-raw); }
-.sf-mb-part-p { font-size: 13px; color: var(--sf-taupe-light); white-space: nowrap; }
-.sf-mb-plate-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.sf-mb-part-serve { display: block; font-size: 12.5px; color: var(--sf-taupe-light); }
+.sf-mb-part-role { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-raw); white-space: nowrap; }
+.sf-mb-part-g { font-size: 14px; font-weight: 700; color: var(--sf-gold-raw); white-space: nowrap; }
+
+.sf-mb-plate-foot { display: flex; align-items: center; justify-content: flex-start; gap: 12px; flex-wrap: wrap; }
 .sf-mb-protein {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--sf-green-soft);
@@ -280,7 +301,60 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   font-weight: 700;
 }
 .sf-mb-protein.sf-under { background: #fdf3e6; color: #a8702a; }
-.sf-mb-assemble { font-family: var(--sf-display); font-style: italic; font-size: 14px; color: var(--sf-taupe-light); }
+.sf-mb-stackwhy {
+  font-family: var(--sf-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--sf-taupe-raw);
+  border-left: 3px solid var(--sf-gold-raw);
+  padding: 4px 0 4px 12px;
+  margin-top: 12px;
+}
+
+.sf-mb-prep { background: var(--sf-cream-mid); border-radius: 12px; padding: 15px 17px; margin-top: 14px; }
+.sf-mb-prep h4 { font-family: var(--sf-sans); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 8px; }
+.sf-mb-prep ol { margin: 0 0 0 20px; }
+.sf-mb-prep ol li { font-size: 14px; padding: 3px 0; color: var(--sf-taupe-raw); }
+.sf-mb-prep p { font-size: 14px; color: var(--sf-taupe-raw); }
+.sf-mb-safe { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--sf-taupe-light); margin-top: 12px; line-height: 1.55; }
+
+/* ===== Eat-order strip ===== */
+.sf-mb-order {
+  background: var(--sf-gold-hover);
+  border-left: 4px solid var(--sf-gold-raw);
+  border-radius: 0 12px 12px 0;
+  padding: 17px 20px;
+  font-size: 15px;
+  color: var(--sf-taupe-raw);
+  margin: 4px 0 18px;
+}
+.sf-mb-order strong { color: var(--sf-dark-raw); }
+
+/* ===== Pocket protocol ===== */
+.sf-mb-pocket {
+  background: var(--sf-bg-card);
+  border: 1.5px solid var(--sf-gold-raw);
+  border-radius: 16px;
+  padding: 22px;
+  margin: 0 0 18px;
+  box-shadow: 0 2px 16px rgba(42,33,24,0.06);
+}
+.sf-mb-pocket h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.sf-mb-pocket-sub { font-size: 14px; color: var(--sf-taupe-light); margin-bottom: 14px; }
+
+/* ===== Delta card ===== */
+.sf-mb-delta { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px; margin: 0 0 18px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-mb-delta h3 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+.sf-mb-delta-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; margin-bottom: 14px; }
+.sf-mb-delta-side { text-align: center; background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 12px; padding: 16px 10px; }
+.sf-mb-delta-num { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 34px; line-height: 1.1; }
+.sf-mb-delta-side.sf-hers .sf-mb-delta-num { color: var(--sf-gold-raw); }
+.sf-mb-delta-side.sf-theirs .sf-mb-delta-num { color: var(--sf-taupe-light); }
+.sf-mb-delta-label { font-size: 12px; color: var(--sf-taupe-light); line-height: 1.4; }
+.sf-mb-delta-vs { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-light); font-size: 15px; }
+.sf-mb-delta-plus { display: inline-flex; background: var(--sf-green-soft); color: #2f6b41; border-radius: 999px; padding: 7px 15px; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.sf-mb-delta p { font-size: 14px; color: var(--sf-taupe-raw); margin-bottom: 8px; }
+.sf-mb-delta p:last-child { margin-bottom: 0; color: var(--sf-taupe-light); font-size: 13px; }
 
 /* ===== Restock list ===== */
 .sf-mb-restock {
@@ -288,7 +362,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   border: 1px solid var(--sf-border);
   border-radius: 16px;
   padding: 24px 22px;
-  margin-top: 26px;
+  margin-top: 8px;
 }
 .sf-mb-restock h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
 .sf-mb-restock-sub { font-size: 14px; color: var(--sf-taupe-light); margin-bottom: 18px; }
@@ -297,8 +371,31 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-mb-restock-col ul { list-style: none; }
 .sf-mb-restock-col li { font-size: 14px; padding: 4px 0 4px 18px; position: relative; color: var(--sf-taupe-raw); }
 .sf-mb-restock-col li::before { content: "\2022"; position: absolute; left: 2px; color: var(--sf-gold-raw); font-weight: 700; }
+.sf-mb-restock-col li .sf-mb-part-serve { display: inline; }
 .sf-mb-restock-col li.sf-gap { color: var(--sf-taupe-light); font-style: italic; }
 .sf-mb-restock-col li.sf-gap::before { content: "+"; }
+
+/* ===== Summary card (the screenshot) ===== */
+.sf-mb-summary {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border-radius: 20px;
+  padding: 28px 24px;
+  margin-top: 26px;
+  position: relative;
+  overflow: hidden;
+}
+.sf-mb-summary::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 60%); pointer-events: none; }
+.sf-mb-summary > * { position: relative; z-index: 1; }
+.sf-mb-sumeyebrow { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 6px; }
+.sf-mb-summary h3 { color: var(--sf-cream-raw); font-size: clamp(22px, 4vw, 30px); font-weight: 700; margin-bottom: 4px; }
+.sf-mb-summeta { font-size: 13px; color: rgba(250,246,243,0.66); margin-bottom: 16px; }
+.sf-mb-sumrow { display: flex; gap: 14px; padding: 11px 0; border-bottom: 1px solid rgba(250,246,243,0.14); align-items: flex-start; }
+.sf-mb-sumrow:last-of-type { border-bottom: none; }
+.sf-mb-sumtime { flex: 0 0 92px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-soft); padding-top: 3px; }
+.sf-mb-sumbody { font-size: 14px; color: rgba(250,246,243,0.9); line-height: 1.55; }
+.sf-mb-sumbody strong { color: var(--sf-cream-raw); font-family: var(--sf-serif); font-size: 16px; letter-spacing: 0.01em; }
+.sf-mb-sumg { color: var(--sf-gold-soft); font-weight: 700; white-space: nowrap; }
+.sf-mb-sumfoot { font-family: var(--sf-display); font-style: italic; color: var(--sf-gold-soft); font-size: 15px; margin-top: 14px; text-align: center; }
 
 /* ===== Actions row ===== */
 .sf-mb-actions { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
@@ -364,6 +461,10 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-mb-actions .sf-mb-btn { min-width: 100%; }
   .sf-mb-shift-name { font-size: 17px; }
   .sf-mb-shift { padding: 14px 8px; }
+  .sf-mb-when { flex-direction: column; gap: 4px; }
+  .sf-mb-sumtime { flex-basis: 74px; }
+  .sf-mb-delta-grid { grid-template-columns: 1fr; }
+  .sf-mb-delta-vs { text-align: center; }
 }
 
 /* ===== Reduced motion ===== */
@@ -380,7 +481,12 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 @media print {
   .sf-mb-header, .sf-mb-buildbar, .sf-mb-actions, .sf-mb-cta, .sf-mb-proof, .sf-mb-shifts, .sf-mb-groups, .sf-mb-validate, .sf-mb-builder-steps { display: none !important; }
   .sf-mb { background: #fff; }
-  .sf-mb-plate, .sf-mb-restock { box-shadow: none; border: 1.5px solid #ccc; page-break-inside: avoid; }
+  .sf-mb-plate, .sf-mb-restock, .sf-mb-pocket, .sf-mb-delta { box-shadow: none; border: 1.5px solid #ccc; page-break-inside: avoid; }
+  .sf-mb-summary { background: #fff !important; border: 1.5px solid #ccc; page-break-inside: avoid; }
+  .sf-mb-summary h3 { color: #2a2118; }
+  .sf-mb-sumbody, .sf-mb-summeta { color: #4a3f35; }
+  .sf-mb-sumbody strong { color: #2a2118; }
+  .sf-mb-sumtime, .sf-mb-sumg, .sf-mb-sumeyebrow, .sf-mb-sumfoot { color: #8a6a24; }
 }
 </style>
 </head>
@@ -390,7 +496,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   <header class="sf-mb-header">
     <span class="sf-mb-badge">Built by a nurse, for nurses</span>
     <h1>The 3-Minute <span class="sf-mb-em">Shift Meal</span> Builder</h1>
-    <p class="sf-mb-sub">Tap your shift. Tap what you already have. Get 3 grab-and-go plates that hit your protein, with zero cooking and zero tracking.</p>
+    <p class="sf-mb-sub">Tap your shift, your break reality, and what you already have. Get your whole shift-day eating map: exact portions, exact clock times, and a backup plan for when the break never comes.</p>
   </header>
 
   <div class="sf-mb-validate">
@@ -425,10 +531,45 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
         </div>
       </section>
 
-      <!-- STEP 2: FRIDGE -->
-      <section class="sf-mb-section sf-mb-groups">
+      <!-- STEP 2: SHIFT REALITY -->
+      <section class="sf-mb-section">
         <div class="sf-mb-steplabel">
           <span class="sf-mb-stepnum">2</span>
+          <h2>Your shift reality</h2>
+        </div>
+        <p class="sf-mb-stephint">Ten seconds. These three answers set your clock times, your food-safety lines, and whether you get the no-break backup plan.</p>
+
+        <div class="sf-mb-group">
+          <div class="sf-mb-grouptitle"><span class="sf-mb-dot"></span>Do you get a real break?</div>
+          <div class="sf-mb-chips" id="sfMbBreaks" role="group" aria-label="Break reality">
+            <button type="button" class="sf-mb-chip" data-opt="real" aria-pressed="false">Most days, yes</button>
+            <button type="button" class="sf-mb-chip sf-on" data-opt="short" aria-pressed="true">Usually short</button>
+            <button type="button" class="sf-mb-chip" data-opt="none" aria-pressed="false">Often none</button>
+          </div>
+        </div>
+
+        <div class="sf-mb-group">
+          <div class="sf-mb-grouptitle"><span class="sf-mb-dot"></span>Where does your food live at work?</div>
+          <div class="sf-mb-chips" id="sfMbStorage" role="group" aria-label="Storage at work">
+            <button type="button" class="sf-mb-chip" data-opt="fridge" aria-pressed="false">Fridge available</button>
+            <button type="button" class="sf-mb-chip sf-on" data-opt="cooler" aria-pressed="true">Cooler bag only</button>
+          </div>
+        </div>
+
+        <div class="sf-mb-group">
+          <div class="sf-mb-grouptitle"><span class="sf-mb-dot"></span>How much of the day should I map?</div>
+          <div class="sf-mb-chips" id="sfMbCover" role="group" aria-label="How much of the shift to cover">
+            <button type="button" class="sf-mb-chip sf-on" data-opt="shift" aria-pressed="true">Just the shift meal</button>
+            <button type="button" class="sf-mb-chip" data-opt="pre" aria-pressed="false">Shift + pre-shift</button>
+            <button type="button" class="sf-mb-chip" data-opt="full" aria-pressed="false">The full day around a 12</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: FRIDGE -->
+      <section class="sf-mb-section sf-mb-groups">
+        <div class="sf-mb-steplabel">
+          <span class="sf-mb-stepnum">3</span>
           <h2>What is in your fridge?</h2>
         </div>
         <p class="sf-mb-stephint">Tap everything you have on hand. No wrong answers, and nothing here needs cooking.</p>
@@ -439,19 +580,19 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     <!-- BUILD BAR -->
     <div class="sf-mb-buildbar">
       <div class="sf-mb-count" id="sfMbCount"></div>
-      <button type="button" class="sf-mb-btn" id="sfMbBuild">Build my 3 plates</button>
+      <button type="button" class="sf-mb-btn" id="sfMbBuild">Build my shift map</button>
     </div>
 
     <div id="sfMbNudge"></div>
 
     <!-- RESULTS -->
-    <section class="sf-mb-results sf-mb-hidden" id="sfMbResults" aria-live="polite"></section>
+    <section class="sf-mb-results" id="sfMbResults" aria-live="polite"></section>
 
   </div>
 
   <div class="sf-mb-footer">
     <strong>SmithFit</strong><br>
-    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice. Check with your provider before changing your nutrition if you have a medical condition.<br>
     Protein values are rounded per-serving estimates to help you build, not to track.
   </div>
 
@@ -486,52 +627,54 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     } catch (e) {}
   })();
 
-  /* ---- Food library (all grab-and-go, no cook) ---- */
+  /* ---- Food library (all grab-and-go, no cook) ----
+     p = grams of protein per stated serving (published ballparks, rounded).
+     cold = needs a cold chain to work. pocket = survives a locker and eats standing up. */
   var FOODS = {
     protein: [
-      { id: 'rotisserie', label: 'Rotisserie chicken', emoji: '🍗', p: 30 },
-      { id: 'shake', label: 'Protein shake', emoji: '🥤', p: 25 },
-      { id: 'salmon', label: 'Salmon pouch', emoji: '🐟', p: 22 },
-      { id: 'tuna', label: 'Tuna pouch', emoji: '🐟', p: 20 },
-      { id: 'shrimp', label: 'Pre-cooked shrimp', emoji: '🦐', p: 20 },
-      { id: 'turkey', label: 'Deli turkey', emoji: '🦃', p: 18 },
-      { id: 'greekyog', label: 'Greek yogurt', emoji: '🥛', p: 17 },
-      { id: 'edamame', label: 'Edamame', emoji: '🫛', p: 17 },
-      { id: 'cottage', label: 'Cottage cheese', emoji: '🧀', p: 14 },
-      { id: 'string', label: 'String cheese (2)', emoji: '🧀', p: 14 },
-      { id: 'sausage', label: 'Chicken sausage', emoji: '🌭', p: 14 },
-      { id: 'eggs', label: 'Hard-boiled eggs (2)', emoji: '🥚', p: 12 },
-      { id: 'jerky', label: 'Jerky', emoji: '🥩', p: 11 }
+      { id: 'rotisserie', label: 'Rotisserie chicken', emoji: '🍗', p: 35, serve: '1 cup shredded', cold: true, pocket: false },
+      { id: 'shake', label: 'Protein shake', emoji: '🥤', p: 25, serve: '1 scoop', cold: false, pocket: true },
+      { id: 'cottage', label: 'Cottage cheese', emoji: '🥣', p: 25, serve: '1 cup', cold: true, pocket: false },
+      { id: 'bar', label: 'Protein bar', emoji: '🍫', p: 20, serve: '1 bar, labels vary', cold: false, pocket: true },
+      { id: 'tuna', label: 'Tuna pouch', emoji: '🐟', p: 18, serve: '2.6 oz pouch', cold: false, pocket: true },
+      { id: 'turkey', label: 'Deli turkey', emoji: '🦃', p: 18, serve: '4 oz, about 6 to 8 slices', cold: true, pocket: false },
+      { id: 'edamame', label: 'Edamame', emoji: '🫛', p: 17, serve: '1 cup shelled', cold: true, pocket: false },
+      { id: 'salmon', label: 'Salmon pouch', emoji: '🐟', p: 16, serve: '2.6 oz pouch', cold: false, pocket: true },
+      { id: 'greekyog', label: 'Greek yogurt', emoji: '🥛', p: 15, serve: 'single 5.3 oz cup (plain nonfat runs 17g)', cold: true, pocket: false },
+      { id: 'string', label: 'String cheese', emoji: '🧀', p: 14, serve: '2 sticks', cold: true, pocket: false },
+      { id: 'sausage', label: 'Chicken sausage', emoji: '🌭', p: 14, serve: '1 precooked link', cold: true, pocket: false },
+      { id: 'eggs', label: 'Hard-boiled eggs', emoji: '🥚', p: 12, serve: '2 eggs', cold: true, pocket: false },
+      { id: 'jerky', label: 'Jerky', emoji: '🥩', p: 10, serve: '1 oz bag', cold: false, pocket: true }
     ],
     anchor: [
-      { id: 'oats', label: 'Overnight oats', emoji: '🥣', p: 5 },
-      { id: 'ricepouch', label: 'Microwave rice', emoji: '🍚', p: 4 },
-      { id: 'wrap', label: 'Whole-grain wrap', emoji: '🌯', p: 4 },
-      { id: 'crackers', label: 'Whole-grain crackers', emoji: '🍘', p: 3 },
-      { id: 'popcorn', label: 'Popcorn', emoji: '🍿', p: 3 },
-      { id: 'sweetpotato', label: 'Microwave sweet potato', emoji: '🍠', p: 2 },
-      { id: 'ricecake', label: 'Rice cakes', emoji: '🍥', p: 2 },
-      { id: 'fruit', label: 'Fruit', emoji: '🍎', p: 1 }
+      { id: 'oats', label: 'Overnight oats', emoji: '🥣', serve: '1 jar, made the night before', cold: true, pocket: false },
+      { id: 'ricepouch', label: 'Microwave rice', emoji: '🍚', serve: 'half a pouch', cold: false, pocket: false },
+      { id: 'wrap', label: 'Whole-grain wrap', emoji: '🌯', serve: '1 wrap', cold: false, pocket: false },
+      { id: 'crackers', label: 'Whole-grain crackers', emoji: '🍘', serve: '1 handful', cold: false, pocket: true },
+      { id: 'popcorn', label: 'Popcorn', emoji: '🍿', serve: '1 snack bag', cold: false, pocket: true },
+      { id: 'sweetpotato', label: 'Microwave sweet potato', emoji: '🍠', serve: '1, cooked the night before', cold: true, pocket: false },
+      { id: 'ricecake', label: 'Rice cakes', emoji: '🍥', serve: '2 cakes', cold: false, pocket: true },
+      { id: 'fruit', label: 'Fruit', emoji: '🍎', serve: '1 piece', cold: false, pocket: true }
     ],
     veg: [
-      { id: 'steamveg', label: 'Steam-bag veggies', emoji: '🥦', p: 3 },
-      { id: 'salad', label: 'Bagged salad', emoji: '🥗', p: 2 },
-      { id: 'snappeas', label: 'Snap peas', emoji: '🫛', p: 2 },
-      { id: 'carrots', label: 'Baby carrots', emoji: '🥕', p: 1 },
-      { id: 'tomatoes', label: 'Cherry tomatoes', emoji: '🍅', p: 1 },
-      { id: 'cucumber', label: 'Cucumber', emoji: '🥒', p: 1 },
-      { id: 'pepper', label: 'Bell pepper strips', emoji: '🫑', p: 1 },
-      { id: 'pickles', label: 'Pickles', emoji: '🥒', p: 0 }
+      { id: 'steamveg', label: 'Steam-bag veggies', emoji: '🥦', serve: 'half a bag', cold: true, pocket: false },
+      { id: 'salad', label: 'Bagged salad', emoji: '🥗', serve: '2 big handfuls', cold: true, pocket: false },
+      { id: 'snappeas', label: 'Snap peas', emoji: '🫛', serve: '1 handful', cold: true, pocket: false },
+      { id: 'carrots', label: 'Baby carrots', emoji: '🥕', serve: '1 handful', cold: true, pocket: false },
+      { id: 'tomatoes', label: 'Cherry tomatoes', emoji: '🍅', serve: '1 handful', cold: true, pocket: false },
+      { id: 'cucumber', label: 'Cucumber', emoji: '🥒', serve: 'half, sliced', cold: true, pocket: false },
+      { id: 'pepper', label: 'Bell pepper strips', emoji: '🫑', serve: '1 pepper, sliced', cold: true, pocket: false },
+      { id: 'pickles', label: 'Pickles', emoji: '🥒', serve: '2 spears', cold: true, pocket: false }
     ],
     fat: [
-      { id: 'cheese', label: 'Cheese cubes', emoji: '🧀', p: 6 },
-      { id: 'nuts', label: 'Almonds', emoji: '🥜', p: 6 },
-      { id: 'nutbutter', label: 'Nut butter packet', emoji: '🥜', p: 4 },
-      { id: 'avocado', label: 'Avocado', emoji: '🥑', p: 2 },
-      { id: 'hummus', label: 'Hummus', emoji: '🧆', p: 2 },
-      { id: 'guac', label: 'Guacamole cup', emoji: '🥑', p: 1 },
-      { id: 'salsa', label: 'Salsa', emoji: '🍅', p: 1 },
-      { id: 'olives', label: 'Olives', emoji: '🫒', p: 0 }
+      { id: 'cheese', label: 'Cheese cubes', emoji: '🧀', serve: 'small handful', cold: true, pocket: false },
+      { id: 'nuts', label: 'Almonds', emoji: '🥜', serve: '1 small handful, about 1 oz', cold: false, pocket: true },
+      { id: 'nutbutter', label: 'Nut butter packet', emoji: '🥜', serve: '1 squeeze packet', cold: false, pocket: true },
+      { id: 'avocado', label: 'Avocado', emoji: '🥑', serve: 'half, packed whole', cold: false, pocket: false },
+      { id: 'hummus', label: 'Hummus', emoji: '🧆', serve: '1 single-serve cup', cold: true, pocket: false },
+      { id: 'guac', label: 'Guacamole cup', emoji: '🥑', serve: '1 single-serve cup', cold: true, pocket: false },
+      { id: 'salsa', label: 'Salsa', emoji: '🍅', serve: 'to top the plate', cold: true, pocket: false },
+      { id: 'olives', label: 'Olives', emoji: '🫒', serve: 'small handful', cold: true, pocket: false }
     ]
   };
 
@@ -544,39 +687,61 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
   var ROLE_LABEL = { protein: 'Protein', anchor: 'Anchor', veg: 'Veg', fat: 'Flavor' };
 
-  var SHIFT_CFG = {
+  /* Per-meal protein sweet spot (per serving math, not tracking) */
+  var BAND_LOW = 25;
+  var BAND_HIGH = 40;
+  var BAND_MID = 30;
+
+  /* ---- Shift clocks. Day/night are built on the standard 7-to-7. ---- */
+  var SHIFTS = {
     day: {
-      target: 35,
-      includeVeg: true,
-      note: 'Front-load your fuel. This is your real meal before the floor eats your energy, so build it full and protein-first.',
-      names: ['The Pre-Shift Plate', 'The Locker Stash', 'The Midday Refuel']
+      name: 'Day shift', clockTag: '7a to 7p',
+      clockLine: 'Times are built on a 7:00 AM clock-in. Different start? Slide every time by the same amount.',
+      times: {
+        anchor: { t: '5:30 to 6:00 AM', short: '5:30 AM', why: '60 to 90 minutes before clock-in, so it lands before report does. You start the 12 fueled instead of chasing it all day.' },
+        brk: { t: '11:00 AM to 12:00 PM', short: '11:00 AM', why: 'Hour 4 to 5 of the shift. If you wait for a natural pause, it becomes 3:00 PM and you are shaky and mean. Put lunch on the clock, not on the floor’s mercy.' },
+        land: { t: 'by 8:00 PM', short: 'BY 8:00 PM', why: 'Within 45 minutes of walking in the door. This small bite is what stands between you and grazing the pantry standing up.' }
+      }
     },
     night: {
-      target: 28,
-      includeVeg: true,
-      note: 'Eat this before or early in your shift, then keep the back half of the night light. Your body handles food worse at 3am, so give it the fuel up front.',
-      names: ['The Pre-Clock-In Plate', 'The Early-Shift Refuel', 'The Drive-Home Landing']
+      name: 'Night shift', clockTag: '7p to 7a',
+      clockLine: 'Times are built on a 7:00 PM clock-in. Different start? Slide every time by the same amount.',
+      times: {
+        anchor: { t: '5:30 to 6:00 PM', short: '5:30 PM', why: '60 to 90 minutes before clock-in, so you walk in fueled. The real meal happens before the night starts eating your time.' },
+        brk: { t: '11:00 PM to 12:00 AM', short: '11:00 PM', why: 'Hour 4 to 5, on purpose before the 3 AM slump. Your body handles food worst at 3 AM, so the real plate lands at 11 and the deep-night hours run on your backup fuel, not the vending machine.' },
+        land: { t: 'by 8:00 AM', short: 'BY 8:00 AM', why: 'Small, within 45 minutes of the door, and light on purpose. You are about to sleep, and a heavy plate fights that.' }
+      }
     },
     chaos: {
-      target: 22,
-      includeVeg: false,
-      note: 'Swap shift, sick kid, no time. This is your floor, not your failure. Three things thrown in a bag still counts, and it beats the drive-thru every time.',
-      names: ['The Grab-and-Dash', 'The Swap-Shift Rescue', 'The Bare Minimum That Still Counts']
+      name: 'Chaos week', clockTag: 'no fixed clock',
+      clockLine: 'No fixed clock this week, so every time below is anchored to YOUR clock-in. Set the alarms the minute you park the car.',
+      times: {
+        anchor: { t: 'clock-in minus 60 to 90 min', short: 'IN minus 90', why: 'Whatever the clock says, eat a real plate 60 to 90 minutes before you walk in. That one habit survives any schedule.' },
+        brk: { t: 'hour 4: set a phone alarm', short: 'HOUR 4', why: 'On a swap shift nobody protects your break. The alarm at hour 4 is you protecting it yourself.' },
+        land: { t: 'within 45 min of the door', short: 'THE DOOR', why: 'The landing bite. It is what stands between you and eating the whole kitchen at whatever-o-clock you get home.' }
+      }
     }
   };
 
-  var ASSEMBLE_LINES = [
-    'Throw it in a bag. No cooking.',
-    'Stack it in a container the night before. Grab and go.',
-    'Toss it in your lunch bag on the way out. Done in one minute.',
-    'Keep the pieces in your locker and your fridge. Assemble on the fly.'
-  ];
+  var COVER_PLATES = { shift: ['brk'], pre: ['anchor', 'brk'], full: ['anchor', 'brk', 'land'] };
 
-  /* ---- State ---- */
-  var state = { shift: null, selected: { protein: [], anchor: [], veg: [], fat: [] } };
+  var BREAK_LABEL = { real: 'real breaks', short: 'short breaks', none: 'breaks often skipped' };
+  var STORAGE_LABEL = { fridge: 'work fridge', cooler: 'cooler bag' };
+
+  /* ---- State (reality answers default to the most common nurse reality) ---- */
+  var state = {
+    shift: null,
+    breaks: 'short',
+    storage: 'cooler',
+    cover: 'shift',
+    selected: { protein: [], anchor: [], veg: [], fat: [] }
+  };
 
   /* ---- DOM ---- */
   var shiftsEl = document.getElementById('sfMbShifts');
+  var breaksEl = document.getElementById('sfMbBreaks');
+  var storageEl = document.getElementById('sfMbStorage');
+  var coverEl = document.getElementById('sfMbCover');
   var groupsEl = document.getElementById('sfMbGroups');
   var countEl = document.getElementById('sfMbCount');
   var buildBtn = document.getElementById('sfMbBuild');
@@ -589,8 +754,15 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     return null;
   }
 
-  function totalSelected() {
-    return state.selected.protein.length + state.selected.anchor.length + state.selected.veg.length + state.selected.fat.length;
+  function totalSelected(st) {
+    return st.selected.protein.length + st.selected.anchor.length + st.selected.veg.length + st.selected.fat.length;
+  }
+
+  function pickList(cat, st) {
+    var ids = st.selected[cat];
+    var out = [];
+    for (var i = 0; i < ids.length; i++) { var f = byId(cat, ids[i]); if (f) out.push(f); }
+    return out;
   }
 
   /* ---- Render chip groups ---- */
@@ -613,11 +785,11 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
   /* ---- Count / hint ---- */
   function updateCount() {
-    var n = totalSelected();
+    var n = totalSelected(state);
     if (!state.shift && n === 0) { countEl.textContent = 'Pick a shift and tap a few foods to begin.'; return; }
     if (!state.shift) { countEl.textContent = 'Now pick the shift you are fueling up top.'; return; }
     if (n === 0) { countEl.textContent = 'Tap what you have. Even 3 or 4 things is enough.'; return; }
-    countEl.textContent = n + ' selected. Grab at least a protein and one more thing, then build.';
+    countEl.textContent = n + ' picked. Grab at least a protein and one more thing, then build your map.';
   }
 
   /* ---- Interactions ---- */
@@ -633,6 +805,21 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     updateCount();
   });
 
+  function wireSingleSelect(el, key) {
+    el.addEventListener('click', function (e) {
+      var chip = e.target.closest('.sf-mb-chip');
+      if (!chip) return;
+      var chips = el.querySelectorAll('.sf-mb-chip');
+      for (var i = 0; i < chips.length; i++) { chips[i].classList.remove('sf-on'); chips[i].setAttribute('aria-pressed', 'false'); }
+      chip.classList.add('sf-on');
+      chip.setAttribute('aria-pressed', 'true');
+      state[key] = chip.getAttribute('data-opt');
+    });
+  }
+  wireSingleSelect(breaksEl, 'breaks');
+  wireSingleSelect(storageEl, 'storage');
+  wireSingleSelect(coverEl, 'cover');
+
   groupsEl.addEventListener('click', function (e) {
     var chip = e.target.closest('.sf-mb-chip');
     if (!chip) return;
@@ -645,83 +832,303 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     updateCount();
   });
 
-  /* ---- Build logic ---- */
-  function pickList(cat) {
-    var ids = state.selected[cat];
-    var out = [];
-    for (var i = 0; i < ids.length; i++) { var f = byId(cat, ids[i]); if (f) out.push(f); }
-    return out;
-  }
+  /* ============================================================
+     THE MAP ENGINE
+     Every output must teach things she did not put in:
+     exact portions, exact clock times, order of operations with
+     a why under each, and a plan for when the plan breaks.
+     ============================================================ */
 
   function rotate(arr, i) {
     if (!arr.length) return null;
     return arr[i % arr.length];
   }
 
-  function buildPlates() {
-    var cfg = SHIFT_CFG[state.shift];
-    var proteins = pickList('protein');
-    var anchors = pickList('anchor');
-    var vegs = pickList('veg');
-    var fats = pickList('fat');
-
-    var plates = [];
-    for (var i = 0; i < 3; i++) {
-      var parts = [];
-      var used = {};
-      var total = 0;
-
-      var pro = rotate(proteins, i);
-      if (pro) { parts.push({ role: 'protein', f: pro }); used[pro.id] = 1; total += pro.p; }
-
-      var anc = rotate(anchors, i);
-      if (anc) { parts.push({ role: 'anchor', f: anc }); total += anc.p; }
-
-      if (cfg.includeVeg) {
-        var veg = rotate(vegs, i);
-        if (veg) { parts.push({ role: 'veg', f: veg }); total += veg.p; }
-      }
-
-      var fat = rotate(fats, i);
-      if (fat) { parts.push({ role: 'fat', f: fat }); total += fat.p; }
-
-      /* Protein booster: if short and she has another protein, add a distinct one */
-      if (total < cfg.target && proteins.length > 1) {
-        for (var b = 1; b <= proteins.length; b++) {
-          var cand = proteins[(i + b) % proteins.length];
-          if (!used[cand.id]) { parts.push({ role: 'protein', f: cand }); used[cand.id] = 1; total += cand.p; break; }
-        }
-      }
-
-      plates.push({ name: cfg.names[i], parts: parts, total: total, target: cfg.target, assemble: ASSEMBLE_LINES[i % ASSEMBLE_LINES.length] });
+  /* Pick the lead protein for a plate. When breaks are gone, the break
+     plate leads with something that eats standing up. */
+  function leadProtein(pros, used, preferPocket) {
+    var i, f;
+    if (preferPocket) {
+      for (i = 0; i < pros.length; i++) { f = pros[i]; if (f.pocket && !used[f.id]) return f; }
     }
-
-    /* Dedupe identical plates (happens when she picked a very lean set) so we never show 3 copies */
-    var seen = {};
-    var distinct = [];
-    for (var d = 0; d < plates.length; d++) {
-      var sig = plates[d].parts.map(function (pt) { return pt.f.id; }).sort().join('|');
-      if (!seen[sig]) { seen[sig] = 1; distinct.push(plates[d]); }
-    }
-    /* Re-label distinct plates in order so names stay sensible */
-    for (var r = 0; r < distinct.length; r++) { distinct[r].name = cfg.names[r]; }
-    return distinct;
+    for (i = 0; i < pros.length; i++) { f = pros[i]; if (!used[f.id]) return f; }
+    return pros[0];
   }
 
-  /* ---- Restock list (the 4 defaults she should always keep) ---- */
-  function restockHtml() {
+  /* Stack a second protein when one serving is under the 25g floor.
+     Returns { items, total, why }. The why is the teaching. */
+  function proteinStack(pros, lead) {
+    var items = [lead];
+    var total = lead.p;
+    var why = '';
+    if (total >= BAND_LOW) {
+      return { items: items, total: total, why: '' };
+    }
+    var best = null, bestScore = -Infinity;
+    for (var i = 0; i < pros.length; i++) {
+      var cand = pros[i];
+      if (cand.id === lead.id) continue;
+      var t = total + cand.p;
+      var score = (t >= BAND_LOW && t <= BAND_HIGH ? 100 : 0) - Math.abs(BAND_MID - t);
+      if (score > bestScore) { bestScore = score; best = cand; }
+    }
+    if (best) {
+      items.push(best);
+      total += best.p;
+      why = lead.label + ' alone is ' + lead.p + 'g, under the 25g floor where a meal actually holds you on the floor. So I stacked ' + best.label.toLowerCase() + ' (' + best.serve + ') on top: ' + lead.p + ' + ' + best.p + ' = ' + total + 'g.';
+    } else {
+      why = lead.label + ' is ' + lead.p + 'g on its own, under the 25g floor. You only picked one protein, so the fix is in your cart, not your willpower: add one more protein pick and rebuild.';
+    }
+    return { items: items, total: total, why: why };
+  }
+
+  function partRow(f, isProtein) {
+    var right = isProtein
+      ? '<span class="sf-mb-part-g">' + f.p + 'g</span>'
+      : '<span class="sf-mb-part-role">' + ROLE_LABEL[f.role] + '</span>';
+    return '' +
+      '<li class="sf-mb-part">' +
+        '<span class="sf-mb-part-label"><span class="sf-mb-part-emoji" aria-hidden="true">' + f.emoji + '</span><span>' + f.label +
+        '<span class="sf-mb-part-serve">' + f.serve + (isProtein ? ' = ' + f.p + 'g' : '') + '</span></span></span>' +
+      right +
+      '</li>';
+  }
+
+  /* Build one plate of a given kind: 'anchor' | 'brk' | 'land' */
+  function buildPlate(kind, picks, st, usedPro, idx) {
+    var cfg = SHIFTS[st.shift];
+    var time = cfg.times[kind];
+    var plate = { kind: kind, time: time, parts: [], total: 0, stackWhy: '', prep: null, safe: '', splitNote: '' };
+
+    if (kind === 'land') {
+      /* Landing bite: the smallest protein she has, deliberately light.
+         Prefer a home-fridge item so pocket picks stay free for the protocol. */
+      var smallest = null;
+      for (var s = 0; s < picks.protein.length; s++) {
+        var c = picks.protein[s];
+        if (c.pocket) continue;
+        if (!smallest || c.p < smallest.p) smallest = c;
+      }
+      if (!smallest) {
+        for (var s2 = 0; s2 < picks.protein.length; s2++) {
+          var c2 = picks.protein[s2];
+          if (!smallest || c2.p < smallest.p) smallest = c2;
+        }
+      }
+      plate.name = 'The Landing Bite';
+      plate.parts.push({ role: 'protein', f: smallest });
+      plate.total = smallest.p;
+      var side = null;
+      for (var a = 0; a < picks.anchor.length; a++) { if (picks.anchor[a].id === 'fruit') { side = picks.anchor[a]; break; } }
+      if (!side && picks.anchor.length) side = rotate(picks.anchor, idx + 1);
+      if (side) plate.parts.push({ role: 'anchor', f: side });
+      plate.deliberatelySmall = true;
+      plate.prep = { title: 'Stage it before you leave', lines: null, text: 'Put it at the front of the fridge, eye level, before you leave for work. At hour 13 your hands should find it before your brain has an opinion.' };
+      return plate;
+    }
+
+    var preferPocket = (kind === 'brk' && st.breaks === 'none');
+    var lead = leadProtein(picks.protein, usedPro, preferPocket);
+    var stack = proteinStack(picks.protein, lead);
+    for (var p = 0; p < stack.items.length; p++) {
+      usedPro[stack.items[p].id] = 1;
+      plate.parts.push({ role: 'protein', f: stack.items[p] });
+    }
+    plate.total = stack.total;
+    plate.stackWhy = stack.why;
+
+    var anc = rotate(picks.anchor, idx);
+    if (anc) plate.parts.push({ role: 'anchor', f: anc });
+    var skipVeg = (st.shift === 'chaos' && kind === 'brk');
+    if (!skipVeg) {
+      var veg = rotate(picks.veg, idx);
+      if (veg) plate.parts.push({ role: 'veg', f: veg });
+    }
+    var fat = rotate(picks.fat, idx);
+    if (fat) plate.parts.push({ role: 'fat', f: fat });
+
+    if (kind === 'anchor') {
+      plate.name = 'The Pre-Shift Anchor';
+      plate.prep = { title: 'Prep: almost none', lines: null, text: 'This plate eats at home. Assemble it in the 3 minutes the microwave rice takes, or stage it the night before if mornings are hostile.' };
+      return plate;
+    }
+
+    /* Break plate: the one that travels. Night-before assembly + keep-safe. */
+    plate.name = (st.breaks === 'none') ? 'The Split Break Plate' : 'The Hour-4 Break Plate';
+    if (st.breaks === 'none') {
+      plate.splitNote = 'You said a real break often never comes, so this plate is built to split: the protein eats in 90 seconds standing up, the rest eats in passes when you can. A meal in three pieces still counts as a meal.';
+    }
+
+    var needsCold = false;
+    for (var q = 0; q < plate.parts.length; q++) { if (plate.parts[q].f.cold) { needsCold = true; break; } }
+
+    if (!needsCold) {
+      plate.prep = { title: 'Night-before assembly', lines: [
+        'Stack everything into one container or zip bag, protein on top so it is the first thing you see.',
+        'Container goes in your work bag now, next to your keys. Zero morning decisions.',
+        'At work it lives in your locker. Nothing on this plate needs cold, so there are no fridge politics.'
+      ] };
+      plate.safe = 'Everything on this plate is shelf-stable. It keeps all shift, no ice pack required.';
+    } else if (st.storage === 'fridge') {
+      plate.prep = { title: 'Night-before assembly', lines: [
+        'Stack the whole plate into one flat container, protein on top so it is the first thing you see.',
+        'Container and a fork go in your work bag now, next to your keys.',
+        'At work: straight into the break-room fridge the minute you clock in, before report starts.'
+      ] };
+      plate.safe = 'Break-room fridge = safe all shift. The rule that matters: nothing perishable sits out past 2 hours, so the plate goes from bag to fridge, not bag to counter.';
+    } else {
+      plate.prep = { title: 'Night-before assembly', lines: [
+        'Stack the whole plate into one flat container, protein on top. Ice pack goes in the freezer now.',
+        'Container into the insulated bag, bag by the door with your keys.',
+        'On your way out: frozen ice pack on top of the container (cold sinks), zip it. 40 seconds.'
+      ] };
+      plate.safe = 'An insulated bag with a frozen ice pack keeps this plate safe through a full 12. Between bites it goes back in the bag, because nothing perishable sits out past 2 hours.';
+    }
+    return plate;
+  }
+
+  function plateHtml(plate, cfg) {
+    var partsHtml = '';
+    for (var i = 0; i < plate.parts.length; i++) {
+      var part = plate.parts[i];
+      var f = { id: part.f.id, label: part.f.label, emoji: part.f.emoji, p: part.f.p, serve: part.f.serve, role: part.role };
+      partsHtml += partRow(f, part.role === 'protein');
+    }
+
+    var badge;
+    if (plate.deliberatelySmall) {
+      badge = '<span class="sf-mb-protein sf-under">' + plate.total + 'g: deliberately light. This is a landing bite, not a fourth meal.</span>';
+    } else if (plate.total >= BAND_LOW && plate.total <= BAND_HIGH) {
+      badge = '<span class="sf-mb-protein">' + plate.total + 'g protein: inside the 25 to 40g per-meal sweet spot</span>';
+    } else if (plate.total < BAND_LOW) {
+      badge = '<span class="sf-mb-protein sf-under">' + plate.total + 'g protein: under the 25g floor</span>';
+    } else {
+      badge = '<span class="sf-mb-protein">' + plate.total + 'g protein: a touch over the sweet spot, fine on a heavy day</span>';
+    }
+
+    var prepHtml = '';
+    if (plate.prep) {
+      prepHtml += '<div class="sf-mb-prep"><h4>' + plate.prep.title + '</h4>';
+      if (plate.prep.lines) {
+        prepHtml += '<ol>';
+        for (var l = 0; l < plate.prep.lines.length; l++) { prepHtml += '<li>' + plate.prep.lines[l] + '</li>'; }
+        prepHtml += '</ol>';
+      } else {
+        prepHtml += '<p>' + plate.prep.text + '</p>';
+      }
+      if (plate.safe) prepHtml += '<div class="sf-mb-safe"><span aria-hidden="true">🧊</span><span>' + plate.safe + '</span></div>';
+      prepHtml += '</div>';
+    }
+
+    return '' +
+      '<div class="sf-mb-plate sf-mb-pop">' +
+        '<div class="sf-mb-plate-top">' +
+          '<span class="sf-mb-plate-name">' + plate.name + '</span>' +
+          '<span class="sf-mb-plate-time">' + cfg.name + '</span>' +
+        '</div>' +
+        '<div class="sf-mb-when"><span class="sf-mb-when-t">' + plate.time.t + '</span><span class="sf-mb-when-why">' + plate.time.why + '</span></div>' +
+        (plate.splitNote ? '<div class="sf-mb-when"><span class="sf-mb-when-t">Built to split</span><span class="sf-mb-when-why">' + plate.splitNote + '</span></div>' : '') +
+        '<ul class="sf-mb-parts">' + partsHtml + '</ul>' +
+        '<div class="sf-mb-plate-foot">' + badge + '</div>' +
+        (plate.stackWhy ? '<div class="sf-mb-stackwhy">' + plate.stackWhy + '</div>' : '') +
+        prepHtml +
+      '</div>';
+  }
+
+  /* ---- The no-break pocket protocol (only when breaks are short/none) ---- */
+  function buildPocket(picks, st, usedPro) {
+    if (st.breaks === 'real') return null;
+    var pros = [];
+    for (var i = 0; i < picks.protein.length; i++) { if (picks.protein[i].pocket) pros.push(picks.protein[i]); }
+    pros.sort(function (a, b) { return b.p - a.p; });
+    var sides = [];
+    var pool = picks.anchor.concat(picks.fat);
+    for (var j = 0; j < pool.length; j++) { if (pool[j].pocket) sides.push(pool[j]); }
+
+    var out = { title: 'The No-Break Pocket Protocol', intro: '', lines: [], sumLine: '' };
+    out.intro = (st.breaks === 'none')
+      ? 'You said a real break often never happens. This is the 90-second version that eats standing up, between rooms. It is not lunch. It holds the line so the drive-thru does not win after the shift.'
+      : 'For the days the short break evaporates: the 90-second version that eats standing up, between rooms. Not lunch. It holds the line.';
+
+    if (!pros.length) {
+      out.lines = [
+        'None of your current picks survive a locker, so this one is a store-run fix: grab jerky (1 oz bag = 10g) and a protein bar (about 20g, labels vary).',
+        'Both live in your work bag pocket. No fridge, no microwave, no break room required.',
+        'Hour 5, no break in sight: eat one standing at the counter, 90 seconds, then back to it. Restock on payday.'
+      ];
+      out.sumLine = 'Stock it: jerky (10g) + a protein bar (about 20g). 90 seconds, standing.';
+      return out;
+    }
+
+    var pro = pros[0];
+    var dup = !!(usedPro && usedPro[pro.id]);
+    var side = sides.length ? sides[0] : null;
+    if (pro.id === 'shake') {
+      out.lines = [
+        'Tonight: preload 1 scoop (25g) dry in a shaker. It lives in your work bag.' + (dup ? ' That is on top of the scoop in your plate above, so two scoops leave home tonight.' : ''),
+        'Hour 5, no break in sight: water from the fountain, cap on, shake for 10 seconds.',
+        side ? 'Drink it on the walk back. ' + side.label + ' (' + side.serve + ') rides in your pocket for the next lap.' : 'Drink it on the walk back. The plate in your bag is still yours whenever the break finally shows up.'
+      ];
+      out.sumLine = 'Shaker preloaded' + (dup ? ' (a second scoop)' : '') + ': 1 scoop = 25g' + (side ? ' + ' + side.label.toLowerCase() : '') + '. 90 seconds, standing.';
+    } else {
+      out.lines = [
+        'Tonight: drop ' + (dup ? 'a SECOND ' : 'the ') + pro.label.toLowerCase() + ' (' + pro.serve + ' = ' + pro.p + 'g) in your work bag pocket or locker. It needs no fridge.' + (dup ? ' One is already spoken for in a plate above; this one is the insurance copy.' : ''),
+        'Hour 5, no break in sight: eat it standing at the counter. 90 seconds, start to finish.',
+        side ? side.label + ' (' + side.serve + ') on the next pass if the night runs long.' : 'Water, then back to it. The plate in your bag is still yours whenever the break finally shows up.'
+      ];
+      out.sumLine = (dup ? 'A second ' + pro.label.toLowerCase() : pro.label) + ' (' + pro.serve + ' = ' + pro.p + 'g)' + (side ? ' + ' + side.label.toLowerCase() : '') + '. 90 seconds, standing.';
+    }
+    return out;
+  }
+
+  function pocketHtml(pocket) {
+    if (!pocket) return '';
+    var steps = '';
+    for (var i = 0; i < pocket.lines.length; i++) { steps += '<li>' + pocket.lines[i] + '</li>'; }
+    return '' +
+      '<div class="sf-mb-pocket sf-mb-pop">' +
+        '<h3>🧷 ' + pocket.title + '</h3>' +
+        '<p class="sf-mb-pocket-sub">' + pocket.intro + '</p>' +
+        '<div class="sf-mb-prep"><h4>The 90-second script</h4><ol>' + steps + '</ol></div>' +
+      '</div>';
+  }
+
+  /* ---- Honest delta vs the vending default ---- */
+  function deltaHtml(brkPlate) {
+    var vend = 6; /* 1 oz bag of chips (about 2g) + a candy bar (about 4g) */
+    var diff = brkPlate.total - vend;
+    if (diff <= 0) return '';
+    return '' +
+      '<div class="sf-mb-delta sf-mb-pop">' +
+        '<h3>Your break plate vs the vending run</h3>' +
+        '<div class="sf-mb-delta-grid">' +
+          '<div class="sf-mb-delta-side sf-hers"><span class="sf-mb-delta-num">' + brkPlate.total + 'g</span><span class="sf-mb-delta-label">your plate, same 5 minutes</span></div>' +
+          '<span class="sf-mb-delta-vs">vs</span>' +
+          '<div class="sf-mb-delta-side sf-theirs"><span class="sf-mb-delta-num">~6g</span><span class="sf-mb-delta-label">chips + a candy bar from the machine</span></div>' +
+        '</div>' +
+        '<span class="sf-mb-delta-plus">+' + diff + 'g protein at the hour that decides your evening</span>' +
+        '<p>Honest version: this gap will not move the scale by Friday, and early Week 1 drops are mostly water anyway. What changes first is that hours 6 through 10 stop feeling like survival, and the after-shift drive-thru loses its grip.</p>' +
+        '<p>Bigger picture: a strong day lands around 0.7 to 1.0g of protein per pound of goal weight (use goal weight, not current, if you are above about 200 lbs). Over 45? Aim toward the top of that range. This map covers the on-shift chunk.</p>' +
+      '</div>';
+  }
+
+  /* ---- Restock list (with servings, gaps filled) ---- */
+  function restockHtml(picks) {
     var cols = '';
     for (var g = 0; g < GROUP_META.length; g++) {
       var meta = GROUP_META[g];
-      var chosen = pickList(meta.key);
+      var chosen = picks[meta.key];
       cols += '<div class="sf-mb-restock-col"><h4>' + ROLE_LABEL[meta.key] + '</h4><ul>';
       if (chosen.length) {
-        for (var i = 0; i < chosen.length; i++) { cols += '<li>' + chosen[i].emoji + ' ' + chosen[i].label + '</li>'; }
-      }
-      if (!chosen.length) {
-        /* suggest a shelf-stable default to close the gap */
-        var suggest = FOODS[meta.key][meta.key === 'protein' ? 1 : 0];
-        cols += '<li class="sf-gap">Keep one on hand: ' + suggest.emoji + ' ' + suggest.label + '</li>';
+        for (var i = 0; i < chosen.length; i++) {
+          var f = chosen[i];
+          cols += '<li>' + f.emoji + ' ' + f.label + ', <span class="sf-mb-part-serve">' + f.serve + (meta.key === 'protein' ? ' = ' + f.p + 'g' : '') + '</span></li>';
+        }
+      } else if (meta.key === 'protein') {
+        cols += '<li class="sf-gap">Keep in the bag: 🥩 jerky, 1 oz bag = 10g, and 🍫 a protein bar, about 20g</li>';
+      } else {
+        var suggest = FOODS[meta.key][0];
+        cols += '<li class="sf-gap">Keep one on hand: ' + suggest.emoji + ' ' + suggest.label + ', ' + suggest.serve + '</li>';
       }
       cols += '</ul></div>';
     }
@@ -733,77 +1140,84 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       '</div>';
   }
 
-  function plateHtml(plate) {
-    var partsHtml = '';
-    for (var i = 0; i < plate.parts.length; i++) {
-      var part = plate.parts[i];
-      partsHtml += '' +
-        '<li class="sf-mb-part">' +
-          '<span class="sf-mb-part-label"><span class="sf-mb-part-emoji" aria-hidden="true">' + part.f.emoji + '</span>' + part.f.label + '</span>' +
-          '<span class="sf-mb-part-role">' + ROLE_LABEL[part.role] + '</span>' +
-        '</li>';
+  /* ---- The screenshot card ---- */
+  function summaryHtml(plates, pocket, st, isExample) {
+    var cfg = SHIFTS[st.shift];
+    var name = '';
+    if (!isExample) { try { name = window.localStorage.getItem('sf_mb_first') || ''; } catch (e) {} }
+    var title = (name ? name + '’s' : 'Your') + ' shift-day eating map';
+    var rows = '';
+    for (var i = 0; i < plates.length; i++) {
+      var pl = plates[i];
+      var bits = [];
+      for (var j = 0; j < pl.parts.length; j++) {
+        var pt = pl.parts[j];
+        bits.push(pt.f.label + (pt.role === 'protein' ? ' ' + pt.f.p + 'g' : ''));
+      }
+      rows += '<div class="sf-mb-sumrow"><span class="sf-mb-sumtime">' + pl.time.short + '</span><div class="sf-mb-sumbody"><strong>' + pl.name + '</strong><br>' + bits.join(' + ') + ' <span class="sf-mb-sumg">' + pl.total + 'g</span></div></div>';
     }
-    var hit = plate.total >= plate.target;
-    var proteinClass = hit ? 'sf-mb-protein' : 'sf-mb-protein sf-under';
-    var proteinText = hit
-      ? plate.total + 'g protein, target hit'
-      : plate.total + 'g protein, add one more protein to top it off';
+    if (pocket) {
+      rows += '<div class="sf-mb-sumrow"><span class="sf-mb-sumtime">HOUR 5</span><div class="sf-mb-sumbody"><strong>No-break pocket</strong><br>' + pocket.sumLine + '</div></div>';
+    }
     return '' +
-      '<div class="sf-mb-plate sf-mb-pop">' +
-        '<div class="sf-mb-plate-top">' +
-          '<span class="sf-mb-plate-name">' + plate.name + '</span>' +
-          '<span class="sf-mb-plate-time">3 min, no cook</span>' +
-        '</div>' +
-        '<ul class="sf-mb-parts">' + partsHtml + '</ul>' +
-        '<div class="sf-mb-plate-foot">' +
-          '<span class="' + proteinClass + '">' + proteinText + '</span>' +
-          '<span class="sf-mb-assemble">' + plate.assemble + '</span>' +
-        '</div>' +
+      '<div class="sf-mb-summary sf-mb-pop">' +
+        '<span class="sf-mb-sumeyebrow">SmithFit · The 3-Minute Shift Meal Builder</span>' +
+        '<h3>' + title + '</h3>' +
+        '<div class="sf-mb-summeta">' + cfg.name + ' (' + cfg.clockTag + ') · ' + BREAK_LABEL[st.breaks] + ' · ' + STORAGE_LABEL[st.storage] + '</div>' +
+        rows +
+        '<div class="sf-mb-sumfoot">Protein first, every plate. Screenshot this. Locker door.</div>' +
       '</div>';
   }
 
-  function render() {
-    var n = totalSelected();
-    var proteinCount = state.selected.protein.length;
+  /* ---- Render the whole map ---- */
+  function renderMap(st, isExample) {
+    var cfg = SHIFTS[st.shift];
+    var picks = {
+      protein: pickList('protein', st),
+      anchor: pickList('anchor', st),
+      veg: pickList('veg', st),
+      fat: pickList('fat', st)
+    };
 
-    /* Validation, warm not scolding */
-    if (!state.shift) {
-      nudgeEl.innerHTML = '<div class="sf-mb-nudge">Pick your shift up top first (Day, Night, or Chaos) so I can size the plate to your day.</div>';
-      shiftsEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
+    var kinds = COVER_PLATES[st.cover];
+    var usedPro = {};
+    var plates = [];
+    for (var i = 0; i < kinds.length; i++) {
+      plates.push(buildPlate(kinds[i], picks, st, usedPro, i));
     }
-    if (proteinCount === 0) {
-      nudgeEl.innerHTML = '<div class="sf-mb-nudge">Tap at least one protein. It is the one thing that carries you through a shift, and every plate here is built around it.</div>';
-      return;
+    var brkPlate = null;
+    for (var b = 0; b < plates.length; b++) { if (plates[b].kind === 'brk') brkPlate = plates[b]; }
+    var pocket = buildPocket(picks, st, usedPro);
+
+    var html = '<div class="sf-mb-resulthead">';
+    if (isExample) {
+      html += '<span class="sf-mb-examplebar">Worked example</span>' +
+        '<h2>What the map looks like</h2>' +
+        '<div class="sf-mb-shiftnote">This one is a night nurse with short breaks and a cooler bag, mapping the full day from 7 common picks. Tap your own shift and foods above, hit build, and this whole page becomes yours.</div>';
+    } else {
+      html += '<h2>Your shift-day eating map</h2>' +
+        '<div class="sf-mb-shiftnote">Not a diet. A map: what to pack, how much, and exactly when. The floor can wreck your break, it cannot wreck all three of these at once.</div>';
     }
-    if (n < 2) {
-      nudgeEl.innerHTML = '<div class="sf-mb-nudge">Add one more thing (an anchor, a veg, or a fat) and I will build you a full plate.</div>';
-      return;
-    }
+    html += '<div class="sf-mb-clockline">' + cfg.clockLine + '</div></div>';
 
-    nudgeEl.innerHTML = '';
-    var cfg = SHIFT_CFG[state.shift];
-    var plates = buildPlates();
+    for (var p = 0; p < plates.length; p++) { html += plateHtml(plates[p], cfg); }
 
-    var headline = plates.length > 1 ? ('Your ' + plates.length + ' no-prep plates') : 'Your no-prep plate';
-    var html = '' +
-      '<div class="sf-mb-resulthead">' +
-        '<h2>' + headline + '</h2>' +
-        '<div class="sf-mb-shiftnote">' + cfg.note + '</div>' +
-      '</div>';
+    /* The eat-order rule, once, under the plates */
+    html += '<div class="sf-mb-order"><strong>The eat-order rule: protein first, every plate.</strong> Protein flips the fullness switch fastest and holds you steadier over the next 3 hours than starting with the crackers. And if a call bell cuts the meal short, the part that matters is already in.</div>';
 
-    for (var i = 0; i < plates.length; i++) { html += plateHtml(plates[i]); }
-
-    if (plates.length < 3) {
-      html += '<div class="sf-mb-nudge" style="margin-top:0;margin-bottom:18px;">You picked a lean set, so I kept it real instead of padding it out. Tap a few more foods and rebuild, and I will spin up more combos for you.</div>';
+    if (picks.protein.length === 1) {
+      html += '<div class="sf-mb-nudge" style="margin:0 0 18px;">One protein pick means every plate leans on ' + picks.protein[0].label.toLowerCase() + '. It works, but add a second protein to your cart this week so the map can rotate.</div>';
     }
 
-    html += restockHtml();
+    html += pocketHtml(pocket);
+    if (brkPlate) html += deltaHtml(brkPlate);
+    html += restockHtml(picks);
+    html += summaryHtml(plates, pocket, st, isExample);
 
     html += '' +
       '<div class="sf-mb-actions">' +
         '<button type="button" class="sf-mb-btn sf-secondary" id="sfMbRebuild">Rebuild with different picks</button>' +
-        '<button type="button" class="sf-mb-btn sf-secondary" id="sfMbPrint">Save or print my card</button>' +
+        '<button type="button" class="sf-mb-btn sf-secondary" id="sfMbPrint">Save or print my map</button>' +
       '</div>';
 
     /* CTA bridge */
@@ -831,17 +1245,36 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     /* wire post-render buttons */
     var rebuild = document.getElementById('sfMbRebuild');
     if (rebuild) rebuild.addEventListener('click', function () {
-      resultsEl.classList.add('sf-mb-hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     var printBtn = document.getElementById('sfMbPrint');
     if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
 
     revealObserve();
-    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!isExample) resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  buildBtn.addEventListener('click', render);
+  /* ---- Build click (validation stays warm, never scolding) ---- */
+  buildBtn.addEventListener('click', function () {
+    var n = totalSelected(state);
+    var proteinCount = state.selected.protein.length;
+
+    if (!state.shift) {
+      nudgeEl.innerHTML = '<div class="sf-mb-nudge">Pick your shift up top first (Day, Night, or Chaos) so I can put real clock times on your map.</div>';
+      shiftsEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    if (proteinCount === 0) {
+      nudgeEl.innerHTML = '<div class="sf-mb-nudge">Tap at least one protein. It is the one thing that carries you through a shift, and every plate here is built around it.</div>';
+      return;
+    }
+    if (n < 2) {
+      nudgeEl.innerHTML = '<div class="sf-mb-nudge">Add one more thing (an anchor, a veg, or a fat) and I will build your full map.</div>';
+      return;
+    }
+    nudgeEl.innerHTML = '';
+    renderMap(state, false);
+  });
 
   /* ---- Reveal observer ---- */
   function revealObserve() {
@@ -863,18 +1296,35 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   renderGroups();
   updateCount();
 
-  /* Greet unlocked visitors coming from the opt-in */
+  /* Greet visitors coming from the opt-in */
   try {
     var params = new URLSearchParams(window.location.search);
-    if (params.get('unlocked') === '1') {
+    if (params.get('full') === '1') {
       var name = '';
       try { name = window.localStorage.getItem('sf_mb_first') || ''; } catch (e) {}
       var sub = document.querySelector('.sf-mb-sub');
       if (sub) {
-        sub.textContent = (name ? name + ', you' : 'You') + ' are in. Build as many plates as you want, for any shift, whenever your week goes sideways.';
+        sub.textContent = (name ? name + ', you' : 'You') + ' are in. Build your full map for any shift, as many times as your week goes sideways.';
       }
     }
   } catch (e) {}
+
+  /* ---- Worked example on load: the value is visible before a single tap ---- */
+  (function renderExample() {
+    var example = {
+      shift: 'night',
+      breaks: 'short',
+      storage: 'cooler',
+      cover: 'full',
+      selected: {
+        protein: ['rotisserie', 'greekyog', 'jerky'],
+        anchor: ['ricepouch', 'fruit'],
+        veg: ['carrots'],
+        fat: ['nuts']
+      }
+    };
+    renderMap(example, true);
+  })();
 })();
 </script>
 </body>

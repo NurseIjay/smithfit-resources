@@ -118,6 +118,50 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-cs-explode { border-left: 4px solid var(--sf-gold-raw); background: var(--sf-bg-card); border-radius: 0 12px 12px 0; padding: 16px 20px; margin-top: 14px; font-size: 14.5px; box-shadow: 0 2px 16px rgba(42,33,24,0.05); }
 .sf-cs-explode strong { color: var(--sf-dark-raw); }
 
+/* ===== Tuner (start time + commute) ===== */
+.sf-cs-tuner { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 16px 20px; margin-bottom: 18px; box-shadow: 0 2px 16px rgba(42,33,24,0.05); }
+.sf-cs-tuner-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 6px 0; }
+.sf-cs-tuner-label { flex: 0 0 170px; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-gold-raw); }
+.sf-cs-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.sf-cs-chip { border: 1.5px solid var(--sf-border); background: var(--sf-cream-raw); color: var(--sf-taupe-raw); border-radius: 999px; padding: 8px 16px; font-family: var(--sf-sans); font-size: 13px; font-weight: 700; cursor: pointer; font-variant-numeric: lining-nums; -webkit-transition: background .18s ease, border-color .18s ease, color .18s ease; transition: background .18s ease, border-color .18s ease, color .18s ease; }
+.sf-cs-chip:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-cs-chip:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-cs-chip.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); }
+
+/* ===== Prescription output ===== */
+.sf-cs-plan-sub { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 14px; }
+.sf-cs-rx { list-style: none; }
+.sf-cs-rx li { font-size: 14.5px; padding: 5px 0 5px 18px; position: relative; }
+.sf-cs-rx li::before { content: "\2022"; position: absolute; left: 4px; color: var(--sf-gold-raw); font-weight: 700; }
+.sf-cs-rx strong { color: var(--sf-dark-raw); font-variant-numeric: lining-nums; }
+.sf-cs-why { margin: 10px 0; border-left: 3px solid var(--sf-gold-soft); background: var(--sf-gold-hover); border-radius: 0 10px 10px 0; padding: 10px 14px; font-size: 13.5px; color: var(--sf-taupe-raw); }
+.sf-cs-why strong { display: block; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-gold-raw); margin-bottom: 2px; }
+.sf-cs-break { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 12px 12px 0; padding: 16px 20px; margin-top: 14px; }
+.sf-cs-break h4 { font-family: var(--sf-serif); font-size: 19px; font-weight: 700; color: #8a3a37; margin-bottom: 4px; }
+.sf-cs-break p { font-size: 14px; }
+
+/* ===== Screenshot card ===== */
+.sf-cs-rxcard { background: linear-gradient(150deg, #2a2118 0%, #3a2e22 60%, #241c14 100%); border: 1px solid rgba(200,160,78,0.35); border-radius: 18px; padding: 22px 22px 16px; margin-top: 20px; position: relative; overflow: hidden; }
+.sf-cs-rxcard::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 0%, rgba(200,160,78,0.18) 0%, transparent 55%); pointer-events: none; }
+.sf-cs-rxcard > * { position: relative; z-index: 1; }
+.sf-cs-rxcard-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid rgba(200,160,78,0.35); padding-bottom: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.sf-cs-rxcard-title { font-family: var(--sf-serif); font-weight: 700; font-size: 22px; color: var(--sf-cream-raw); }
+.sf-cs-rxcard-sub { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-gold-soft); }
+.sf-cs-rxcard-row { display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px dashed rgba(250,246,243,0.14); }
+.sf-cs-rxcard-row:last-of-type { border-bottom: none; }
+.sf-cs-rxcard-k { flex: 0 0 60px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-gold-soft); padding-top: 2px; }
+.sf-cs-rxcard-v { font-size: 13.5px; color: rgba(250,246,243,0.92); line-height: 1.5; font-variant-numeric: lining-nums; }
+.sf-cs-rxcard-foot { border-top: 1px solid rgba(200,160,78,0.35); margin-top: 8px; padding-top: 10px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 11.5px; color: rgba(250,246,243,0.6); }
+.sf-cs-rxcard-foot strong { color: var(--sf-gold-soft); font-weight: 700; }
+.sf-cs-rxcard-cap { text-align: center; font-family: var(--sf-display); font-style: italic; font-size: 13px; color: var(--sf-taupe-light); margin-top: 10px; }
+
+/* ===== Timeline ===== */
+.sf-cs-tl { max-width: 640px; margin: 4px 0 16px; }
+.sf-cs-tl-item { display: flex; gap: 16px; background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 14px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 2px 16px rgba(42,33,24,0.04); }
+.sf-cs-tl-when { flex: 0 0 96px; font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-gold-raw); padding-top: 1px; font-variant-numeric: lining-nums; }
+.sf-cs-tl-body { font-size: 14.5px; }
+.sf-cs-tl-note { font-size: 15px; max-width: 640px; margin-bottom: 8px; }
+
 /* ===== Scam check ===== */
 .sf-cs-check { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 26px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
 .sf-cs-q { padding: 16px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
@@ -225,6 +269,12 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-cs-proof { grid-template-columns: repeat(2, 1fr); }
   .sf-cs-check { padding: 20px 16px; }
   .sf-cs-onepager { padding: 22px 18px; }
+  .sf-cs-tuner { padding: 14px 16px; }
+  .sf-cs-tuner-label { flex-basis: 100%; }
+  .sf-cs-tl-item { flex-direction: column; gap: 4px; }
+  .sf-cs-tl-when { flex-basis: auto; }
+  .sf-cs-rxcard { padding: 18px 16px 14px; }
+  .sf-cs-rxcard-k { flex-basis: 52px; }
 }
 
 /* ===== Reduced motion ===== */
@@ -265,7 +315,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     <section class="sf-cs-section sf-cs-noprint">
       <p class="sf-cs-secnum">01 / The full protocol</p>
       <h2 class="sf-cs-h2">All three patterns, in depth</h2>
-      <p class="sf-cs-lead">Schedules change. When yours does, switch tabs instead of starting over. Each pattern gets the four moves, a first week, and the rule for when the week explodes.</p>
+      <p class="sf-cs-lead">Schedules change. When yours does, switch tabs instead of starting over. Set your start time and your drive once, and every pattern renders as a written prescription: your clock times, your gram counts, your first week, and the plan for the day it breaks.</p>
 
       <div class="sf-cs-tabs" id="sfCsTabs" role="group" aria-label="Pick your shift pattern">
         <button type="button" class="sf-cs-tab" data-pattern="days" aria-pressed="false">
@@ -284,12 +334,35 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           <span class="sf-cs-tab-desc">The roughest ride</span>
         </button>
       </div>
+      <div class="sf-cs-tuner" id="sfCsTuner">
+        <div class="sf-cs-tuner-row">
+          <span class="sf-cs-tuner-label" id="sfCsStartLabel">Shift start</span>
+          <div class="sf-cs-chips" id="sfCsStarts" role="group" aria-label="Shift start time"></div>
+        </div>
+        <div class="sf-cs-tuner-row">
+          <span class="sf-cs-tuner-label">Door-to-door drive</span>
+          <div class="sf-cs-chips" id="sfCsCommutes" role="group" aria-label="Commute length"></div>
+        </div>
+      </div>
       <div id="sfCsPanel" aria-live="polite"></div>
     </section>
 
-    <!-- 02: SCAM CHECK -->
+    <!-- 02: WHAT TO EXPECT -->
     <section class="sf-cs-section sf-cs-noprint">
-      <p class="sf-cs-secnum">02 / The scam check</p>
+      <p class="sf-cs-secnum">02 / What to expect</p>
+      <h2 class="sf-cs-h2">The honest timeline</h2>
+      <p class="sf-cs-tl-note">No jar can print a timeline like this, because a jar cannot do any of it. The fix lands in a predictable order, and knowing the order is what keeps you from quitting in week two:</p>
+      <div class="sf-cs-tl">
+        <div class="sf-cs-tl-item"><span class="sf-cs-tl-when">Week 1</span><div class="sf-cs-tl-body">Falling asleep gets easier first. The anchor and the light do that part before anything else moves. The scale may dip too; early drops are mostly water, so do not hang anything on them.</div></div>
+        <div class="sf-cs-tl-item"><span class="sf-cs-tl-when">Week 2</span><div class="sf-cs-tl-body">Energy steadies through the back half of shifts. Hours 8 through 12 stop feeling like a cliff you fall off.</div></div>
+        <div class="sf-cs-tl-item"><span class="sf-cs-tl-when">Weeks 3 to 4</span><div class="sf-cs-tl-body">The cravings quiet down. Not because you got tougher, but because the sleep and the fuel stopped whipsawing each other.</div></div>
+      </div>
+      <p class="sf-cs-tl-note">None of this needs a purchase. That is the point of it.</p>
+    </section>
+
+    <!-- 03: SCAM CHECK -->
+    <section class="sf-cs-section sf-cs-noprint">
+      <p class="sf-cs-secnum">03 / The scam check</p>
       <h2 class="sf-cs-h2">Is it a scam? Run the 5 questions</h2>
       <p class="sf-cs-lead">Before any powder, cocktail, or "hormone-balancing" bundle gets your card number, run it through these. Answer for the product you have in mind.</p>
 
@@ -301,12 +374,12 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       </div>
     </section>
 
-    <!-- 03: ONE-PAGER -->
+    <!-- 04: ONE-PAGER -->
     <section class="sf-cs-section">
       <div class="sf-cs-noprint">
-        <p class="sf-cs-secnum">03 / The one-pager</p>
+        <p class="sf-cs-secnum">04 / The one-pager</p>
         <h2 class="sf-cs-h2">Print it, stick it in your locker</h2>
-        <p class="sf-cs-lead">The whole system on one page: every pattern, the checklist, and the rule that survives any week.</p>
+        <p class="sf-cs-lead">The whole system on one page: every pattern with its clock times, the checklist, and the rule that survives any week.</p>
       </div>
 
       <div class="sf-cs-onepager sf-cs-reveal">
@@ -318,30 +391,34 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           <div class="sf-cs-op-col">
             <h5>Days</h5>
             <ul>
-              <li>One wake time, every day, within an hour</li>
-              <li>Ten minutes of outdoor light before 9am, dim the house after 8pm</li>
-              <li>Protein breakfast, real lunch, nothing heavy 2 to 3 hours before bed</li>
-              <li>Train before shifts or on off days. After a 12, walk.</li>
+              <li>Sleep 10:15pm to 5:45am, every night, days off too</li>
+              <li>Outside light by 6:15am (10 minutes is enough), dim the house from 8:15pm</li>
+              <li>27g protein by 6:15am, real lunch at 12pm (35g), landing plate 8:15pm, caffeine off by 2:15pm</li>
+              <li>Lift only on 6+ hours of sleep, otherwise a 20 minute walk. Real lifts live on off days.</li>
             </ul>
           </div>
           <div class="sf-cs-op-col">
             <h5>Nights</h5>
             <ul>
-              <li>Protect a 4-hour anchor sleep window (9am to 1pm) every day</li>
-              <li>Sunglasses home, blackout room, bright light at shift start</li>
-              <li>Main meal pre-shift, keep 2am to 5am light, small snack before day-sleep</li>
-              <li>Sleep first, then train. Short sessions on night stretches.</li>
+              <li>Sleep 9am to 4:30pm daily, plus the blackout drill: curtains or mask, do not disturb, cold room, no scroll</li>
+              <li>Sunglasses 7:30 to 8am. Bright light at 3am is fine; sun after clock-out is the enemy</li>
+              <li>Real dinner 5pm (35g), keep midnight to 3am light, landing bite 8:30am, caffeine off by 1am</li>
+              <li>Never lift after the 3rd night in a row. Lift the first off day, after the window, around 5:30pm.</li>
             </ul>
           </div>
           <div class="sf-cs-op-col">
             <h5>Rotating</h5>
             <ul>
-              <li>Anchor within each block, reset the anchor when the block changes</li>
-              <li>Light when your day starts, dark when it ends, yours not the sun's</li>
-              <li>Meals on body time: waking, personal midday, personal evening</li>
-              <li>Train mid-block. Flip days are for sleep, food, and walks.</li>
+              <li>One core window: 1:45 to 5:45, am on day blocks, pm on night blocks. One 12-hour flip, no drift</li>
+              <li>Flip days: outdoor light at your NEW morning, whatever the wall clock says</li>
+              <li>Biggest meal pre-shift, midnight to 3am light, caffeine off 8 hours before whichever bed is next</li>
+              <li>Lift mid-block only. Flip days are walking days. Never after the 3rd night.</li>
             </ul>
           </div>
+        </div>
+        <div class="sf-cs-op-strip">
+          <strong>The times above assume</strong>
+          7 o'clock starts with a 30 minute drive. Different start? Slide every time with it. The tool above writes your exact version.
         </div>
         <div class="sf-cs-op-strip">
           <strong>Before you buy calm, ask</strong>
@@ -422,54 +499,175 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     } catch (e) {}
   }
 
-  /* ---- The full protocol data ---- */
-  var FULL = {
-    days: {
-      intro: "Days are the friendliest pattern on the body clock, which is exactly why it stings when the fatigue and cravings still will not move. Run all four together and give it a week.",
-      moves: [
-        { t: "Anchor your sleep", b: "Pick one wake time and hold it every day, work or off, within one hour. That single fixed point is what your body sets everything else by. The night before a 12, work backward from the alarm and protect 7.5 hours.", s: "Save the wake time as one repeating alarm with the same label every day. The bedtime can flex. The wake time does not." },
-        { t: "Time your light", b: "Ten minutes of outdoor light within an hour of waking, before the fluorescents get to you. In the evening, dim the big lights after 8pm and keep screens low and warm. Bright mornings and dark evenings keep your sleep pressure honest.", s: "Tie it to something you already do: coffee on the porch, park at the far end of the lot, visor up on the drive in." },
-        { t: "Time your meals", b: "Protein-first breakfast, a real lunch, and a hard stop on heavy food 2 to 3 hours before bed. The classic day-shift trap is starving through the shift and landing a 9pm feast. Move the calories earlier and both the 3pm crash and the late-night cravings shrink.", s: "Pack tomorrow's lunch while tonight's dinner is cooking. Same kitchen, zero extra willpower." },
-        { t: "Manage the load", b: "Train before shifts or on off days. After a 12, the workout is a walk, full stop. Three shifts in a row means day three is recovery on purpose, not a test you are failing.", s: "Schedule workouts against your actual roster each week, not against the week you wish you had." }
-      ],
-      week: [
-        "Tonight: pick the one wake time and set the repeating alarm.",
-        "Tomorrow: ten minutes of outdoor light before 9am, protein at breakfast.",
-        "This week: pull dinner earlier by 30 minutes every few days until there is a 2 to 3 hour gap before bed."
-      ],
-      explode: "Keep the wake time. Drop everything else guilt-free. One anchored morning keeps the whole system from unravelling, and you can rebuild the rest next week."
-    },
-    nights: {
-      intro: "Nights are the pattern the calm aisle preys on hardest, because 3am you will consider anything that promises to feel human. This is how night-shift nurses actually get steady.",
-      moves: [
-        { t: "Anchor your sleep", b: "Choose a 4-hour anchor window (9am to 1pm works for most) and protect it every single day, on nights and off. Sleep longer when you can, but that window is non-negotiable: blackout curtains, phone on do not disturb, household briefed.", s: "Treat the window like a shift. You would not skip a shift because someone texted." },
-        { t: "Time your light", b: "Sunglasses on the drive home, every time. Morning sun is a wake-up signal hitting you at the exact moment you need the opposite. Keep the bedroom cave-dark, then get your bright light at the start of your night: before and into the front half of the shift.", s: "Keep a pair of sunglasses in the car door so there is no decision to make at 7am." },
-        { t: "Time your meals", b: "Eat your main meal before the shift, plan a protein snack around midnight, and keep 2am to 5am light. That stretch is when your body handles food worst, and it is exactly when the vending machine sings. Land on something small before day-sleep, not a full plate.", s: "Pack the 2am answer before you leave the house. If it is in your bag, the machine loses." },
-        { t: "Manage the load", b: "Never train straight off a night shift. Sleep first, then train, and keep sessions short during a stretch of nights. Save the harder work for your first real off day, after the anchor sleep. A hard session on no sleep digs the hole deeper.", s: "Put workouts after sleep on your calendar, never after work." }
-      ],
-      week: [
-        "Today: pick your anchor window and tell the people you live with.",
-        "Tonight: pack the midnight protein snack and put sunglasses in the car door.",
-        "This week: blackout the room properly. Curtains, tape over the LED lights, phone out of reach."
-      ],
-      explode: "Keep the anchor window. Four protected hours beats eight broken ones, and it is the one move the rest of the system hangs on."
-    },
-    rotating: {
-      intro: "Rotating is the roughest ride in healthcare, and no powder has ever cared. The trick is rules that travel with the block, not with the clock.",
-      moves: [
-        { t: "Anchor inside the block", b: "You cannot hold one bedtime across a rotation, so hold it within each block. On days: one wake time daily. On nights: one protected day-sleep window daily. The moment a block starts, its anchor starts, and it does not move until the block ends.", s: "When the new roster drops, mark the anchors for each block first, before anything else goes on the calendar." },
-        { t: "Light as a lever", b: "Light is the fastest lever your body clock has, so pull it on purpose. Day block: bright light on waking, dim evenings. Night block: sunglasses home, cave bedroom, bright light at the front of the shift. Switch day: get light at your new morning, whatever the wall clock says.", s: "One line to remember: light when your day starts, dark when it ends. Yours, not the sun's." },
-        { t: "Meals on body time", b: "First meal within two hours of waking. Biggest meal in your personal midday. Light eating in your personal evening. When the block flips, the meals flip with it, and that regularity does more for cravings than anything in the aisle.", s: "Anchor meals to events, not clock times: waking, mid-shift, wind-down." },
-        { t: "Load around the flips", b: "Train in the middle of stable blocks. The 48 hours around a switch are for walking, food, and sleep, not workouts. Skipping the flip-day session is not lost progress. It is the thing that keeps the rest of the week trainable.", s: "When the roster drops, cross out the flip days for training first. Whatever is left is your real training week." }
-      ],
-      week: [
-        "Today: screenshot your roster and circle every switch day.",
-        "This block: set the block's anchor (wake time or day-sleep window) and hold it daily.",
-        "This week: move any planned workout off a flip day and into the middle of a stable stretch."
-      ],
-      explode: "Keep the current block's anchor and the sunglasses rule. Those two survive any roster."
+  /* ---- The prescription engine ---- */
+  function fmt(m) {
+    m = ((m % 1440) + 1440) % 1440;
+    var h = Math.floor(m / 60), mi = m % 60;
+    var ap = h >= 12 ? "pm" : "am";
+    var hh = h % 12; if (hh === 0) hh = 12;
+    return hh + (mi ? ":" + (mi < 10 ? "0" : "") + mi : "") + ap;
+  }
+  function span(a, b) { return fmt(a) + " to " + fmt(b); }
+  function t(m) { return "<strong>" + fmt(m) + "</strong>"; }
+  function money(n) { return "$" + n.toLocaleString("en-US"); }
+
+  var START_OPTS = { days: [360, 390, 420, 450], nights: [1080, 1110, 1140, 1170], rotating: [360, 390, 420, 450] };
+  var START_LABEL = { days: "Shift start", nights: "Shift start", rotating: "Day-block start" };
+  var DEFAULT_START = { days: 420, nights: 1140, rotating: 420 };
+  var COMMUTE_OPTS = [20, 30, 45];
+
+  function buildRx(pattern, S, C) {
+    if (pattern === "days") {
+      var wake = S - C - 45, bed = wake - 450, lightBy = wake + 30, dim = bed - 120, cut = bed - 480,
+          lunch = S + 300, home = S + 750 + C, dinner = home + 15;
+      return {
+        label: "day shifts",
+        sub: "Days &middot; " + fmt(S) + " start &middot; " + C + " minute drive",
+        intro: "Days are the friendliest pattern on the body clock, which is exactly why it stings when the fatigue and the cravings still will not move. Here is your written version, worked backward from your " + fmt(S) + " start.",
+        moves: [
+          { t: "Anchor your sleep", rx: [
+              "Your window is " + t(bed) + " to " + t(wake) + ", every night, days off included. That is seven and a half hours, worked backward from your " + fmt(S) + " start and your " + C + " minute drive.",
+              "One repeating alarm, " + fmt(wake) + ", never negotiated. The bedtime can slip twenty minutes. The wake time cannot."
+            ],
+            why: "One fixed wake time is the single signal your body clock trusts most. Hold it for a week and falling asleep stops being a project and starts being automatic.",
+            s: "Save the alarm with the label \"the anchor.\" A named alarm is a rule. An unnamed one is a suggestion." },
+          { t: "Time your light", rx: [
+              "Outside by " + t(lightBy) + ". Ten minutes is enough: coffee on the step, or park at the far end of the lot and take the long way in.",
+              "From " + t(dim) + ", dim the big lights and warm the screens. Bright morning, dark evening, in that order."
+            ],
+            why: "Morning daylight is many times brighter than any room you work in, and it is the stamp that tells your clock when tonight's sleepiness should arrive: on time, at " + fmt(bed) + ".",
+            s: "Tie the light to something you already do: coffee on the step, park far, visor up on the drive in." },
+          { t: "Time your meals", rx: [
+              t(wake) + " to " + t(lightBy) + ": protein first, 25 to 40g. Two hard-boiled eggs (12g) plus one single-serve Greek yogurt cup, 5.3oz (15g), is 27g before the fluorescents get you.",
+              "Around " + t(lunch) + ": the real meal of your workday, 30 to 40g. One cup of shredded rotisserie chicken is 35g on its own.",
+              t(dinner) + ", once you land home: the landing meal, not the feast. 25 to 30g plus plants. 4oz deli turkey (18g) with two string cheese (14g) gets you there.",
+              "Last caffeine by " + t(cut) + ". The half-life is 5 to 6 hours, so a 12oz coffee (145mg) at " + fmt(cut) + " still has about 50mg working at " + fmt(bed) + ", most of an espresso shot."
+            ],
+            why: "This flips the classic day-shift order (starve all shift, feast at 9pm). Front-loading the protein is what shrinks the 3pm crash and the after-dinner grazing, because both are fuel gaps, not willpower gaps.",
+            s: "Pack tomorrow's lunch while tonight's dinner cooks. Same kitchen, zero extra willpower." },
+          { t: "Manage the load", rx: [
+              "Lift after a shift only if last night gave you 6+ hours. Under six, the workout is a 20 minute walk, and that is the plan working, not you failing.",
+              "Real lifting lives on your off days, late morning after the " + fmt(wake) + " wake, when there is actual recovery behind it."
+            ],
+            why: "A hard session on short sleep adds stress without adding strength. The off-day lift is where progress happens; the walk keeps the habit alive until then.",
+            s: "On Sunday, write the week's lifts against your actual roster, not against the week you wish you had." }
+        ],
+        week: [
+          "Tonight: set the " + fmt(wake) + " repeating alarm and put the phone across the room.",
+          "Tomorrow: outside by " + fmt(lightBy) + ", protein by " + fmt(lightBy) + ", last caffeine by " + fmt(cut) + ".",
+          "This week: hold the " + span(bed, wake) + " window on your days off too. That is the part everyone skips, and the part that makes week two work."
+        ],
+        breakT: "When the plan breaks: five hours of sleep, shift at " + fmt(S),
+        breakB: "Keep the " + fmt(wake) + " wake anyway. Light by " + fmt(lightBy) + " (it matters more today, not less). Protein inside the first 30 minutes even if you are not hungry. Skip the lift, walk at lunch instead. If you nap: 20 minutes, alarm set, before 3pm. And tonight, bed at " + fmt(bed) + ", not 8pm. Crashing early after a bad night usually buys you a 2am ceiling stare.",
+        card: [
+          ["Sleep", span(bed, wake) + ", every night, days off too"],
+          ["Light", "outside by " + fmt(lightBy) + " &middot; dim from " + fmt(dim)],
+          ["Meals", "27g by " + fmt(lightBy) + " &middot; 35g at " + fmt(lunch) + " &middot; land " + fmt(dinner) + " &middot; caffeine off " + fmt(cut)],
+          ["Load", "lift on 6+ hrs sleep, otherwise a 20 minute walk"]
+        ]
+      };
     }
-  };
+    if (pattern === "nights") {
+      var end = S + 750, homeN = end + C, down = homeN + 60, up = down + 450, coreEnd = down + 240,
+          main = S - 120, landing = homeN + 30, cutN = down - 480, lift = up + 60;
+      return {
+        label: "night shifts",
+        sub: "Nights &middot; " + fmt(S) + " start &middot; " + C + " minute drive",
+        intro: "Nights are the pattern the calm aisle preys on hardest, because 3am you will consider anything that promises to feel human. Here is your written version, worked forward from your " + fmt(S) + " start.",
+        moves: [
+          { t: "Anchor your sleep", rx: [
+              "Protect " + t(down) + " to " + t(up) + ", every day you are on nights. That window comes from your own clock-out: off the floor about " + fmt(end) + ", home " + fmt(homeN) + ", down an hour later.",
+              "The 4-item blackout drill before you get in: 1. blackout curtains or an eye mask. 2. phone on do not disturb. 3. room cold. 4. no doom-scroll in bed."
+            ],
+            why: "Day sleep is fighting every signal your body has, so it needs a fortress, not a suggestion. Same window, same drill, daily: that is what turns four broken hours into seven real ones.",
+            s: "Treat the window like a shift. You would not skip a shift because somebody texted." },
+          { t: "Time your light", rx: [
+              "Sunglasses on for the whole drive, " + t(end) + " to " + t(homeN) + ", every time, and no direct sun between the car and your pillow.",
+              "At 3am, bright break-room light is fine. It actually helps you stay sharp. The mistake is bright light AFTER the shift ends, not during it."
+            ],
+            why: "Morning sun at " + fmt(homeN) + " reads as wake-up-now at the exact moment you need stand-down. Blocking 30 minutes of it is the cheapest sleep aid that exists.",
+            s: "Sunglasses live in the car door, not the bag. At " + fmt(end) + " you do not want a decision, you want a reflex." },
+          { t: "Time your meals", rx: [
+              t(main) + ", before you leave: your real dinner, 35 to 40g. One cup of shredded rotisserie chicken is 35g, or cottage cheese, 1 cup (25g), plus a chicken sausage link (14g).",
+              "Midnight to 3am: keep it light on purpose. A single Greek yogurt cup, 5.3oz (15g), or a tuna pouch, 2.6oz (18g), from the break-room fridge or your ice-pack bag beats the whole vending row on protein and skips the 4am sugar dip.",
+              t(landing) + ", before the blackout: a small landing bite, not a plate. Two hard-boiled eggs (12g) or two string cheese (14g).",
+              "Last caffeine by " + t(cutN) + ". A 3am Celsius is 200mg, and about half of it is still in your blood at " + fmt(down) + " when your head hits the pillow."
+            ],
+            why: "Roughly 2am to 5am is when your body handles food worst, and it is exactly when the machine sings. Big fuel before the shift, light through the dip, small landing before sleep. The order is the whole trick.",
+            s: "Pack the midnight answer before you leave the house. If it is in your bag, the machine loses." },
+          { t: "Manage the load", rx: [
+              "Never lift straight off a night, and never lift after your third night in a row. The stretch-of-nights workout is a 20 minute walk after you wake, around " + t(up) + ".",
+              "Your real lift belongs on the first day off, AFTER the sleep window: down " + fmt(down) + ", up " + fmt(up) + ", train around " + t(lift) + "."
+            ],
+            why: "Training on no sleep digs the hole deeper and steals from tonight's shift. The same session placed after the window actually builds something.",
+            s: "Workouts go on the calendar after sleep, never after work." }
+        ],
+        week: [
+          "Today: claim " + span(down, up) + " out loud to the people you live with.",
+          "Tonight: pack the midnight protein and move the sunglasses to the car door.",
+          "This week: finish the blackout drill properly. Curtains or mask, tape over the charger LEDs, phone on do not disturb."
+        ],
+        breakT: "When the plan breaks: the window gets invaded",
+        breakB: "School run, appointment, the cable guy: guard the FRONT of the window, " + fmt(down) + " to " + fmt(coreEnd) + ", and release the rest without guilt. Four protected hours beats eight broken ones. And coming off your last night: sleep short on purpose (" + fmt(down) + " to about noon), get afternoon light, then aim for a normal 10:30pm-ish bedtime so you rejoin the daylight world without losing the whole day off.",
+        card: [
+          ["Sleep", span(down, up) + " + the 4-item blackout drill"],
+          ["Light", "shades " + span(end, homeN) + " &middot; bright at 3am is fine &middot; no sun after shift"],
+          ["Meals", "dinner " + fmt(main) + " (35g) &middot; light 12 to 3am &middot; bite " + fmt(landing) + " &middot; caffeine off " + fmt(cutN)],
+          ["Load", "never after the 3rd night &middot; lift first off day, " + fmt(lift)]
+        ]
+      };
+    }
+    /* rotating */
+    var wakeD = S - C - 45, bedD = wakeD - 450, coreA = wakeD - 240,
+        Sn = S + 720, endN2 = Sn + 750, homeN2 = endN2 + C, wakeN = Sn - C - 45, downN = homeN2 + 60,
+        lightD = wakeD + 30, cutD = bedD - 480, cutR = downN - 480,
+        firstD = wakeD + 60, firstN = wakeN + 60, landR = homeN2 + 30;
+    return {
+      label: "rotating shifts",
+      sub: "Rotating &middot; day blocks start " + fmt(S) + " &middot; " + C + " minute drive",
+      intro: "Rotating is the roughest ride in healthcare, and no powder has ever cared. Your version is built on one core window that flips with the block and never drifts inside it.",
+      moves: [
+        { t: "Anchor the core", rx: [
+            "Your core four hours: " + t(coreA) + " to " + t(wakeD) + " on day blocks (inside a " + span(bedD, wakeD) + " night), flipping exactly 12 hours to " + t(coreA + 720) + " to " + t(wakeN) + " on night blocks (bed by " + fmt(downN) + ", protect through " + fmt(wakeN) + ": day sleep comes broken, so it gets the longer runway).",
+            "One flip, 12 hours, nothing in between. The core never moves inside a block, and every off day protects whichever side of the clock the current block lives on."
+          ],
+          why: "You cannot hold one bedtime across a rotation, so you hold one core instead. Guarding the same four digits on both sides of the clock is what keeps a flip from costing you the whole week.",
+          s: "When the new roster drops, ink the core windows on the calendar first, before anything else." },
+        { t: "Point the light", rx: [
+            "Day blocks: outside by " + t(lightD) + ", ten minutes. Night blocks: sunglasses for the drive home (" + span(endN2, homeN2) + "), cave-dark room, bright light at the front of the shift.",
+            "Flip days: get outdoor light at your NEW morning, whatever the wall clock says. That one walk moves the clock faster than anything in a jar."
+          ],
+          why: "Light is the fastest lever your body clock has. Pointed at the right hours it pulls the rotation along with you. Pointed at the wrong ones it drags you right back.",
+          s: "One line to remember: light when your day starts, dark when it ends. Yours, not the sun's." },
+        { t: "Meals on body time", rx: [
+            "First meal within an hour of waking on both blocks: by " + t(firstD) + " on days, by " + t(firstN) + " on nights. The pre-shift meal is the biggest one, 35 to 40g (one cup of shredded rotisserie chicken is 35g).",
+            "On nights, keep midnight to 3am light: a single Greek yogurt cup, 5.3oz (15g), or a tuna pouch, 2.6oz (18g), from the break-room fridge or an ice-pack bag. Landing bite before day sleep at " + t(landR) + ": two hard-boiled eggs (12g).",
+            "Caffeine cuts off 8 hours before whichever bed is next: " + t(cutD) + " on day blocks, " + t(cutR) + " on night blocks."
+          ],
+          why: "Meals are clock signals too. Feeding on body time instead of wall time is what quiets the flip-week cravings that no powder ever touched.",
+          s: "Anchor meals to events, not clock times: waking, pre-shift, mid-shift, wind-down." },
+        { t: "Load around the flips", rx: [
+            "Lift only in the middle of a stable block, after a night (or a window) of anchored sleep. Flip days and the day after a flip are walking days, 20 minutes, no exceptions.",
+            "The rule that survives every roster: never lift after your third night in a row."
+          ],
+          why: "The 48 hours around a switch are already the hardest thing you do all month. Training through them does not build toughness, it borrows from the next block.",
+          s: "Cross out the flip days for training first. Whatever is left is your real training week." }
+      ],
+      week: [
+        "Today: screenshot the roster and circle every switch day.",
+        "This block: hold the core (" + span(coreA, wakeD) + " on day blocks, " + span(coreA + 720, wakeN) + " on nights) every single day.",
+        "This week: move any workout off a flip day and into the middle of a stable stretch."
+      ],
+      breakT: "When the plan breaks: flipped with one day's notice",
+      breakB: "Run the flip-day drill and nothing else: protect the core (or its 12-hour mirror), walk 20 minutes in your new morning light, and put protein in every 4 to 5 waking hours (one shake scoop is 25g and requires zero thought). Do not schedule anything that matters on day one of the new block. The week is not lost. It restarts at the next core.",
+      card: [
+        ["Sleep", "core " + span(coreA, wakeD) + " on days &middot; " + span(coreA + 720, wakeN) + " on nights &middot; no drift"],
+        ["Light", "outside by " + fmt(lightD) + " on days &middot; shades home off nights &middot; new-morning light on flip days"],
+        ["Meals", "biggest meal pre-shift &middot; 12 to 3am light &middot; caffeine off " + fmt(cutD) + " / " + fmt(cutR)],
+        ["Load", "mid-block only &middot; flip days walk &middot; never after the 3rd night"]
+      ]
+    };
+  }
 
   /* ---- The scam check ---- */
   var QS = [
@@ -481,6 +679,10 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   ];
 
   var tabsEl = document.getElementById("sfCsTabs");
+  var tunerEl = document.getElementById("sfCsTuner");
+  var startsEl = document.getElementById("sfCsStarts");
+  var commutesEl = document.getElementById("sfCsCommutes");
+  var startLabelEl = document.getElementById("sfCsStartLabel");
   var panelEl = document.getElementById("sfCsPanel");
   var qsEl = document.getElementById("sfCsQs");
   var progressEl = document.getElementById("sfCsProgress");
@@ -488,37 +690,111 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   var printBtn = document.getElementById("sfCsPrint");
   var greetEl = document.getElementById("sfCsGreet");
 
+  /* ---- Tool state (picks up the inputs she set on the index page) ---- */
+  var state = { pattern: "nights", start: 1140, commute: 30, spend: null };
+  try {
+    var sp = window.localStorage.getItem("sf_cs_pattern");
+    if (sp && START_OPTS[sp]) state.pattern = sp;
+    var ss = parseInt(window.localStorage.getItem("sf_cs_start"), 10);
+    if (!isNaN(ss) && START_OPTS[state.pattern].indexOf(ss) !== -1) state.start = ss; else state.start = DEFAULT_START[state.pattern];
+    var sc = parseInt(window.localStorage.getItem("sf_cs_commute"), 10);
+    if (COMMUTE_OPTS.indexOf(sc) !== -1) state.commute = sc;
+    var sv = parseInt(window.localStorage.getItem("sf_cs_spend"), 10);
+    if (!isNaN(sv)) state.spend = sv;
+  } catch (e) {}
+
+  function moneyLine() {
+    var v = state.spend;
+    if (typeof v !== "number" || isNaN(v)) return "Monthly cost <strong>$0.00</strong> &middot; refills unlimited";
+    if (v === 0) return "Monthly cost <strong>$0.00</strong> &middot; your calm receipt stays clean";
+    if (v < 50) return "Monthly cost <strong>$0.00</strong> &middot; retires your <strong>" + money(v) + "/mo</strong> calm receipt";
+    return "Monthly cost <strong>$0.00</strong> &middot; replaces <strong>" + money(v) + "/mo</strong> of powders (" + money(v * 12) + " a year back)";
+  }
+
+  /* ---- Tuner render ---- */
+  function renderTuner() {
+    var opts = START_OPTS[state.pattern], html = "", i;
+    for (i = 0; i < opts.length; i++) {
+      html += '<button type="button" class="sf-cs-chip' + (state.start === opts[i] ? " sf-on" : "") + '" data-start="' + opts[i] + '" aria-pressed="' + (state.start === opts[i]) + '">' + fmt(opts[i]) + '</button>';
+    }
+    startsEl.innerHTML = html;
+    html = "";
+    for (i = 0; i < COMMUTE_OPTS.length; i++) {
+      html += '<button type="button" class="sf-cs-chip' + (state.commute === COMMUTE_OPTS[i] ? " sf-on" : "") + '" data-commute="' + COMMUTE_OPTS[i] + '" aria-pressed="' + (state.commute === COMMUTE_OPTS[i]) + '">' + COMMUTE_OPTS[i] + ' min</button>';
+    }
+    commutesEl.innerHTML = html;
+    startLabelEl.textContent = START_LABEL[state.pattern];
+  }
+
   /* ---- Protocol panel render ---- */
-  function renderPanel(pattern) {
-    var p = FULL[pattern];
-    if (!p) return;
-    var moves = "";
-    for (var i = 0; i < p.moves.length; i++) {
+  function renderPanel() {
+    var p = buildRx(state.pattern, state.start, state.commute);
+    var moves = "", i, j;
+    for (i = 0; i < p.moves.length; i++) {
+      var lines = "";
+      for (j = 0; j < p.moves[i].rx.length; j++) { lines += "<li>" + p.moves[i].rx[j] + "</li>"; }
       moves += '<div class="sf-cs-move"><span class="sf-cs-move-n">' + (i + 1) + '</span><div>' +
         '<h4>' + p.moves[i].t + '</h4>' +
-        '<p>' + p.moves[i].b + '</p>' +
+        '<ul class="sf-cs-rx">' + lines + '</ul>' +
+        '<div class="sf-cs-why"><strong>Why this works</strong>' + p.moves[i].why + '</div>' +
         '<div class="sf-cs-stick"><strong>Make it stick</strong>' + p.moves[i].s + '</div>' +
       '</div></div>';
     }
     var week = "";
-    for (var j = 0; j < p.week.length; j++) { week += "<li>" + p.week[j] + "</li>"; }
+    for (j = 0; j < p.week.length; j++) { week += "<li>" + p.week[j] + "</li>"; }
+    var rows = "";
+    for (i = 0; i < p.card.length; i++) {
+      rows += '<div class="sf-cs-rxcard-row"><span class="sf-cs-rxcard-k">' + p.card[i][0] + '</span><span class="sf-cs-rxcard-v">' + p.card[i][1] + '</span></div>';
+    }
     panelEl.innerHTML = "" +
       '<div class="sf-cs-pop">' +
         '<div class="sf-cs-panel-intro">' + p.intro + '</div>' +
+        '<p class="sf-cs-plan-sub">Every time below is computed from the ' + fmt(state.start) + ' start and the ' + state.commute + ' minute drive set above. Change either and the whole prescription rewrites.</p>' +
         moves +
         '<div class="sf-cs-week"><h4>Your first week</h4><ol>' + week + '</ol></div>' +
-        '<div class="sf-cs-explode"><strong>If the week explodes:</strong> ' + p.explode + '</div>' +
+        '<div class="sf-cs-break"><h4>' + p.breakT + '</h4><p>' + p.breakB + '</p></div>' +
+        '<div class="sf-cs-rxcard">' +
+          '<div class="sf-cs-rxcard-head"><span class="sf-cs-rxcard-title">The $0 Reset</span><span class="sf-cs-rxcard-sub">' + p.sub + '</span></div>' +
+          rows +
+          '<div class="sf-cs-rxcard-foot"><span>' + moneyLine() + '</span><span>SmithFit &middot; IJ Smith, RN</span></div>' +
+        '</div>' +
+        '<p class="sf-cs-rxcard-cap">Screenshot the card. It is the whole plan, and it fits on a lock screen.</p>' +
       '</div>';
+  }
+
+  function setTab(pattern) {
+    var buttons = tabsEl.querySelectorAll(".sf-cs-tab");
+    for (var i = 0; i < buttons.length; i++) {
+      var on = buttons[i].getAttribute("data-pattern") === pattern;
+      buttons[i].classList.toggle("sf-on", on);
+      buttons[i].setAttribute("aria-pressed", on ? "true" : "false");
+    }
   }
 
   tabsEl.addEventListener("click", function (e) {
     var btn = e.target.closest(".sf-cs-tab");
     if (!btn) return;
-    var buttons = tabsEl.querySelectorAll(".sf-cs-tab");
-    for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove("sf-on"); buttons[i].setAttribute("aria-pressed", "false"); }
-    btn.classList.add("sf-on");
-    btn.setAttribute("aria-pressed", "true");
-    renderPanel(btn.getAttribute("data-pattern"));
+    state.pattern = btn.getAttribute("data-pattern");
+    if (START_OPTS[state.pattern].indexOf(state.start) === -1) state.start = DEFAULT_START[state.pattern];
+    setTab(state.pattern);
+    renderTuner();
+    renderPanel();
+  });
+
+  startsEl.addEventListener("click", function (e) {
+    var chip = e.target.closest(".sf-cs-chip");
+    if (!chip) return;
+    state.start = parseInt(chip.getAttribute("data-start"), 10);
+    renderTuner();
+    renderPanel();
+  });
+
+  commutesEl.addEventListener("click", function (e) {
+    var chip = e.target.closest(".sf-cs-chip");
+    if (!chip) return;
+    state.commute = parseInt(chip.getAttribute("data-commute"), 10);
+    renderTuner();
+    renderPanel();
   });
 
   /* ---- Scam check render + scoring ---- */
@@ -581,8 +857,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     var params = new URLSearchParams(window.location.search);
     var name = "";
     try { name = window.localStorage.getItem("sf_cs_first") || ""; } catch (e) {}
-    if (params.get("unlocked") === "1" || name) {
-      greetEl.textContent = (name ? name + ", you" : "You") + " are in. All three patterns, the scam checklist, and your printable one-pager. Save this page, it does not expire.";
+    if (params.get("full") === "1" || name) {
+      greetEl.textContent = (name ? name + ", you" : "You") + " are in. All three patterns as written prescriptions, the scam checklist, and your printable one-pager. Save this page, it does not expire.";
     }
   } catch (e) {}
 
@@ -600,12 +876,15 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
   })();
 
-  /* ---- Init: default to nights (the 3am club is who this page is for) ---- */
+  /* ---- Init: render the worked example immediately.
+     Defaults to nights at 7pm with a 30 minute drive (the 3am club is who
+     this page is for), or to whatever she set on the receipt page. ---- */
   renderQs();
   initCallLinks();
   initPixel();
-  var defaultTab = tabsEl.querySelector('.sf-cs-tab[data-pattern="nights"]');
-  if (defaultTab) { defaultTab.classList.add("sf-on"); defaultTab.setAttribute("aria-pressed", "true"); renderPanel("nights"); }
+  setTab(state.pattern);
+  renderTuner();
+  renderPanel();
 })();
 </script>
 </body>

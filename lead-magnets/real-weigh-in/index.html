@@ -180,19 +180,67 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-rw-verdict p:last-child { margin-bottom: 0; }
 .sf-rw-verdict .sf-rw-nurseline { font-family: var(--sf-display); font-style: italic; color: var(--sf-taupe-light); font-size: 15px; padding-top: 6px; border-top: 1px dashed var(--sf-cream-deep); margin-top: 12px; }
 
-/* ===== Why did it jump ===== */
-.sf-rw-whys-title { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin: 22px 0 10px; }
-.sf-rw-whys { display: flex; flex-wrap: wrap; gap: 8px; }
-.sf-rw-why {
+/* ===== Context chips (inputs that change the verdict) ===== */
+.sf-rw-ctx-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin: 0 0 8px; }
+.sf-rw-ctx-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.sf-rw-ctx {
   background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 999px; padding: 8px 15px;
   font-family: var(--sf-sans); font-size: 14px; font-weight: 500; color: var(--sf-taupe-raw); cursor: pointer;
   -webkit-transition: all .18s ease; transition: all .18s ease;
 }
-.sf-rw-why:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
-.sf-rw-why:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
-.sf-rw-why.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
-.sf-rw-whypanel { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-left: 4px solid var(--sf-gold-raw); border-radius: 0 12px 12px 0; padding: 14px 18px; font-size: 14.5px; margin-top: 12px; }
-.sf-rw-whypanel strong { color: var(--sf-dark-raw); }
+.sf-rw-ctx:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-rw-ctx:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-rw-ctx.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
+.sf-rw-flipday { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: -6px 0 14px; }
+.sf-rw-flipday-label { font-size: 12.5px; color: var(--sf-taupe-light); margin-right: 4px; }
+.sf-rw-fd {
+  background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 8px; padding: 5px 9px;
+  font-family: var(--sf-sans); font-size: 12.5px; font-weight: 600; color: var(--sf-taupe-raw); cursor: pointer;
+  -webkit-transition: all .18s ease; transition: all .18s ease;
+}
+.sf-rw-fd:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-rw-fd:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-rw-fd.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
+
+/* ===== Result card (the screenshot) ===== */
+.sf-rw-result {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-top: 4px solid var(--sf-gold-raw);
+  border-radius: 18px; padding: 16px 16px 14px; margin-top: 22px; box-shadow: 0 4px 24px rgba(42,33,24,0.07);
+}
+.sf-rw-result .sf-rw-chartwrap { margin-top: 0; }
+.sf-rw-pattern {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.45);
+  color: var(--sf-gold-deep); border-radius: 999px; padding: 5px 14px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px;
+}
+.sf-rw-action { background: var(--sf-cream-mid); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 18px 14px; margin-top: 14px; }
+.sf-rw-action-title { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-gold-deep); margin-bottom: 3px; }
+.sf-rw-action-note { font-size: 12.5px; color: var(--sf-taupe-light); margin-bottom: 10px; }
+.sf-rw-action ol { list-style: none; counter-reset: sfrwa; }
+.sf-rw-action li { counter-increment: sfrwa; position: relative; padding: 9px 0 9px 40px; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 14.5px; }
+.sf-rw-action li:last-child { border-bottom: none; padding-bottom: 2px; }
+.sf-rw-action li::before {
+  content: counter(sfrwa); position: absolute; left: 0; top: 10px;
+  width: 26px; height: 26px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw);
+  font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center;
+}
+.sf-rw-action li strong { color: var(--sf-dark-raw); }
+.sf-rw-whyline { display: block; font-size: 13px; color: var(--sf-taupe-light); margin-top: 3px; }
+.sf-rw-planb { background: var(--sf-red-soft); border-left: 4px solid var(--sf-orange-raw); border-radius: 0 12px 12px 0; padding: 14px 18px; margin-top: 14px; }
+.sf-rw-planb-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #a8702a; margin-bottom: 8px; }
+.sf-rw-planb p { font-size: 13.5px; margin-bottom: 8px; }
+.sf-rw-planb p:last-child { margin-bottom: 0; }
+.sf-rw-planb strong { color: var(--sf-dark-raw); }
+.sf-rw-expect { border: 1px solid var(--sf-border); border-radius: 14px; margin-top: 14px; overflow: hidden; }
+.sf-rw-expect-title { background: var(--sf-cream-mid); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); padding: 11px 16px; }
+.sf-rw-expect-title strong { color: var(--sf-gold-deep); }
+.sf-rw-expect-row { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4px 12px; padding: 11px 16px; border-top: 1px dashed var(--sf-cream-deep); }
+.sf-rw-expect-row:first-of-type { border-top: none; }
+.sf-rw-expect-k { font-size: 13.5px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-rw-expect-v { font-size: 13.5px; font-weight: 700; color: var(--sf-gold-deep); text-align: right; }
+.sf-rw-expect-s { grid-column: 1 / -1; font-size: 12.5px; color: var(--sf-taupe-light); line-height: 1.5; }
+.sf-rw-brandline { text-align: center; font-size: 12px; letter-spacing: 0.06em; color: var(--sf-taupe-light); border-top: 1px dashed var(--sf-cream-deep); margin-top: 16px; padding-top: 12px; }
+.sf-rw-brandline strong { font-family: var(--sf-serif); font-size: 14px; color: var(--sf-taupe-raw); letter-spacing: 0.02em; }
 
 /* ===== Email gate ===== */
 .sf-rw-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 34px 26px; margin-top: 26px; text-align: center; position: relative; overflow: hidden; }
@@ -258,6 +306,10 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-rw-days { grid-template-columns: repeat(4, 1fr); }
   .sf-rw-proof { grid-template-columns: repeat(2, 1fr); }
   .sf-rw-chartwrap { padding: 10px 4px 2px; }
+  .sf-rw-result { padding: 12px 10px 12px; }
+  .sf-rw-action { padding: 14px 12px 10px; }
+  .sf-rw-expect-row { grid-template-columns: 1fr; }
+  .sf-rw-expect-v { text-align: left; }
 }
 
 /* ===== Reduced motion ===== */
@@ -333,23 +385,31 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           <div class="sf-rw-day"><label for="sfRwD7">Day 7</label><input type="number" id="sfRwD7" inputmode="decimal" step="0.1" placeholder="183.1" aria-label="Day 7 weight in pounds"></div>
         </div>
 
+        <div class="sf-rw-ctx-title">This week's context, tap what applies</div>
+        <div class="sf-rw-ctx-row" role="group" aria-label="Optional context about this week">
+          <button type="button" class="sf-rw-ctx" id="sfRwCtxFlip" aria-pressed="false">🌙 Flipped to or from nights</button>
+          <button type="button" class="sf-rw-ctx" id="sfRwCtxPeriod" aria-pressed="false">🌸 Period week</button>
+        </div>
+        <div class="sf-rw-flipday sf-rw-hidden" id="sfRwFlipDay" role="group" aria-label="Which day the shift flip landed">
+          <span class="sf-rw-flipday-label">Flip landed around:</span>
+          <button type="button" class="sf-rw-fd sf-on" data-fd="0" aria-pressed="true">Not sure</button>
+          <button type="button" class="sf-rw-fd" data-fd="1" aria-pressed="false">Day 1</button>
+          <button type="button" class="sf-rw-fd" data-fd="2" aria-pressed="false">Day 2</button>
+          <button type="button" class="sf-rw-fd" data-fd="3" aria-pressed="false">Day 3</button>
+          <button type="button" class="sf-rw-fd" data-fd="4" aria-pressed="false">Day 4</button>
+          <button type="button" class="sf-rw-fd" data-fd="5" aria-pressed="false">Day 5</button>
+          <button type="button" class="sf-rw-fd" data-fd="6" aria-pressed="false">Day 6</button>
+          <button type="button" class="sf-rw-fd" data-fd="7" aria-pressed="false">Day 7</button>
+        </div>
+
         <button type="button" class="sf-rw-btn" id="sfRwChart">Chart my week</button>
         <div id="sfRwNudge"></div>
 
-        <div id="sfRwChartBlock"></div>
-        <div id="sfRwVerdict" aria-live="polite"></div>
-
-        <!-- WHY DID IT JUMP -->
-        <div class="sf-rw-hidden" id="sfRwWhys">
-          <div class="sf-rw-whys-title">Why did it jump? Tap the usual suspects</div>
-          <div class="sf-rw-whys" role="group" aria-label="Common causes of overnight scale jumps">
-            <button type="button" class="sf-rw-why" data-why="salty" aria-pressed="false">🧂 Salty dinner</button>
-            <button type="button" class="sf-rw-why" data-why="flip" aria-pressed="false">🌙 Night-shift flip</button>
-            <button type="button" class="sf-rw-why" data-why="hormones" aria-pressed="false">🌸 Hormones</button>
-            <button type="button" class="sf-rw-why" data-why="late" aria-pressed="false">🌯 Late meal</button>
-            <button type="button" class="sf-rw-why" data-why="workout" aria-pressed="false">🏋️ New workout</button>
-          </div>
-          <div id="sfRwWhyPanel" aria-live="polite"></div>
+        <!-- RESULT CARD (chart + verdict + one next action; the screenshot she keeps) -->
+        <div class="sf-rw-result sf-rw-hidden" id="sfRwResult">
+          <div id="sfRwChartBlock"></div>
+          <div id="sfRwVerdict" aria-live="polite"></div>
+          <div class="sf-rw-brandline"><strong>SmithFit</strong> · The Real Weigh-In · weigh daily, read weekly, judge never</div>
         </div>
 
         <!-- EMAIL GATE (revealed after first chart) -->
@@ -357,8 +417,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           <h3>That is one week. The full tracker reads your whole <span class="sf-rw-em">month</span>.</h3>
           <p>Four weeks of averages is where the truth stops hiding. Tell me where to send your tracker and it opens right now:</p>
           <ul class="sf-rw-gate-list">
-            <li>The 4-Week Trend Tracker: type each morning, the weekly averages compute themselves</li>
-            <li>Gentle weekly verdicts, so one loud morning never gets a vote</li>
+            <li>The 4-Week Trend Tracker: it spots whooshes, true plateaus, flip spikes, and period-week water across your whole month</li>
+            <li>A named verdict and one next move every week, with the dates to act on</li>
             <li>The when-to-actually-adjust rules (most nurses change things two weeks too early)</li>
             <li>A printable log for the fridge or the report room</li>
           </ul>
@@ -460,16 +520,22 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     [181.0, 180.4, 181.6, 181.2, 181.9, 181.4, 182.1]
   ];
 
-  /* ---- Why-did-it-jump content ---- */
-  var WHYS = {
-    salty: '<strong>Salty dinner.</strong> Sodium holds water. One salty dinner (takeout, ramen, the potluck at the station) can add <strong>1 to 3 lbs</strong> by morning. It drains back out within a day or two once you are back to normal.',
-    flip: '<strong>Night-shift flip.</strong> Flipping between days and nights scrambles meal timing, sleep, and fluid balance. Expect a <strong>1 to 3 lb</strong> wobble for a couple of days after a flip. Chart it, do not fight it.',
-    hormones: '<strong>Hormones.</strong> The week before your period, holding <strong>2 to 5 lbs</strong> of water is completely normal. It arrives on its own schedule and leaves on its own schedule, no matter how careful your food was.',
-    late: '<strong>Late meal.</strong> Food eaten at 11pm still physically weighs something at 6am. That is <strong>1 to 2 lbs</strong> of dinner in transit, not fat on your body. It passes.',
-    workout: '<strong>New workout.</strong> New or harder training makes muscles hold water for repair, roughly <strong>1 to 3 lbs</strong> for a few days. The scale going up right when you started trying harder is water, not betrayal.'
-  };
+  /* ---- Formatting + math helpers ---- */
+  function f1(x) { return (Math.round(x * 10) / 10).toFixed(1); }
+  function kcalStr(lbs) {
+    var k = Math.round(Math.abs(lbs) * 3500 / 100) * 100;
+    return String(k).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function fmtDate(offset) {
+    var dt = new Date(); dt.setDate(dt.getDate() + offset);
+    var wd = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var mo = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return wd[dt.getDay()] + ', ' + mo[dt.getMonth()] + ' ' + dt.getDate();
+  }
+  /* Healthy fat-loss lane: 0.5 to 1 percent of bodyweight per week */
+  function laneOf(mean) { return { lo: mean * 0.005, hi: mean * 0.01 }; }
 
-  var state = { demoIdx: 0, last: null };
+  var state = { demoIdx: 0, last: null, entries: null, isDemo: false, flags: { flip: false, period: false, flipDay: 0 } };
 
   var dayInputs = [];
   for (var d = 1; d <= 7; d++) { dayInputs.push(document.getElementById('sfRwD' + d)); }
@@ -478,8 +544,11 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   var nudgeEl = document.getElementById('sfRwNudge');
   var chartBlock = document.getElementById('sfRwChartBlock');
   var verdictEl = document.getElementById('sfRwVerdict');
-  var whysEl = document.getElementById('sfRwWhys');
-  var whyPanel = document.getElementById('sfRwWhyPanel');
+  var resultEl = document.getElementById('sfRwResult');
+  var ctxFlipBtn = document.getElementById('sfRwCtxFlip');
+  var ctxPeriodBtn = document.getElementById('sfRwCtxPeriod');
+  var flipDayWrap = document.getElementById('sfRwFlipDay');
+  var fdBtns = document.querySelectorAll('.sf-rw-fd');
   var gateEl = document.getElementById('sfRwGate');
   var formEl = document.getElementById('sfRwForm');
   var submitBtn = document.getElementById('sfRwSubmit');
@@ -593,68 +662,259 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     '</div>';
   }
 
-  /* ---- The verdict, computed from HER numbers ---- */
-  function verdictHtml(stats) {
-    var spread = stats.spread, trend = stats.trend, absTrend = Math.abs(trend);
-    var dir = trend <= -0.3 ? 'down' : (trend >= 0.3 ? 'up' : 'flat');
+  /* ---- Pattern detectors ---- */
+  function findFlipJump(entries, flipDay) {
+    /* A 1 to 3 lb upward jump within a day of the flagged flip */
+    var best = null;
+    for (var j = 1; j < entries.length; j++) {
+      if (flipDay && !(entries[j].day === flipDay || entries[j].day === flipDay + 1)) continue;
+      var jump = entries[j].w - entries[j - 1].w;
+      if (jump < 1 || jump > 3) continue;
+      if (!best || jump > best.jump) best = { jump: jump, toDay: entries[j].day };
+    }
+    return best;
+  }
+  function biggestJumpNear(entries, flipDay) {
+    var best = null;
+    for (var j = 1; j < entries.length; j++) {
+      if (flipDay && !(entries[j].day === flipDay || entries[j].day === flipDay + 1)) continue;
+      var jump = entries[j].w - entries[j - 1].w;
+      if (!best || Math.abs(jump) > Math.abs(best.jump)) best = { jump: jump, toDay: entries[j].day };
+    }
+    return best;
+  }
+  function whooshShape(entries) {
+    /* Flat run, then a sudden drop into the last morning(s). With 7 days we
+       can only catch the back half of a whoosh; the month tracker confirms. */
+    var n = entries.length;
+    if (n < 5) return null;
+    var last = entries[n - 1];
+    var runEnd = n - 2;
+    var drop = entries[runEnd].w - last.w;
+    if (n >= 6 && drop < 1.2) {
+      var d2 = entries[n - 3].w - last.w;
+      if (d2 >= 1.4 && (last.day - entries[n - 3].day) <= 2) { runEnd = n - 3; drop = d2; }
+    }
+    if (drop < 1.2) return null;
+    if (runEnd + 1 < 4) return null;
+    var mn = Infinity, mx = -Infinity;
+    for (var i = 0; i <= runEnd; i++) { if (entries[i].w < mn) mn = entries[i].w; if (entries[i].w > mx) mx = entries[i].w; }
+    if (mx - mn > 1.0) return null;
+    var span = entries[runEnd].day - entries[0].day + 1;
+    if (span < 5) return null;
+    return { flatDays: span, band: mx - mn, drop: drop, toDay: last.day, startDay: entries[0].day, endDay: entries[runEnd].day };
+  }
 
-    var head;
-    if (dir === 'flat') {
-      head = 'Your daily swings covered <strong>' + spread.toFixed(1) + ' lbs</strong>. Your real trend moved <strong>' + absTrend.toFixed(1) + ' lbs</strong>, which is basically flat.';
-    } else {
-      head = 'Your daily swings covered <strong>' + spread.toFixed(1) + ' lbs</strong>. Your real trend moved <strong>' + absTrend.toFixed(1) + ' lbs ' + dir + '</strong>.';
+  /* ---- The expectation table, computed from HER weight ---- */
+  function expectHtml(mean) {
+    var L = laneOf(mean);
+    var rows = [
+      ['Healthy weekly lane', f1(L.lo) + ' to ' + f1(L.hi) + ' lbs per week', '0.5 to 1 percent of you per week. Faster than this is mostly water and some muscle, not extra fat.'],
+      ['Normal overnight noise', 'up to about ' + f1(mean * 0.02) + ' lbs', 'Water, sodium, glycogen, hormones. Roughly 2 percent of you, morning to morning. Zero votes.'],
+      ['A real month in the lane', f1(L.lo * 4) + ' to ' + f1(L.hi * 4) + ' lbs', 'Four weekly averages, each one earning the next.'],
+      ['Week 1 of any new plan', 'drops fastest, mostly water', 'Glycogen leaves first and takes its water with it. From Week 2 on, the lane above is the honest pace.']
+    ];
+    var h = '<div class="sf-rw-expect"><div class="sf-rw-expect-title">What the scale should do at <strong>your ' + f1(mean) + ' lbs</strong></div>';
+    for (var i = 0; i < rows.length; i++) {
+      h += '<div class="sf-rw-expect-row"><span class="sf-rw-expect-k">' + rows[i][0] + '</span><span class="sf-rw-expect-v">' + rows[i][1] + '</span><span class="sf-rw-expect-s">' + rows[i][2] + '</span></div>';
+    }
+    return h + '</div>';
+  }
+
+  /* ---- The verdict engine: pattern recognition on HER numbers ---- */
+  function classify(entries, stats, flags) {
+    var A = f1(stats.mean), S = f1(stats.spread);
+    var T = stats.trend, absT = Math.abs(T), D = f1(absT);
+    var L = laneOf(stats.mean);
+    var laneTxt = f1(L.lo) + ' to ' + f1(L.hi) + ' lbs a week';
+    var noiseCap = f1(stats.mean * 0.02);
+    var ratio = (absT >= 0.15) ? Math.round(stats.spread / absT) : 0;
+    var sp = stats.spike;
+    var m = { pattern: '', pill: '', headline: '', reads: [], steps: [], planb: [] };
+
+    var flipJump = flags.flip ? findFlipJump(entries, flags.flipDay) : null;
+    var flipBig = flags.flip ? biggestJumpNear(entries, flags.flipDay) : null;
+    var wh = whooshShape(entries);
+
+    /* 1. PERIOD WEEK: this week compares to last cycle, not to last week */
+    if (flags.period) {
+      m.pattern = 'period-week';
+      m.pill = '🌸 Period week';
+      m.headline = 'Period week charted. Your average is <strong>' + A + ' lbs</strong>, and this week does not compare to last week.';
+      m.reads.push('Holding 2 to 5 lbs of water this week is standard issue, not a stall. Your daily swings covered ' + S + ' lbs, and cycle water alone can explain that.');
+      if (sp && sp.jump >= 1 && sp.gap === 1) {
+        m.reads.push('That +' + f1(sp.jump) + ' lbs into Day ' + sp.toDay + ' would take about ' + kcalStr(sp.jump) + ' extra calories to be fat. That is not what happened. It is water on a schedule, and it leaves on a schedule.');
+      }
+      if (flags.flip) {
+        m.reads.push('You flagged a shift flip too. Flip water and cycle water stack, so this week can read 1 to 3 lbs heavier than it really is. Double the reason it gets an asterisk, not a verdict.');
+      }
+      m.steps = [
+        { d: 'Save this week\'s average: ' + A + ' lbs.', y: 'Period weeks compare cycle to cycle. This number is the one you will hold up against your other period weeks.' },
+        { d: 'Compare ' + A + ' to your LAST cycle\'s period week, not to last week\'s average.', y: 'Same hormones, same water, same conditions. If period week beats period week, you are losing fat no matter what this morning said.' },
+        { d: 'Recheck 2 to 4 days after your period ends, and read the next weekly average on ' + fmtDate(7) + '.', y: 'That is how long the water usually takes to clear. The average absorbs the loud days either way.' }
+      ];
+      m.planb = [
+        '<strong>Still holding 5 or more days after it ends?</strong> Now the number earns attention: compare that weekly average to your pre-period week and read the difference as real.',
+        '<strong>Salty craving week on top of it?</strong> Same rule. Salt water and cycle water both leave on their own. The plan does not change off either one.'
+      ];
+      return m;
     }
 
-    var lines = [];
-    if (dir === 'down') {
-      lines.push('That is the scale doing its actual job. The mornings bounced, the week moved down, and the week is the one telling the truth. Change nothing.');
-    } else if (dir === 'up') {
-      lines.push('One week up is a data point, not a diagnosis. A pound of actual fat is about 3,500 extra calories, so most fast jumps are water finding its level. Hold steady and let next week vote.');
-    } else {
-      lines.push('One flat week means almost nothing. Two flat weeks in a row is a real signal, and that is exactly what the full tracker watches for.');
+    /* 2. NIGHT-FLIP SPIKE: 1 to 3 lb jump within a day of a flagged flip */
+    if (flags.flip && flipJump) {
+      m.pattern = 'night-flip';
+      m.pill = '🌙 Night-flip spike';
+      m.headline = 'That <strong>+' + f1(flipJump.jump) + ' lbs into Day ' + flipJump.toDay + '</strong> is your flip printing on the scale, not fat.';
+      m.reads.push('A pound of fat is about 3,500 calories. For that jump to be fat, you would have needed about ' + kcalStr(flipJump.jump) + ' extra calories beyond everything you burned. You worked a 12. You did not.');
+      m.reads.push('Flipping between days and nights moves meal timing, sodium, and fluid all at once, and your muscles bank extra water alongside their fuel. A 1 to 3 lb wobble is the textbook signature of a flip.');
+      m.reads.push('Underneath it, your week still averaged ' + A + ' lbs with daily swings covering ' + S + ' lbs. The average is the number still telling the truth.');
+      m.steps = [
+        { d: 'Change nothing. Do not cut food off this number.', y: 'The jump is water and glycogen finding a new level. Cutting into it punishes a body already juggling a schedule flip.' },
+        { d: 'Get two normal sleeps, then reweigh on ' + fmtDate(2) + ' morning.', y: 'Fluid rebalances across about 48 hours of steady sleep and normal eating. That morning is your honest recheck, not tomorrow\'s.' },
+        { d: 'Let the weekly average make any real call. The next one lands ' + fmtDate(7) + '.', y: 'One reassuring morning is as unreliable as one scary one. Seven mornings vote. One does not.' }
+      ];
+      m.planb = [
+        '<strong>Recheck still up 2+ lbs after two normal sleeps, AND the weekly average climbing too?</strong> That combination, and only that combination, earns a closer look.',
+        '<strong>Flipping again within a few days?</strong> The wobble will repeat. Rotating stretches read honestly at the month level, which is exactly what the full tracker does.'
+      ];
+      return m;
     }
 
-    if (spread < 0.5) {
-      lines.push('Your weight barely moved day to day. That kind of calm is rare, and it makes your trend readable fast.');
-    } else if (absTrend >= 0.15 && spread / absTrend >= 2) {
-      var ratio = Math.round(spread / absTrend);
-      lines.push('The day-to-day noise was <strong>' + ratio + 'x louder</strong> than your real movement. Read single mornings and you are reading static.');
-    } else if (absTrend < 0.15 && spread >= 1.2) {
-      lines.push('The noise this week completely drowned the signal. Normal. That is exactly why single mornings never get a vote.');
+    /* 3. WHOOSH: flat stretch, then a sudden drop */
+    if (wh) {
+      m.pattern = 'whoosh';
+      m.pill = 'Whoosh';
+      m.headline = 'Flat for ' + wh.flatDays + ' days, then <strong>' + f1(wh.drop) + ' lbs down</strong> into Day ' + wh.toDay + '. That is a whoosh, the normal rhythm of fat loss.';
+      m.reads.push('Fat loss is not a slide, it is a staircase. As fat leaves, water often holds its place for days, so the scale flatlines while the real work happens. Then the water lets go at once.');
+      m.reads.push('Your flat stretch (Day ' + wh.startDay + ' to Day ' + wh.endDay + ') held inside a ' + f1(wh.band) + ' lb band before the drop. Water moves that fast. Fat never does, in either direction.');
+      m.reads.push('A textbook whoosh shows 10 or more flat days first. Seven mornings can only catch the back half of one, which is exactly what the month tracker confirms.');
+      m.steps = [
+        { d: 'Keep the exact plan that produced this. Change nothing.', y: 'The flat stretch WAS the fat loss happening. The drop is the receipt for it.' },
+        { d: 'Do not celebrate into a reward weekend.', y: 'One big celebration meal refills glycogen with roughly 3 lbs of water attached. The drop vanishes by Monday and takes morale with it.' },
+        { d: 'Read your next weekly average on ' + fmtDate(7) + '.', y: 'One more average shows whether this was trend or water clearing. Either way, you win by waiting.' }
+      ];
+      m.planb = [
+        '<strong>Bounces up a pound within 2 days?</strong> Water finding its level after the release, not regain. Zero votes.',
+        '<strong>A long flat stretch comes next?</strong> Also normal. Two truly flat weekly averages with clean context is the only flat that earns a change.'
+      ];
+      return m;
     }
 
-    if (stats.spike && Math.abs(stats.spike.jump) >= 1 && spread >= 0.5) {
-      var sp = stats.spike;
-      var when = sp.gap === 1 ? 'overnight' : ('across ' + sp.gap + ' days');
-      if (sp.jump > 0) {
-        lines.push('The biggest jump was <strong>+' + sp.jump.toFixed(1) + ' lbs</strong> into Day ' + sp.toDay + ', ' + when + '. Fat cannot move that fast. That is water, sodium, glycogen, or the weight of food still in you. It settles on its own.');
+    var flipNote = '';
+    if (flags.flip && flipBig) {
+      if (Math.abs(flipBig.jump) > 3) {
+        flipNote = 'You flagged a flip, and the ' + (flipBig.jump > 0 ? '+' : '') + f1(flipBig.jump) + ' lbs into Day ' + flipBig.toDay + ' runs bigger than the usual 1 to 3 lb flip wobble. Give it the two-sleep recheck (' + fmtDate(2) + ') and let ' + fmtDate(7) + '\'s average make the call.';
       } else {
-        lines.push('The biggest move was <strong>' + Math.abs(sp.jump).toFixed(1) + ' lbs down</strong> into Day ' + sp.toDay + ', ' + when + '. That speed is water leaving, not fat leaving. Same physics, friendlier direction.');
+        flipNote = 'You flagged a flip, and the chart barely printed it: biggest swing ' + (flipBig.jump > 0 ? '+' : '') + f1(flipBig.jump) + ' lbs. Some weeks absorb the flip quietly. This was one.';
       }
     }
 
-    if (stats.n < 5) {
-      lines.push('You gave me ' + stats.n + ' mornings, so read this as a sketch. Seven mornings, and the chart stops guessing.');
+    /* 4. FLAT WEEK: one flat week is information; a true plateau needs two */
+    if (absT < 0.3) {
+      m.pattern = 'flat-week';
+      m.pill = 'Flat week';
+      m.headline = 'Daily swings covered <strong>' + S + ' lbs</strong>. Your real trend moved <strong>' + D + ' lbs</strong>, which is flat.';
+      if (ratio >= 2) m.reads.push('The day-to-day noise ran <strong>' + ratio + 'x louder</strong> than your real movement. Every single morning this week was qualified to lie to you, and the average caught all of them.');
+      if (sp && Math.abs(sp.jump) >= 1.2) m.reads.push('The ' + (sp.jump > 0 ? '+' : '') + f1(sp.jump) + ' lbs into Day ' + sp.toDay + ' would need about ' + kcalStr(sp.jump) + ' calories of fat to be real. It was water (salt, short sleep, hormones, a heavy meal in transit), and the average never flinched.');
+      m.reads.push('One flat week is information, not a plateau. A true plateau is two weekly averages in a row within about half a pound, with no period week and no shift flip inside either one.');
+      if (flipNote) m.reads.push(flipNote);
+      m.steps = [
+        { d: 'Change nothing yet. Log one more week, same ritual: same scale, same floor, after the bathroom, before coffee.', y: 'You own one weekly average: ' + A + ' lbs. A plateau verdict needs two. Changing now is guessing.' },
+        { d: 'On ' + fmtDate(7) + ', compare that week\'s average to ' + A + '.', y: 'Within half a pound of each other, with clean context, is a true plateau. That is the earliest moment a change is earned.' },
+        { d: 'If it confirms, make ONE change: add a 10-minute walk to every day, or subtract one daily extra (the drive-thru coffee, the station candy, the after-shift handful).', y: 'One variable gives a readable answer. Then two more weeks before you judge it.' }
+      ];
+      m.planb = [
+        '<strong>Period week or a flip lands in the next 7 days?</strong> Tap the chip when you chart it. That week takes an asterisk and your plateau clock pauses, it does not restart.',
+        '<strong>Miss a morning or two?</strong> Blanks are honest. Three mornings still make a usable average.'
+      ];
+      return m;
     }
 
-    var html = '<div class="sf-rw-verdict sf-rw-pop"><h3>' + head + '</h3>';
-    for (var i = 0; i < lines.length; i++) { html += '<p>' + lines[i] + '</p>'; }
-    html += '<p class="sf-rw-nurseline">You would never chart one blood pressure and call it a crisis. Same rule here: the trend is the patient, a single morning is one vital.</p></div>';
-    return html;
+    /* 5. TRENDING DOWN: change nothing, know your healthy lane */
+    if (T <= -0.3) {
+      m.pattern = 'trending-down';
+      m.pill = 'Trending down';
+      m.headline = 'Down <strong>' + D + ' lbs</strong> on the week, under ' + S + ' lbs of daily noise. Change nothing.';
+      if (absT > L.hi) m.reads.push('At your weight, the healthy lane is ' + laneTxt + '. You are moving faster than that. Early on, the extra speed is water leaving with glycogen, and past a point it starts costing muscle. Enjoy it once, expect it to settle into the lane, and do not chase this pace.');
+      else if (absT < L.lo) m.reads.push('At your weight, the healthy lane is ' + laneTxt + '. You are under it, and that still counts. Slow loss is the kind that stays gone.');
+      else m.reads.push('At your weight, the healthy lane is ' + laneTxt + ', and you are inside it. This is the pace that holds.');
+      if (ratio >= 2) m.reads.push('The daily noise ran <strong>' + ratio + 'x louder</strong> than the real movement. React to any single morning this week and you would have read it wrong.');
+      if (sp && Math.abs(sp.jump) >= 1.2) {
+        if (sp.gap > 1) {
+          m.reads.push('Biggest single swing: ' + (sp.jump > 0 ? '+' : '') + f1(sp.jump) + ' lbs into Day ' + sp.toDay + ', but it spans a blank morning, so it reads bigger than any true overnight change. The average already ignored it for you.');
+        } else {
+          m.reads.push('Biggest single swing: ' + (sp.jump > 0 ? '+' : '') + f1(sp.jump) + ' lbs into Day ' + sp.toDay + '. As fat, that would be about ' + kcalStr(sp.jump) + ' calories overnight. It was water, and the average already ignored it for you.');
+        }
+      }
+      if (flipNote) m.reads.push(flipNote);
+      m.steps = [
+        { d: 'Change nothing. Same food, same movement, same ritual.', y: 'The plan is paying. A new variable now muddies a clean read.' },
+        { d: 'Weigh every morning, read only the average. The next one lands ' + fmtDate(7) + '.', y: 'Daily numbers keep the data honest. The weekly read keeps you honest.' },
+        { d: 'Expect a flat stretch or a sudden drop next. Both are the staircase.', y: 'Fat loss steps down, holds, then steps again. Most people quit in week 3 because nobody warned them the stairs have landings.' }
+      ];
+      m.planb = [
+        '<strong>A +2 lb morning out of nowhere?</strong> At your size, up to about ' + noiseCap + ' lbs overnight is water math, not fat math. Zero votes.',
+        '<strong>Period week or a shift flip ahead?</strong> Tap the chip when you chart it, and read that week against its context, not against last week.'
+      ];
+      return m;
+    }
+
+    /* 6. ONE WEEK UP: a watch, not a verdict */
+    m.pattern = 'week-up';
+    m.pill = 'One week up';
+    m.headline = 'Up <strong>' + D + ' lbs</strong> on the week, with daily swings of <strong>' + S + ' lbs</strong>. That is a watch, not a verdict.';
+    m.reads.push('For that ' + D + ' lbs to be fat, you would have needed about ' + kcalStr(T) + ' extra calories this week beyond everything you burned. If that did not happen, this is water: sodium, a new workout holding repair fluid, short sleep, or a flip you did not flag.');
+    m.reads.push('One week up is a data point. Two climbing weekly averages is a trend. Only the trend gets a response, and you do not have one yet.');
+    if (flipNote) m.reads.push(flipNote);
+    m.steps = [
+      { d: 'Hold the plan exactly as is for one more week.', y: 'Overcorrecting off one week is how crash-and-rebound cycles start. You have seen that movie.' },
+      { d: 'Weigh daily, then judge ' + fmtDate(7) + '\'s average against ' + A + ' lbs.', y: 'Two averages make a direction. One makes noise.' },
+      { d: 'Name the water source: salty dinners, new training, five-hour sleeps, that stretch of nights.', y: 'Finding the source usually closes the case without touching the food plan.' }
+    ];
+    m.planb = [
+      '<strong>Next average also up half a pound or more?</strong> Now it is a trend, and it earns ONE change: subtract one daily extra or add a 10-minute daily walk, then two weeks before judging.',
+      '<strong>Realize it was a flip or period week after all?</strong> Tap the chip and rechart. The verdict changes with the context, and that is the point.'
+    ];
+    return m;
+  }
+
+  /* ---- Render the verdict model ---- */
+  function modelHtml(m, stats, lastDay) {
+    var h = '<div class="sf-rw-verdict sf-rw-pop">';
+    h += '<div class="sf-rw-pattern">' + m.pill + '</div>';
+    h += '<h3>' + m.headline + '</h3>';
+    for (var i = 0; i < m.reads.length; i++) { h += '<p>' + m.reads[i] + '</p>'; }
+    h += '<p class="sf-rw-nurseline">You would never chart one blood pressure and call it a crisis. Same rules here: the trend is the patient, a single morning is one vital.</p>';
+    h += '</div>';
+    h += '<div class="sf-rw-action"><div class="sf-rw-action-title">Your one next move</div>';
+    h += '<div class="sf-rw-action-note">Dates below count your last logged morning (Day ' + lastDay + ') as this morning.</div><ol>';
+    for (var s = 0; s < m.steps.length; s++) {
+      h += '<li><strong>' + m.steps[s].d + '</strong><span class="sf-rw-whyline">Why: ' + m.steps[s].y + '</span></li>';
+    }
+    h += '</ol></div>';
+    h += '<div class="sf-rw-planb"><div class="sf-rw-planb-title">When it breaks</div>';
+    for (var p = 0; p < m.planb.length; p++) { h += '<p>' + m.planb[p] + '</p>'; }
+    h += '</div>';
+    h += expectHtml(stats.mean);
+    return h;
   }
 
   /* ---- Render the result ---- */
-  function renderResult(entries, isDemo) {
+  function renderResult(entries, isDemo, noScroll) {
     var stats = analyze(entries);
+    var model = classify(entries, stats, state.flags);
+    state.entries = entries;
+    state.isDemo = isDemo;
     state.last = {
       spread: isDemo ? 'demo' : stats.spread.toFixed(1),
-      trend: isDemo ? 'demo' : (stats.trend > 0 ? '+' : '') + stats.trend.toFixed(1)
+      trend: isDemo ? 'demo' : (stats.trend > 0 ? '+' : '') + stats.trend.toFixed(1),
+      pattern: model.pattern
     };
     chartBlock.innerHTML = chartSvg(entries, stats);
-    verdictEl.innerHTML = verdictHtml(stats);
-    whysEl.classList.remove('sf-rw-hidden');
+    verdictEl.innerHTML = modelHtml(model, stats, entries[entries.length - 1].day);
+    resultEl.classList.remove('sf-rw-hidden');
     gateEl.classList.remove('sf-rw-hidden');
-    chartBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (!noScroll) resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   /* ---- Chart my week ---- */
@@ -673,9 +933,10 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   });
 
   /* ---- Demo week ---- */
-  demoBtn.addEventListener('click', function () {
+  function loadDemo(noScroll) {
     var week = DEMO_WEEKS[state.demoIdx % DEMO_WEEKS.length];
     state.demoIdx++;
+    setFlags(false, false, 0);
     var entries = [];
     for (var i = 0; i < 7; i++) {
       dayInputs[i].value = week[i].toFixed(1);
@@ -683,24 +944,46 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       entries.push({ day: i + 1, w: week[i] });
     }
     nudgeEl.innerHTML = '';
-    renderResult(entries, true);
-  });
-
-  /* ---- Why chips ---- */
-  var whyBtns = document.querySelectorAll('.sf-rw-why');
-  function closeWhys() {
-    for (var i = 0; i < whyBtns.length; i++) { whyBtns[i].classList.remove('sf-on'); whyBtns[i].setAttribute('aria-pressed', 'false'); }
-    whyPanel.innerHTML = '';
+    renderResult(entries, true, noScroll);
   }
-  for (var w = 0; w < whyBtns.length; w++) {
-    whyBtns[w].addEventListener('click', function () {
-      var wasOn = this.classList.contains('sf-on');
-      closeWhys();
-      if (!wasOn) {
-        this.classList.add('sf-on');
-        this.setAttribute('aria-pressed', 'true');
-        whyPanel.innerHTML = '<div class="sf-rw-whypanel sf-rw-pop">' + WHYS[this.getAttribute('data-why')] + '</div>';
-      }
+  demoBtn.addEventListener('click', function () { loadDemo(false); });
+
+  /* ---- Context chips (inputs; recharts live when a result is showing) ---- */
+  function syncCtxUI() {
+    ctxFlipBtn.classList.toggle('sf-on', state.flags.flip);
+    ctxFlipBtn.setAttribute('aria-pressed', state.flags.flip ? 'true' : 'false');
+    ctxPeriodBtn.classList.toggle('sf-on', state.flags.period);
+    ctxPeriodBtn.setAttribute('aria-pressed', state.flags.period ? 'true' : 'false');
+    flipDayWrap.classList.toggle('sf-rw-hidden', !state.flags.flip);
+    for (var i = 0; i < fdBtns.length; i++) {
+      var on = parseInt(fdBtns[i].getAttribute('data-fd'), 10) === state.flags.flipDay;
+      fdBtns[i].classList.toggle('sf-on', on);
+      fdBtns[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  }
+  function setFlags(flip, period, flipDay) {
+    state.flags.flip = flip;
+    state.flags.period = period;
+    state.flags.flipDay = flipDay;
+    syncCtxUI();
+  }
+  function rechart() { if (state.entries) renderResult(state.entries, state.isDemo, true); }
+  ctxFlipBtn.addEventListener('click', function () {
+    state.flags.flip = !state.flags.flip;
+    if (!state.flags.flip) state.flags.flipDay = 0;
+    syncCtxUI();
+    rechart();
+  });
+  ctxPeriodBtn.addEventListener('click', function () {
+    state.flags.period = !state.flags.period;
+    syncCtxUI();
+    rechart();
+  });
+  for (var fb = 0; fb < fdBtns.length; fb++) {
+    fdBtns[fb].addEventListener('click', function () {
+      state.flags.flipDay = parseInt(this.getAttribute('data-fd'), 10) || 0;
+      syncCtxUI();
+      rechart();
     });
   }
 
@@ -708,9 +991,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   function goToResource(first) {
     try {
       if (first) window.localStorage.setItem('sf_rw_first', first);
-      window.localStorage.setItem('sf_rw_unlocked', '1');
+      window.localStorage.setItem('sf_rw_full', '1');
     } catch (e) {}
-    window.location.href = SF_CONFIG.resourceUrl + '?unlocked=1';
+    window.location.href = SF_CONFIG.resourceUrl + '?full=1';
   }
 
   formEl.addEventListener('submit', function (e) {
@@ -734,6 +1017,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       tag: SF_CONFIG.leadTag,
       weeklySpread: state.last ? state.last.spread : '',
       weeklyTrend: state.last ? state.last.trend : '',
+      pattern: state.last ? state.last.pattern : '',
       source: 'lead-magnet-site',
       timestamp: new Date().toISOString()
     };
@@ -772,7 +1056,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       if (done) return; done = true; clearTimeout(timer);
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send me the full tracker';
-      formMsg.innerHTML = '<div class="sf-rw-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full tracker now</a> and I will catch your email next time.</div>';
+      formMsg.innerHTML = '<div class="sf-rw-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?full=1">open the full tracker now</a> and I will catch your email next time.</div>';
     });
   });
 
@@ -796,9 +1080,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   initPixel();
   initCallLinks();
 
-  /* QA / DM deep-link: ?demo=1 renders the example week on load */
+  /* QA / DM deep-link: ?demo=1 renders the example week on load, no scroll */
   try {
-    if (window.location.search.indexOf('demo=1') !== -1) { demoBtn.click(); }
+    if (window.location.search.indexOf('demo=1') !== -1) { loadDemo(true); }
   } catch (e) {}
 })();
 </script>

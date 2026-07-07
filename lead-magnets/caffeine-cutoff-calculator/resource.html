@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Caffeine Cutoff Calculator, Full Version | SmithFit</title>
-<meta name="description" content="Your caffeine last call for day, night, and evening shifts side by side, the 3-nights-in-a-row plan, the rotating-shift reset card, and a printable locker card. Built by a nurse, for nurses.">
+<meta name="description" content="Your first cup, redose, last call, and mg budget for day, night, and evening shifts side by side. Plus the 3-night taper, the rotating-week reset, and a printable locker card. Built by a nurse, for nurses.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -65,7 +65,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 }
 .sf-cf-hero h1 { color: var(--sf-cream-raw); font-weight: 700; font-size: clamp(30px, 6vw, 50px); margin-bottom: 12px; }
 .sf-cf-hero h1 .sf-cf-em { color: var(--sf-gold-soft); }
-.sf-cf-sub { color: rgba(250,246,243,0.82); font-size: clamp(15px, 2.2vw, 18px); max-width: 600px; margin: 0 auto; }
+.sf-cf-sub { color: rgba(250,246,243,0.82); font-size: clamp(15px, 2.2vw, 18px); max-width: 620px; margin: 0 auto; }
 
 /* ===== Validate strip ===== */
 .sf-cf-validate {
@@ -97,7 +97,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-cf-gapbtn.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
 .sf-cf-gap-name { font-family: var(--sf-serif); font-weight: 700; font-size: 18px; color: var(--sf-dark-raw); display: block; }
 .sf-cf-gap-desc { font-size: 11px; color: var(--sf-taupe-light); margin-top: 2px; display: block; line-height: 1.4; }
-.sf-cf-sensrow { display: flex; align-items: flex-start; gap: 14px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 15px 16px; }
+.sf-cf-sensrow { display: flex; align-items: flex-start; gap: 14px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 15px 16px; margin-bottom: 20px; }
 .sf-cf-switch { position: relative; flex: 0 0 48px; width: 48px; height: 27px; border-radius: 999px; background: var(--sf-cream-deep); border: 1.5px solid var(--sf-border); cursor: pointer; margin-top: 2px; -webkit-transition: background .2s ease, border-color .2s ease; transition: background .2s ease, border-color .2s ease; }
 .sf-cf-switch::after { content: ""; position: absolute; top: 2px; left: 3px; width: 19px; height: 19px; border-radius: 50%; background: #ffffff; box-shadow: 0 1px 4px rgba(42,33,24,0.25); -webkit-transition: transform .2s ease; transition: transform .2s ease; }
 .sf-cf-switch.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); }
@@ -105,22 +105,52 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-cf-sens-label { font-size: 15px; font-weight: 600; color: var(--sf-dark-raw); }
 .sf-cf-sens-hint { font-size: 13px; color: var(--sf-taupe-light); margin-top: 2px; }
 
+/* Drink chips */
+.sf-cf-drinks { display: grid; grid-template-columns: repeat(6, 1fr); gap: 9px; margin-bottom: 10px; }
+.sf-cf-drink { position: relative; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 10px 5px 9px; text-align: center; cursor: pointer; font-family: var(--sf-sans); -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-cf-drink:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cf-drink.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-cf-drink-name { font-size: 11.5px; font-weight: 600; color: var(--sf-dark-raw); display: block; line-height: 1.3; }
+.sf-cf-drink-mg { font-size: 10.5px; color: var(--sf-taupe-light); display: block; margin-top: 1px; }
+.sf-cf-drink-ct { position: absolute; top: -8px; right: -6px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 999px; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(42,33,24,0.25); }
+.sf-cf-drink-hint { font-size: 12px; color: var(--sf-taupe-light); }
+
+/* Budget readout */
+.sf-cf-budget { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 18px; padding: 22px 20px; margin-top: 14px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-cf-budget-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.sf-cf-budget-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); }
+.sf-cf-budget-num { font-family: var(--sf-serif); font-weight: 700; font-size: 34px; color: var(--sf-dark-raw); line-height: 1; }
+.sf-cf-budget-num small { font-size: 16px; color: var(--sf-taupe-light); font-weight: 600; }
+.sf-cf-budget-num.sf-hot { color: var(--sf-red-raw); }
+.sf-cf-bbar { position: relative; height: 12px; border-radius: 6px; background: var(--sf-cream-deep); overflow: hidden; margin: 10px 0 8px; }
+.sf-cf-bbar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--sf-gold-soft), var(--sf-gold-raw)); width: 0; -webkit-transition: width .7s ease; transition: width .7s ease; }
+.sf-cf-bbar-fill.sf-hot { background: var(--sf-red-raw); }
+.sf-cf-budget-note { font-size: 13.5px; color: var(--sf-taupe-raw); }
+.sf-cf-budget-note strong { color: var(--sf-dark-raw); }
+.sf-cf-budget-fix { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 10px 10px 0; padding: 12px 15px; font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 10px; }
+.sf-cf-budget-fix strong { color: var(--sf-dark-raw); }
+
 /* ===== Shift cards ===== */
 .sf-cf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
 .sf-cf-card { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 18px; padding: 22px 20px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); -webkit-transition: transform .3s ease, box-shadow .3s ease; transition: transform .3s ease, box-shadow .3s ease; }
 .sf-cf-card:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); box-shadow: 0 10px 34px rgba(42,33,24,0.1); }
-.sf-cf-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--sf-border); }
+.sf-cf-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--sf-border); }
 .sf-cf-card-name { font-family: var(--sf-serif); font-weight: 700; font-size: 21px; color: var(--sf-dark-raw); }
 .sf-cf-card-hours { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-taupe-light); white-space: nowrap; }
-.sf-cf-card-sleep { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 8px; }
-.sf-cf-card-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-raw); }
-.sf-cf-card-time { font-family: var(--sf-serif); font-weight: 700; font-size: 40px; color: var(--sf-dark-raw); line-height: 1.05; margin: 2px 0 8px; }
-.sf-cf-card-note { font-size: 13px; color: var(--sf-taupe-raw); min-height: 40px; }
-.sf-cf-mini { margin-top: 14px; }
+.sf-cf-card-sleep { font-size: 12.5px; color: var(--sf-taupe-light); margin-bottom: 6px; }
+.sf-cf-trow { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 8px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-cf-trow-k { font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sf-taupe-light); }
+.sf-cf-trow-v { font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-dark-raw); text-align: right; white-space: nowrap; }
+.sf-cf-trow.sf-last { border-bottom: none; }
+.sf-cf-trow.sf-last .sf-cf-trow-k { color: var(--sf-gold-raw); }
+.sf-cf-trow.sf-last .sf-cf-trow-v { font-size: 25px; }
+.sf-cf-trow-v small { display: block; font-family: var(--sf-sans); font-weight: 500; font-size: 10.5px; color: var(--sf-taupe-light); }
+.sf-cf-mini { margin-top: 12px; }
 .sf-cf-mini-track { position: relative; height: 10px; border-radius: 5px; background: var(--sf-cream-deep); }
-.sf-cf-mini-win { position: absolute; top: 0; left: 0; bottom: 0; border-radius: 5px 0 0 5px; background: linear-gradient(90deg, var(--sf-gold-soft), var(--sf-gold-raw)); -webkit-transition: width .6s ease; transition: width .6s ease; }
+.sf-cf-mini-win { position: absolute; top: 0; bottom: 0; border-radius: 5px; background: linear-gradient(90deg, var(--sf-gold-soft), var(--sf-gold-raw)); -webkit-transition: width .6s ease, left .6s ease; transition: width .6s ease, left .6s ease; }
 .sf-cf-mini-endtick { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--sf-taupe-light); border-radius: 1px; }
 .sf-cf-mini-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--sf-taupe-light); margin-top: 6px; }
+.sf-cf-card-note { font-size: 12.5px; color: var(--sf-taupe-raw); margin-top: 10px; font-family: var(--sf-display); font-style: italic; }
 
 /* ===== Custom card ===== */
 .sf-cf-custom { margin-top: 14px; background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 18px; padding: 22px 20px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
@@ -130,32 +160,41 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-cf-custom-field label { display: block; font-size: 12px; font-weight: 600; color: var(--sf-taupe-raw); margin-bottom: 5px; }
 .sf-cf-time { padding: 11px 14px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 10px; font-family: var(--sf-sans); font-size: 16px; color: var(--sf-dark-raw); -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease; }
 .sf-cf-time:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
-.sf-cf-custom-out { flex: 1 1 220px; min-width: 200px; background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 12px; padding: 12px 16px; }
-.sf-cf-custom-out .sf-cf-card-time { font-size: 32px; margin: 0; }
+.sf-cf-custom-out { flex: 1 1 260px; min-width: 240px; background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 12px; padding: 12px 16px; }
+.sf-cf-custom-out .sf-cf-trow { padding: 6px 0; }
 .sf-cf-custom-note { font-size: 13px; color: var(--sf-taupe-light); margin-top: 12px; }
 
 /* ===== Plan cards ===== */
-.sf-cf-nightline { font-family: var(--sf-display); font-style: italic; font-size: 15.5px; color: var(--sf-taupe-raw); background: var(--sf-gold-hover); border-radius: 12px; padding: 12px 18px; margin-bottom: 18px; max-width: 640px; }
+.sf-cf-nightline { font-family: var(--sf-display); font-style: italic; font-size: 15.5px; color: var(--sf-taupe-raw); background: var(--sf-gold-hover); border-radius: 12px; padding: 12px 18px; margin-bottom: 18px; max-width: 720px; }
 .sf-cf-plangrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .sf-cf-plan { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 18px; padding: 22px 20px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
 .sf-cf-plan-n { display: inline-block; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border-radius: 8px; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
 .sf-cf-plan h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
 .sf-cf-plan p { font-size: 14px; }
 .sf-cf-plan p strong { color: var(--sf-dark-raw); }
+.sf-cf-plan-times { margin: 10px 0 12px; border-top: 1px solid var(--sf-border); }
+.sf-cf-plan-times .sf-cf-trow { padding: 7px 0; }
 .sf-cf-morning { margin-top: 14px; background: var(--sf-green-soft); border-left: 4px solid var(--sf-green-raw); border-radius: 0 12px 12px 0; padding: 16px 18px; font-size: 14.5px; color: var(--sf-taupe-raw); }
 .sf-cf-morning strong { color: #2f6b41; }
 
-/* ===== Reset card ===== */
+/* ===== Step cards (reset, protocol, emergency) ===== */
 .sf-cf-reset { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 26px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-cf-reset.sf-emg { border-top: 4px solid var(--sf-red-raw); }
+.sf-cf-reset-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 4px; }
+.sf-cf-reset.sf-emg .sf-cf-reset-title { color: var(--sf-red-raw); }
+.sf-cf-reset-sub { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 10px; }
 .sf-cf-step { display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
 .sf-cf-step:last-child { border-bottom: none; }
 .sf-cf-step-n { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sf-cf-reset.sf-emg .sf-cf-step-n { background: var(--sf-red-raw); color: #ffffff; }
 .sf-cf-step-body { font-size: 14.5px; }
 .sf-cf-step-body strong { color: var(--sf-dark-raw); }
+.sf-cf-step-why { font-family: var(--sf-display); font-style: italic; font-size: 12.5px; color: var(--sf-taupe-light); margin-top: 3px; line-height: 1.55; }
+.sf-cf-breakgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
 /* ===== Locker card ===== */
 .sf-cf-locker {
-  max-width: 460px; margin: 22px auto 0;
+  max-width: 520px; margin: 22px auto 0;
   background: var(--sf-bg-card);
   border: 2px solid var(--sf-gold-raw);
   border-radius: 18px;
@@ -165,13 +204,15 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 }
 .sf-cf-locker-brand { font-family: var(--sf-serif); font-weight: 700; font-size: 15px; letter-spacing: 0.06em; color: var(--sf-taupe-light); }
 .sf-cf-locker-title { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sf-gold-raw); margin: 4px 0 16px; }
-.sf-cf-locker-rows { border-top: 1px solid var(--sf-border); border-bottom: 1px solid var(--sf-border); padding: 6px 0; margin-bottom: 14px; }
-.sf-cf-locker-row { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 4px; border-bottom: 1px dashed var(--sf-cream-deep); }
-.sf-cf-locker-row:last-child { border-bottom: none; }
-.sf-cf-locker-shift { font-size: 14px; font-weight: 600; color: var(--sf-taupe-raw); text-align: left; }
-.sf-cf-locker-shift small { display: block; font-weight: 500; font-size: 11px; color: var(--sf-taupe-light); }
-.sf-cf-locker-time { font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-dark-raw); }
-.sf-cf-locker-rule { font-size: 12.5px; color: var(--sf-taupe-raw); margin-bottom: 10px; }
+.sf-cf-lgrid { display: grid; grid-template-columns: 1.15fr 1fr 1fr 1fr; border-top: 1px solid var(--sf-border); border-bottom: 1px solid var(--sf-border); padding: 8px 0; margin-bottom: 14px; }
+.sf-cf-lhead { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); padding: 6px 2px; }
+.sf-cf-lshift { font-size: 13px; font-weight: 600; color: var(--sf-taupe-raw); text-align: left; padding: 8px 2px; border-top: 1px dashed var(--sf-cream-deep); }
+.sf-cf-lshift small { display: block; font-weight: 500; font-size: 10.5px; color: var(--sf-taupe-light); }
+.sf-cf-lt { font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-dark-raw); padding: 8px 2px; border-top: 1px dashed var(--sf-cream-deep); align-self: center; }
+.sf-cf-lt.sf-lt-last { color: var(--sf-gold-raw); font-size: 19px; }
+.sf-cf-lt.sf-lt-skip { font-family: var(--sf-sans); font-weight: 600; font-size: 11px; color: var(--sf-taupe-light); text-transform: uppercase; letter-spacing: 0.08em; }
+.sf-cf-locker-rule { font-size: 12.5px; color: var(--sf-taupe-raw); margin-bottom: 8px; }
+.sf-cf-locker-rule strong { color: var(--sf-dark-raw); }
 .sf-cf-locker-swaps { font-size: 12px; color: var(--sf-taupe-light); line-height: 1.6; }
 .sf-cf-printrow { text-align: center; margin-top: 18px; }
 .sf-cf-printbtn {
@@ -226,10 +267,13 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-cf-grid { grid-template-columns: 1fr; }
   .sf-cf-plangrid { grid-template-columns: 1fr; }
   .sf-cf-gaps { grid-template-columns: 1fr; }
+  .sf-cf-drinks { grid-template-columns: repeat(3, 1fr); }
+  .sf-cf-breakgrid { grid-template-columns: 1fr; }
   .sf-cf-proof { grid-template-columns: repeat(2, 1fr); }
   .sf-cf-controls { padding: 22px 18px; }
-  .sf-cf-card-note { min-height: 0; }
   .sf-cf-custom-row { gap: 12px; }
+  .sf-cf-lt { font-size: 15px; }
+  .sf-cf-lt.sf-lt-last { font-size: 17px; }
 }
 
 /* ===== Reduced motion ===== */
@@ -258,11 +302,11 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   <header class="sf-cf-hero sf-cf-noprint">
     <span class="sf-cf-badge">The full version</span>
     <h1>The Caffeine Cutoff <span class="sf-cf-em">Calculator</span></h1>
-    <p class="sf-cf-sub" id="sfCfGreet">Your last call for every shift you work, plus the plans that protect your sleep on a rough stretch. Set two things below and every number on this page becomes yours.</p>
+    <p class="sf-cf-sub" id="sfCfGreet">Your first cup, your redose, your last call, and your mg budget, for every shift you work. The numbers below are a real example. Tap your own settings and they all become yours.</p>
   </header>
 
   <div class="sf-cf-validate sf-cf-noprint">
-    Coffee is not the villain. Using it to replace sleep is the trap. This page is permission to keep the coffee and still land the sleep: know your last call, hold it for three nights, and reset clean when your schedule flips.
+    Coffee is not the villain. Using it to replace sleep is the trap. This page is permission to keep the coffee and still land the sleep: put the right cup in the right window, stop at your last call, and reset clean when your schedule flips.
   </div>
 
   <div class="sf-cf-wrap">
@@ -270,10 +314,25 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     <!-- CONTROLS + SIDE BY SIDE -->
     <section class="sf-cf-section sf-cf-noprint" id="sfCfCalc">
       <div class="sf-cf-eyebrow">Part 1</div>
-      <h2 class="sf-cf-h2">Your last call, every shift, side by side</h2>
-      <p class="sf-cf-lead">Two settings drive everything: how fast you fall asleep after a shift, and how hard caffeine hits you. Change either one and all three shifts update.</p>
+      <h2 class="sf-cf-h2">Your schedule, every shift, side by side</h2>
+      <p class="sf-cf-lead">Four settings drive everything: when you wake up, how fast you fall asleep, how hard caffeine hits you, and what you actually drink. Change any of them and all three shifts update.</p>
 
       <div class="sf-cf-controls sf-cf-reveal">
+        <div class="sf-cf-ctl-title">When do you wake up before a shift?</div>
+        <div class="sf-cf-gaps" id="sfCfWakes" role="group" aria-label="When you wake up before a shift">
+          <button type="button" class="sf-cf-gapbtn sf-on" data-wake="120" aria-pressed="true">
+            <span class="sf-cf-gap-name">2 hours before</span>
+            <span class="sf-cf-gap-desc">Time to actually wake up</span>
+          </button>
+          <button type="button" class="sf-cf-gapbtn" data-wake="90" aria-pressed="false">
+            <span class="sf-cf-gap-name">90 minutes before</span>
+            <span class="sf-cf-gap-desc">Quick shower, quick coffee</span>
+          </button>
+          <button type="button" class="sf-cf-gapbtn" data-wake="60" aria-pressed="false">
+            <span class="sf-cf-gap-name">1 hour before</span>
+            <span class="sf-cf-gap-desc">Alarm to door, no ceremony</span>
+          </button>
+        </div>
         <div class="sf-cf-ctl-title">How fast do you usually fall asleep after clock-out?</div>
         <div class="sf-cf-gaps" id="sfCfGaps" role="group" aria-label="How fast you fall asleep after a shift">
           <button type="button" class="sf-cf-gapbtn" data-gap="90" aria-pressed="false">
@@ -293,158 +352,219 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           <button type="button" class="sf-cf-switch" id="sfCfSens" aria-pressed="false" aria-label="Caffeine hits me hard"></button>
           <div>
             <div class="sf-cf-sens-label">Caffeine hits me hard</div>
-            <div class="sf-cf-sens-hint">Turns every last call on this page 2 hours earlier (10 hours before sleep instead of 8).</div>
+            <div class="sf-cf-sens-hint">Turns every time on this page 2 hours earlier (10 hours before sleep instead of 8).</div>
           </div>
         </div>
+        <div class="sf-cf-ctl-title">What do you actually drink on a shift day?</div>
+        <div class="sf-cf-drinks" id="sfCfDrinks" role="group" aria-label="Tap what you drink on a shift day"></div>
+        <p class="sf-cf-drink-hint">Tap to add one, up to three of anything. A fourth tap clears it. I started you with the day I see most from nurses: a 16 oz at home, a 12 oz mid-shift, a Celsius at the slump.</p>
+      </div>
+
+      <div class="sf-cf-budget sf-cf-reveal">
+        <div class="sf-cf-budget-head">
+          <span class="sf-cf-budget-title">Your day in caffeine</span>
+          <span class="sf-cf-budget-num" id="sfCfBudgetNum">--</span>
+        </div>
+        <div class="sf-cf-bbar"><div class="sf-cf-bbar-fill" id="sfCfBudgetFill"></div></div>
+        <div class="sf-cf-budget-note" id="sfCfBudgetNote"></div>
+        <div id="sfCfBudgetFix"></div>
       </div>
 
       <div class="sf-cf-grid">
         <div class="sf-cf-card sf-cf-reveal">
           <div class="sf-cf-card-top"><span class="sf-cf-card-name">Day</span><span class="sf-cf-card-hours">7a to 7p</span></div>
-          <div class="sf-cf-card-sleep">Asleep about <span id="sfCfDaySleep">--</span></div>
-          <div class="sf-cf-card-label">Last call</div>
-          <div class="sf-cf-card-time" id="sfCfDayTime">--</div>
-          <div class="sf-cf-card-note" id="sfCfDayNote"></div>
-          <div class="sf-cf-mini">
-            <div class="sf-cf-mini-track">
-              <div class="sf-cf-mini-win" id="sfCfDayWin"></div>
-              <div class="sf-cf-mini-endtick" id="sfCfDayEnd"></div>
-            </div>
-            <div class="sf-cf-mini-labels"><span>Clock in 7:00 am</span><span id="sfCfDaySleepLbl">Asleep --</span></div>
-          </div>
+          <div id="sfCfDayBody"></div>
         </div>
         <div class="sf-cf-card sf-cf-reveal">
           <div class="sf-cf-card-top"><span class="sf-cf-card-name">Night</span><span class="sf-cf-card-hours">7p to 7a</span></div>
-          <div class="sf-cf-card-sleep">Asleep about <span id="sfCfNightSleep">--</span></div>
-          <div class="sf-cf-card-label">Last call</div>
-          <div class="sf-cf-card-time" id="sfCfNightTime">--</div>
-          <div class="sf-cf-card-note" id="sfCfNightNote"></div>
-          <div class="sf-cf-mini">
-            <div class="sf-cf-mini-track">
-              <div class="sf-cf-mini-win" id="sfCfNightWin"></div>
-              <div class="sf-cf-mini-endtick" id="sfCfNightEnd"></div>
-            </div>
-            <div class="sf-cf-mini-labels"><span>Clock in 7:00 pm</span><span id="sfCfNightSleepLbl">Asleep --</span></div>
-          </div>
+          <div id="sfCfNightBody"></div>
         </div>
         <div class="sf-cf-card sf-cf-reveal">
           <div class="sf-cf-card-top"><span class="sf-cf-card-name">Evening</span><span class="sf-cf-card-hours">3p to 11p</span></div>
-          <div class="sf-cf-card-sleep">Asleep about <span id="sfCfEveSleep">--</span></div>
-          <div class="sf-cf-card-label">Last call</div>
-          <div class="sf-cf-card-time" id="sfCfEveTime">--</div>
-          <div class="sf-cf-card-note" id="sfCfEveNote"></div>
-          <div class="sf-cf-mini">
-            <div class="sf-cf-mini-track">
-              <div class="sf-cf-mini-win" id="sfCfEveWin"></div>
-              <div class="sf-cf-mini-endtick" id="sfCfEveEnd"></div>
-            </div>
-            <div class="sf-cf-mini-labels"><span>Clock in 3:00 pm</span><span id="sfCfEveSleepLbl">Asleep --</span></div>
-          </div>
+          <div id="sfCfEveBody"></div>
         </div>
       </div>
 
       <div class="sf-cf-custom sf-cf-reveal">
         <div class="sf-cf-custom-head">Your own hours</div>
-        <div class="sf-cf-custom-sub">Odd shift, double, or a schedule nobody else believes? Set your own times.</div>
+        <div class="sf-cf-custom-sub">Odd shift, double, or a schedule nobody else believes? Set your own times. Your wake and fall-asleep settings above still apply unless you set exact times.</div>
         <div class="sf-cf-custom-row">
           <div class="sf-cf-custom-field">
             <label for="sfCfCustomEnd">Shift ends at</label>
             <input type="time" class="sf-cf-time" id="sfCfCustomEnd" value="">
           </div>
           <div class="sf-cf-custom-field">
+            <label for="sfCfCustomWake">Awake at (optional)</label>
+            <input type="time" class="sf-cf-time" id="sfCfCustomWake" value="">
+          </div>
+          <div class="sf-cf-custom-field">
             <label for="sfCfCustomSleep">Asleep by (optional)</label>
             <input type="time" class="sf-cf-time" id="sfCfCustomSleep" value="">
           </div>
-          <div class="sf-cf-custom-out">
-            <div class="sf-cf-card-label">Last call</div>
-            <div class="sf-cf-card-time" id="sfCfCustomTime">--</div>
-          </div>
+          <div class="sf-cf-custom-out" id="sfCfCustomOut"></div>
         </div>
-        <div class="sf-cf-custom-note" id="sfCfCustomNote">Set your shift end and I will use your fall-asleep setting from above. Add an exact sleep time if you know it.</div>
+        <div class="sf-cf-custom-note" id="sfCfCustomNote">Set your shift end and I will build the schedule from your settings above.</div>
       </div>
     </section>
 
-    <!-- 3 NIGHTS PLAN -->
+    <!-- 3 NIGHTS TAPER -->
     <section class="sf-cf-section sf-cf-noprint">
       <div class="sf-cf-eyebrow">Part 2</div>
-      <h2 class="sf-cf-h2">The 3-nights-in-a-row plan</h2>
-      <p class="sf-cf-lead">The stretch that decides your week. Same math, held for three nights, with the one adjustment most nurses miss on the last one.</p>
+      <h2 class="sf-cf-h2">The 3-nights-in-a-row taper</h2>
+      <p class="sf-cf-lead">The stretch that decides your week. Same first cup every night, and the tail tapers so the recovery sleep after night 3 actually lands. Clock times are yours, from your settings above.</p>
       <div class="sf-cf-nightline sf-cf-reveal" id="sfCfNightLine"></div>
       <div class="sf-cf-plangrid">
         <div class="sf-cf-plan sf-cf-reveal">
           <span class="sf-cf-plan-n">Night 1</span>
-          <h3>Front-load it</h3>
-          <p>Your biggest cups live in the first half of the shift, when they help the most and cost the least. <strong>Last call stays at <span class="sf-cf-nct">--</span>.</strong> After that, switch to the swaps: water and electrolytes, a 10-minute walk, a protein snack.</p>
+          <h3>Run the full schedule</h3>
+          <div class="sf-cf-plan-times" id="sfCfN1Times"></div>
+          <p id="sfCfN1Copy">Your biggest drink opens the night, the smaller one carries the back half, and the tail stays out of tomorrow's sleep.</p>
         </div>
         <div class="sf-cf-plan sf-cf-reveal">
           <span class="sf-cf-plan-n">Night 2</span>
-          <h3>Hold the line</h3>
-          <p>Night 2 is where the drive-home cup sneaks in, because you are running on yesterday's short sleep. <strong>Same last call, <span class="sf-cf-nct">--</span>, no negotiating.</strong> One more cup tonight is one less hour of the sleep that gets you through night 3.</p>
+          <h3>Same clock, lighter load</h3>
+          <div class="sf-cf-plan-times" id="sfCfN2Times"></div>
+          <p id="sfCfN2Copy"></p>
         </div>
         <div class="sf-cf-plan sf-cf-reveal">
           <span class="sf-cf-plan-n">Night 3</span>
-          <h3>Pull it one hour earlier</h3>
-          <p>The sleep after your last night is the sleep that resets your whole week, so protect it hardest. <strong>Last call moves to <span id="sfCfN3">--</span>.</strong> The back half of night 3 runs on the swaps and the finish line.</p>
+          <h3>Taper the tail</h3>
+          <div class="sf-cf-plan-times" id="sfCfN3Times"></div>
+          <p id="sfCfN3Copy"></p>
         </div>
       </div>
-      <div class="sf-cf-morning sf-cf-reveal">
-        <strong>The morning after night 3:</strong> sleep a short recovery block of 3 to 4 hours instead of a full day, get up, get daylight and a short walk, eat a real meal, and go to bed close to your normal time. You flip back in one day instead of three.
-      </div>
+      <div class="sf-cf-morning sf-cf-reveal" id="sfCfMorning"></div>
     </section>
 
     <!-- ROTATING RESET -->
     <section class="sf-cf-section sf-cf-noprint">
       <div class="sf-cf-eyebrow">Part 3</div>
-      <h2 class="sf-cf-h2">The rotating-shift reset card</h2>
-      <p class="sf-cf-lead">For the flip from nights back to days (or any switch that scrambles you). Five moves, in order.</p>
+      <h2 class="sf-cf-h2">The rotating-week reset</h2>
+      <p class="sf-cf-lead">For the flip from nights back to days (or any switch that scrambles you). Five moves, in order, with your clock times.</p>
       <div class="sf-cf-reset sf-cf-reveal">
         <div class="sf-cf-step">
           <span class="sf-cf-step-n">1</span>
-          <div class="sf-cf-step-body"><strong>Anchor with a short sleep, not a full day.</strong> After your last night shift, sleep 3 to 4 hours and set an alarm. A full day of sleep keeps you on night time for days.</div>
+          <div class="sf-cf-step-body"><strong>Anchor with a short sleep, not a full day.</strong> <span id="sfCfReset1"></span>
+            <div class="sf-cf-step-why">A full day of sleep keeps you on night time for days. A 3 to 4 hour anchor pays the worst of the debt and still lets tonight happen.</div>
+          </div>
         </div>
         <div class="sf-cf-step">
           <span class="sf-cf-step-n">2</span>
-          <div class="sf-cf-step-body"><strong>One real cup when you wake up.</strong> Then treat the flip day like a day shift: last call around <span id="sfCfResetDay">--</span>, even though you will want a rescue cup at 5:00 pm. Especially then.</div>
+          <div class="sf-cf-step-body" id="sfCfReset2"></div>
         </div>
         <div class="sf-cf-step">
           <span class="sf-cf-step-n">3</span>
-          <div class="sf-cf-step-body"><strong>Daylight and a 10-minute walk instead of the afternoon refill.</strong> Light and movement are the two signals that actually move your body clock. Coffee is not one of them.</div>
+          <div class="sf-cf-step-body"><strong>Daylight and a 10-minute walk instead of the afternoon refill.</strong> <span id="sfCfReset3"></span>
+            <div class="sf-cf-step-why">Light and movement are the two signals that actually move your body clock. Coffee is not one of them.</div>
+          </div>
         </div>
         <div class="sf-cf-step">
           <span class="sf-cf-step-n">4</span>
-          <div class="sf-cf-step-body"><strong>Protein and water on the flip day.</strong> A tired body reads as a hungry body. A protein snack and a big bottle of water quiet most of the fake hunger and the fake fatigue.</div>
+          <div class="sf-cf-step-body"><strong>One real meal with 25 to 40 g of protein, and a big bottle of water.</strong> A cup of shredded rotisserie chicken is 35 g on its own.
+            <div class="sf-cf-step-why">A tired body reads as a hungry body. Protein and water quiet most of the fake hunger and the fake fatigue.</div>
+          </div>
         </div>
         <div class="sf-cf-step">
           <span class="sf-cf-step-n">5</span>
-          <div class="sf-cf-step-body"><strong>Expect one rough evening.</strong> That is the flip working, not you failing. Go to bed near your normal time, and tomorrow feels human again.</div>
+          <div class="sf-cf-step-body"><strong>In bed near your normal time tonight, and expect one rough evening.</strong> <span id="sfCfReset5"></span>
+            <div class="sf-cf-step-why">That rough evening is the flip working, not you failing. You buy back your whole week with one honest bedtime.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEN THE PLAN BREAKS -->
+    <section class="sf-cf-section sf-cf-noprint">
+      <div class="sf-cf-eyebrow">Part 4</div>
+      <h2 class="sf-cf-h2">When the plan breaks</h2>
+      <p class="sf-cf-lead">Coaching is what happens when the plan breaks. Two cards: the wall you used to answer with coffee, and the short-sleep emergency.</p>
+      <div class="sf-cf-breakgrid">
+        <div class="sf-cf-reset sf-cf-reveal">
+          <div class="sf-cf-reset-title">After last call: the 4am-instead protocol</div>
+          <div class="sf-cf-reset-sub">Run it in this order. Works the same on a 2:00 pm day-shift slump.</div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">1</span>
+            <div class="sf-cf-step-body"><strong>Bright light, wherever you can get it.</strong> Med room, supply room, 5 minutes.
+              <div class="sf-cf-step-why">Light is the strongest wake signal your body has, and it has zero half-life. Nothing to clear at bedtime.</div>
+            </div>
+          </div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">2</span>
+            <div class="sf-cf-step-body"><strong>10 minutes of movement.</strong> A stair lap or a brisk loop of the unit.
+              <div class="sf-cf-step-why">Movement buys you about an hour of alertness and wears off on purpose, which is exactly what you want at 4:00 am.</div>
+            </div>
+          </div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">3</span>
+            <div class="sf-cf-step-body"><strong>16 oz of cold water.</strong> Before you judge how tired you are.
+              <div class="sf-cf-step-why">Mild dehydration reads as exhaustion. A lot of 4:00 am fog is thirst wearing a fatigue costume.</div>
+            </div>
+          </div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">4</span>
+            <div class="sf-cf-step-body"><strong>A 15 to 20 g protein snack.</strong> One Greek yogurt cup (5.3 oz, 15 g) or 2 hard-boiled eggs plus a string cheese (about 19 g).
+              <div class="sf-cf-step-why">Steady fuel, no spike and crash, and it holds you to the drive home.</div>
+            </div>
+          </div>
+        </div>
+        <div class="sf-cf-reset sf-emg sf-cf-reveal">
+          <div class="sf-cf-reset-title">Slept 4 hours and working tonight?</div>
+          <div class="sf-cf-reset-sub">The emergency rule, with your night-shift times. Strategic, not heroic.</div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">1</span>
+            <div class="sf-cf-step-body"><strong>One cup at <span id="sfCfEmg1">--</span>, not at the door.</strong>
+              <div class="sf-cf-step-why">Short sleep means heavier grog. The wake-plus-60 rule matters more today, not less.</div>
+            </div>
+          </div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">2</span>
+            <div class="sf-cf-step-body" id="sfCfEmg2"></div>
+          </div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">3</span>
+            <div class="sf-cf-step-body"><strong>Nothing after <span id="sfCfEmg3">--</span>. No exceptions tonight.</strong>
+              <div class="sf-cf-step-why">Sleep is the only thing that actually fixes a 4-hour night. Guard it hardest on the day you feel worst.</div>
+            </div>
+          </div>
+          <div class="sf-cf-step">
+            <span class="sf-cf-step-n">4</span>
+            <div class="sf-cf-step-body"><strong>No energy drinks stacked on coffee.</strong>
+              <div class="sf-cf-step-why">A Celsius or a 5-Hour on top of coffee is 200 mg in one swallow. The crash lands mid-shift and the rest lands on your pillow.</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- LOCKER CARD -->
     <section class="sf-cf-section">
-      <div class="sf-cf-eyebrow sf-cf-noprint">Part 4</div>
+      <div class="sf-cf-eyebrow sf-cf-noprint">Part 5</div>
       <h2 class="sf-cf-h2 sf-cf-noprint">Your locker card</h2>
-      <p class="sf-cf-lead sf-cf-noprint">Your numbers, one card, print it and tape it inside your locker. It updates with your settings above.</p>
+      <p class="sf-cf-lead sf-cf-noprint">Your whole schedule on one card. Print it, tape it inside your locker, screenshot it for a coworker. It updates with your settings above.</p>
       <div class="sf-cf-locker sf-cf-reveal">
         <div class="sf-cf-locker-brand">SmithFit</div>
-        <div class="sf-cf-locker-title">Caffeine last call</div>
-        <div class="sf-cf-locker-rows">
-          <div class="sf-cf-locker-row">
-            <span class="sf-cf-locker-shift">Day shift<small>7a to 7p</small></span>
-            <span class="sf-cf-locker-time" id="sfCfLockDay">--</span>
-          </div>
-          <div class="sf-cf-locker-row">
-            <span class="sf-cf-locker-shift">Night shift<small>7p to 7a</small></span>
-            <span class="sf-cf-locker-time" id="sfCfLockNight">--</span>
-          </div>
-          <div class="sf-cf-locker-row">
-            <span class="sf-cf-locker-shift">Evening shift<small>3p to 11p</small></span>
-            <span class="sf-cf-locker-time" id="sfCfLockEve">--</span>
-          </div>
+        <div class="sf-cf-locker-title">Caffeine schedule</div>
+        <div class="sf-cf-lgrid">
+          <div class="sf-cf-lhead" style="text-align:left;">Shift</div>
+          <div class="sf-cf-lhead">First cup</div>
+          <div class="sf-cf-lhead">Redose</div>
+          <div class="sf-cf-lhead">Last call</div>
+          <div class="sf-cf-lshift">Day<small>7a to 7p</small></div>
+          <div class="sf-cf-lt" id="sfCfLockDayFirst">--</div>
+          <div class="sf-cf-lt" id="sfCfLockDayRe">--</div>
+          <div class="sf-cf-lt sf-lt-last" id="sfCfLockDayLast">--</div>
+          <div class="sf-cf-lshift">Night<small>7p to 7a</small></div>
+          <div class="sf-cf-lt" id="sfCfLockNightFirst">--</div>
+          <div class="sf-cf-lt" id="sfCfLockNightRe">--</div>
+          <div class="sf-cf-lt sf-lt-last" id="sfCfLockNightLast">--</div>
+          <div class="sf-cf-lshift">Evening<small>3p to 11p</small></div>
+          <div class="sf-cf-lt" id="sfCfLockEveFirst">--</div>
+          <div class="sf-cf-lt" id="sfCfLockEveRe">--</div>
+          <div class="sf-cf-lt sf-lt-last" id="sfCfLockEveLast">--</div>
         </div>
+        <div class="sf-cf-locker-rule" id="sfCfLockPlan"></div>
         <div class="sf-cf-locker-rule" id="sfCfLockRule">Last call = the time you plan to be asleep, minus 8 hours.</div>
-        <div class="sf-cf-locker-swaps">After last call: water + electrolytes &bull; 10-minute walk &bull; protein snack</div>
+        <div class="sf-cf-locker-swaps">First cup and redose times are the open of the window. After last call: bright light &bull; 10-minute walk &bull; 16 oz water &bull; 15 to 20 g protein</div>
       </div>
       <div class="sf-cf-printrow sf-cf-noprint">
         <button type="button" class="sf-cf-printbtn" id="sfCfPrint">Print my locker card</button>
@@ -473,8 +593,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   <!-- FOOTER -->
   <footer class="sf-cf-footer sf-cf-noprint">
     <strong>SmithFit</strong><br>
-    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
-    The half-life numbers are population averages stated plainly, to help you plan, not to diagnose.
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice. Check with your provider about caffeine if you are pregnant or manage a heart condition.<br>
+    The mg and half-life numbers are published label and population averages, stated plainly to help you plan, not to diagnose.
   </footer>
 
 </div>
@@ -516,6 +636,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   } catch (e) {}
 
   /* ---- Time math ---- */
+  var HALF_LIFE_H = 5.5; /* caffeine half-life, midpoint of the 5 to 6 hour range */
   function mod1440(m) { return ((m % 1440) + 1440) % 1440; }
   function fmt(min) {
     min = Math.round(mod1440(min));
@@ -524,13 +645,18 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     var hh = h % 12; if (hh === 0) hh = 12;
     return hh + ':' + (m < 10 ? '0' : '') + m + ' ' + ap;
   }
-  function hoursPhrase(min) {
-    var halves = Math.round(min / 30);
-    if (halves <= 1) return 'about 30 minutes';
-    var h = Math.floor(halves / 2), half = halves % 2;
-    if (h === 0) return 'about 30 minutes';
-    var word = (h === 1 && !half) ? 'hour' : 'hours';
-    return 'about ' + h + (half ? ' and a half ' : ' ') + word;
+  function fmtRange(a, b) {
+    var fa = fmt(a), fb = fmt(b);
+    if (fa.slice(-2) === fb.slice(-2)) return fa.slice(0, -3) + ' to ' + fb;
+    return fa + ' to ' + fb;
+  }
+  function remaining(mg, hours) { return mg * Math.pow(0.5, hours / HALF_LIFE_H); }
+  function mgCompare(mg) {
+    if (mg < 15) return 'next to nothing';
+    if (mg < 34) return 'about a green tea (28 mg)';
+    if (mg < 55) return 'about a black tea (47 mg)';
+    if (mg < 100) return 'close to a fresh 8 oz coffee (95 mg)';
+    return 'more than a fresh 8 oz coffee';
   }
   function parseTimeInput(el) {
     if (!el || !el.value) return null;
@@ -541,100 +667,331 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     return mod1440(h * 60 + m);
   }
 
-  var state = { gap: 150, sensitive: false };
-
   var SHIFTS = [
     { key: 'Day', start: 420, end: 1140 },
     { key: 'Night', start: 1140, end: 420 },
     { key: 'Eve', start: 900, end: 1380 }
   ];
 
+  /* Standard caffeine contents (published label and USDA-range values) */
+  var DRINKS = [
+    { id: 'c8', name: 'Coffee 8 oz', mg: 95, energy: false },
+    { id: 'c12', name: 'Coffee 12 oz', mg: 145, energy: false },
+    { id: 'c16', name: 'Coffee 16 oz', mg: 190, energy: false },
+    { id: 'esp', name: 'Espresso shot', mg: 63, energy: false },
+    { id: 'lat', name: 'Latte, 2 shots', mg: 125, energy: false },
+    { id: 'cel', name: 'Celsius', mg: 200, energy: true },
+    { id: 'rb', name: 'Red Bull 8.4 oz', mg: 80, energy: true },
+    { id: 'mon', name: 'Monster 16 oz', mg: 160, energy: true },
+    { id: '5h', name: '5-Hour Energy', mg: 200, energy: true },
+    { id: 'bt', name: 'Black tea', mg: 47, energy: false },
+    { id: 'gt', name: 'Green tea', mg: 28, energy: false }
+  ];
+
+  /* Worked example preloaded: the day I see most from nurses */
+  var state = { wakeGap: 120, gap: 150, sensitive: false, drinks: { c16: 1, c12: 1, cel: 1 } };
+
   /* ---- DOM ---- */
+  var wakesEl = document.getElementById('sfCfWakes');
   var gapsEl = document.getElementById('sfCfGaps');
   var sensEl = document.getElementById('sfCfSens');
+  var drinksEl = document.getElementById('sfCfDrinks');
   var customEndEl = document.getElementById('sfCfCustomEnd');
+  var customWakeEl = document.getElementById('sfCfCustomWake');
   var customSleepEl = document.getElementById('sfCfCustomSleep');
 
-  function computeShift(start, end, sleep) {
-    var windowMin = (state.sensitive ? 10 : 8) * 60;
-    var cutoff = mod1440(sleep - windowMin);
-    var len = mod1440(end - start);
-    var gap = mod1440(sleep - end);
-    var cycle = len + gap;
-    var cutoffFromStart = mod1440(cutoff - start);
-    var note;
-    if (cutoffFromStart > cycle) {
-      note = 'Lands before you even clock in. Front-load your coffee before the shift.';
-    } else if (cutoffFromStart <= len) {
-      note = cutoffFromStart < 45
-        ? 'Right around clock-in. Have your coffee early, then swaps the rest of the way.'
-        : hoursPhrase(cutoffFromStart).charAt(0).toUpperCase() + hoursPhrase(cutoffFromStart).slice(1) + ' into your shift. Everything before it is yours.';
-    } else {
-      note = 'Lands after clock-out. You have room, skip the refill at home.';
+  /* ---- Drink chips ---- */
+  (function buildDrinkChips() {
+    var html = '';
+    for (var i = 0; i < DRINKS.length; i++) {
+      var n = state.drinks[DRINKS[i].id] || 0;
+      html += '<button type="button" class="sf-cf-drink' + (n > 0 ? ' sf-on' : '') + '" data-drink="' + DRINKS[i].id + '" aria-pressed="' + (n > 0 ? 'true' : 'false') + '">' +
+        '<span class="sf-cf-drink-name">' + DRINKS[i].name + '</span>' +
+        '<span class="sf-cf-drink-mg">' + DRINKS[i].mg + ' mg</span>' +
+        (n > 0 ? '<span class="sf-cf-drink-ct">x' + n + '</span>' : '') +
+        '</button>';
     }
+    drinksEl.innerHTML = html;
+  })();
+
+  function drinkInstances() {
+    var out = [];
+    for (var i = 0; i < DRINKS.length; i++) {
+      var n = state.drinks[DRINKS[i].id] || 0;
+      for (var k = 0; k < n; k++) out.push(DRINKS[i]);
+    }
+    return out;
+  }
+
+  /* ---- The plan engine (same math as the free page) ---- */
+  function buildPlan(wake, sleep, sensitive, instAll) {
+    function pos(t) { return mod1440(t - wake); }
+    var awake = pos(sleep); if (awake === 0) awake = 1440;
+    var windowH = sensitive ? 10 : 8;
+    var cutoff = mod1440(sleep - windowH * 60);
+    var cutoffPos = pos(cutoff);
+    if (cutoffPos > awake) cutoffPos = 0;
+    var noCaf = cutoffPos < 90;
+
+    var rs = 315, re = 375;
+    if (re > cutoffPos) { re = cutoffPos; rs = Math.max(255, re - 60); }
+    var hasRedose = !noCaf && (re - rs) >= 30;
+
+    var inst = instAll.slice();
+    var assumed = inst.length === 0;
+    if (assumed) {
+      inst = [{ id: 'c12', name: 'Coffee 12 oz', mg: 145, energy: false }];
+      if (hasRedose && !noCaf) inst.push({ id: 'c12', name: 'Coffee 12 oz', mg: 145, energy: false });
+    }
+    var total = 0;
+    for (var t = 0; t < inst.length; t++) total += inst[t].mg;
+
+    var sorted = inst.slice().sort(function (a, b) { return b.mg - a.mg; });
+    function takePreferNonEnergy(arr) {
+      for (var i = 0; i < arr.length; i++) { if (!arr[i].energy) return arr.splice(i, 1)[0]; }
+      return arr.splice(0, 1)[0];
+    }
+    var first = sorted.length ? takePreferNonEnergy(sorted) : null;
+    var second = (hasRedose && sorted.length) ? takePreferNonEnergy(sorted) : null;
+    var extras = sorted;
+
+    var drops = [], kept = total, pool = inst.slice(), guard = 0;
+    if (!assumed && total > 400) {
+      while (kept > 400 && pool.length && guard < 12) {
+        guard++;
+        var pick = -1, pickMg = Infinity, p;
+        for (p = 0; p < pool.length; p++) {
+          if (pool[p].energy && kept - pool[p].mg <= 400 && pool[p].mg < pickMg) { pick = p; pickMg = pool[p].mg; }
+        }
+        if (pick === -1) {
+          for (p = 0; p < pool.length; p++) {
+            if (kept - pool[p].mg <= 400 && pool[p].mg < pickMg) { pick = p; pickMg = pool[p].mg; }
+          }
+        }
+        if (pick === -1) {
+          var mx = 0;
+          for (p = 1; p < pool.length; p++) { if (pool[p].mg > pool[mx].mg) mx = p; }
+          pick = mx;
+        }
+        drops.push(pool[pick]); kept -= pool[pick].mg; pool.splice(pick, 1);
+      }
+    }
+
+    var onFirst = first ? Math.round(remaining(first.mg, (awake - 90) / 60)) : 0;
+    var onSecond = second ? Math.round(remaining(second.mg, (awake - re) / 60)) : 0;
+
     return {
-      cutoff: cutoff,
-      note: note,
-      winPct: cutoffFromStart > cycle ? 0 : Math.min(100, (cutoffFromStart / cycle) * 100),
-      endPct: Math.min(100, (len / cycle) * 100)
+      wake: wake, sleep: sleep, awake: awake, windowH: windowH,
+      cutoff: cutoff, cutoffPos: cutoffPos, noCaf: noCaf,
+      firstStart: mod1440(wake + 60), firstEnd: mod1440(wake + 90),
+      hasRedose: hasRedose, rsPos: rs, rePos: re, rsAbs: mod1440(wake + rs), reAbs: mod1440(wake + re),
+      first: first, second: second, extras: extras,
+      total: total, assumed: assumed, over: (!assumed && total > 400), drops: drops, kept: kept,
+      onFirst: onFirst, onSecond: onSecond
     };
   }
 
-  function setCard(prefix, r, sleep) {
-    document.getElementById('sfCf' + prefix + 'Time').textContent = fmt(r.cutoff);
-    document.getElementById('sfCf' + prefix + 'Note').textContent = r.note;
-    document.getElementById('sfCf' + prefix + 'Sleep').textContent = fmt(sleep);
-    document.getElementById('sfCf' + prefix + 'SleepLbl').textContent = 'Asleep ' + fmt(sleep);
-    document.getElementById('sfCf' + prefix + 'Win').style.width = r.winPct + '%';
-    document.getElementById('sfCf' + prefix + 'End').style.left = r.endPct + '%';
+  function trow(k, v, sub, last) {
+    return '<div class="sf-cf-trow' + (last ? ' sf-last' : '') + '"><span class="sf-cf-trow-k">' + k + '</span><span class="sf-cf-trow-v">' + v + (sub ? '<small>' + sub + '</small>' : '') + '</span></div>';
+  }
+
+  function shiftBody(shiftStart, shiftEnd, plan) {
+    var html = '<div class="sf-cf-card-sleep">Wake ' + fmt(plan.wake) + ' &bull; Asleep ' + fmt(plan.sleep) + '</div>';
+    if (plan.noCaf) {
+      html += trow('First cup', 'Skip', 'window closed', false);
+      html += trow('Redose', 'Skip', '', false);
+    } else {
+      html += trow('First cup', fmtRange(plan.firstStart, plan.firstEnd), plan.first ? plan.first.name + ', ' + plan.first.mg + ' mg' : '', false);
+      html += plan.hasRedose
+        ? trow('Redose', fmtRange(plan.rsAbs, plan.reAbs), plan.second ? plan.second.name + ', ' + plan.second.mg + ' mg' : 'optional', false)
+        : trow('Redose', 'Skip', 'window too short', false);
+    }
+    html += trow('Last call', fmt(plan.cutoff), '', true);
+
+    /* Mini timeline: wake to sleep, gold = coffee window, ticks = clock-in and clock-out */
+    var awake = plan.awake;
+    function pct(p) { return Math.max(0, Math.min(100, p / awake * 100)); }
+    var startPos = mod1440(shiftStart - plan.wake);
+    var endPos = mod1440(shiftEnd - plan.wake);
+    var winLeft = plan.noCaf ? 0 : pct(60);
+    var winWidth = plan.noCaf ? 0 : Math.max(0, pct(plan.cutoffPos) - winLeft);
+    html += '<div class="sf-cf-mini">' +
+      '<div class="sf-cf-mini-track">' +
+        '<div class="sf-cf-mini-win" style="left:' + winLeft + '%; width:' + winWidth + '%;"></div>' +
+        '<div class="sf-cf-mini-endtick" style="left:' + pct(startPos) + '%;"></div>' +
+        '<div class="sf-cf-mini-endtick" style="left:' + pct(endPos) + '%;"></div>' +
+      '</div>' +
+      '<div class="sf-cf-mini-labels"><span>Wake ' + fmt(plan.wake) + '</span><span>Asleep ' + fmt(plan.sleep) + '</span></div>' +
+    '</div>';
+
+    var onboard = plan.onFirst + plan.onSecond;
+    html += '<div class="sf-cf-card-note">' + (plan.noCaf
+      ? 'This schedule has no caffeine room at all. Run the protocol below and bank the sleep.'
+      : 'On this schedule, about ' + onboard + ' mg is still on board at ' + fmt(plan.sleep) + ', ' + mgCompare(onboard) + '. Every cup after last call adds to that number at full strength.') + '</div>';
+    return html;
   }
 
   function updateAll() {
-    var results = {};
+    var inst = drinkInstances();
+    var plans = {};
     for (var i = 0; i < SHIFTS.length; i++) {
       var s = SHIFTS[i];
+      var wake = mod1440(s.start - state.wakeGap);
       var sleep = mod1440(s.end + state.gap);
-      var r = computeShift(s.start, s.end, sleep);
-      results[s.key] = r;
-      setCard(s.key, r, sleep);
+      plans[s.key] = buildPlan(wake, sleep, state.sensitive, inst);
+      document.getElementById('sfCf' + s.key + 'Body').innerHTML = shiftBody(s.start, s.end, plans[s.key]);
+    }
+    var day = plans.Day, night = plans.Night, eve = plans.Eve;
+
+    /* Budget readout (drinks are per day, same for every shift) */
+    var total = night.total;
+    var numEl = document.getElementById('sfCfBudgetNum');
+    var fillEl = document.getElementById('sfCfBudgetFill');
+    var noteEl = document.getElementById('sfCfBudgetNote');
+    var fixEl = document.getElementById('sfCfBudgetFix');
+    numEl.innerHTML = total + ' <small>of 400 mg</small>';
+    numEl.className = 'sf-cf-budget-num' + (night.over ? ' sf-hot' : '');
+    fillEl.className = 'sf-cf-bbar-fill' + (night.over ? ' sf-hot' : '');
+    fillEl.style.width = Math.min(100, Math.round(total / 400 * 100)) + '%';
+    if (night.assumed) {
+      noteEl.innerHTML = 'Nothing tapped, so I planned around two 12 oz brews (290 mg). Tap your real drinks above and this whole page recalculates.';
+    } else if (night.over) {
+      noteEl.innerHTML = 'FDA daily guidance is under <strong>400 mg</strong>. You are <strong>' + (total - 400) + ' mg over</strong>, and past the line sleep pays even when your timing is perfect.';
+    } else {
+      noteEl.innerHTML = 'FDA daily guidance is under <strong>400 mg</strong>. You have <strong>' + (400 - total) + ' mg of headroom</strong>, and the windows below keep it out of your sleep.';
+    }
+    if (night.over && night.drops.length) {
+      var dropNames = [];
+      for (var d = 0; d < night.drops.length; d++) dropNames.push('the ' + night.drops[d].name + ' (' + night.drops[d].mg + ' mg)');
+      fixEl.innerHTML = '<div class="sf-cf-budget-fix"><strong>The fix:</strong> drop ' + dropNames.join(' and ') + ' and you land at <strong>' + night.kept + ' mg</strong> without touching your coffee. The schedules below already run on the drinks worth keeping.</div>';
+    } else {
+      fixEl.innerHTML = '';
     }
 
-    /* Custom row */
+    /* Custom hours */
     var cEnd = parseTimeInput(customEndEl);
-    var cTimeEl = document.getElementById('sfCfCustomTime');
+    var cOutEl = document.getElementById('sfCfCustomOut');
     var cNoteEl = document.getElementById('sfCfCustomNote');
     if (cEnd === null) {
-      cTimeEl.textContent = '--';
-      cNoteEl.textContent = 'Set your shift end and I will use your fall-asleep setting from above. Add an exact sleep time if you know it.';
+      cOutEl.innerHTML = '<div class="sf-cf-trow sf-last"><span class="sf-cf-trow-k">Last call</span><span class="sf-cf-trow-v">--</span></div>';
+      cNoteEl.textContent = 'Set your shift end and I will build the schedule from your settings above.';
     } else {
+      var cStart = mod1440(cEnd - 720);
+      var cWake = parseTimeInput(customWakeEl);
+      if (cWake === null) cWake = mod1440(cStart - state.wakeGap);
       var cSleep = parseTimeInput(customSleepEl);
       if (cSleep === null) cSleep = mod1440(cEnd + state.gap);
-      var cr = computeShift(mod1440(cEnd - 720), cEnd, cSleep);
-      cTimeEl.textContent = fmt(cr.cutoff);
-      cNoteEl.textContent = 'To be asleep by ' + fmt(cSleep) + ' after a shift ending at ' + fmt(cEnd) + '. ' + cr.note + ' (I assumed a 12-hour shift for the wording. The time itself only depends on your sleep.)';
+      var cp = buildPlan(cWake, cSleep, state.sensitive, inst);
+      cOutEl.innerHTML =
+        trow('First cup', cp.noCaf ? 'Skip' : fmtRange(cp.firstStart, cp.firstEnd), '', false) +
+        trow('Redose', (cp.noCaf || !cp.hasRedose) ? 'Skip' : fmtRange(cp.rsAbs, cp.reAbs), '', false) +
+        trow('Last call', fmt(cp.cutoff), '', true);
+      cNoteEl.textContent = 'Awake ' + fmt(cWake) + ', asleep by ' + fmt(cSleep) + ', shift ending ' + fmt(cEnd) + '. (I assumed a 12-hour shift for the picture. The times only depend on your wake and sleep.)';
     }
 
-    /* Night plan */
-    var nightCutoff = results.Night.cutoff;
-    var ncts = document.querySelectorAll('.sf-cf-nct');
-    for (var n = 0; n < ncts.length; n++) { ncts[n].textContent = fmt(nightCutoff); }
-    document.getElementById('sfCfN3').textContent = fmt(nightCutoff - 60);
-    var nightSleep = mod1440(420 + state.gap);
-    document.getElementById('sfCfNightLine').textContent = 'With your settings, a coffee at ' + fmt(nightSleep - 300) + ' is still about half strength in your blood at ' + fmt(nightSleep) + ', right when you are trying to fall asleep. Half of every cup leaves your system every 5 to 6 hours.';
+    /* 3-night taper (night shift) */
+    document.getElementById('sfCfNightLine').textContent = 'With your settings, a coffee at ' + fmt(night.sleep - 300) + ' is still about half strength in your blood at ' + fmt(night.sleep) + ', right when you are trying to fall asleep. Half of every cup leaves your system every 5 to 6 hours. That is the whole taper, in one sentence.';
 
-    /* Reset card */
-    document.getElementById('sfCfResetDay').textContent = fmt(results.Day.cutoff);
+    var n1Times = '';
+    if (night.noCaf) {
+      n1Times = trow('Schedule', 'No room', '', true);
+    } else {
+      n1Times = trow('First cup', fmtRange(night.firstStart, night.firstEnd), night.first ? night.first.name : '', false) +
+        (night.hasRedose
+          ? trow('Redose', fmtRange(night.rsAbs, night.reAbs), night.second ? night.second.name : 'optional', false)
+          : trow('Redose', 'Skip', '', false)) +
+        trow('Last call', fmt(night.cutoff), '', true);
+    }
+    document.getElementById('sfCfN1Times').innerHTML = n1Times;
+
+    var n2Times = n1Times;
+    document.getElementById('sfCfN2Times').innerHTML = n2Times;
+    document.getElementById('sfCfN2Copy').innerHTML = 'Night 2 is where the drive-home cup sneaks in, because yesterday came up short on sleep. Same clock times, but cap the night at <strong>two rounds</strong>. If an energy drink is still in your rotation, tonight is the night it stays home. One extra cup tonight is one less hour of the sleep that has to carry night 3.';
+
+    var n3Cutoff = mod1440(night.cutoff - 60);
+    var n3HasRedose = night.hasRedose && night.rePos <= (night.cutoffPos - 60);
+    var n3Times = '';
+    if (night.noCaf) {
+      n3Times = trow('Schedule', 'No room', '', true);
+    } else {
+      n3Times = trow('First cup', fmtRange(night.firstStart, night.firstEnd), 'same as night 1', false) +
+        (n3HasRedose
+          ? trow('Redose', fmtRange(night.rsAbs, night.reAbs), 'smallest drink only', false)
+          : trow('Redose', 'Skip', 'tail is tapering', false)) +
+        trow('Last call', fmt(n3Cutoff), 'one hour earlier', true);
+    }
+    document.getElementById('sfCfN3Times').innerHTML = n3Times;
+    document.getElementById('sfCfN3Copy').innerHTML = 'The sleep after your last night resets your whole week, so it gets the most protection. Last call moves to <strong>' + fmt(n3Cutoff) + '</strong>' + (n3HasRedose ? ', and the redose drops to your smallest drink' : ', and the redose is gone') + '. The back half of night 3 runs on the protocol below and the finish line.';
+
+    var alarm = mod1440(night.sleep + 210);
+    document.getElementById('sfCfMorning').innerHTML = '<strong>The morning after night 3, with your settings:</strong> asleep by ' + fmt(night.sleep) + ', alarm at ' + fmt(alarm) + ' (a 3 and a half hour anchor, not a full day), daylight and a short walk within the hour, one real meal, and in bed close to your normal time. You flip back in one day instead of three.';
+
+    /* Rotating reset, clock times per step */
+    document.getElementById('sfCfReset1').textContent = 'After your last night shift: asleep by ' + fmt(night.sleep) + ', alarm at ' + fmt(alarm) + '.';
+    var flipBed = 1350; /* 10:30 pm, a normal day-schedule bedtime */
+    var flipCutoff = mod1440(flipBed - night.windowH * 60);
+    var cup = mod1440(alarm + 60);
+    var cupOk = mod1440(flipCutoff - alarm) >= 60 && mod1440(flipCutoff - alarm) <= 720;
+    document.getElementById('sfCfReset2').innerHTML = cupOk
+      ? '<strong>One real cup at ' + fmt(cup) + ', and that is the day.</strong> Your flip-day last call is ' + fmt(flipCutoff) + ' (' + night.windowH + ' hours before a 10:30 pm bedtime), so it is one and done.' +
+        '<div class="sf-cf-step-why">You will want a rescue cup around 5:00 pm. Especially then, the answer is the walk, not the refill.</div>'
+      : '<strong>Skip the coffee on flip day.</strong> With your settings, the flip-day last call (' + fmt(flipCutoff) + ') closes before your wake-plus-60 cup would land (' + fmt(cup) + ').' +
+        '<div class="sf-cf-step-why">One caffeine-free day hurts less than three more days stuck on night time. Run the protocol below at the wall.</div>';
+    document.getElementById('sfCfReset3').textContent = 'Aim for outside light by ' + fmt(mod1440(alarm + 120)) + '.';
+    document.getElementById('sfCfReset5').textContent = 'Tonight that means lights out around 10:30 pm.';
+
+    /* Emergency card (night shift times) */
+    document.getElementById('sfCfEmg1').textContent = fmt(mod1440(night.wake + 60));
+    document.getElementById('sfCfEmg2').innerHTML = night.hasRedose
+      ? '<strong>One more in your redose window, ' + fmtRange(night.rsAbs, night.reAbs) + '.</strong>' +
+        '<div class="sf-cf-step-why">Spacing beats stacking. Two spaced cups hold you steadier than three panicked ones, and tomorrow still gets its sleep.</div>'
+      : '<strong>Skip the second round tonight. Your window is too short.</strong>' +
+        '<div class="sf-cf-step-why">A second cup this close to last call rides straight into the sleep you are trying to rescue.</div>';
+    document.getElementById('sfCfEmg3').textContent = fmt(night.cutoff);
 
     /* Locker card */
-    document.getElementById('sfCfLockDay').textContent = fmt(results.Day.cutoff);
-    document.getElementById('sfCfLockNight').textContent = fmt(results.Night.cutoff);
-    document.getElementById('sfCfLockEve').textContent = fmt(results.Eve.cutoff);
+    function lockTimes(prefix, plan) {
+      var f = document.getElementById('sfCfLock' + prefix + 'First');
+      var r = document.getElementById('sfCfLock' + prefix + 'Re');
+      var l = document.getElementById('sfCfLock' + prefix + 'Last');
+      if (plan.noCaf) {
+        f.textContent = 'Skip'; f.className = 'sf-cf-lt sf-lt-skip';
+        r.textContent = 'Skip'; r.className = 'sf-cf-lt sf-lt-skip';
+      } else {
+        f.textContent = fmt(plan.firstStart); f.className = 'sf-cf-lt';
+        if (plan.hasRedose) { r.textContent = fmt(plan.rsAbs); r.className = 'sf-cf-lt'; }
+        else { r.textContent = 'Skip'; r.className = 'sf-cf-lt sf-lt-skip'; }
+      }
+      l.textContent = fmt(plan.cutoff);
+    }
+    lockTimes('Day', day);
+    lockTimes('Night', night);
+    lockTimes('Eve', eve);
+    var planLine;
+    if (night.assumed) {
+      planLine = 'The plan: a 12 oz brew in each window, <strong>290 mg</strong> of the 400 mg day.';
+    } else if (night.over) {
+      planLine = 'Your day: <strong>' + total + ' mg</strong>. Drop ' + (night.drops.length ? 'the ' + night.drops[0].name : 'one drink') + ' to land at <strong>' + night.kept + ' mg</strong> of the 400 mg line.';
+    } else {
+      planLine = 'Your day: <strong>' + total + ' mg</strong> of the 400 mg line' + (night.first ? ', ' + night.first.name + ' first' + (night.second ? ', ' + night.second.name + ' at the redose' : '') : '') + '.';
+    }
+    document.getElementById('sfCfLockPlan').innerHTML = planLine;
     document.getElementById('sfCfLockRule').textContent = state.sensitive
       ? 'Last call = the time you plan to be asleep, minus 10 hours (caffeine hits you hard).'
       : 'Last call = the time you plan to be asleep, minus 8 hours.';
   }
 
   /* ---- Interactions ---- */
+  wakesEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-cf-gapbtn');
+    if (!btn) return;
+    var all = wakesEl.querySelectorAll('.sf-cf-gapbtn');
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove('sf-on'); all[i].setAttribute('aria-pressed', 'false'); }
+    btn.classList.add('sf-on'); btn.setAttribute('aria-pressed', 'true');
+    state.wakeGap = parseInt(btn.getAttribute('data-wake'), 10) || 120;
+    updateAll();
+  });
+
   gapsEl.addEventListener('click', function (e) {
     var btn = e.target.closest('.sf-cf-gapbtn');
     if (!btn) return;
@@ -653,7 +1010,26 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     updateAll();
   });
 
+  drinksEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-cf-drink');
+    if (!btn) return;
+    var id = btn.getAttribute('data-drink');
+    var n = ((state.drinks[id] || 0) + 1) % 4;
+    state.drinks[id] = n;
+    btn.classList.toggle('sf-on', n > 0);
+    btn.setAttribute('aria-pressed', n > 0 ? 'true' : 'false');
+    var ct = btn.querySelector('.sf-cf-drink-ct');
+    if (n > 0) {
+      if (!ct) { ct = document.createElement('span'); ct.className = 'sf-cf-drink-ct'; btn.appendChild(ct); }
+      ct.textContent = 'x' + n;
+    } else if (ct) {
+      btn.removeChild(ct);
+    }
+    updateAll();
+  });
+
   customEndEl.addEventListener('input', updateAll);
+  customWakeEl.addEventListener('input', updateAll);
   customSleepEl.addEventListener('input', updateAll);
 
   document.getElementById('sfCfPrint').addEventListener('click', function () { window.print(); });
@@ -672,7 +1048,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
   })();
 
-  /* ---- Init ---- */
+  /* ---- Init: render the worked example immediately ---- */
   try { if (window.localStorage.getItem('sf_cc_sensitive') === '1') { state.sensitive = true; sensEl.classList.add('sf-on'); sensEl.setAttribute('aria-pressed', 'true'); } } catch (e) {}
   updateAll();
 
@@ -683,9 +1059,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     var params = new URLSearchParams(window.location.search);
     var greetEl = document.getElementById('sfCfGreet');
     if (greetEl && name) {
-      greetEl.textContent = name + ', you are in. Set two things below and every number on this page becomes yours: every shift, the 3-night stretch, and a card for your locker.';
-    } else if (greetEl && params.get('unlocked') === '1') {
-      greetEl.textContent = 'You are in. Set two things below and every number on this page becomes yours: every shift, the 3-night stretch, and a card for your locker.';
+      greetEl.textContent = name + ', you are in. Your first cup, your redose, your last call, and your mg budget for every shift you work. Tap your settings below and every number becomes yours.';
+    } else if (greetEl && params.get('full') === '1') {
+      greetEl.textContent = 'You are in. Your first cup, your redose, your last call, and your mg budget for every shift you work. Tap your settings below and every number becomes yours.';
     }
   } catch (e) {}
 })();

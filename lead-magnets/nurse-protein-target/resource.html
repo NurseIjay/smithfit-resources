@@ -240,6 +240,72 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-pk-reveal.sf-in { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
 .sf-pk-hidden { display: none !important; }
 
+/* ===== Example badge ===== */
+.sf-pk-example { display: inline-block; background: var(--sf-gold-hover); border: 1px dashed rgba(200,160,78,0.6); color: #8a6b2d; border-radius: 999px; padding: 5px 14px; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+
+/* ===== Timeline food line ===== */
+.sf-pk-row-food { display: block; font-size: 13px; color: var(--sf-taupe-raw); margin-top: 3px; font-weight: 500; }
+.sf-pk-daytotal { border-top: 1px solid var(--sf-cream-deep); padding-top: 12px; font-size: 13px; color: var(--sf-taupe-raw); }
+
+/* ===== Gap analysis ===== */
+.sf-pk-gapcard { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 14px; }
+.sf-pk-gapcard h4 { font-family: var(--sf-serif); font-weight: 700; font-size: 21px; color: var(--sf-dark-raw); margin-bottom: 6px; }
+.sf-pk-gapcard .sf-pk-gapline { font-size: 14px; color: var(--sf-taupe-raw); margin-bottom: 14px; }
+.sf-pk-gapmath { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; }
+.sf-pk-gapmath div { text-align: center; flex: 1; }
+.sf-pk-gapmath .sf-pk-gm-n { display: block; font-family: var(--sf-serif); font-weight: 700; font-size: 26px; color: var(--sf-dark-raw); line-height: 1.1; }
+.sf-pk-gapmath .sf-pk-gm-n.sf-gap { color: var(--sf-red-raw); }
+.sf-pk-gapmath .sf-pk-gm-l { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-top: 2px; }
+.sf-pk-gapmath .sf-pk-gm-op { flex: 0 0 auto; font-family: var(--sf-serif); font-size: 22px; color: var(--sf-taupe-light); }
+.sf-pk-ins { list-style: none; }
+.sf-pk-ins li { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 14px; }
+.sf-pk-ins li:last-child { border-bottom: none; }
+.sf-pk-ins .sf-pk-ins-what strong { color: var(--sf-dark-raw); font-weight: 600; }
+.sf-pk-ins .sf-pk-ins-what span { display: block; font-size: 12px; color: var(--sf-taupe-light); }
+.sf-pk-ins .sf-pk-ins-g { font-family: var(--sf-serif); font-weight: 700; font-size: 22px; color: var(--sf-gold-raw); white-space: nowrap; }
+.sf-pk-gapfoot { font-size: 13px; color: var(--sf-taupe-raw); background: var(--sf-gold-hover); border-radius: 10px; padding: 11px 14px; margin-top: 12px; }
+
+/* ===== Rescue rule ===== */
+.sf-pk-rescue { background: var(--sf-red-soft); border: 1px solid rgba(192,80,77,0.25); border-left: 4px solid var(--sf-red-raw); border-radius: 0 14px 14px 0; padding: 20px 20px 18px; margin-top: 14px; }
+.sf-pk-rescue h4 { font-family: var(--sf-serif); font-weight: 700; font-size: 20px; color: var(--sf-dark-raw); margin-bottom: 6px; }
+.sf-pk-rescue p { font-size: 14px; color: var(--sf-taupe-raw); margin-bottom: 8px; }
+.sf-pk-rescue p:last-child { margin-bottom: 0; }
+.sf-pk-rescue strong { color: var(--sf-dark-raw); }
+
+/* ===== Week One ladder ===== */
+.sf-pk-ladder { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 26px 24px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-pk-lrows { list-style: none; }
+.sf-pk-lrow { display: flex; align-items: baseline; gap: 14px; padding: 11px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-pk-lrow:last-child { border-bottom: none; }
+.sf-pk-lrow-day { flex: 0 0 86px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-taupe-light); }
+.sf-pk-lrow-what { flex: 1; font-size: 14px; color: var(--sf-taupe-raw); }
+.sf-pk-lrow-what strong { color: var(--sf-dark-raw); font-weight: 600; }
+.sf-pk-lrow-g { flex: 0 0 74px; text-align: right; font-family: var(--sf-serif); font-weight: 700; font-size: 22px; color: var(--sf-gold-raw); }
+.sf-pk-lrow.sf-final .sf-pk-lrow-g { color: var(--sf-green-raw); }
+.sf-pk-lwhy { background: var(--sf-gold-hover); border-radius: 12px; padding: 14px 18px; font-size: 14px; color: var(--sf-taupe-raw); margin-top: 14px; }
+.sf-pk-lwhy strong { color: var(--sf-dark-raw); }
+.sf-pk-ladder-empty { background: var(--sf-cream-mid); border-radius: 12px; padding: 16px 18px; font-size: 14px; color: var(--sf-taupe-raw); }
+
+/* ===== Screenshot card ===== */
+.sf-pk-shot { background: linear-gradient(150deg, #2a2118 0%, #3a2e22 58%, #2a2118 100%); border-radius: 20px; padding: 28px 24px 22px; margin-top: 22px; position: relative; overflow: hidden; }
+.sf-pk-shot::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.24) 0%, transparent 60%); pointer-events: none; }
+.sf-pk-shot > * { position: relative; z-index: 1; }
+.sf-pk-shot-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.sf-pk-shot-head .sf-pk-shot-title { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232,200,120,0.9); }
+.sf-pk-shot-head .sf-pk-shot-mark { font-family: var(--sf-serif); font-weight: 700; font-size: 15px; letter-spacing: 0.05em; color: rgba(250,246,243,0.75); }
+.sf-pk-shot-head .sf-pk-shot-mark span { color: var(--sf-gold-soft); }
+.sf-pk-shot-num { font-family: var(--sf-serif); font-weight: 700; font-size: 56px; line-height: 1; color: var(--sf-gold-soft); }
+.sf-pk-shot-num small { font-family: var(--sf-display); font-style: italic; font-weight: 600; font-size: 0.44em; margin-left: 2px; }
+.sf-pk-shot-sub { font-size: 12px; color: rgba(250,246,243,0.62); margin: 4px 0 14px; }
+.sf-pk-shot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; border-top: 1px solid rgba(250,246,243,0.14); padding-top: 12px; margin-bottom: 14px; }
+.sf-pk-shot-grid div { text-align: center; }
+.sf-pk-shot-grid .sf-pk-shot-sl { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,246,243,0.55); margin-bottom: 2px; }
+.sf-pk-shot-grid .sf-pk-shot-sg { font-family: var(--sf-serif); font-weight: 700; font-size: 21px; color: var(--sf-cream-raw); }
+.sf-pk-shot-list { list-style: none; border-top: 1px solid rgba(250,246,243,0.14); padding-top: 10px; }
+.sf-pk-shot-list li { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; color: rgba(250,246,243,0.85); padding: 4px 0; }
+.sf-pk-shot-list li span:last-child { color: var(--sf-gold-soft); font-weight: 600; white-space: nowrap; }
+.sf-pk-shot-foot { font-size: 11px; color: rgba(250,246,243,0.5); margin-top: 12px; text-align: center; }
+
 /* ===== Print card ===== */
 .sf-pk-print { display: none; }
 @media print {
@@ -275,6 +341,13 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-pk-proof-item:nth-child(-n+2) { border-top: none; }
   .sf-pk-proof-item:nth-child(even) { border-left: 1px solid var(--sf-border); }
   .sf-pk-actions .sf-pk-btn { min-width: 100%; }
+  .sf-pk-gapmath { flex-wrap: nowrap; padding: 12px 10px; }
+  .sf-pk-gapmath .sf-pk-gm-n { font-size: 21px; }
+  .sf-pk-lrow { flex-wrap: wrap; gap: 6px 14px; }
+  .sf-pk-lrow-day { flex: 0 0 70px; }
+  .sf-pk-lrow-what { flex: 1 1 60%; }
+  .sf-pk-lrow-g { flex: 0 0 60px; font-size: 20px; }
+  .sf-pk-shot-num { font-size: 48px; }
 }
 
 /* ===== Reduced motion ===== */
@@ -294,7 +367,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   <header class="sf-pk-header">
     <span class="sf-pk-badge">The full kit, free</span>
     <h1>The Nurse <span class="sf-pk-em">Protein Target</span></h1>
-    <p class="sf-pk-sub" id="sfPkGreeting">Your number, your shift map, and every no-cook way to hit it. Save this page, you will use it all week.</p>
+    <p class="sf-pk-sub" id="sfPkGreeting">Your number, your day on the clock, and every no-cook way to hit it. Save this page, you will use it all week.</p>
   </header>
 
   <p class="sf-pk-validate">You have run on coffee and vibes through enough 12s. <span>One number, hit most days,</span> beats every perfect plan you were never going to have time for.</p>
@@ -376,23 +449,35 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       </div>
     </section>
 
-    <!-- SECTION 2: SHIFT MAP -->
+    <!-- SECTION 2: WORKED DAY -->
     <section class="sf-pk-section" id="sfPkMapSection">
       <div class="sf-pk-eyebrow">Part 2</div>
-      <h2 class="sf-pk-h2">Your shift-day protein map</h2>
-      <p class="sf-pk-lead">Where the grams land across a real shift, with real clock times. Doses of 25 to 40g are what your body uses best in one sitting, so the day splits into four hits.</p>
+      <h2 class="sf-pk-h2">Your day, worked out on the clock</h2>
+      <p class="sf-pk-lead">Not a food list. Real items with real serving sizes at real clock times, computed for your shift, mostly in the 25 to 40g doses your body uses best in one sitting (bigger targets run bigger doses).</p>
       <div class="sf-pk-map">
         <div id="sfPkMap">
-          <div class="sf-pk-map-empty">Set your number and your usual shift above, and your map builds itself right here with your grams on the clock.</div>
+          <div class="sf-pk-map-empty">Set your number and your usual shift above, and your day builds itself right here, items and clock times included.</div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: THE LIBRARY -->
-    <section class="sf-pk-section">
+    <!-- SECTION 3: WEEK ONE LADDER -->
+    <section class="sf-pk-section" id="sfPkLadderSection">
       <div class="sf-pk-eyebrow">Part 3</div>
+      <h2 class="sf-pk-h2">The Week One ladder</h2>
+      <p class="sf-pk-lead">Do not jump from a 55g day to your full number overnight. Step up 20 to 25g at a time, and by Day 7 the full number feels normal instead of heroic.</p>
+      <div class="sf-pk-ladder">
+        <div id="sfPkLadder">
+          <div class="sf-pk-ladder-empty">Set your number in Part 1 and your seven-day step-up plan builds itself here, one insertion at a time.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: THE LIBRARY -->
+    <section class="sf-pk-section">
+      <div class="sf-pk-eyebrow">Part 4</div>
       <h2 class="sf-pk-h2">The no-cook library</h2>
-      <p class="sf-pk-lead">Everything here works cold, in a hurry, mid-chaos. Tap what you would eat today and watch the bar fill toward your number. Tap again for a second serving.</p>
+      <p class="sf-pk-lead">Everything here works cold, in a hurry, mid-chaos, and every item carries its serving size. Tap what you would eat today and watch the bar fill toward your number. Tap again for a second serving.</p>
 
       <div class="sf-pk-stackbar">
         <div class="sf-pk-stackbar-card">
@@ -411,27 +496,27 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       <button type="button" class="sf-pk-clear sf-pk-hidden" id="sfPkClear">Start my stack over</button>
     </section>
 
-    <!-- SECTION 4: 25G CHEAT SHEET -->
+    <!-- SECTION 5: 25G CHEAT SHEET -->
     <section class="sf-pk-section sf-pk-reveal">
-      <div class="sf-pk-eyebrow">Part 4</div>
+      <div class="sf-pk-eyebrow">Part 5</div>
       <h2 class="sf-pk-h2">What 25 grams actually looks like</h2>
       <p class="sf-pk-lead">Learn these six on sight and you can eyeball a real dose anywhere, no app, no scale, no label math.</p>
       <div class="sf-pk-cheat">
-        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥤</span><div class="sf-pk-cheat-name">One scoop of protein powder</div><div class="sf-pk-cheat-g">25g</div></div>
-        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥣</span><div class="sf-pk-cheat-name">A cup of cottage cheese</div><div class="sf-pk-cheat-g">25g</div></div>
-        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🍗</span><div class="sf-pk-cheat-name">A palm of rotisserie chicken</div><div class="sf-pk-cheat-g">~25g</div></div>
-        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🐟</span><div class="sf-pk-cheat-name">Tuna pouch + a string cheese</div><div class="sf-pk-cheat-g">27g</div></div>
-        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥛</span><div class="sf-pk-cheat-name">Greek yogurt + a boiled egg</div><div class="sf-pk-cheat-g">23g</div></div>
-        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🍳</span><div class="sf-pk-cheat-name">3 eggs + a carton of milk</div><div class="sf-pk-cheat-g">26g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥤</span><div class="sf-pk-cheat-name">Protein shake, 1 scoop</div><div class="sf-pk-cheat-g">25g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥣</span><div class="sf-pk-cheat-name">Cottage cheese, 1 cup</div><div class="sf-pk-cheat-g">25g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🍗</span><div class="sf-pk-cheat-name">Rotisserie chicken, 3/4 cup shredded</div><div class="sf-pk-cheat-g">~26g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🐟</span><div class="sf-pk-cheat-name">Tuna pouch (2.6oz) + 1 string cheese</div><div class="sf-pk-cheat-g">25g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥛</span><div class="sf-pk-cheat-name">Greek yogurt cup + 1oz jerky</div><div class="sf-pk-cheat-g">25g</div></div>
+        <div class="sf-pk-cheat-tile"><span class="sf-pk-cheat-emoji" aria-hidden="true">🥚</span><div class="sf-pk-cheat-name">2 boiled eggs + 2 string cheese</div><div class="sf-pk-cheat-g">26g</div></div>
       </div>
       <div class="sf-pk-cheat-note">Two or three of these across your day and your number is mostly done. The stack builder above does the exact math when you want it.</div>
     </section>
 
-    <!-- SECTION 5: PRINT -->
+    <!-- SECTION 6: PRINT -->
     <section class="sf-pk-section sf-pk-reveal">
-      <div class="sf-pk-eyebrow">Part 5</div>
+      <div class="sf-pk-eyebrow">Part 6</div>
       <h2 class="sf-pk-h2">Take it to the floor</h2>
-      <p class="sf-pk-lead">Print the card and tape it inside your locker or on the fridge. Your number, your map, your quick picks, on one page.</p>
+      <p class="sf-pk-lead">Print the card and tape it inside your locker or on the fridge. Your number, your day on the clock, your insertions, and your rescue rule, on one page.</p>
       <div class="sf-pk-actions">
         <button type="button" class="sf-pk-btn" id="sfPkPrintBtn">Print my card</button>
       </div>
@@ -509,83 +594,150 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     return { before: before, during: during, after: after, hit: Math.round(during / 2) };
   }
 
-  /* ---- Shift maps (percent of her target per dose) ---- */
-  var MAPS = {
-    day: {
-      title: 'Day shift, 0700 to 1930',
-      rows: [
-        { t: '5:45a', l: 'Before shift', pct: 0.25, n: 'Protein before report. It decides your whole morning.' },
-        { t: '11:00a', l: 'First real chance', pct: 0.25, n: 'Cold from the cooler bag counts. Nobody is grading presentation.' },
-        { t: '3:30p', l: 'The afternoon save', pct: 0.20, n: 'This is the dose that kills the vending machine run.' },
-        { t: '8:00p', l: 'Home, real dinner', pct: 0.30, n: 'You already won the day. This locks it in overnight.' }
-      ]
-    },
-    night: {
-      title: 'Night shift, 1900 to 0730',
-      rows: [
-        { t: '5:00p', l: 'Real meal before', pct: 0.30, n: 'Your biggest dose lands before the floor gets loud.' },
-        { t: '11:00p', l: 'Mid-shift', pct: 0.25, n: 'Planned, not scavenged. Keep it in your locker.' },
-        { t: '3:00a', l: 'The 3am hit', pct: 0.20, n: 'Small, cold, done in two minutes. This is the craving killer.' },
-        { t: '8:30a', l: 'Before sleep, light', pct: 0.25, n: 'A light dose guards your muscle while you sleep the day away.' }
-      ]
-    },
-    chaos: {
-      title: 'Chaos days: swaps, rotations, no clock',
-      rows: [
-        { t: 'Wake up', l: 'Whenever that is', pct: 0.30, n: 'No clock on chaos days. Anchor to waking, not the hour.' },
-        { t: '+4 to 5 hrs', l: 'Second dose', pct: 0.25, n: 'Set one phone alarm. Future you will be glad.' },
-        { t: '+4 to 5 hrs', l: 'Third dose', pct: 0.25, n: 'Grab-and-go beats perfect. A shake in the car counts.' },
-        { t: 'Before bed', l: 'Close it out', pct: 0.20, n: 'Get close to whatever is left and call it a win.' }
-      ]
+  /* ---- Gap analysis: what a typical nurse day actually delivers, and how to close hers ---- */
+  var TYPICAL = 55; /* coffee breakfast + grabbed lunch + late dinner lands around 50 to 60g */
+  var INSERTS = [
+    { id: 'shake',   name: 'Protein shake',  serving: '1 scoop, shaker or water bottle', g: 25, day: 1.50 },
+    { id: 'cottage', name: 'Cottage cheese', serving: '1 cup, eat it from the tub',      g: 25, day: 1.20 },
+    { id: 'yogurt',  name: 'Greek yogurt',   serving: 'one 5.3oz cup',                   g: 15, day: 1.30 },
+    { id: 'jerky',   name: 'Jerky',          serving: '1oz, lives in your bag',          g: 10, day: null }
+  ];
+  function pickInserts(gap) {
+    var picks = [], remaining = gap, used = {};
+    while (picks.length < 3 && remaining >= 8) {
+      var best = null;
+      for (var i = 0; i < INSERTS.length; i++) {
+        var it = INSERTS[i];
+        if (it.g > remaining + 7) continue;
+        var score = it.g + (used[it.id] ? 0 : 1);
+        if (!best || score > best.score) best = { item: it, score: score };
+      }
+      if (!best) break;
+      picks.push(best.item);
+      used[best.item.id] = true;
+      remaining -= best.item.g;
     }
-  };
-  function mapDoses(target, shift) {
-    var rows = MAPS[shift].rows;
+    var sum = 0, cost = 0, priced = 0;
+    for (var j = 0; j < picks.length; j++) {
+      sum += picks[j].g;
+      if (picks[j].day !== null) { cost += picks[j].day; priced++; }
+    }
+    return { picks: picks, sum: sum, left: gap - sum, cost: cost, priced: priced };
+  }
+
+
+  function mergePicks(picks) {
     var out = [];
-    var used = 0;
-    for (var i = 0; i < rows.length; i++) {
-      var g = (i === rows.length - 1) ? (target - used) : Math.round(target * rows[i].pct);
-      used += g;
-      out.push({ t: rows[i].t, l: rows[i].l, n: rows[i].n, g: g });
+    for (var i = 0; i < picks.length; i++) {
+      var found = null;
+      for (var j = 0; j < out.length; j++) { if (out[j].item === picks[i]) { found = out[j]; break; } }
+      if (found) found.count++;
+      else out.push({ item: picks[i], count: 1 });
     }
     return out;
   }
 
-  /* ---- The full no-cook library, grouped by where she is ---- */
+  /* ---- Worked day: concrete items on the clock, computed for her shift ---- */
+  var COMBO = [
+    { name: 'Rotisserie chicken', serving: '1 cup shredded', g: 35 },
+    { name: 'Protein shake', serving: '1 scoop', g: 25 },
+    { name: 'Cottage cheese', serving: '1 cup', g: 25 },
+    { name: 'Protein bar', serving: 'label varies', g: 20 },
+    { name: 'Tuna pouch', serving: '2.6oz', g: 18 },
+    { name: 'Deli turkey', serving: '4oz, 6 to 8 slices', g: 18 },
+    { name: 'Salmon pouch', serving: '2.6oz', g: 16 },
+    { name: 'Greek yogurt', serving: '5.3oz cup', g: 15 },
+    { name: 'String cheese', serving: '2 sticks', g: 14 },
+    { name: 'Hard-boiled eggs', serving: '2 eggs', g: 12 },
+    { name: 'Jerky', serving: '1oz', g: 10 }
+  ];
+  function comboFor(dose, used) {
+    used = used || {};
+    function costOf(items, sum) {
+      var c = Math.abs(sum - dose) * 2 + (items.length - 1) * 0.5;
+      for (var k = 0; k < items.length; k++) { if (used[items[k].name]) c += 2.5; }
+      return c;
+    }
+    var best = null, i, j;
+    for (i = 0; i < COMBO.length; i++) {
+      var c1 = costOf([COMBO[i]], COMBO[i].g);
+      if (Math.abs(COMBO[i].g - dose) <= 5 && (!best || c1 < best.c)) best = { items: [COMBO[i]], g: COMBO[i].g, c: c1 };
+    }
+    for (i = 0; i < COMBO.length; i++) {
+      for (j = i; j < COMBO.length; j++) {
+        var sum = COMBO[i].g + COMBO[j].g;
+        var c2 = costOf([COMBO[i], COMBO[j]], sum);
+        if (!best || c2 < best.c) best = { items: [COMBO[i], COMBO[j]], g: sum, c: c2 };
+      }
+    }
+    return best;
+  }
+  function comboLabel(combo) {
+    if (combo.items.length === 2 && combo.items[0] === combo.items[1]) {
+      return combo.items[0].name + ' x2 (' + combo.items[0].serving + ' each, ' + combo.g + 'g)';
+    }
+    var parts = [];
+    for (var i = 0; i < combo.items.length; i++) {
+      parts.push(combo.items[i].name + ' (' + combo.items[i].serving + ' = ' + combo.items[i].g + 'g)');
+    }
+    return parts.join(' + ');
+  }
+  var DAYPLAN = {
+    day: { title: 'day shift, 0700 to 1930', rows: [
+      { t: '0545', l: 'Before report', pct: 0.25, n: 'Protein goes in before the coffee finishes. Eating it now is what quiets the 1000 hunger, and it costs zero break time.' },
+      { t: '1100', l: 'First real break', pct: 0.25, n: 'Cold from the cooler bag counts. An insulated bag with an ice pack keeps it safe through your whole shift.' },
+      { t: '1530', l: 'The afternoon save', pct: 0.20, n: 'Two minutes, no microwave. This dose is what stands between you and the drive-thru on the way home.' },
+      { t: '2000', l: 'Dinner at home', pct: 0.30, n: 'Protein on the plate first, then everything else. The day is already won; this locks it in overnight.' }
+    ] },
+    night: { title: 'night shift, 1900 to 0730', rows: [
+      { t: '1700', l: 'Real meal before', pct: 0.30, n: 'Your biggest dose lands before the floor gets loud, while you can still chew in peace.' },
+      { t: '2300', l: 'Mid-shift', pct: 0.25, n: 'Planned, not scavenged. It waits in your locker so 2300-you does not have to think.' },
+      { t: '0300', l: 'The 3am hit', pct: 0.20, n: 'Small, cold, done in two minutes at the desk. This is the dose that beats the vending machine.' },
+      { t: '0830', l: 'Before sleep, light', pct: 0.25, n: 'A light dose on the way to bed guards your muscle while you sleep the day away.' }
+    ] },
+    chaos: { title: 'chaos schedule: swaps and rotations', rows: [
+      { t: 'Wake +30m', l: 'First dose', pct: 0.25, n: 'No fixed clock, so anchor every dose to waking, not the hour. This one starts the day right.' },
+      { t: 'Wake +5h', l: 'Second dose', pct: 0.25, n: 'Set one phone alarm when you wake up. Future you eats because past you pressed a button.' },
+      { t: 'Wake +10h', l: 'Third dose', pct: 0.20, n: 'Grab-and-go beats perfect. A shake in the car counts exactly the same as a plate.' },
+      { t: 'Before bed', l: 'Close it out', pct: 0.30, n: 'Whatever is left of your number lands here. Protein first on the plate, then the rest.' }
+    ] }
+  };
+  function workedDay(target, shift) {
+    var rows = DAYPLAN[shift].rows;
+    var out = [], used = 0, seen = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var dose = (i === rows.length - 1) ? Math.max(10, target - used) : Math.round(target * rows[i].pct);
+      var combo = comboFor(dose, seen);
+      for (k = 0; k < combo.items.length; k++) { seen[combo.items[k].name] = true; }
+      used += combo.g;
+      out.push({ t: rows[i].t, l: rows[i].l, n: rows[i].n, g: combo.g, food: comboLabel(combo) });
+    }
+    return { rows: out, total: used, title: DAYPLAN[shift].title };
+  }
+
+  /* ---- The full no-cook library, grouped by where she is, serving attached to every count ---- */
   var LIB = [
-    { key: 'cafeteria', title: 'The hospital cafeteria', hint: 'Real trays, real portions. Find the protein first and build the tray around it.',
+    { key: 'cooler', title: 'The cooler bag you pack', hint: 'An insulated bag with an ice pack keeps all of this safe through a full shift. Nothing perishable sits out past 2 hours.',
       items: [
-        { id: 'caf-chicken', label: 'Grilled chicken entree', emoji: '🍗', p: 35, gap: 'the grilled chicken entree' },
-        { id: 'caf-sand', label: 'Turkey sandwich', emoji: '🥪', p: 25, gap: 'a turkey sandwich' },
-        { id: 'caf-burger', label: 'Burger patty', emoji: '🍔', p: 22, gap: 'a burger patty' },
-        { id: 'caf-chili', label: 'Cup of chili', emoji: '🍲', p: 18, gap: 'a cup of chili' },
-        { id: 'caf-eggs', label: '3-egg breakfast', emoji: '🍳', p: 18, gap: 'the 3-egg breakfast' },
-        { id: 'caf-parfait', label: 'Yogurt parfait', emoji: '🥛', p: 12, gap: 'a yogurt parfait' },
-        { id: 'caf-milk', label: 'Carton of milk', emoji: '🥛', p: 8, gap: 'a carton of milk' }
+        { id: 'cb-shake',   label: 'Protein shake',    serving: '1 scoop',       emoji: '🥤', p: 25, gap: 'one shake' },
+        { id: 'cb-cottage', label: 'Cottage cheese',   serving: '1 cup',         emoji: '🥣', p: 25, gap: 'a cup of cottage cheese' },
+        { id: 'cb-yogurt',  label: 'Greek yogurt',     serving: '5.3oz cup',     emoji: '🥛', p: 15, gap: 'a Greek yogurt cup' },
+        { id: 'cb-string',  label: 'String cheese',    serving: '2 sticks',      emoji: '🧀', p: 14, gap: 'two string cheeses' },
+        { id: 'cb-eggs',    label: 'Hard-boiled eggs', serving: '2 eggs',        emoji: '🥚', p: 12, gap: 'a couple of boiled eggs' }
       ] },
-    { key: 'gas', title: 'The gas station on the way in', hint: 'The cooler case beats the candy aisle. Cold counts, fast counts.',
+    { key: 'shelf', title: 'Gas station and shelf-stable', hint: 'When there is no fridge and no time, build from shelf-stable picks. All of this lives in a locker or a glovebox.',
       items: [
-        { id: 'gas-shake', label: 'Bottled protein shake', emoji: '🥤', p: 26, gap: 'a bottled shake' },
-        { id: 'gas-jerky', label: 'Jerky (bag)', emoji: '🥩', p: 20, gap: 'a bag of jerky' },
-        { id: 'gas-bar', label: 'Protein bar', emoji: '🍫', p: 20, gap: 'a protein bar' },
-        { id: 'gas-tuna', label: 'Tuna + crackers kit', emoji: '🐟', p: 17, gap: 'a tuna kit' },
-        { id: 'gas-milk', label: 'Pint of milk', emoji: '🥛', p: 16, gap: 'a pint of milk' },
-        { id: 'gas-string', label: 'String cheese (2)', emoji: '🧀', p: 14, gap: 'a string cheese or two' },
-        { id: 'gas-eggs', label: 'Boiled egg 2-pack', emoji: '🥚', p: 12, gap: 'the boiled-egg 2-pack' },
-        { id: 'gas-sticks', label: 'Meat snack sticks (2)', emoji: '🌭', p: 12, gap: 'a couple of meat sticks' }
+        { id: 'sh-bar',    label: 'Protein bar',  serving: 'label varies', emoji: '🍫', p: 20, gap: 'a protein bar' },
+        { id: 'sh-tuna',   label: 'Tuna pouch',   serving: '2.6oz',        emoji: '🐟', p: 18, gap: 'a tuna pouch' },
+        { id: 'sh-salmon', label: 'Salmon pouch', serving: '2.6oz',        emoji: '🐟', p: 16, gap: 'a salmon pouch' },
+        { id: 'sh-jerky',  label: 'Jerky',        serving: '1oz',          emoji: '🥩', p: 10, gap: 'an ounce of jerky' }
       ] },
     { key: 'home', title: 'Your fridge at home', hint: 'Stock two or three of these on grocery day and the whole week gets easier.',
       items: [
-        { id: 'home-shakemilk', label: 'Shake made with milk', emoji: '🥤', p: 33, gap: 'a shake made with milk' },
-        { id: 'home-chicken', label: 'Rotisserie chicken', emoji: '🍗', p: 30, gap: 'a palm of rotisserie chicken' },
-        { id: 'home-cottage', label: 'Cottage cheese (1 cup)', emoji: '🥣', p: 25, gap: 'a cup of cottage cheese' },
-        { id: 'home-shrimp', label: 'Pre-cooked shrimp (cup)', emoji: '🦐', p: 20, gap: 'a cup of cooked shrimp' },
-        { id: 'home-tuna', label: 'Tuna pouch', emoji: '🐟', p: 20, gap: 'a tuna pouch' },
-        { id: 'home-turkey', label: 'Deli turkey (5 slices)', emoji: '🦃', p: 18, gap: 'a deli turkey stack' },
-        { id: 'home-yogurt', label: 'Greek yogurt', emoji: '🥛', p: 17, gap: 'a Greek yogurt' },
-        { id: 'home-edamame', label: 'Edamame (cup)', emoji: '🫛', p: 17, gap: 'a cup of edamame' },
-        { id: 'home-salmon', label: 'Smoked salmon (3 oz)', emoji: '🐟', p: 16, gap: 'some smoked salmon' },
-        { id: 'home-eggs', label: 'Hard-boiled eggs (2)', emoji: '🥚', p: 12, gap: 'a couple of boiled eggs' }
+        { id: 'hm-chicken', label: 'Rotisserie chicken', serving: '1 cup shredded',     emoji: '🍗', p: 35, gap: 'a cup of shredded rotisserie chicken' },
+        { id: 'hm-turkey',  label: 'Deli turkey',        serving: '4oz, 6 to 8 slices', emoji: '🦃', p: 18, gap: 'a deli turkey stack' },
+        { id: 'hm-edamame', label: 'Edamame',            serving: '1 cup',              emoji: '🫛', p: 17, gap: 'a cup of edamame' },
+        { id: 'hm-sausage', label: 'Chicken sausage',    serving: '1 link',             emoji: '🌭', p: 14, gap: 'a chicken sausage link' }
       ] }
   ];
   function libById(id) {
@@ -602,7 +754,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   }
 
   /* ---- State ---- */
-  var state = { weight: 165, goal: null, is45: false, shift: null, target: null, stack: {}, celebrated: false };
+  var state = { weight: 165, goal: null, is45: false, shift: null, target: null, stack: {}, celebrated: false, example: false };
+  var GOAL_SHORT = { 'fat-loss': 'fat loss', 'energy': 'steady energy', 'strength': 'strength' };
 
   /* ---- DOM ---- */
   var wNum = document.getElementById('sfPkWNum');
@@ -615,6 +768,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   var nudgeEl = document.getElementById('sfPkNudge');
   var resultEl = document.getElementById('sfPkResult');
   var mapEl = document.getElementById('sfPkMap');
+  var ladderEl = document.getElementById('sfPkLadder');
   var groupsEl = document.getElementById('sfPkGroups');
   var totalEl = document.getElementById('sfPkTotal');
   var gapEl = document.getElementById('sfPkGap');
@@ -659,8 +813,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     if (!btn) return;
     pressGroup(shiftsEl, '.sf-pk-shift', btn);
     state.shift = btn.getAttribute('data-shift');
+    state.example = false;
     try { window.localStorage.setItem('sf_pt_shift', state.shift); } catch (err) {}
-    if (state.target) renderMap();
+    if (state.target) { renderMap(); renderLadder(); }
   });
   ageBtn.addEventListener('click', function () {
     state.is45 = !state.is45;
@@ -680,6 +835,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
     nudgeEl.innerHTML = '';
     state.weight = w;
+    state.example = false;
     renderResult(false);
   });
 
@@ -688,6 +844,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     state.target = calc.grams;
     var split = computeSplit(calc.grams, state.goal);
     var g = GOALS[state.goal];
+    var i;
 
     var notes = '';
     if (calc.anchored) {
@@ -698,10 +855,51 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
         ? '<p class="sf-pk-plate-note">After 45 needs rise, and your goal already has you at the top of the range.</p>'
         : '<p class="sf-pk-plate-note">Nudged toward the top of the range because the same protein does less after 45.</p>';
     }
+    if (state.goal === 'fat-loss') {
+      var lo = (Math.round(state.weight * 0.005 * 10) / 10).toFixed(1);
+      var hi = (Math.round(state.weight * 0.01 * 10) / 10).toFixed(1);
+      notes += '<p class="sf-pk-plate-note">A healthy pace at your size is about ' + lo + ' to ' + hi + ' lbs a week. Week 1 usually drops more, and that early drop is mostly water. Normal, and still a win.</p>';
+    }
+
+    /* Gap analysis */
+    var gap = Math.max(0, calc.grams - TYPICAL);
+    var plan = pickInserts(gap);
+    var insHtml = '';
+    var hasUnpriced = false;
+    var merged = mergePicks(plan.picks);
+    for (i = 0; i < merged.length; i++) {
+      var p = merged[i].item, nn = merged[i].count;
+      var servTxt = nn > 1 ? p.serving.split(',')[0] + ' each, one earlier and one later in the day' : p.serving;
+      var costTxt = p.day !== null
+        ? 'about $' + (p.day * nn).toFixed(2) + ' a day, $' + Math.round(p.day * nn * 30) + ' a month'
+        : 'price varies by brand';
+      if (p.day === null) hasUnpriced = true;
+      insHtml += '<li><div class="sf-pk-ins-what"><strong>' + p.name + (nn > 1 ? ' x' + nn : '') + '</strong><span>' + servTxt + ' &middot; ' + costTxt + '</span></div><span class="sf-pk-ins-g">+' + (p.g * nn) + 'g</span></li>';
+    }
+    var footTxt = 'Together: <strong>+' + plan.sum + 'g</strong> without changing a single meal you already eat';
+    if (plan.priced > 0) footTxt += ', for about $' + plan.cost.toFixed(2) + ' a day ($' + Math.round(plan.cost * 30) + ' a month)' + (hasUnpriced ? ', jerky extra' : '');
+    footTxt += '. ';
+    if (plan.left >= 8) footTxt += 'That closes ' + plan.sum + 'g of your ' + gap + 'g gap. The last ' + plan.left + 'g is ' + (plan.left > 35 ? 'the dinner double plus one extra insertion from the list above' : 'the dinner double in the rescue rule below') + '.';
+    else if (plan.left > 0) footTxt += 'That lands within ' + plan.left + 'g of your gap. Close enough to count as closed.';
+    else footTxt += 'That covers your whole gap with a little to spare.';
+
+    /* Rescue rule */
+    var sixty = Math.round(calc.grams * 0.6 / 5) * 5;
+
+    /* Screenshot card */
+    var shotList = '';
+    var shotMerged = mergePicks(plan.picks);
+    for (i = 0; i < shotMerged.length; i++) {
+      var sp = shotMerged[i].item, sn = shotMerged[i].count;
+      shotList += '<li><span>' + sp.name + (sn > 1 ? ' x' + sn : '') + ', ' + sp.serving.split(',')[0] + (sn > 1 ? ' each' : '') + '</span><span>+' + (sp.g * sn) + 'g</span></li>';
+    }
+    shotList += '<li><span>Rescue floor by clock-out</span><span>' + sixty + 'g</span></li>';
+    var shotSub = state.weight + ' lbs &middot; ' + GOAL_SHORT[state.goal] + (state.shift ? ' &middot; ' + state.shift + ' shift' : '') + (state.is45 ? ' &middot; 45+' : '');
 
     resultEl.innerHTML = '' +
+      (state.example ? '<div class="sf-pk-example">Worked example: 165 lbs, fat loss, day shift. Change anything above and every part of the kit recalculates for you.</div>' : '') +
       '<div class="sf-pk-plate">' +
-        '<div class="sf-pk-plate-label">Your daily protein target</div>' +
+        '<div class="sf-pk-plate-label">' + (state.example ? 'The example protein target' : 'Your daily protein target') + '</div>' +
         '<div class="sf-pk-plate-num">' + calc.grams + '<small>g</small></div>' +
         '<div class="sf-pk-plate-rule"></div>' +
         '<p class="sf-pk-plate-rate">That is ' + calc.rate.toFixed(1) + ' grams per pound, tuned for ' + g.label + '. ' + g.why + '</p>' +
@@ -711,38 +909,113 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
         '<div class="sf-pk-split-item"><span class="sf-pk-split-label">Before shift</span><span class="sf-pk-split-g">' + split.before + 'g</span><span class="sf-pk-split-note">Eat it before report. It decides your morning.</span></div>' +
         '<div class="sf-pk-split-item"><span class="sf-pk-split-label">On shift</span><span class="sf-pk-split-g">' + split.during + 'g</span><span class="sf-pk-split-note">Two hits of about ' + split.hit + 'g, whenever breaks actually happen.</span></div>' +
         '<div class="sf-pk-split-item"><span class="sf-pk-split-label">After shift</span><span class="sf-pk-split-g">' + split.after + 'g</span><span class="sf-pk-split-note">The dose that locks the day in overnight.</span></div>' +
+      '</div>' +
+      '<div class="sf-pk-gapcard">' +
+        '<h4>The gap you are actually fighting</h4>' +
+        '<p class="sf-pk-gapline">A typical nurse day (coffee for breakfast, a grabbed lunch, a late dinner) delivers around 50 to 60g of protein. Call it 55. Against your number, that gap, not your willpower, is why the weeks stall.</p>' +
+        '<div class="sf-pk-gapmath">' +
+          '<div><span class="sf-pk-gm-n">' + calc.grams + 'g</span><span class="sf-pk-gm-l">Your target</span></div>' +
+          '<span class="sf-pk-gm-op">&minus;</span>' +
+          '<div><span class="sf-pk-gm-n">55g</span><span class="sf-pk-gm-l">Typical day</span></div>' +
+          '<span class="sf-pk-gm-op">=</span>' +
+          '<div><span class="sf-pk-gm-n sf-gap">' + gap + 'g</span><span class="sf-pk-gm-l">Your gap</span></div>' +
+        '</div>' +
+        '<ul class="sf-pk-ins">' + insHtml + '</ul>' +
+        '<p class="sf-pk-gapfoot">' + footTxt + '</p>' +
+      '</div>' +
+      '<div class="sf-pk-rescue">' +
+        '<h4>When the shift eats your plan</h4>' +
+        '<p>The rescue rule: if you clock out under <strong>' + sixty + 'g</strong> (60 percent of your number), do two things. <strong>One:</strong> the landing snack before you drive, one shake, 1 scoop, 25g, in the parking lot. <strong>Two:</strong> double the protein at dinner. Two portions of whatever protein is on the plate, not two plates.</p>' +
+        '<p>Why it works: those two moves add 50g or more after a shift that gave you nothing, so a wrecked day still lands near your number instead of getting written off.</p>' +
+      '</div>' +
+      '<div class="sf-pk-shot">' +
+        '<div class="sf-pk-shot-head"><span class="sf-pk-shot-title">My protein plan</span><span class="sf-pk-shot-mark">Smith<span>Fit</span></span></div>' +
+        '<div class="sf-pk-shot-num">' + calc.grams + '<small>g</small></div>' +
+        '<p class="sf-pk-shot-sub">' + shotSub + '</p>' +
+        '<div class="sf-pk-shot-grid">' +
+          '<div><span class="sf-pk-shot-sl">Before</span><span class="sf-pk-shot-sg">' + split.before + 'g</span></div>' +
+          '<div><span class="sf-pk-shot-sl">On shift</span><span class="sf-pk-shot-sg">' + split.during + 'g</span></div>' +
+          '<div><span class="sf-pk-shot-sl">After</span><span class="sf-pk-shot-sg">' + split.after + 'g</span></div>' +
+        '</div>' +
+        '<ul class="sf-pk-shot-list">' + shotList + '</ul>' +
+        '<p class="sf-pk-shot-foot">Screenshot this. It is the whole plan.</p>' +
       '</div>';
 
-    try {
-      window.localStorage.setItem('sf_pt_weight', String(state.weight));
-      window.localStorage.setItem('sf_pt_goal', state.goal);
-      window.localStorage.setItem('sf_pt_45', state.is45 ? '1' : '0');
-      window.localStorage.setItem('sf_pt_target', String(state.target));
-    } catch (e) {}
+    if (!state.example) {
+      try {
+        window.localStorage.setItem('sf_pt_weight', String(state.weight));
+        window.localStorage.setItem('sf_pt_goal', state.goal);
+        window.localStorage.setItem('sf_pt_45', state.is45 ? '1' : '0');
+        window.localStorage.setItem('sf_pt_target', String(state.target));
+      } catch (e) {}
+    }
 
     renderMap();
+    renderLadder();
     renderStack();
     if (!quiet) resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  /* ---- Render: shift map ---- */
+  /* ---- Render: worked day ---- */
   function renderMap() {
     if (!state.target) return;
     if (!state.shift) {
-      mapEl.innerHTML = '<div class="sf-pk-map-empty">Your number is set. Now tap your usual shift above (Day, Night, or Chaos) and the map fills in with your grams on the clock.</div>';
+      mapEl.innerHTML = '<div class="sf-pk-map-empty">Your number is set. Now tap your usual shift above (Day, Night, or Chaos) and your day builds itself, items and clock times included.</div>';
       return;
     }
-    var doses = mapDoses(state.target, state.shift);
-    var html = '<div class="sf-pk-map-head"><h3>' + MAPS[state.shift].title + '</h3><p>' + state.target + 'g total, split so no single sitting is a chore.</p></div><ul class="sf-pk-rows">';
-    for (var i = 0; i < doses.length; i++) {
+    var day = workedDay(state.target, state.shift);
+    var html = '<div class="sf-pk-map-head"><h3>' + (state.example ? 'The example ' : 'Your ') + day.title + '</h3><p>Real items, real serving sizes, at times a real shift allows.</p></div><ul class="sf-pk-rows">';
+    for (var i = 0; i < day.rows.length; i++) {
+      var r = day.rows[i];
       html += '<li class="sf-pk-row">' +
-        '<div class="sf-pk-row-time"><span>' + doses[i].t + '</span></div>' +
-        '<div class="sf-pk-row-body"><strong>' + doses[i].l + '</strong><p>' + doses[i].n + '</p></div>' +
-        '<div class="sf-pk-row-g">' + doses[i].g + 'g</div>' +
+        '<div class="sf-pk-row-time"><span>' + r.t + '</span></div>' +
+        '<div class="sf-pk-row-body"><strong>' + r.l + '</strong><span class="sf-pk-row-food">' + r.food + '</span><p>' + r.n + '</p></div>' +
+        '<div class="sf-pk-row-g">' + r.g + 'g</div>' +
       '</li>';
     }
-    html += '</ul>';
+    html += '</ul><p class="sf-pk-daytotal">Adds up to <strong>' + day.total + 'g</strong> against the ' + state.target + 'g target. The number is a target, not a tightrope.</p>';
     mapEl.innerHTML = html;
+  }
+
+  /* ---- Render: Week One ladder ---- */
+  function renderLadder() {
+    if (!ladderEl) return;
+    if (!state.target) {
+      ladderEl.innerHTML = '<div class="sf-pk-ladder-empty">Set your number in Part 1 and your seven-day step-up plan builds itself here, one insertion at a time.</div>';
+      return;
+    }
+    var gap = Math.max(0, state.target - TYPICAL);
+    var plan = pickInserts(gap);
+    var times = state.shift ? DAYPLAN[state.shift].rows : DAYPLAN.day.rows;
+    var running = TYPICAL;
+    var rows = [];
+    rows.push({ day: 'Day 0', what: '<strong>Change nothing.</strong> Just notice: a normal day lands you around ' + TYPICAL + 'g. That is the before picture.', g: TYPICAL });
+    var slotIdx = [0, 1, 2];
+    var seen = {};
+    for (var i = 0; i < plan.picks.length; i++) {
+      var p = plan.picks[i];
+      running += p.g;
+      var t = times[slotIdx[Math.min(i, 2)]].t;
+      var d1 = i * 2 + 1, d2 = i * 2 + 2;
+      var addLabel = (seen[p.id] ? 'a second ' : '') + p.name.toLowerCase();
+      seen[p.id] = true;
+      rows.push({ day: 'Day ' + d1 + '-' + d2, what: 'Add <strong>' + addLabel + '</strong> (' + p.serving.split(',')[0] + ', +' + p.g + 'g) at <strong>' + t + '</strong>. Keep everything from the day before.', g: Math.min(running, state.target) });
+    }
+    var lastDay = plan.picks.length * 2 + 1;
+    var finalWhat = running >= state.target - 7
+      ? '<strong>Full number.</strong> Every insertion is in place. From here it is repetition, not effort.'
+      : '<strong>Full number.</strong> Insertions in place plus ' + ((state.target - running) > 35 ? 'the dinner double and one extra insertion close' : 'the dinner double (two protein portions at dinner) closes') + ' the last ' + (state.target - running) + 'g.';
+    rows.push({ day: 'Day ' + Math.min(lastDay, 7) + '+', what: finalWhat, g: state.target, final: true });
+    var html = '<ul class="sf-pk-lrows">';
+    for (var j = 0; j < rows.length; j++) {
+      html += '<li class="sf-pk-lrow' + (rows[j].final ? ' sf-final' : '') + '"><span class="sf-pk-lrow-day">' + rows[j].day + '</span><span class="sf-pk-lrow-what">' + rows[j].what + '</span><span class="sf-pk-lrow-g">' + rows[j].g + 'g</span></li>';
+    }
+    html += '</ul>' +
+      '<div class="sf-pk-lwhy">' +
+        '<strong>Why the ramp:</strong> your gut treats a huge overnight jump in protein like an insult (bloat, heaviness), and a 20 to 25g step lets it adapt. ' +
+        'And a step you repeat for two days becomes automatic, so by Day 7 the full number feels like your normal, not a project you are white-knuckling.' +
+      '</div>';
+    ladderEl.innerHTML = html;
   }
 
   /* ---- Render: library + stack ---- */
@@ -753,8 +1026,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       html += '<div class="sf-pk-group"><div class="sf-pk-group-head"><h3>' + grp.title + '</h3></div><p class="sf-pk-group-hint">' + grp.hint + '</p><div class="sf-pk-chips">';
       for (var i = 0; i < grp.items.length; i++) {
         var s = grp.items[i];
-        html += '<button type="button" class="sf-pk-chip" data-id="' + s.id + '" aria-label="Add ' + s.label + ', ' + s.p + ' grams of protein">' +
-          s.emoji + ' ' + s.label + '<span class="sf-pk-chip-g">' + s.p + 'g</span><span class="sf-pk-chip-x" aria-hidden="true"></span></button>';
+        html += '<button type="button" class="sf-pk-chip" data-id="' + s.id + '" aria-label="Add ' + s.label + ', ' + s.serving + ', ' + s.p + ' grams of protein">' +
+          s.emoji + ' ' + s.label + '<span class="sf-pk-chip-g">' + s.serving + ' &middot; ' + s.p + 'g</span><span class="sf-pk-chip-x" aria-hidden="true"></span></button>';
       }
       html += '</div></div>';
     }
@@ -813,7 +1086,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       var s = items[j];
       var count = state.stack[s.id] || 0;
       if (!count) continue;
-      listHtml += '<li><span>' + s.emoji + ' ' + s.label + (count > 1 ? ' x' + count : '') + '</span>' +
+      listHtml += '<li><span>' + s.emoji + ' ' + s.label + ' (' + s.serving + ')' + (count > 1 ? ' x' + count : '') + '</span>' +
         '<span class="sf-pk-sl-g">' + (s.p * count) + 'g</span>' +
         '<button type="button" class="sf-pk-remove" data-id="' + s.id + '" aria-label="Remove one ' + s.label + '">&minus;</button></li>';
     }
@@ -839,18 +1112,19 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
   /* ---- Print card ---- */
   printBtn.addEventListener('click', function () {
-    if (!state.target || !state.goal) {
-      printNudgeEl.innerHTML = '<div class="sf-pk-nudge">Set your number in Part 1 first, so the card prints with your real target on it.</div>';
+    if (!state.target || !state.goal || state.example) {
+      printNudgeEl.innerHTML = '<div class="sf-pk-nudge">Set your number in Part 1 first, so the card prints with your real target on it, not the example.</div>';
       return;
     }
     printNudgeEl.innerHTML = '';
     var split = computeSplit(state.target, state.goal);
+    var i;
     var mapHtml = '';
     if (state.shift) {
-      var doses = mapDoses(state.target, state.shift);
-      mapHtml = '<table><tr><th>When</th><th>Dose</th><th>What it does</th></tr>';
-      for (var i = 0; i < doses.length; i++) {
-        mapHtml += '<tr><td>' + doses[i].t + ' (' + doses[i].l + ')</td><td>' + doses[i].g + 'g</td><td>' + doses[i].n + '</td></tr>';
+      var day = workedDay(state.target, state.shift);
+      mapHtml = '<table><tr><th>When</th><th>Eat this</th><th>Grams</th></tr>';
+      for (i = 0; i < day.rows.length; i++) {
+        mapHtml += '<tr><td>' + day.rows[i].t + ' (' + day.rows[i].l + ')</td><td>' + day.rows[i].food + '</td><td>' + day.rows[i].g + 'g</td></tr>';
       }
       mapHtml += '</table>';
     } else {
@@ -859,20 +1133,30 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
         '<tr><td>On shift (two hits)</td><td>' + split.during + 'g</td></tr>' +
         '<tr><td>After shift</td><td>' + split.after + 'g</td></tr></table>';
     }
+    var gap = Math.max(0, state.target - TYPICAL);
+    var plan = pickInserts(gap);
+    var insHtml = '<table><tr><th>Insertion (added to the day you already eat)</th><th>Adds</th></tr>';
+    var pm = mergePicks(plan.picks);
+    for (i = 0; i < pm.length; i++) {
+      insHtml += '<tr><td>' + pm[i].item.name + (pm[i].count > 1 ? ' x' + pm[i].count : '') + ', ' + pm[i].item.serving.split(',')[0] + (pm[i].count > 1 ? ' each' : '') + '</td><td>+' + (pm[i].item.g * pm[i].count) + 'g</td></tr>';
+    }
+    insHtml += '</table>';
+    var sixty = Math.round(state.target * 0.6 / 5) * 5;
     printEl.innerHTML = '' +
       '<h1>The Nurse Protein Target</h1>' +
       '<div class="sf-pk-print-sub">SmithFit, built by IJ Smith, RN. Rounded estimates, built to help, not to track.</div>' +
       '<div class="sf-pk-print-num">' + state.target + 'g per day</div>' +
-      '<div class="sf-pk-print-rate">Tuned for ' + GOALS[state.goal].label + (state.is45 ? ', adjusted for 45+' : '') + '.</div>' +
+      '<div class="sf-pk-print-rate">Tuned for ' + GOALS[state.goal].label + (state.is45 ? ', adjusted for 45+' : '') + '. Typical nurse day delivers about 55g; your gap is ' + gap + 'g.</div>' +
       mapHtml +
-      '<table><tr><th>Quick pick</th><th>Protein</th></tr>' +
-      '<tr><td>Rotisserie chicken (palm)</td><td>30g</td></tr>' +
-      '<tr><td>Protein shake</td><td>25g</td></tr>' +
-      '<tr><td>Cottage cheese (1 cup)</td><td>25g</td></tr>' +
-      '<tr><td>Tuna pouch</td><td>20g</td></tr>' +
-      '<tr><td>Greek yogurt</td><td>17g</td></tr>' +
-      '<tr><td>String cheese (2)</td><td>14g</td></tr></table>' +
-      '<div class="sf-pk-print-foot">Hit the number most days. That is the whole assignment.</div>';
+      insHtml +
+      '<table><tr><th>Quick pick</th><th>Serving</th><th>Protein</th></tr>' +
+      '<tr><td>Rotisserie chicken</td><td>1 cup shredded</td><td>35g</td></tr>' +
+      '<tr><td>Protein shake</td><td>1 scoop</td><td>25g</td></tr>' +
+      '<tr><td>Cottage cheese</td><td>1 cup</td><td>25g</td></tr>' +
+      '<tr><td>Tuna pouch</td><td>2.6oz</td><td>18g</td></tr>' +
+      '<tr><td>Greek yogurt</td><td>5.3oz cup</td><td>15g</td></tr>' +
+      '<tr><td>String cheese</td><td>2 sticks</td><td>14g</td></tr></table>' +
+      '<div class="sf-pk-print-foot">Rescue rule: under ' + sixty + 'g at clock-out means shake in the parking lot (+25g) and double protein at dinner. Hit the number most days. That is the whole assignment.</div>';
     window.print();
   });
 
@@ -912,9 +1196,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
   })();
 
-  /* ---- Prefill: query params, then localStorage (from the opt-in page) ---- */
+  /* ---- Prefill: query params, then localStorage, then the worked example ---- */
   function prefill() {
-    var w = null, g = null, a = false, s = null, unlocked = false, first = '';
+    var w = null, g = null, a = false, s = null, full = false, first = '';
     try {
       var p = new URLSearchParams(window.location.search);
       var pw = parseInt(p.get('w'), 10);
@@ -922,19 +1206,25 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       g = p.get('goal');
       a = p.get('a45') === '1';
       s = p.get('shift');
-      unlocked = p.get('unlocked') === '1';
+      full = p.get('full') === '1';
     } catch (e) {}
     try {
       if (w === null) { var lw = parseInt(window.localStorage.getItem('sf_pt_weight'), 10); if (!isNaN(lw)) w = lw; }
       if (!g) g = window.localStorage.getItem('sf_pt_goal');
       if (!a) a = window.localStorage.getItem('sf_pt_45') === '1';
       if (!s) s = window.localStorage.getItem('sf_pt_shift');
-      if (!unlocked) unlocked = window.localStorage.getItem('sf_pt_unlocked') === '1';
+      if (!full) full = window.localStorage.getItem('sf_pt_full') === '1';
       first = window.localStorage.getItem('sf_pt_first') || '';
     } catch (e) {}
 
-    if (unlocked && greetEl) {
-      greetEl.textContent = (first ? first + ', this' : 'This') + ' is yours now. Your number, your shift map, and every no-cook way to hit it. Save this page.';
+    if (full && greetEl) {
+      greetEl.textContent = (first ? first + ', this' : 'This') + ' is yours now. Your number, your day on the clock, and every no-cook way to hit it. Save this page.';
+    }
+
+    /* Nothing saved and nothing in the link: open on the worked example so the kit shows its work before any input */
+    if (!g || !GOALS[g]) {
+      state.example = true;
+      w = 165; g = 'fat-loss'; a = false; s = s && DAYPLAN[s] ? s : 'day';
     }
 
     if (w !== null && w >= 100 && w <= 300) { state.weight = w; setWeightUI(w); }
@@ -944,7 +1234,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       if (gb) pressGroup(goalsEl, '.sf-pk-goal', gb);
     }
     if (a) { state.is45 = true; ageBtn.setAttribute('aria-pressed', 'true'); }
-    if (s && MAPS[s]) {
+    if (s && DAYPLAN[s]) {
       state.shift = s;
       var sb = shiftsEl.querySelector('[data-shift="' + s + '"]');
       if (sb) pressGroup(shiftsEl, '.sf-pk-shift', sb);
@@ -955,6 +1245,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   /* ---- Init ---- */
   renderGroups();
   renderStack();
+  renderLadder();
   wireCallLinks();
   initPixel();
   prefill();

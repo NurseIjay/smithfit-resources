@@ -272,6 +272,11 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-nw-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .sf-nw-chip-eg { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; color: var(--sf-taupe-raw); }
 
+/* Anchor builds (amount-first rows inside a card) */
+.sf-nw-builds { margin-top: 10px; }
+.sf-nw-build { display: flex; gap: 10px; align-items: baseline; padding: 7px 0; border-top: 1px dashed var(--sf-cream-deep); font-size: 13px; color: var(--sf-taupe-raw); line-height: 1.45; }
+.sf-nw-build-g { flex: 0 0 36px; font-weight: 700; font-size: 12.5px; color: var(--sf-gold-raw); }
+
 /* 3am mini-list */
 .sf-nw-3am { background: var(--sf-night-deep); border-radius: 16px; padding: 24px 22px; margin-top: 20px; position: relative; overflow: hidden; }
 .sf-nw-3am::before {
@@ -294,6 +299,53 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-nw-3am-col.sf-no li { color: rgba(250,246,243,0.55); }
 .sf-nw-3am-col.sf-no li::before { content: "\00d7"; position: absolute; left: 2px; color: rgba(192,80,77,0.9); font-weight: 700; }
 .sf-nw-3am-line { font-family: var(--sf-display); font-style: italic; font-size: 14.5px; color: rgba(250,246,243,0.72); margin-top: 16px; border-top: 1px solid rgba(250,246,243,0.12); padding-top: 14px; }
+
+/* 3am protocol steps (inside the night box) */
+.sf-nw-proto { list-style: none; margin: 0 0 18px; }
+.sf-nw-proto li { display: flex; gap: 12px; padding: 7px 0; align-items: flex-start; }
+.sf-nw-proto-n { width: 22px; height: 22px; flex: 0 0 22px; border-radius: 50%; background: var(--sf-gold-soft); color: var(--sf-dark-raw); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sf-nw-proto-t { font-size: 14px; color: rgba(250,246,243,0.92); line-height: 1.5; }
+.sf-nw-proto-t strong { color: var(--sf-cream-raw); }
+.sf-nw-proto-why { display: block; font-size: 12.5px; color: rgba(250,246,243,0.58); margin-top: 2px; }
+.sf-nw-caf { font-size: 13.5px; color: rgba(250,246,243,0.8); border-top: 1px solid rgba(250,246,243,0.12); margin-top: 16px; padding-top: 13px; }
+.sf-nw-caf strong { color: var(--sf-gold-soft); }
+
+/* Work-bag stock list */
+.sf-nw-bag { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 16px; }
+.sf-nw-bag h3 { font-size: 20px; font-weight: 700; }
+.sf-nw-bag-sub { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-gold-raw); margin: 2px 0 8px; }
+.sf-nw-bag-rows { list-style: none; }
+.sf-nw-bag-rows li { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 13.5px; color: var(--sf-taupe-raw); }
+.sf-nw-bag-rows li:last-child { border-bottom: none; }
+.sf-nw-bag-g { flex: 0 0 62px; font-weight: 700; font-size: 12.5px; color: var(--sf-gold-raw); }
+.sf-nw-bag-tag { margin-left: auto; flex: 0 0 auto; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 999px; padding: 3px 9px; }
+.sf-nw-bag-tag.sf-shelf { background: var(--sf-cream-mid); color: var(--sf-taupe-raw); }
+.sf-nw-bag-tag.sf-ice { background: var(--sf-green-soft); color: var(--sf-green-deep); }
+.sf-nw-bag-foot { font-size: 12.5px; color: var(--sf-taupe-light); border-top: 1px solid var(--sf-border); margin-top: 8px; padding-top: 10px; }
+
+/* Overslept fallback */
+.sf-nw-oops { background: var(--sf-red-soft); border-left: 4px solid var(--sf-red-raw); border-radius: 0 14px 14px 0; padding: 18px 18px; margin-top: 16px; }
+.sf-nw-oops h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+.sf-nw-oops p { font-size: 14px; color: var(--sf-taupe-raw); }
+
+/* Screenshot card */
+.sf-nw-shot { background: var(--sf-night-deep); border: 1px solid rgba(200,160,78,0.35); border-radius: 18px; padding: 24px 22px; margin-top: 16px; position: relative; overflow: hidden; }
+.sf-nw-shot::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 20%, rgba(250,246,243,0.4), transparent 55%),
+    radial-gradient(1px 1px at 78% 16%, rgba(250,246,243,0.32), transparent 55%),
+    radial-gradient(1.2px 1.2px at 90% 70%, rgba(250,246,243,0.28), transparent 55%);
+}
+.sf-nw-shot > * { position: relative; z-index: 1; }
+.sf-nw-shot-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 6px; }
+.sf-nw-shot h3 { color: var(--sf-cream-raw); font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.sf-nw-shot-rows { list-style: none; margin-bottom: 6px; }
+.sf-nw-shot-rows li { display: flex; gap: 12px; align-items: baseline; padding: 7px 0; border-bottom: 1px dashed rgba(250,246,243,0.14); font-size: 13.5px; color: rgba(250,246,243,0.88); }
+.sf-nw-shot-z { flex: 0 0 84px; font-family: var(--sf-serif); font-weight: 700; font-size: 16px; color: var(--sf-gold-soft); }
+.sf-nw-shot-t { flex: 0 0 122px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(250,246,243,0.7); }
+.sf-nw-shot-line { font-size: 12.5px; color: rgba(250,246,243,0.72); padding-top: 9px; }
+.sf-nw-shot-line strong { color: var(--sf-gold-soft); font-weight: 700; }
 
 /* ===== Email gate ===== */
 .sf-nw-gate { background: linear-gradient(180deg, #101219 0%, #1d1922 55%, #2a2118 100%); border-radius: 20px; padding: 34px 26px; margin-top: 24px; text-align: center; position: relative; overflow: hidden; }
@@ -360,6 +412,10 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-nw-proof { grid-template-columns: repeat(2, 1fr); }
   .sf-nw-hs-lab { font-size: 10px; }
   .sf-nw-tick { font-size: 10px; }
+  .sf-nw-bag-rows li { flex-wrap: wrap; gap: 6px 12px; }
+  .sf-nw-bag-tag { margin-left: 0; }
+  .sf-nw-shot-rows li { flex-wrap: wrap; gap: 2px 12px; }
+  .sf-nw-shot-t { flex: 0 0 auto; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -614,9 +670,21 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     return c;
   }
 
+  /* Honest arithmetic from the plan's own prescriptions:
+     anchor 30-40g (mid 35) + steady 25-40g (mid 30) + light 15-20g (mid 18) + landing 12-15g (mid 12). */
+  function proteinLine(c) {
+    if (!c.crosses) {
+      return " Built as written, the plan still front-loads about 75g of protein into daylight hours.";
+    }
+    if (c.midnightStart) {
+      return " Run as written, your anchor plate carries 35 of tonight's roughly 80g of protein, and the grazing list carries the rest.";
+    }
+    return " Run it as written and about 65 of tonight's roughly 95g of protein lands before " + fmt(c.lightStart) + ", on the side of the night your body still handles food well. Flip it (light early, feast at 3am) and the same calories land on a body that is done processing for the day.";
+  }
+
   function verdictText(c) {
     if (!c.crosses) {
-      return "That start barely touches the deep night, so tonight reads more like a day schedule. The rule holds anyway: anchor before you clock in, eat steady through, land light at home.";
+      return "That start barely touches the deep night, so tonight reads more like a day schedule. The rule holds anyway: anchor before you clock in, eat steady through, land light at home." + proteinLine(c);
     }
     var v;
     if (c.midnightStart) {
@@ -626,26 +694,36 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     } else {
       v = "Your start gives you a real steady stretch. Eat like a normal person until " + fmt(c.lightStart) + ", then shift gears.";
     }
-    if (c.L >= 720) { v += " And a 12 means a long light window: stock the grazing list, because the break room will not save you."; }
-    else if (c.L <= 480) { v += " The good news about an 8: your light window is short. Hold the line and you are home before it gets loud."; }
-    else { v += " Ten hours sits in the middle: long enough to need the grazing list, short enough that the clock does most of the work."; }
-    return v;
+    var lw = c.E - c.lightStart;
+    if (lw >= c.L / 2) { v += " And the light window is the big one tonight: " + fmt(c.lightStart) + " to " + fmt(c.E) + " is half your shift or more, so stock the grazing list, because the break room will not save you."; }
+    else if (lw <= 180 && !c.showThreeAm) { v += " The good news tonight: your light window is short. Hold the line and you are home before it gets loud."; }
+    else { v += " Your light window runs " + fmt(c.lightStart) + " to " + fmt(c.E) + ": long enough to need the grazing list, short enough that the clock does most of the work."; }
+    return v + proteinLine(c);
   }
 
-  var LIGHT_EXAMPLES = ["Greek yogurt cup", "Two hard-boiled eggs", "String cheese", "Jerky", "Half a protein shake"];
+  /* Serving strings are USDA-range ballparks; amounts ride every item on purpose. */
+  var ANCHOR_BUILDS =
+    '<div class="sf-nw-builds">' +
+    '<div class="sf-nw-build"><span class="sf-nw-build-g">35g</span><span>1 cup shredded rotisserie chicken over a fist of microwave rice, bagged slaw on the side</span></div>' +
+    '<div class="sf-nw-build"><span class="sf-nw-build-g">30g</span><span>4oz deli turkey (6 to 8 slices) + 2 hard-boiled eggs, a fist of roasted potatoes, cucumbers</span></div>' +
+    '<div class="sf-nw-build"><span class="sf-nw-build-g">36g</span><span>Two tuna pouches (2.6oz each) folded into a fist of rice, baby carrots</span></div>' +
+    "</div>";
+
+  var STEADY_CHIPS = ["The other half of the anchor build", "1 cup cottage cheese (25g) + fruit", "2 chicken sausage links (28g) + a rice cup"];
+  var LIGHT_CHIPS = ["Yogurt single (15g)", "Tuna pouch (18g)", "2 eggs + 1 string cheese (19g)"];
 
   function landingCopy(after) {
     if (after === "family") {
       return {
         time: "when you walk in",
-        body: "Keep breakfast with them light and protein-first: eggs, a yogurt bowl, coffee if you must. Your real meal comes after you sleep, so you are not running two food days at once.",
+        body: "Breakfast with them stays light and protein-first: 2 eggs (12g) or a Greek yogurt single, 5.3oz (15g). Your real plate comes after you sleep, so you are not running two food days at once.",
         why: "A big plate before a delayed sleep leaves you waking up puffy and starving anyway."
       };
     }
     return {
       time: "when you walk in",
-      body: "One small protein bite, water, blinds down, bed. Greek yogurt or string cheese sized, not a plate.",
-      why: "A feast now sits on top of your sleep. The small bite keeps you asleep without weighing you down."
+      body: "One small protein bite, 12 to 15g: 2 hard-boiled eggs (12g) or a Greek yogurt single, 5.3oz (15g). 16oz of water, blinds down, bed.",
+      why: "A feast now sits on top of your day sleep. Twelve to fifteen grams keeps you asleep without weighing you down."
     };
   }
 
@@ -689,7 +767,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       '<div class="sf-nw-ticks">' + tHtml + "</div></div>";
   }
 
-  function cardHtml(idx, delay, name, time, body, why, chips) {
+  function cardHtml(idx, delay, name, time, body, why, chips, extra) {
     var chipsHtml = "";
     if (chips) {
       chipsHtml = '<div class="sf-nw-chips">';
@@ -699,21 +777,39 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     return '<div class="sf-nw-card sf-c' + idx + ' sf-nw-pop sf-d' + delay + '">' +
       '<div class="sf-nw-card-top"><span class="sf-nw-card-n" aria-hidden="true">' + idx + '</span><h3>' + name + "</h3></div>" +
       '<div class="sf-nw-card-time">' + time + "</div>" +
-      "<p>" + body + "</p>" + chipsHtml +
+      "<p>" + body + "</p>" + chipsHtml + (extra || "") +
       (why ? '<p class="sf-nw-why">' + why + "</p>" : "") +
       "</div>";
   }
 
-  function threeAmHtml() {
+  function cafText(c) {
+    if (c.crosses && c.after === "bed") {
+      return "<strong>One more clock:</strong> caffeine runs a 5 to 6 hour half-life. In bed around " + fmt(c.landB) + " means your last cup lands by " + fmt(c.landB - 360) + ". After that, half of it follows you into the day sleep.";
+    }
+    if (c.crosses) {
+      return "<strong>One more clock:</strong> caffeine runs a 5 to 6 hour half-life. Count 6 hours back from when you will actually lie down; on a school-run morning that usually means your last cup is behind you before clock-out.";
+    }
+    return "<strong>One more clock:</strong> caffeine runs a 5 to 6 hour half-life. In bed at 10pm means the last cup lands by 4pm.";
+  }
+
+  function protoHtml(c) {
     return '<div class="sf-nw-3am sf-nw-pop sf-d5">' +
-      '<h3>What counts as <span class="sf-nw-em">light</span> at 3am</h3>' +
+      '<h3>The <span class="sf-nw-em">3am</span> protocol</h3>' +
+      '<ol class="sf-nw-proto">' +
+        '<li><span class="sf-nw-proto-n" aria-hidden="true">1</span><span class="sf-nw-proto-t"><strong>16oz of water first.</strong> Before you decide anything.' +
+          '<span class="sf-nw-proto-why">At 3am, dehydrated and exhausted both read as hungry.</span></span></li>' +
+        '<li><span class="sf-nw-proto-n" aria-hidden="true">2</span><span class="sf-nw-proto-t"><strong>One 15 to 20g protein snack</strong> from the list below.' +
+          '<span class="sf-nw-proto-why">Enough to quiet real hunger, small enough to stay off your day sleep.</span></span></li>' +
+        '<li><span class="sf-nw-proto-n" aria-hidden="true">3</span><span class="sf-nw-proto-t"><strong>Still hungry after 10 minutes?</strong> Eat your planned light plate.' +
+          '<span class="sf-nw-proto-why">If it was exhaustion, ten minutes kills it. If it is real hunger, the plate is already packed. Either way the group pizza order never gets a vote.</span></span></li>' +
+      "</ol>" +
       '<div class="sf-nw-3am-grid">' +
-        '<div class="sf-nw-3am-col sf-yes"><h4>Reach for this</h4><ul>' +
-          "<li>Greek yogurt cup (one, not the tub)</li>" +
-          "<li>Two hard-boiled eggs</li>" +
-          "<li>String cheese, one or two</li>" +
-          "<li>Jerky, a palm-sized bag</li>" +
-          "<li>Half a protein shake, sipped slow</li>" +
+        '<div class="sf-nw-3am-col sf-yes"><h4>The 15 to 20g list</h4><ul>' +
+          "<li>Greek yogurt single, 5.3oz cup (15g)</li>" +
+          "<li>Tuna pouch, 2.6oz (18g)</li>" +
+          "<li>Salmon pouch, 2.6oz (16g)</li>" +
+          "<li>2 hard-boiled eggs + 1 string cheese (19g)</li>" +
+          "<li>1oz jerky + 1 string cheese (17g)</li>" +
         "</ul></div>" +
         '<div class="sf-nw-3am-col sf-no"><h4>Not this</h4><ul>' +
           "<li>The group pizza order</li>" +
@@ -722,7 +818,52 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           "<li>Round three of energy drinks</li>" +
         "</ul></div>" +
       "</div>" +
-      '<p class="sf-nw-3am-line">And if you have made the 3am call before: that was exhaustion doing the ordering, not weakness. Set the clock and the call goes quiet.</p>' +
+      '<p class="sf-nw-caf">' + cafText(c) + "</p>" +
+      '<p class="sf-nw-3am-line">If you have made the 3am call before, that was exhaustion doing the ordering, not weakness. The protocol exists so the decision is already made before the night gets loud.</p>' +
+      "</div>";
+  }
+
+  var BAG_HTML =
+    '<div class="sf-nw-bag sf-nw-pop sf-d5">' +
+    "<h3>The work-bag stock list</h3>" +
+    '<div class="sf-nw-bag-sub">Load it once. Safe through a full 12.</div>' +
+    '<ul class="sf-nw-bag-rows">' +
+      '<li><span class="sf-nw-bag-g">18g each</span><span>Tuna pouches, 2.6oz</span><span class="sf-nw-bag-tag sf-shelf">Shelf-stable</span></li>' +
+      '<li><span class="sf-nw-bag-g">10g each</span><span>Jerky, 1oz bags</span><span class="sf-nw-bag-tag sf-shelf">Shelf-stable</span></li>' +
+      '<li><span class="sf-nw-bag-g">20g</span><span>Protein bar (labels vary, read yours)</span><span class="sf-nw-bag-tag sf-shelf">Shelf-stable</span></li>' +
+      '<li><span class="sf-nw-bag-g">25g</span><span>Shaker with one scoop of protein, just add water</span><span class="sf-nw-bag-tag sf-shelf">Shelf-stable</span></li>' +
+      '<li><span class="sf-nw-bag-g">14g</span><span>String cheese, 2 sticks</span><span class="sf-nw-bag-tag sf-ice">Ice-pack side</span></li>' +
+      '<li><span class="sf-nw-bag-g">15g each</span><span>Greek yogurt singles, 5.3oz</span><span class="sf-nw-bag-tag sf-ice">Ice-pack side</span></li>' +
+    "</ul>" +
+    '<div class="sf-nw-bag-foot">One insulated bag + one ice pack keeps the cold side safe through a full 12. Nothing perishable sits out past 2 hours. No fridge on the unit? Build the night from the shelf-stable side.</div>' +
+    "</div>";
+
+  function oopsHtml(c) {
+    return '<div class="sf-nw-oops sf-nw-pop sf-d5">' +
+      "<h3>The overslept fallback</h3>" +
+      "<p>Woke at " + fmt(c.anchorA) + " with clock-in at " + fmt(c.S) + " and no time to cook? Shaker with one scoop (25g) + a banana on the way out the door. Then your first break plate becomes the real one: the anchor plate you missed, two palm-size proteins and a fist of carbs. Do not skip straight to 3am on an empty tank. That is the exact setup the pizza order waits for.</p>" +
+      "</div>";
+  }
+
+  function shotHtml(c) {
+    var rows = '<li><span class="sf-nw-shot-z">Anchor</span><span class="sf-nw-shot-t">' + fmt(c.anchorA) + " to " + fmt(c.anchorB) + '</span><span>30 to 40g plate, forked down by ' + fmt(c.anchorB) + "</span></li>";
+    if (c.crosses) {
+      rows += '<li><span class="sf-nw-shot-z">Steady</span><span class="sf-nw-shot-t">' + fmt(c.S) + " to " + fmt(c.lightStart) + '</span><span>Real break meal, 25 to 40g</span></li>';
+      rows += '<li><span class="sf-nw-shot-z">Go light</span><span class="sf-nw-shot-t">' + fmt(c.lightStart) + " to " + fmt(c.E) + '</span><span>15 to 20g at a time</span></li>';
+    } else {
+      rows += '<li><span class="sf-nw-shot-z">Steady</span><span class="sf-nw-shot-t">' + fmt(c.S) + " to " + fmt(c.E) + '</span><span>Normal meals on normal breaks</span></li>';
+    }
+    rows += '<li><span class="sf-nw-shot-z">Land</span><span class="sf-nw-shot-t">about ' + fmt(c.landA) + '</span><span>12 to 15g bite, 16oz water, done</span></li>';
+    var caf = (c.crosses && c.after === "bed")
+      ? '<p class="sf-nw-shot-line"><strong>Last caffeine:</strong> ' + fmt(c.landB - 360) + " (5 to 6 hour half-life)</p>"
+      : '<p class="sf-nw-shot-line"><strong>Last caffeine:</strong> 6 hours before you lie down</p>';
+    return '<div class="sf-nw-shot sf-nw-pop sf-d5">' +
+      '<div class="sf-nw-shot-eyebrow">Screenshot this</div>' +
+      "<h3>Tonight, on one card</h3>" +
+      '<ul class="sf-nw-shot-rows">' + rows + "</ul>" +
+      '<p class="sf-nw-shot-line"><strong>3am:</strong> 16oz water, then one 15 to 20g snack, then the 10-minute rule.</p>' +
+      '<p class="sf-nw-shot-line"><strong>The bag:</strong> tuna pouch 18g / jerky 10g / bar 20g / scoop 25g / string cheese x2 14g / yogurt single 15g.</p>' +
+      caf +
       "</div>";
   }
 
@@ -735,26 +876,28 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       '<div class="sf-nw-cards">';
 
     html += cardHtml(1, 1, "The anchor meal", fmt(c.anchorA) + " to " + fmt(c.anchorB),
-      "Your biggest plate of the day, eaten like dinner: protein, real carbs, something green. Finish it at least an hour before you clock in.",
-      "Fuel goes in while your body still handles it well, and the 3am pull starts the night already half beaten.", null);
+      "Two palm-size proteins (30 to 40g total), a fist of real carbs, something green. Start around " + fmt(c.anchorA) + ", fork down by " + fmt(c.anchorB) + ". Three builds that need zero cooking skill:",
+      "Fuel lands while your body still handles it well. The same plate hits different at " + fmt(c.anchorB) + " than at 3am, and walking in fed is what makes the light window possible at all.",
+      null, ANCHOR_BUILDS);
 
     if (c.crosses) {
       html += cardHtml(2, 2, "The steady window", fmt(c.S) + " to " + fmt(c.lightStart),
-        "Eat like a normal person. Your packed meal break lives in here, and it is allowed to be a real meal.",
-        "The earlier in the shift you eat, the better your body handles it.", null);
+        "A real meal, same portion math: a palm of protein (25 to 40g), a fist of carbs, something green. Your packed break plate lives here. Eat it on time, even if you are not hungry yet.",
+        "Skipping this meal is what sets up the 3am order two hours later. The earlier the fuel goes in, the better the night runs.",
+        STEADY_CHIPS, null);
       html += cardHtml(3, 3, "The light window", fmt(c.lightStart) + " to " + fmt(c.E),
-        "From here to clock-out, graze instead of feast: protein-first and handful-sized.",
+        "Graze, do not feast: one 15 to 20g protein snack at a time, from the bag you packed. When the pull hits anyway, run the 3am protocol below.",
         "The same meal hits harder at 3am than at 6pm. Big food in the deep night is one of the habits most tied to weight gain in shift workers.",
-        LIGHT_EXAMPLES);
-      html += cardHtml(4, 4, "The landing", land.time + ", about " + fmt(c.landA), land.body, land.why, null);
+        LIGHT_CHIPS, null);
+      html += cardHtml(4, 4, "The landing", land.time + ", about " + fmt(c.landA), land.body, land.why, null, null);
     } else {
       html += cardHtml(2, 2, "The steady window", fmt(c.S) + " to " + fmt(c.E),
-        "Normal meals on your normal breaks. No special rules while the sun is doing its job.",
-        "Save the strict stuff for the nights that need it.", null);
-      html += cardHtml(3, 4, "The landing", land.time + ", about " + fmt(c.landA), land.body, land.why, null);
+        "Normal meals on your normal breaks: a palm of protein (25 to 40g) and a fist of carbs each time. No special rules while the sun is doing its job.",
+        "Save the strict stuff for the nights that need it.", null, null);
+      html += cardHtml(3, 4, "The landing", land.time + ", about " + fmt(c.landA), land.body, land.why, null, null);
     }
 
-    html += "</div>" + threeAmHtml() + "</div>";
+    html += "</div>" + protoHtml(c) + BAG_HTML + oopsHtml(c) + shotHtml(c) + "</div>";
     return html;
   }
 
@@ -868,9 +1011,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   function goToResource(first) {
     try {
       if (first) window.localStorage.setItem("sf_nw_first", first);
-      window.localStorage.setItem("sf_nw_unlocked", "1");
+      window.localStorage.setItem("sf_nw_full", "1");
     } catch (e) {}
-    window.location.href = SF_CONFIG.resourceUrl + "?unlocked=1";
+    window.location.href = SF_CONFIG.resourceUrl + "?full=1";
   }
 
   formEl.addEventListener("submit", function (e) {
@@ -932,7 +1075,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       if (done) return; done = true; clearTimeout(timer);
       submitBtn.disabled = false;
       submitBtn.textContent = "Send me the full night set";
-      formMsg.innerHTML = '<div class="sf-nw-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full set now</a> and I will catch your email next time.</div>';
+      formMsg.innerHTML = '<div class="sf-nw-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?full=1">open the full set now</a> and I will catch your email next time.</div>';
     });
   });
 

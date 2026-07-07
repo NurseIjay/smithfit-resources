@@ -131,6 +131,19 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-cc-sleep-time { font-family: var(--sf-serif); font-weight: 700; font-size: 19px; color: var(--sf-dark-raw); display: block; white-space: nowrap; }
 .sf-cc-sleep-desc { font-size: 10.5px; color: var(--sf-taupe-light); margin-top: 2px; display: block; line-height: 1.4; }
 
+/* Drink chips */
+.sf-cc-drinks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-bottom: 10px; }
+.sf-cc-drink { position: relative; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 10px 5px 9px; text-align: center; cursor: pointer; font-family: var(--sf-sans); -webkit-transition: all .2s ease; transition: all .2s ease; }
+.sf-cc-drink:hover { border-color: var(--sf-gold-soft); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+.sf-cc-drink.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-cc-drink-name { font-size: 12px; font-weight: 600; color: var(--sf-dark-raw); display: block; line-height: 1.3; }
+.sf-cc-drink-mg { font-size: 10.5px; color: var(--sf-taupe-light); display: block; margin-top: 1px; }
+.sf-cc-drink-ct { position: absolute; top: -8px; right: -6px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 999px; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(42,33,24,0.25); }
+.sf-cc-drink-hint { font-size: 12px; color: var(--sf-taupe-light); margin-bottom: 10px; }
+.sf-cc-total { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 12px; padding: 11px 14px; margin-bottom: 4px; font-size: 13.5px; color: var(--sf-taupe-raw); }
+.sf-cc-total strong { font-family: var(--sf-serif); font-weight: 700; font-size: 21px; color: var(--sf-dark-raw); white-space: nowrap; }
+.sf-cc-total strong.sf-hot { color: var(--sf-red-raw); }
+
 .sf-cc-sensrow { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 14px; padding: 15px 16px; }
 .sf-cc-switch { position: relative; flex: 0 0 48px; width: 48px; height: 27px; border-radius: 999px; background: var(--sf-cream-deep); border: 1.5px solid var(--sf-border); cursor: pointer; margin-top: 2px; -webkit-transition: background .2s ease, border-color .2s ease; transition: background .2s ease, border-color .2s ease; }
 .sf-cc-switch::after { content: ""; position: absolute; top: 2px; left: 3px; width: 19px; height: 19px; border-radius: 50%; background: #ffffff; box-shadow: 0 1px 4px rgba(42,33,24,0.25); -webkit-transition: transform .2s ease; transition: transform .2s ease; }
@@ -156,20 +169,32 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 @keyframes sfCcPop { 0% { opacity: 0; transform: translateY(14px) scale(.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
 .sf-cc-pop { -webkit-animation: sfCcPop .5s ease forwards; animation: sfCcPop .5s ease forwards; }
 
-.sf-cc-ticket {
+/* The schedule card (the screenshot card) */
+.sf-cc-sched {
   background: linear-gradient(140deg, #241c13 0%, #3a2e22 58%, #2a2118 100%);
   border: 1px solid rgba(200,160,78,0.45); border-radius: 18px;
-  padding: 28px 24px; margin-top: 24px; position: relative; overflow: hidden;
-  display: flex; align-items: center; gap: 24px;
+  padding: 24px 24px 18px; margin-top: 24px; position: relative; overflow: hidden;
 }
-.sf-cc-ticket::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 22% 0%, rgba(200,160,78,0.22) 0%, transparent 55%); pointer-events: none; }
-.sf-cc-ticket > * { position: relative; z-index: 1; }
-.sf-cc-ticket-dial { flex: 0 0 auto; }
-.sf-cc-ticket-dial svg { width: 108px; height: 108px; display: block; }
-.sf-cc-ticket-body { flex: 1 1 auto; min-width: 0; }
-.sf-cc-ticket-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 4px; }
-.sf-cc-ticket-time { font-family: var(--sf-serif); font-weight: 700; font-size: clamp(44px, 8vw, 60px); color: var(--sf-cream-raw); line-height: 1; }
-.sf-cc-ticket-sub { font-size: 13px; color: rgba(250,246,243,0.62); margin-top: 6px; }
+.sf-cc-sched::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 22% 0%, rgba(200,160,78,0.22) 0%, transparent 55%); pointer-events: none; }
+.sf-cc-sched > * { position: relative; z-index: 1; }
+.sf-cc-sched-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 1px solid rgba(200,160,78,0.3); }
+.sf-cc-sched-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sf-gold-soft); }
+.sf-cc-sched-tag { font-size: 11.5px; font-weight: 600; color: rgba(250,246,243,0.66); background: rgba(200,160,78,0.14); border: 1px solid rgba(200,160,78,0.3); border-radius: 999px; padding: 4px 12px; white-space: nowrap; }
+.sf-cc-srow { display: flex; gap: 16px; align-items: flex-start; padding: 15px 0; border-bottom: 1px dashed rgba(200,160,78,0.25); }
+.sf-cc-srow:last-of-type { border-bottom: none; }
+.sf-cc-slabel { flex: 0 0 88px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sf-gold-soft); padding-top: 7px; line-height: 1.5; }
+.sf-cc-sbody { flex: 1 1 auto; min-width: 0; }
+.sf-cc-stime { font-family: var(--sf-serif); font-weight: 700; font-size: 25px; color: var(--sf-cream-raw); line-height: 1.15; }
+.sf-cc-srow.sf-big .sf-cc-stime { font-size: 38px; }
+.sf-cc-smeta { font-size: 13px; color: rgba(250,246,243,0.78); margin-top: 3px; }
+.sf-cc-swhy { font-family: var(--sf-display); font-style: italic; font-size: 12.5px; color: rgba(250,246,243,0.58); margin-top: 6px; line-height: 1.55; }
+.sf-cc-sdial { flex: 0 0 auto; padding-top: 2px; }
+.sf-cc-sdial svg { width: 72px; height: 72px; display: block; }
+.sf-cc-sbar { height: 10px; border-radius: 5px; background: rgba(250,246,243,0.14); overflow: hidden; margin-top: 9px; max-width: 340px; }
+.sf-cc-sbar-fill { height: 100%; border-radius: 5px; width: 0; background: linear-gradient(90deg, var(--sf-gold-soft), var(--sf-gold-raw)); -webkit-transition: width .8s ease; transition: width .8s ease; }
+.sf-cc-sbar-fill.sf-hot { background: var(--sf-red-raw); }
+.sf-cc-sfoot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 4px; padding-top: 12px; border-top: 1px solid rgba(200,160,78,0.3); font-size: 11.5px; color: rgba(250,246,243,0.55); }
+.sf-cc-sfoot strong { color: var(--sf-gold-soft); font-weight: 600; }
 
 .sf-cc-verdict { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 20px 20px; margin-top: 14px; font-size: 15px; color: var(--sf-taupe-raw); }
 
@@ -177,8 +202,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-cc-tl { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px 16px; margin-top: 14px; }
 .sf-cc-tl-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 26px; }
 .sf-cc-tl-track { position: relative; height: 14px; border-radius: 7px; background: var(--sf-cream-deep); overflow: visible; }
-.sf-cc-tl-win { position: absolute; top: 0; left: 0; bottom: 0; border-radius: 7px 0 0 7px; background: linear-gradient(90deg, var(--sf-gold-soft), var(--sf-gold-raw)); -webkit-transition: width .8s ease; transition: width .8s ease; }
+.sf-cc-tl-win { position: absolute; top: 0; bottom: 0; border-radius: 7px; background: linear-gradient(90deg, var(--sf-gold-soft), var(--sf-gold-raw)); width: 0; -webkit-transition: width .8s ease; transition: width .8s ease; }
 .sf-cc-tl-endtick { position: absolute; top: -5px; bottom: -5px; width: 2px; background: var(--sf-taupe-light); border-radius: 1px; }
+.sf-cc-tl-dot { position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--sf-dark-raw); border: 2px solid var(--sf-gold-raw); }
 .sf-cc-tl-flag { position: absolute; bottom: 100%; margin-bottom: 7px; white-space: nowrap; }
 .sf-cc-tl-flag span { display: inline-block; background: var(--sf-dark-raw); color: var(--sf-gold-soft); border-radius: 6px; padding: 3px 9px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .sf-cc-tl-flag::after { content: ""; position: absolute; top: 100%; left: var(--sf-cc-arrow, 50%); margin-left: -4px; border: 4px solid transparent; border-top-color: var(--sf-dark-raw); }
@@ -189,6 +215,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-cc-tl-key i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
 .sf-cc-tl-key .sf-k-win { background: var(--sf-gold-raw); }
 .sf-cc-tl-key .sf-k-after { background: var(--sf-cream-deep); border: 1px solid var(--sf-border); }
+.sf-cc-tl-key .sf-k-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--sf-dark-raw); border: 2px solid var(--sf-gold-raw); }
 
 /* Decay bars */
 .sf-cc-decay { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 14px; }
@@ -212,12 +239,24 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
 .sf-cc-halflife { background: var(--sf-gold-hover); border-left: 4px solid var(--sf-gold-raw); border-radius: 0 12px 12px 0; padding: 16px 18px; margin-top: 14px; font-family: var(--sf-display); font-style: italic; font-size: 15.5px; color: var(--sf-taupe-raw); }
 
-.sf-cc-swaps { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 14px; }
-.sf-cc-swaps-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 14px; }
-.sf-cc-swap { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 14.5px; }
-.sf-cc-swap:last-child { border-bottom: none; }
-.sf-cc-swap-emoji { flex: 0 0 auto; font-size: 19px; line-height: 1.4; }
-.sf-cc-swap strong { color: var(--sf-dark-raw); }
+/* Over-budget card */
+.sf-cc-over { background: var(--sf-red-soft); border: 1px solid rgba(192,80,77,0.35); border-top: 4px solid var(--sf-red-raw); border-radius: 16px; padding: 20px 20px; margin-top: 14px; font-size: 14.5px; color: var(--sf-taupe-raw); }
+.sf-cc-over-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-red-raw); margin-bottom: 6px; }
+.sf-cc-over strong { color: var(--sf-dark-raw); }
+
+/* Protocol + emergency cards */
+.sf-cc-proto { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 22px 20px; margin-top: 14px; }
+.sf-cc-proto.sf-emg { border-top: 4px solid var(--sf-red-raw); }
+.sf-cc-proto-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 4px; }
+.sf-cc-proto.sf-emg .sf-cc-proto-title { color: var(--sf-red-raw); }
+.sf-cc-proto-sub { font-size: 13px; color: var(--sf-taupe-light); margin-bottom: 12px; }
+.sf-cc-pstep { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-cc-pstep:last-child { border-bottom: none; }
+.sf-cc-pstep-n { flex: 0 0 26px; width: 26px; height: 26px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sf-cc-proto.sf-emg .sf-cc-pstep-n { background: var(--sf-red-raw); color: #ffffff; }
+.sf-cc-pstep-body { font-size: 14px; color: var(--sf-taupe-raw); }
+.sf-cc-pstep-body strong { color: var(--sf-dark-raw); }
+.sf-cc-pstep-why { font-family: var(--sf-display); font-style: italic; font-size: 12.5px; color: var(--sf-taupe-light); margin-top: 3px; line-height: 1.55; }
 
 /* ===== Email gate ===== */
 .sf-cc-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 34px 26px; margin-top: 24px; text-align: center; position: relative; overflow: hidden; }
@@ -279,9 +318,15 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-cc-tool { padding: 24px 18px; }
   .sf-cc-shifts { grid-template-columns: repeat(2, 1fr); }
   .sf-cc-sleeps { grid-template-columns: repeat(2, 1fr); }
+  .sf-cc-drinks { grid-template-columns: repeat(3, 1fr); }
   .sf-cc-shift-name { font-size: 16px; }
   .sf-cc-sleep-time { font-size: 17px; }
-  .sf-cc-ticket { flex-direction: column; text-align: center; gap: 14px; padding: 24px 18px; }
+  .sf-cc-sched { padding: 20px 16px 14px; }
+  .sf-cc-srow { gap: 12px; padding: 13px 0; }
+  .sf-cc-slabel { flex: 0 0 72px; }
+  .sf-cc-stime { font-size: 21px; }
+  .sf-cc-srow.sf-big .sf-cc-stime { font-size: 30px; }
+  .sf-cc-sdial svg { width: 56px; height: 56px; }
   .sf-cc-proof { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -346,8 +391,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     <!-- TOOL -->
     <section class="sf-cc-section" id="sf-cc-tool">
       <div class="sf-cc-eyebrow">Try it right now</div>
-      <h2 class="sf-cc-h2">Find your caffeine last call</h2>
-      <p class="sf-cc-lead">Three taps: your shift, your sleep time, and whether caffeine hits you hard. No email needed to see your number.</p>
+      <h2 class="sf-cc-h2">Build your caffeine schedule</h2>
+      <p class="sf-cc-lead">Your shift, your wake-up, your sleep time, and what you actually drink. You get your first cup, your redose, your last call, and your mg budget. Free, on this page, no email needed.</p>
 
       <div class="sf-cc-tool sf-cc-reveal">
         <div class="sf-cc-step-h"><span class="sf-cc-step-n">1</span> Your shift</div>
@@ -376,7 +421,33 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
         <div class="sf-cc-gap"></div>
 
-        <div class="sf-cc-step-h"><span class="sf-cc-step-n">2</span> When do you plan to be asleep?</div>
+        <div class="sf-cc-step-h"><span class="sf-cc-step-n">2</span> When do you wake up before this shift?</div>
+        <div class="sf-cc-sleeps" id="sfCcWakes" role="group" aria-label="Choose when you wake up before your shift">
+          <button type="button" class="sf-cc-sleep sf-on" data-wake="w120" aria-pressed="true">
+            <span class="sf-cc-sleep-time" data-wslot="w120">--:--</span>
+            <span class="sf-cc-sleep-desc">About 2 hours before clock-in</span>
+          </button>
+          <button type="button" class="sf-cc-sleep" data-wake="w90" aria-pressed="false">
+            <span class="sf-cc-sleep-time" data-wslot="w90">--:--</span>
+            <span class="sf-cc-sleep-desc">About 90 minutes before</span>
+          </button>
+          <button type="button" class="sf-cc-sleep" data-wake="w60" aria-pressed="false">
+            <span class="sf-cc-sleep-time" data-wslot="w60">--:--</span>
+            <span class="sf-cc-sleep-desc">About 1 hour before, out the door</span>
+          </button>
+          <button type="button" class="sf-cc-sleep" data-wake="custom" aria-pressed="false">
+            <span class="sf-cc-sleep-time">Custom</span>
+            <span class="sf-cc-sleep-desc">I will set my own time</span>
+          </button>
+        </div>
+        <div class="sf-cc-customrow sf-cc-hidden" id="sfCcCustomWakeRow">
+          <label for="sfCcCustomWake">What time do you wake up before this shift?</label>
+          <input type="time" class="sf-cc-time" id="sfCcCustomWake" value="">
+        </div>
+
+        <div class="sf-cc-gap"></div>
+
+        <div class="sf-cc-step-h"><span class="sf-cc-step-n">3</span> When do you plan to be asleep?</div>
         <div class="sf-cc-sleeps" id="sfCcSleeps" role="group" aria-label="Choose when you plan to be asleep">
           <button type="button" class="sf-cc-sleep" data-sleep="g90" aria-pressed="false">
             <span class="sf-cc-sleep-time" data-slot="g90">--:--</span>
@@ -402,7 +473,14 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
         <div class="sf-cc-gap"></div>
 
-        <div class="sf-cc-step-h"><span class="sf-cc-step-n">3</span> One more thing</div>
+        <div class="sf-cc-step-h"><span class="sf-cc-step-n">4</span> What do you drink on a shift day?</div>
+        <p class="sf-cc-drink-hint">Tap to add one, up to three of anything. A fourth tap clears it. Skip this and I will plan around two 12 oz cups.</p>
+        <div class="sf-cc-drinks" id="sfCcDrinks" role="group" aria-label="Tap what you drink on a shift day"></div>
+        <div class="sf-cc-total"><span id="sfCcTotalNote">Nothing tapped yet. I will assume two 12 oz brews (290 mg).</span><strong id="sfCcTotalMg">290 mg</strong></div>
+
+        <div class="sf-cc-gap"></div>
+
+        <div class="sf-cc-step-h"><span class="sf-cc-step-n">5</span> One more thing</div>
         <div class="sf-cc-sensrow">
           <button type="button" class="sf-cc-switch" id="sfCcSens" aria-pressed="false" aria-label="Caffeine hits me hard"></button>
           <div>
@@ -411,7 +489,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           </div>
         </div>
 
-        <button type="button" class="sf-cc-btn" id="sfCcGo">Get my last call</button>
+        <button type="button" class="sf-cc-btn" id="sfCcGo">Build my schedule</button>
         <p class="sf-cc-hint" id="sfCcHint"></p>
         <div id="sfCcNudge"></div>
 
@@ -419,12 +497,12 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
         <!-- EMAIL GATE (revealed after first result) -->
         <div class="sf-cc-gate sf-cc-hidden" id="sfCcGate">
-          <h3>That is your number for <span class="sf-cc-em">one shift</span>. Get the full version.</h3>
+          <h3>That is your schedule for <span class="sf-cc-em">one shift</span>. Get the full version.</h3>
           <p>The full calculator covers your whole schedule, plus the pieces that keep it working on a rough stretch:</p>
           <ul class="sf-cc-list">
-            <li>Day, night, and evening last calls side by side</li>
-            <li>The 3-nights-in-a-row plan</li>
-            <li>The rotating-shift reset card</li>
+            <li>Full schedules for day, night, and evening, side by side</li>
+            <li>The 3-night taper, clock times for each night</li>
+            <li>The rotating-week reset, timed step by step</li>
             <li>A printable locker card with your numbers</li>
           </ul>
           <form class="sf-cc-form" id="sfCcForm" novalidate>
@@ -469,7 +547,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   <!-- FOOTER -->
   <footer class="sf-cc-footer">
     <strong>SmithFit</strong><br>
-    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice.<br>
+    Built by IJ Smith, RN. For nurses over 35. Educational resource, not medical advice. Check with your provider about caffeine if you are pregnant or manage a heart condition.<br>
     Keep your coffee. Move your last call.
   </footer>
 
@@ -522,7 +600,19 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     var hh = h % 12; if (hh === 0) hh = 12;
     return hh + ':' + (m < 10 ? '0' : '') + m + ' ' + ap;
   }
-  function remainingPct(hoursToSleep) { return Math.round(Math.pow(0.5, hoursToSleep / HALF_LIFE_H) * 100); }
+  function fmtRange(a, b) {
+    var fa = fmt(a), fb = fmt(b);
+    if (fa.slice(-2) === fb.slice(-2)) return fa.slice(0, -3) + ' to ' + fb;
+    return fa + ' to ' + fb;
+  }
+  function remaining(mg, hours) { return mg * Math.pow(0.5, hours / HALF_LIFE_H); }
+  function mgCompare(mg) {
+    if (mg < 15) return 'next to nothing';
+    if (mg < 34) return 'about a green tea (28 mg)';
+    if (mg < 55) return 'about a black tea (47 mg)';
+    if (mg < 100) return 'close to a fresh 8 oz coffee (95 mg)';
+    return 'more than a fresh 8 oz coffee';
+  }
   function hoursPhrase(min) {
     var halves = Math.round(min / 30);
     if (halves <= 1) return 'about 30 minutes';
@@ -547,14 +637,36 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     custom: { start: null, end: null, name: 'shift' }
   };
   var GAPS = { g90: 90, g150: 150, g240: 240 };
+  var WAKES = { w120: 120, w90: 90, w60: 60 };
 
-  var state = { shift: null, sleepMode: null, sensitive: false, rendered: false, lastCutoffLabel: '', lastSleepLabel: '' };
+  /* Standard caffeine contents (published label and USDA-range values) */
+  var DRINKS = [
+    { id: 'c8', name: 'Coffee 8 oz', mg: 95, energy: false },
+    { id: 'c12', name: 'Coffee 12 oz', mg: 145, energy: false },
+    { id: 'c16', name: 'Coffee 16 oz', mg: 190, energy: false },
+    { id: 'esp', name: 'Espresso shot', mg: 63, energy: false },
+    { id: 'lat', name: 'Latte, 2 shots', mg: 125, energy: false },
+    { id: 'cel', name: 'Celsius', mg: 200, energy: true },
+    { id: 'rb', name: 'Red Bull 8.4 oz', mg: 80, energy: true },
+    { id: 'mon', name: 'Monster 16 oz', mg: 160, energy: true },
+    { id: '5h', name: '5-Hour Energy', mg: 200, energy: true },
+    { id: 'bt', name: 'Black tea', mg: 47, energy: false },
+    { id: 'gt', name: 'Green tea', mg: 28, energy: false }
+  ];
+
+  var state = { shift: null, wakeMode: 'w120', sleepMode: null, sensitive: false, drinks: {}, rendered: false, lastCutoffLabel: '', lastSleepLabel: '' };
 
   /* ---- DOM ---- */
   var shiftsEl = document.getElementById('sfCcShifts');
+  var wakesEl = document.getElementById('sfCcWakes');
   var sleepsEl = document.getElementById('sfCcSleeps');
+  var drinksEl = document.getElementById('sfCcDrinks');
+  var totalMgEl = document.getElementById('sfCcTotalMg');
+  var totalNoteEl = document.getElementById('sfCcTotalNote');
   var customEndRow = document.getElementById('sfCcCustomEndRow');
   var customEndEl = document.getElementById('sfCcCustomEnd');
+  var customWakeRow = document.getElementById('sfCcCustomWakeRow');
+  var customWakeEl = document.getElementById('sfCcCustomWake');
   var customSleepRow = document.getElementById('sfCcCustomSleepRow');
   var customSleepEl = document.getElementById('sfCcCustomSleep');
   var sensEl = document.getElementById('sfCcSens');
@@ -567,6 +679,49 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   var submitBtn = document.getElementById('sfCcSubmit');
   var formMsg = document.getElementById('sfCcFormMsg');
 
+  /* ---- Drink chips ---- */
+  (function buildDrinkChips() {
+    var html = '';
+    for (var i = 0; i < DRINKS.length; i++) {
+      html += '<button type="button" class="sf-cc-drink" data-drink="' + DRINKS[i].id + '" aria-pressed="false">' +
+        '<span class="sf-cc-drink-name">' + DRINKS[i].name + '</span>' +
+        '<span class="sf-cc-drink-mg">' + DRINKS[i].mg + ' mg</span>' +
+        '</button>';
+    }
+    drinksEl.innerHTML = html;
+  })();
+
+  function drinkById(id) {
+    for (var i = 0; i < DRINKS.length; i++) { if (DRINKS[i].id === id) return DRINKS[i]; }
+    return null;
+  }
+  function drinkInstances() {
+    var out = [];
+    for (var i = 0; i < DRINKS.length; i++) {
+      var n = state.drinks[DRINKS[i].id] || 0;
+      for (var k = 0; k < n; k++) out.push(DRINKS[i]);
+    }
+    return out;
+  }
+  function tappedTotal() {
+    var t = 0, inst = drinkInstances();
+    for (var i = 0; i < inst.length; i++) t += inst[i].mg;
+    return t;
+  }
+  function updateTotalLine() {
+    var inst = drinkInstances();
+    if (!inst.length) {
+      totalNoteEl.textContent = 'Nothing tapped yet. I will assume two 12 oz brews (290 mg).';
+      totalMgEl.textContent = '290 mg';
+      totalMgEl.className = '';
+      return;
+    }
+    var t = tappedTotal();
+    totalNoteEl.textContent = 'Your usual shift day, in caffeine:';
+    totalMgEl.textContent = t + ' mg';
+    totalMgEl.className = t > 400 ? 'sf-hot' : '';
+  }
+
   /* ---- Shift geometry ---- */
   function getShift() {
     if (!state.shift) return null;
@@ -578,6 +733,10 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     var s = SHIFTS[state.shift];
     return { start: s.start, end: s.end, len: mod1440(s.end - s.start), assumed: false, name: s.name };
   }
+  function getWake(shift) {
+    if (state.wakeMode === 'custom') return parseTimeInput(customWakeEl);
+    return mod1440(shift.start - WAKES[state.wakeMode]);
+  }
   function getSleep(shift) {
     if (!state.sleepMode) return null;
     if (state.sleepMode === 'custom') return parseTimeInput(customSleepEl);
@@ -585,21 +744,27 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   }
 
   /* ---- Preset labels follow the chosen shift ---- */
-  function updateSleepLabels() {
+  function updatePresetLabels() {
     var shift = getShift();
     var keys = ['g90', 'g150', 'g240'];
     for (var i = 0; i < keys.length; i++) {
       var slot = sleepsEl.querySelector('[data-slot="' + keys[i] + '"]');
       if (slot) slot.textContent = shift ? fmt(shift.end + GAPS[keys[i]]) : '--:--';
     }
+    var wkeys = ['w120', 'w90', 'w60'];
+    for (var j = 0; j < wkeys.length; j++) {
+      var wslot = wakesEl.querySelector('[data-wslot="' + wkeys[j] + '"]');
+      if (wslot) wslot.textContent = shift ? fmt(shift.start - WAKES[wkeys[j]]) : '--:--';
+    }
   }
 
   function updateHint() {
     if (!state.shift) { hintEl.textContent = 'Start with your shift.'; return; }
     if (state.shift === 'custom' && parseTimeInput(customEndEl) === null) { hintEl.textContent = 'Set your shift end time above.'; return; }
+    if (state.wakeMode === 'custom' && parseTimeInput(customWakeEl) === null) { hintEl.textContent = 'Set your wake-up time above.'; return; }
     if (!state.sleepMode) { hintEl.textContent = 'Now tap when you plan to be asleep.'; return; }
     if (state.sleepMode === 'custom' && parseTimeInput(customSleepEl) === null) { hintEl.textContent = 'Set your sleep time above.'; return; }
-    hintEl.textContent = state.rendered ? 'Your result updates as you change things.' : 'Ready when you are.';
+    hintEl.textContent = state.rendered ? 'Your schedule updates as you change things.' : 'Ready when you are.';
   }
 
   /* ---- Interactions ---- */
@@ -612,7 +777,20 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     state.shift = btn.getAttribute('data-shift');
     customEndRow.classList.toggle('sf-cc-hidden', state.shift !== 'custom');
     nudgeEl.innerHTML = '';
-    updateSleepLabels();
+    updatePresetLabels();
+    updateHint();
+    maybeRerender();
+  });
+
+  wakesEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-cc-sleep');
+    if (!btn) return;
+    var all = wakesEl.querySelectorAll('.sf-cc-sleep');
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove('sf-on'); all[i].setAttribute('aria-pressed', 'false'); }
+    btn.classList.add('sf-on'); btn.setAttribute('aria-pressed', 'true');
+    state.wakeMode = btn.getAttribute('data-wake');
+    customWakeRow.classList.toggle('sf-cc-hidden', state.wakeMode !== 'custom');
+    nudgeEl.innerHTML = '';
     updateHint();
     maybeRerender();
   });
@@ -630,7 +808,27 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     maybeRerender();
   });
 
-  customEndEl.addEventListener('input', function () { updateSleepLabels(); updateHint(); maybeRerender(); });
+  drinksEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sf-cc-drink');
+    if (!btn) return;
+    var id = btn.getAttribute('data-drink');
+    var n = ((state.drinks[id] || 0) + 1) % 4;
+    state.drinks[id] = n;
+    btn.classList.toggle('sf-on', n > 0);
+    btn.setAttribute('aria-pressed', n > 0 ? 'true' : 'false');
+    var ct = btn.querySelector('.sf-cc-drink-ct');
+    if (n > 0) {
+      if (!ct) { ct = document.createElement('span'); ct.className = 'sf-cc-drink-ct'; btn.appendChild(ct); }
+      ct.textContent = 'x' + n;
+    } else if (ct) {
+      btn.removeChild(ct);
+    }
+    updateTotalLine();
+    maybeRerender();
+  });
+
+  customEndEl.addEventListener('input', function () { updatePresetLabels(); updateHint(); maybeRerender(); });
+  customWakeEl.addEventListener('input', function () { updateHint(); maybeRerender(); });
   customSleepEl.addEventListener('input', function () { updateHint(); maybeRerender(); });
 
   sensEl.addEventListener('click', function () {
@@ -645,6 +843,95 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
   function maybeRerender() { if (state.rendered) render(false); }
 
+  /* ---- The plan engine ---- */
+  function buildPlan(wake, sleep, sensitive, instAll) {
+    function pos(t) { return mod1440(t - wake); }
+    var awake = pos(sleep); if (awake === 0) awake = 1440;
+    var windowH = sensitive ? 10 : 8;
+    var cutoff = mod1440(sleep - windowH * 60);
+    var cutoffPos = pos(cutoff);
+    if (cutoffPos > awake) cutoffPos = 0;
+    var noCaf = cutoffPos < 90;
+
+    /* Redose window: 4 to 5 hours after the first cup, never past last call */
+    var rs = 315, re = 375;
+    if (re > cutoffPos) { re = cutoffPos; rs = Math.max(255, re - 60); }
+    var hasRedose = !noCaf && (re - rs) >= 30;
+
+    var inst = instAll.slice();
+    var assumed = inst.length === 0;
+    if (assumed) {
+      inst = [{ id: 'c12', name: 'Coffee 12 oz', mg: 145, energy: false }];
+      if (hasRedose && !noCaf) inst.push({ id: 'c12', name: 'Coffee 12 oz', mg: 145, energy: false });
+    }
+    var total = 0;
+    for (var t = 0; t < inst.length; t++) total += inst[t].mg;
+
+    /* Slot assignment: biggest coffee-family drink opens the day, next biggest takes the redose */
+    var sorted = inst.slice().sort(function (a, b) { return b.mg - a.mg; });
+    function takePreferNonEnergy(arr) {
+      for (var i = 0; i < arr.length; i++) { if (!arr[i].energy) return arr.splice(i, 1)[0]; }
+      return arr.splice(0, 1)[0];
+    }
+    var first = sorted.length ? takePreferNonEnergy(sorted) : null;
+    var second = (hasRedose && sorted.length) ? takePreferNonEnergy(sorted) : null;
+    var extras = sorted;
+
+    /* Over-400 fix: prefer dropping an energy drink whose removal lands the day under the line */
+    var drops = [], kept = total, pool = inst.slice(), guard = 0;
+    if (!assumed && total > 400) {
+      while (kept > 400 && pool.length && guard < 12) {
+        guard++;
+        var pick = -1, pickMg = Infinity, p;
+        for (p = 0; p < pool.length; p++) {
+          if (pool[p].energy && kept - pool[p].mg <= 400 && pool[p].mg < pickMg) { pick = p; pickMg = pool[p].mg; }
+        }
+        if (pick === -1) {
+          for (p = 0; p < pool.length; p++) {
+            if (kept - pool[p].mg <= 400 && pool[p].mg < pickMg) { pick = p; pickMg = pool[p].mg; }
+          }
+        }
+        if (pick === -1) {
+          var mx = 0;
+          for (p = 1; p < pool.length; p++) { if (pool[p].mg > pool[mx].mg) mx = p; }
+          pick = mx;
+        }
+        drops.push(pool[pick]); kept -= pool[pick].mg; pool.splice(pick, 1);
+      }
+    }
+
+    /* What is still in her blood at bedtime (taken at the late edge of each window) */
+    var onFirst = first ? Math.round(remaining(first.mg, (awake - 90) / 60)) : 0;
+    var onSecond = second ? Math.round(remaining(second.mg, (awake - re) / 60)) : 0;
+
+    return {
+      wake: wake, sleep: sleep, awake: awake, windowH: windowH,
+      cutoff: cutoff, cutoffPos: cutoffPos, noCaf: noCaf,
+      firstStart: mod1440(wake + 60), firstEnd: mod1440(wake + 90),
+      hasRedose: hasRedose, rsPos: rs, rePos: re, rsAbs: mod1440(wake + rs), reAbs: mod1440(wake + re),
+      first: first, second: second, extras: extras,
+      total: total, assumed: assumed, over: (!assumed && total > 400), drops: drops, kept: kept,
+      planned: (first ? first.mg : 0) + (second ? second.mg : 0),
+      onFirst: onFirst, onSecond: onSecond
+    };
+  }
+
+  function dialSvg(cutoff) {
+    var ch = Math.floor(cutoff / 60), cm = cutoff % 60;
+    var hourDeg = ((ch % 12) * 30 + cm * 0.5);
+    var minDeg = cm * 6;
+    return '<svg viewBox="0 0 120 120" aria-hidden="true">' +
+      '<circle cx="60" cy="60" r="56" fill="rgba(200,160,78,0.08)" stroke="rgba(200,160,78,0.85)" stroke-width="2.5"/>' +
+      '<g stroke="rgba(250,246,243,0.4)" stroke-width="2" stroke-linecap="round">' +
+        '<line x1="60" y1="9" x2="60" y2="15"/><line x1="60" y1="9" x2="60" y2="15" transform="rotate(90 60 60)"/>' +
+        '<line x1="60" y1="9" x2="60" y2="15" transform="rotate(180 60 60)"/><line x1="60" y1="9" x2="60" y2="15" transform="rotate(270 60 60)"/>' +
+      '</g>' +
+      '<line x1="60" y1="60" x2="60" y2="34" stroke="#faf6f3" stroke-width="3.5" stroke-linecap="round" transform="rotate(' + minDeg + ' 60 60)"/>' +
+      '<line x1="60" y1="60" x2="60" y2="25" stroke="#c8a04e" stroke-width="2.5" stroke-linecap="round" transform="rotate(' + hourDeg + ' 60 60)"/>' +
+      '<circle cx="60" cy="60" r="3.5" fill="#c8a04e"/>' +
+    '</svg>';
+  }
+
   /* ---- The result ---- */
   function render(scroll) {
     if (!state.shift) {
@@ -656,8 +943,17 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       nudgeEl.innerHTML = '<div class="sf-cc-nudge">Type in when your shift ends and I will take it from there.</div>';
       return;
     }
+    var wake = getWake(shift);
+    if (wake === null) {
+      nudgeEl.innerHTML = '<div class="sf-cc-nudge">Type the time you wake up before this shift and I will place your first cup.</div>';
+      return;
+    }
+    if (mod1440(shift.start - wake) > 720) {
+      nudgeEl.innerHTML = '<div class="sf-cc-nudge">That wake time lands after clock-in. Set the time you wake up before this shift starts.</div>';
+      return;
+    }
     if (!state.sleepMode) {
-      nudgeEl.innerHTML = '<div class="sf-cc-nudge">Tap when you plan to be asleep (or set your own time). Your last call is one tap away.</div>';
+      nudgeEl.innerHTML = '<div class="sf-cc-nudge">Tap when you plan to be asleep (or set your own time). Your schedule is one tap away.</div>';
       return;
     }
     var sleep = getSleep(shift);
@@ -667,124 +963,203 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
     nudgeEl.innerHTML = '';
 
-    var windowH = state.sensitive ? 10 : 8;
-    var cutoff = mod1440(sleep - windowH * 60);
+    var plan = buildPlan(wake, sleep, state.sensitive, drinkInstances());
     var gap = mod1440(sleep - shift.end);
-    var cycle = shift.len + gap;
-    var cutoffFromStart = mod1440(cutoff - shift.start);
 
-    /* Verdict, three genuinely different branches */
+    /* Verdict */
     var verdict;
-    if (cutoffFromStart > cycle) {
-      verdict = 'To be asleep by ' + fmt(sleep) + ', your last call is ' + fmt(cutoff) + '. That is before you even clock in, so have your coffee before the shift and let the swaps below run the floor.';
-    } else if (cutoffFromStart <= shift.len) {
-      if (cutoffFromStart < 45) {
-        verdict = 'Your last call is ' + fmt(cutoff) + ', right around clock-in. Front-load your coffee early, then hand the rest of the shift to the swaps below.';
-      } else {
-        verdict = 'Your last call is ' + fmt(cutoff) + ', ' + hoursPhrase(cutoffFromStart) + ' into your shift. Every cup before that is yours, enjoy it. After that, the swaps below carry the back half.';
-      }
+    if (plan.noCaf) {
+      verdict = 'To be asleep by ' + fmt(sleep) + ', your last call is ' + fmt(plan.cutoff) + ', and that lands before your first-cup window even opens. Today is a protocol day: run the sequence below instead of caffeine and bank the sleep.';
+    } else if (plan.hasRedose) {
+      verdict = 'Your day has room for two rounds: ' + (plan.first ? 'the ' + plan.first.name + ' (' + plan.first.mg + ' mg)' : 'one cup') + ' at ' + fmtRange(plan.firstStart, plan.firstEnd) + ', ' + (plan.second ? 'the ' + plan.second.name + ' (' + plan.second.mg + ' mg)' : 'an optional second cup') + ' at ' + fmtRange(plan.rsAbs, plan.reAbs) + ', and nothing after ' + fmt(plan.cutoff) + '.';
     } else {
-      verdict = 'Your last call is ' + fmt(cutoff) + ', and it lands after you clock out. You have more room than most nurses expect. The one to skip is the refill at home before bed.';
+      verdict = 'Your window is short: one round at ' + fmtRange(plan.firstStart, plan.firstEnd) + ', then last call at ' + fmt(plan.cutoff) + ' closes it. Make that first one the big one.';
     }
     verdict += state.sensitive
-      ? ' You said caffeine hits you hard, so this is 10 hours before your sleep time instead of the standard 8.'
-      : ' That is your planned sleep time minus 8 hours, the window a cup needs to mostly clear.';
+      ? ' Everything here sits 10 hours before your sleep time instead of the standard 8, because caffeine hits you hard.'
+      : '';
     if (gap > 720) {
       verdict += ' One heads up: you set your sleep time more than 12 hours after clock-out. The math still holds, the long awake stretch is the hard part.';
     }
     if (shift.assumed) {
-      verdict += ' (For the picture below I assumed a 12-hour shift. Your last call only depends on your sleep time.)';
+      verdict += ' (I assumed a 12-hour shift for the picture below.)';
     }
 
-    /* Ticket clock hands */
-    var ch = Math.floor(cutoff / 60), cm = cutoff % 60;
-    var hourDeg = ((ch % 12) * 30 + cm * 0.5);
-    var minDeg = cm * 6;
+    /* Schedule card rows */
+    var srows = '';
+    srows += '<div class="sf-cc-srow"><div class="sf-cc-slabel">First cup</div><div class="sf-cc-sbody">' +
+      '<div class="sf-cc-stime">' + (plan.noCaf ? 'Skip it' : fmtRange(plan.firstStart, plan.firstEnd)) + '</div>' +
+      '<div class="sf-cc-smeta">' + (plan.noCaf
+        ? 'Your last call (' + fmt(plan.cutoff) + ') closes before this window opens. Run the protocol below instead.'
+        : (plan.first ? plan.first.name + ', ' + plan.first.mg + ' mg. Your biggest one goes here.' : 'Your biggest drink goes here.') + (plan.assumed ? ' (Assumed. Tap your drinks above to make this exact.)' : '')) + '</div>' +
+      '<div class="sf-cc-swhy">Caffeine on a just-woke brain gets wasted. Let the grog burn off for the first hour, then the same cup actually works.</div>' +
+    '</div></div>';
 
-    /* Timeline positions */
-    var winPct = cutoffFromStart > cycle ? 0 : Math.min(100, (cutoffFromStart / cycle) * 100);
-    var endPct = Math.min(100, (shift.len / cycle) * 100);
-    var flagPct = Math.max(10, Math.min(90, winPct));
+    var redoseTime, redoseMeta, redoseWhy;
+    if (plan.noCaf) {
+      redoseTime = 'Skip it'; redoseMeta = 'No caffeine today. Water, light, movement, protein.';
+      redoseWhy = 'On a schedule this tight, every mg you skip today comes back as sleep tonight.';
+    } else if (!plan.hasRedose) {
+      redoseTime = 'Skip it'; redoseMeta = 'Last call lands too close to your first cup for a second round to clear.';
+      redoseWhy = 'Two rounds need 4 to 5 hours between them to be worth it. Your window will not fit that today.';
+    } else if (plan.second) {
+      redoseTime = fmtRange(plan.rsAbs, plan.reAbs);
+      redoseMeta = plan.second.name + ', ' + plan.second.mg + ' mg. Running total: ' + (plan.first.mg + plan.second.mg) + ' of 400 mg.' + (plan.assumed ? ' (Assumed. Tap your drinks above to make this exact.)' : '');
+      redoseWhy = 'Your first cup is about half gone by now. One spaced cup carries the back half without riding into your sleep.';
+    } else {
+      redoseTime = fmtRange(plan.rsAbs, plan.reAbs);
+      redoseMeta = 'Optional. You have ' + Math.max(0, 400 - plan.first.mg) + ' mg of budget left if you want a second round. A 12 oz brew is 145 mg.';
+      redoseWhy = 'This is the only slot where a second cup helps the back half without taxing tonight.';
+    }
+    srows += '<div class="sf-cc-srow"><div class="sf-cc-slabel">Redose</div><div class="sf-cc-sbody">' +
+      '<div class="sf-cc-stime">' + redoseTime + '</div>' +
+      '<div class="sf-cc-smeta">' + redoseMeta + '</div>' +
+      '<div class="sf-cc-swhy">' + redoseWhy + '</div>' +
+    '</div></div>';
 
-    /* Decay sample cups */
-    var cups = [
-      { name: 'Clock-in cup', t: shift.start },
-      { name: 'Mid-shift cup', t: mod1440(shift.start + shift.len / 2) },
-      { name: 'The slump cup', t: mod1440(shift.start + shift.len * 0.75) },
-      { name: 'Drive-home cup', t: shift.end }
-    ];
-    var rowsHtml = '';
-    for (var i = 0; i < cups.length; i++) {
-      var h = mod1440(sleep - cups[i].t) / 60;
-      var pct = remainingPct(h);
-      var cls, note;
-      if (h >= windowH) { cls = 'sf-ok'; note = 'Mostly cleared by the time you land.'; }
-      else if (pct <= 55) { cls = 'sf-mid'; note = 'Still working on you at bedtime.'; }
-      else if (pct < 70) { cls = 'sf-hot'; note = 'More than half of it rides home with you.'; }
-      else { cls = 'sf-hot'; note = 'Basically a fresh cup at bedtime.'; }
-      rowsHtml += '' +
-        '<div class="sf-cc-row">' +
-          '<div class="sf-cc-row-head">' +
-            '<span class="sf-cc-cup">' + cups[i].name + ' <small>' + fmt(cups[i].t) + '</small></span>' +
-            '<span class="sf-cc-pct ' + cls + '">' + pct + '% at bedtime</span>' +
-          '</div>' +
-          '<div class="sf-cc-bar"><div class="sf-cc-fill ' + cls + '" data-w="' + pct + '"></div></div>' +
-          '<div class="sf-cc-row-note">' + note + '</div>' +
+    srows += '<div class="sf-cc-srow sf-big"><div class="sf-cc-slabel">Last call</div><div class="sf-cc-sbody">' +
+      '<div class="sf-cc-stime">' + fmt(plan.cutoff) + '</div>' +
+      '<div class="sf-cc-smeta">Not one sip of caffeine after this. Energy drinks count.</div>' +
+      '<div class="sf-cc-swhy">Half of every cup is still in your blood 5 to 6 hours later. Stopping here gives your sleep ' + plan.windowH + ' hours to clear it' + (state.sensitive ? ', tuned for caffeine that hits hard' : '') + '.</div>' +
+    '</div><div class="sf-cc-sdial">' + dialSvg(plan.cutoff) + '</div></div>';
+
+    var budgetPct = Math.min(100, Math.round(plan.total / 400 * 100));
+    srows += '<div class="sf-cc-srow"><div class="sf-cc-slabel">Mg budget</div><div class="sf-cc-sbody">' +
+      '<div class="sf-cc-stime">' + plan.total + ' <span style="font-size:16px; color: rgba(250,246,243,0.6);">of 400 mg</span></div>' +
+      '<div class="sf-cc-sbar"><div class="sf-cc-sbar-fill' + (plan.over ? ' sf-hot' : '') + '" data-w="' + budgetPct + '"></div></div>' +
+      '<div class="sf-cc-swhy">' + (plan.over
+        ? 'You are ' + (plan.total - 400) + ' mg over the FDA daily guidance. The fix is below' + (plan.noCaf ? '.' : ', and it does not touch your coffee window.')
+        : 'FDA daily guidance is under 400 mg. You have ' + (400 - plan.total) + ' mg of headroom' + (plan.noCaf ? '.' : ', and the timing above keeps it out of your sleep.')) + '</div>' +
+    '</div></div>';
+
+    var schedHtml = '<div class="sf-cc-sched sf-cc-pop">' +
+      '<div class="sf-cc-sched-head"><span class="sf-cc-sched-title">Your caffeine schedule</span><span class="sf-cc-sched-tag">' + shift.name.charAt(0).toUpperCase() + shift.name.slice(1) + '</span></div>' +
+      srows +
+      '<div class="sf-cc-sfoot"><span>Wake <strong>' + fmt(wake) + '</strong> &nbsp;&bull;&nbsp; Asleep <strong>' + fmt(sleep) + '</strong></span><span>SmithFit, built by a nurse</span></div>' +
+    '</div>';
+
+    /* Over-budget fix card */
+    var overHtml = '';
+    if (plan.over && plan.drops.length) {
+      var dropNames = [];
+      var dropTotal = 0;
+      for (var d = 0; d < plan.drops.length; d++) { dropNames.push('the ' + plan.drops[d].name + ' (' + plan.drops[d].mg + ' mg)'); dropTotal += plan.drops[d].mg; }
+      overHtml = '<div class="sf-cc-over sf-cc-pop">' +
+        '<div class="sf-cc-over-title">The ' + (plan.total - 400) + ' mg problem, solved</div>' +
+        'You tapped <strong>' + plan.total + ' mg</strong>, which is ' + (plan.total - 400) + ' mg over the line. Drop ' + dropNames.join(' and ') + ' and you land at <strong>' + plan.kept + ' mg</strong> without touching your coffee. The schedule above already runs on the drinks worth keeping.' +
+      '</div>';
+    }
+
+    /* Timeline: wake to asleep */
+    var awake = plan.awake;
+    function pct(p) { return Math.max(0, Math.min(100, p / awake * 100)); }
+    var startPos = mod1440(shift.start - wake);
+    var endPos = mod1440(shift.end - wake);
+    var winLeft = plan.noCaf ? 0 : pct(60);
+    var winWidth = plan.noCaf ? 0 : Math.max(0, pct(plan.cutoffPos) - winLeft);
+    var flagPct = Math.max(10, Math.min(90, pct(plan.cutoffPos)));
+    var dots = '';
+    if (!plan.noCaf) {
+      dots += '<div class="sf-cc-tl-dot" style="left:' + pct(75) + '%" title="First cup"></div>';
+      if (plan.hasRedose) dots += '<div class="sf-cc-tl-dot" style="left:' + pct((plan.rsPos + plan.rePos) / 2) + '%" title="Redose"></div>';
+    }
+    var tlHtml = '<div class="sf-cc-tl sf-cc-pop">' +
+      '<div class="sf-cc-tl-title">Your whole day, wake to pillow</div>' +
+      '<div class="sf-cc-tl-track">' +
+        '<div class="sf-cc-tl-flag" style="left:' + flagPct + '%; -webkit-transform: translateX(-50%); transform: translateX(-50%);"><span>Last call ' + fmt(plan.cutoff) + '</span></div>' +
+        '<div class="sf-cc-tl-win" style="left:' + winLeft + '%" data-w="' + winWidth + '"></div>' +
+        '<div class="sf-cc-tl-endtick" style="left:' + pct(startPos) + '%"></div>' +
+        '<div class="sf-cc-tl-endtick" style="left:' + pct(endPos) + '%"></div>' +
+        dots +
+      '</div>' +
+      '<div class="sf-cc-tl-labels">' +
+        '<span>Wake ' + fmt(wake) + '</span>' +
+        '<span class="sf-cc-tl-mid">Shift ' + fmt(shift.start) + ' to ' + fmt(shift.end) + '</span>' +
+        '<span>Asleep ' + fmt(sleep) + '</span>' +
+      '</div>' +
+      '<div class="sf-cc-tl-key">' +
+        '<span><i class="sf-k-win"></i> Coffee window</span>' +
+        '<span><i class="sf-k-dot"></i> Your cups</span>' +
+        '<span><i class="sf-k-after"></i> After last call</span>' +
+      '</div>' +
+    '</div>';
+
+    /* Decay: what is left at bedtime, for HER scheduled cups */
+    var decayHtml = '';
+    if (!plan.noCaf && plan.first) {
+      var rows = '';
+      var fH = (awake - 90) / 60;
+      var fPct = Math.round(Math.pow(0.5, fH / HALF_LIFE_H) * 100);
+      var fCls = plan.onFirst < 30 ? 'sf-ok' : (plan.onFirst < 60 ? 'sf-mid' : 'sf-hot');
+      rows += '<div class="sf-cc-row">' +
+        '<div class="sf-cc-row-head"><span class="sf-cc-cup">First cup, ' + plan.first.name + ' <small>at ' + fmt(plan.firstEnd) + '</small></span>' +
+        '<span class="sf-cc-pct ' + fCls + '">' + fPct + '%, about ' + plan.onFirst + ' mg</span></div>' +
+        '<div class="sf-cc-bar"><div class="sf-cc-fill ' + fCls + '" data-w="' + Math.min(100, fPct) + '"></div></div>' +
+        '<div class="sf-cc-row-note">' + mgCompare(plan.onFirst).charAt(0).toUpperCase() + mgCompare(plan.onFirst).slice(1) + ' still on board when your head hits the pillow.</div>' +
+      '</div>';
+      if (plan.second) {
+        var sH = (awake - plan.rePos) / 60;
+        var sPct = Math.round(Math.pow(0.5, sH / HALF_LIFE_H) * 100);
+        var sCls = plan.onSecond < 30 ? 'sf-ok' : (plan.onSecond < 60 ? 'sf-mid' : 'sf-hot');
+        rows += '<div class="sf-cc-row">' +
+          '<div class="sf-cc-row-head"><span class="sf-cc-cup">Redose, ' + plan.second.name + ' <small>at ' + fmt(plan.reAbs) + '</small></span>' +
+          '<span class="sf-cc-pct ' + sCls + '">' + sPct + '%, about ' + plan.onSecond + ' mg</span></div>' +
+          '<div class="sf-cc-bar"><div class="sf-cc-fill ' + sCls + '" data-w="' + Math.min(100, sPct) + '"></div></div>' +
+          '<div class="sf-cc-row-note">This is why the smaller drink takes the redose slot, not the big one.</div>' +
         '</div>';
+      }
+      if (plan.extras.length && !plan.over) {
+        var exNames = [];
+        for (var x = 0; x < plan.extras.length; x++) exNames.push(plan.extras[x].name + ' (' + plan.extras[x].mg + ' mg)');
+        rows += '<div class="sf-cc-row"><div class="sf-cc-row-note">Still in your day: ' + exNames.join(', ') + '. It fits the 400 mg budget, but land it before ' + fmt(plan.cutoff) + ' or it costs sleep.</div></div>';
+      }
+      decayHtml = '<div class="sf-cc-decay sf-cc-pop">' +
+        '<div class="sf-cc-decay-title">Still in your blood at ' + fmt(sleep) + '</div>' +
+        '<div class="sf-cc-decay-sub">Taken at the late edge of each window. Half of every cup clears every 5 to 6 hours.</div>' +
+        rows +
+      '</div>';
     }
 
     var halfLine = 'A coffee at ' + fmt(sleep - 300) + ' is still about half strength in your blood at ' + fmt(sleep) + ', right when you are trying to fall asleep. Half of every cup leaves your system every 5 to 6 hours. That is why the last cup matters more than the first.';
 
-    resultEl.innerHTML = '' +
-      '<div class="sf-cc-ticket sf-cc-pop">' +
-        '<div class="sf-cc-ticket-dial" aria-hidden="true">' +
-          '<svg viewBox="0 0 120 120">' +
-            '<circle cx="60" cy="60" r="56" fill="rgba(200,160,78,0.08)" stroke="rgba(200,160,78,0.85)" stroke-width="2.5"/>' +
-            '<g stroke="rgba(250,246,243,0.4)" stroke-width="2" stroke-linecap="round">' +
-              '<line x1="60" y1="9" x2="60" y2="15"/><line x1="60" y1="9" x2="60" y2="15" transform="rotate(90 60 60)"/>' +
-              '<line x1="60" y1="9" x2="60" y2="15" transform="rotate(180 60 60)"/><line x1="60" y1="9" x2="60" y2="15" transform="rotate(270 60 60)"/>' +
-            '</g>' +
-            '<line x1="60" y1="60" x2="60" y2="34" stroke="#faf6f3" stroke-width="3.5" stroke-linecap="round" transform="rotate(' + minDeg + ' 60 60)"/>' +
-            '<line x1="60" y1="60" x2="60" y2="25" stroke="#c8a04e" stroke-width="2.5" stroke-linecap="round" transform="rotate(' + hourDeg + ' 60 60)"/>' +
-            '<circle cx="60" cy="60" r="3.5" fill="#c8a04e"/>' +
-          '</svg>' +
-        '</div>' +
-        '<div class="sf-cc-ticket-body">' +
-          '<div class="sf-cc-ticket-label">Your caffeine last call</div>' +
-          '<div class="sf-cc-ticket-time">' + fmt(cutoff) + '</div>' +
-          '<div class="sf-cc-ticket-sub">To be asleep by ' + fmt(sleep) + (state.sensitive ? ', tuned for caffeine that hits hard' : '') + '</div>' +
-        '</div>' +
-      '</div>' +
+    /* The 4am-instead protocol */
+    var protoHtml = '<div class="sf-cc-proto sf-cc-pop">' +
+      '<div class="sf-cc-proto-title">After last call: the 4am-instead protocol</div>' +
+      '<div class="sf-cc-proto-sub">The wall you used to answer with coffee. Run this in this order. It works the same on a 2:00 pm day-shift slump.</div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">1</span><div class="sf-cc-pstep-body"><strong>Bright light, wherever you can get it.</strong> Med room, supply room, 5 minutes.' +
+        '<div class="sf-cc-pstep-why">Light is the strongest wake signal your body has, and it has zero half-life. Nothing to clear at bedtime.</div></div></div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">2</span><div class="sf-cc-pstep-body"><strong>10 minutes of movement.</strong> A stair lap or a brisk loop of the unit.' +
+        '<div class="sf-cc-pstep-why">Movement buys you about an hour of alertness and wears off on purpose, which is exactly what you want at 4:00 am.</div></div></div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">3</span><div class="sf-cc-pstep-body"><strong>16 oz of cold water.</strong> Before you judge how tired you are.' +
+        '<div class="sf-cc-pstep-why">Mild dehydration reads as exhaustion. A lot of 4:00 am fog is thirst wearing a fatigue costume.</div></div></div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">4</span><div class="sf-cc-pstep-body"><strong>A 15 to 20 g protein snack.</strong> One Greek yogurt cup (5.3 oz, 15 g) or 2 hard-boiled eggs plus a string cheese (about 19 g).' +
+        '<div class="sf-cc-pstep-why">Steady fuel, no spike and crash, and it holds you to the drive home. Light and movement are the fast levers, water and protein keep the lift from sliding back.</div></div></div>' +
+    '</div>';
+
+    /* Emergency contingency */
+    var emgStep2 = plan.hasRedose
+      ? '<strong>One more in your redose window, ' + fmtRange(plan.rsAbs, plan.reAbs) + '.</strong>' +
+        '<div class="sf-cc-pstep-why">Spacing beats stacking. Two spaced cups hold you steadier than three panicked ones, and tomorrow still gets its sleep.</div>'
+      : '<strong>Skip the second round today. Your window is too short.</strong>' +
+        '<div class="sf-cc-pstep-why">A second cup this close to last call rides straight into the sleep you are trying to rescue. Run the protocol above at the wall instead.</div>';
+    var emgHtml = '<div class="sf-cc-proto sf-emg sf-cc-pop">' +
+      '<div class="sf-cc-proto-title">Slept 4 hours and working ' + (state.shift === 'night' ? 'tonight' : 'today') + '?</div>' +
+      '<div class="sf-cc-proto-sub">The emergency rule. Strategic, not heroic.</div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">1</span><div class="sf-cc-pstep-body">' + (plan.noCaf
+        ? '<strong>Today runs caffeine-free. Your cutoff lands before a first cup would even clear the grog.</strong><div class="sf-cc-pstep-why">With this little room before your sleep window, a cup costs more sleep than it buys alertness. Run the protocol above instead: light, movement, cold water, protein.</div>'
+        : '<strong>One cup at ' + fmt(mod1440(wake + 60)) + ', not at the door.</strong><div class="sf-cc-pstep-why">Short sleep means heavier grog. The wake-plus-60 rule matters more today, not less.</div>') + '</div></div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">2</span><div class="sf-cc-pstep-body">' + emgStep2 + '</div></div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">3</span><div class="sf-cc-pstep-body"><strong>Nothing after ' + fmt(plan.cutoff) + '. No exceptions today.</strong>' +
+        '<div class="sf-cc-pstep-why">Sleep is the only thing that actually fixes a 4-hour night. Guard it hardest on the day you feel worst.</div></div></div>' +
+      '<div class="sf-cc-pstep"><span class="sf-cc-pstep-n">4</span><div class="sf-cc-pstep-body"><strong>No energy drinks stacked on coffee.</strong>' +
+        '<div class="sf-cc-pstep-why">A Celsius or a 5-Hour on top of coffee is 200 mg in one swallow. The crash lands mid-shift and the rest lands on your pillow.</div></div></div>' +
+    '</div>';
+
+    resultEl.innerHTML = schedHtml +
       '<div class="sf-cc-verdict sf-cc-pop">' + verdict + '</div>' +
-      '<div class="sf-cc-tl sf-cc-pop">' +
-        '<div class="sf-cc-tl-title">Your shift to sleep, on one line</div>' +
-        '<div class="sf-cc-tl-track">' +
-          '<div class="sf-cc-tl-flag" style="left:' + flagPct + '%; -webkit-transform: translateX(-50%); transform: translateX(-50%);"><span>Last call ' + fmt(cutoff) + '</span></div>' +
-          '<div class="sf-cc-tl-win" data-w="' + winPct + '"></div>' +
-          '<div class="sf-cc-tl-endtick" style="left:' + endPct + '%"></div>' +
-        '</div>' +
-        '<div class="sf-cc-tl-labels">' +
-          '<span>Clock in ' + fmt(shift.start) + '</span>' +
-          '<span class="sf-cc-tl-mid">Clock out ' + fmt(shift.end) + '</span>' +
-          '<span>Asleep ' + fmt(sleep) + '</span>' +
-        '</div>' +
-        '<div class="sf-cc-tl-key">' +
-          '<span><i class="sf-k-win"></i> Coffee window</span>' +
-          '<span><i class="sf-k-after"></i> After last call</span>' +
-        '</div>' +
-      '</div>' +
-      '<div class="sf-cc-decay sf-cc-pop">' +
-        '<div class="sf-cc-decay-title">Where each cup lands at ' + fmt(sleep) + '</div>' +
-        '<div class="sf-cc-decay-sub">Percent of the caffeine still in your blood when your head hits the pillow.</div>' +
-        rowsHtml +
-      '</div>' +
+      overHtml + tlHtml + decayHtml +
       '<div class="sf-cc-halflife sf-cc-pop">' + halfLine + '</div>' +
-      '<div class="sf-cc-swaps sf-cc-pop">' +
-        '<div class="sf-cc-swaps-title">After last call, reach for</div>' +
-        '<div class="sf-cc-swap"><span class="sf-cc-swap-emoji" aria-hidden="true">💧</span><div><strong>Water plus electrolytes.</strong> Half the 3 am drag is dehydration wearing a caffeine costume.</div></div>' +
-        '<div class="sf-cc-swap"><span class="sf-cc-swap-emoji" aria-hidden="true">🚶</span><div><strong>A 10-minute walk or a stair lap.</strong> Movement wakes you up without the 5-hour tail.</div></div>' +
-        '<div class="sf-cc-swap"><span class="sf-cc-swap-emoji" aria-hidden="true">🥜</span><div><strong>A protein snack.</strong> Steady fuel beats another spike, and it holds until the drive home.</div></div>' +
-      '</div>';
+      protoHtml + emgHtml;
 
     resultEl.classList.remove('sf-cc-hidden');
 
@@ -797,10 +1172,15 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     });
 
     /* Remember the result for the payload + the full version */
-    state.lastCutoffLabel = fmt(cutoff);
+    state.lastCutoffLabel = fmt(plan.cutoff);
     state.lastSleepLabel = fmt(sleep);
     try {
-      window.localStorage.setItem('sf_cc_result', JSON.stringify({ shift: state.shift, cutoff: fmt(cutoff), sleep: fmt(sleep), sensitive: state.sensitive }));
+      window.localStorage.setItem('sf_cc_result', JSON.stringify({
+        shift: state.shift, cutoff: fmt(plan.cutoff), sleep: fmt(sleep), sensitive: state.sensitive,
+        firstCup: plan.noCaf ? '' : fmtRange(plan.firstStart, plan.firstEnd),
+        redose: plan.hasRedose ? fmtRange(plan.rsAbs, plan.reAbs) : '',
+        mg: plan.total
+      }));
     } catch (e) {}
 
     var firstTime = !state.rendered;
@@ -817,9 +1197,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   function goToResource(first) {
     try {
       if (first) window.localStorage.setItem('sf_cc_first', first);
-      window.localStorage.setItem('sf_cc_unlocked', '1');
+      window.localStorage.setItem('sf_cc_full', '1');
     } catch (e) {}
-    window.location.href = SF_CONFIG.resourceUrl + '?unlocked=1';
+    window.location.href = SF_CONFIG.resourceUrl + '?full=1';
   }
 
   formEl.addEventListener('submit', function (e) {
@@ -881,7 +1261,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       if (done) return; done = true; clearTimeout(timer);
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send me the full version';
-      formMsg.innerHTML = '<div class="sf-cc-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the full calculator now</a> and I will catch your email next time.</div>';
+      formMsg.innerHTML = '<div class="sf-cc-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?full=1">open the full calculator now</a> and I will catch your email next time.</div>';
     });
   });
 
@@ -901,16 +1281,22 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
   /* ---- Init ---- */
   try { if (window.localStorage.getItem('sf_cc_sensitive') === '1') { state.sensitive = true; sensEl.classList.add('sf-on'); sensEl.setAttribute('aria-pressed', 'true'); } } catch (e) {}
-  updateSleepLabels();
+  updatePresetLabels();
+  updateTotalLine();
   updateHint();
 
-  /* QA preview: ?demo=1 pre-fills night shift + crash-fast and renders the result */
+  /* QA preview: ?demo=1 pre-fills night shift + crash-fast + a real drink day and renders */
   try {
     if (window.location.search.indexOf('demo=1') !== -1) {
       var nightBtn = shiftsEl.querySelector('[data-shift="night"]');
       var g90Btn = sleepsEl.querySelector('[data-sleep="g90"]');
       if (nightBtn) nightBtn.click();
       if (g90Btn) g90Btn.click();
+      var demoDrinks = ['c16', 'c12', 'cel'];
+      for (var dd = 0; dd < demoDrinks.length; dd++) {
+        var chip = drinksEl.querySelector('[data-drink="' + demoDrinks[dd] + '"]');
+        if (chip) chip.click();
+      }
       render(false);
     }
   } catch (e) {}

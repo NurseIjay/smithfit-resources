@@ -109,17 +109,71 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-rwt-week-verdict.sf-down { color: #2f6b41; font-weight: 600; }
 .sf-rwt-week-verdict.sf-up { color: #a8702a; }
 .sf-rwt-week-verdict.sf-muted { color: var(--sf-taupe-light); }
+.sf-rwt-week-verdict.sf-ctx { color: var(--sf-gold-deep); }
 .sf-rwt-typo-note { font-size: 13px; color: #a8702a; margin-top: 8px; }
+.sf-rwt-flags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.sf-rwt-flag {
+  background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border); border-radius: 999px; padding: 6px 13px;
+  font-family: var(--sf-sans); font-size: 13px; font-weight: 500; color: var(--sf-taupe-raw); cursor: pointer;
+  -webkit-transition: all .18s ease; transition: all .18s ease;
+}
+.sf-rwt-flag:hover { border-color: var(--sf-gold-soft); background: var(--sf-gold-hover); }
+.sf-rwt-flag:focus-visible { outline: 3px solid rgba(200,160,78,0.18); outline-offset: 2px; }
+.sf-rwt-flag.sf-on { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); color: var(--sf-dark-raw); font-weight: 700; }
+.sf-rwt-samplenote {
+  background: var(--sf-gold-hover); border: 1.5px dashed var(--sf-gold-raw); border-radius: 12px;
+  padding: 12px 16px; font-size: 14px; color: var(--sf-taupe-raw); margin-bottom: 16px;
+}
+.sf-rwt-samplenote strong { color: var(--sf-dark-raw); }
 
-/* ===== Month chart ===== */
-.sf-rwt-chartwrap { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 18px 12px 8px; }
+/* ===== Month card (chart + verdict + next action; the screenshot) ===== */
+.sf-rwt-monthcard {
+  background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-top: 4px solid var(--sf-gold-raw);
+  border-radius: 18px; padding: 16px 16px 14px; box-shadow: 0 4px 24px rgba(42,33,24,0.07);
+}
+.sf-rwt-chartwrap { background: var(--sf-cream-raw); border: 1px solid var(--sf-border); border-radius: 16px; padding: 18px 12px 8px; }
 .sf-rwt-chartwrap svg { display: block; width: 100%; height: auto; }
 .sf-rwt-empty { text-align: center; color: var(--sf-taupe-light); font-family: var(--sf-display); font-style: italic; font-size: 15.5px; padding: 42px 20px; }
-.sf-rwt-monthverdict {
-  background: var(--sf-gold-hover); border-left: 4px solid var(--sf-gold-raw); border-radius: 0 12px 12px 0;
-  padding: 16px 20px; margin-top: 14px; font-size: 15px; color: var(--sf-taupe-raw);
+.sf-rwt-monthverdict { margin-top: 14px; }
+.sf-rwt-verdictbox { background: var(--sf-cream-mid); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 18px 14px; }
+.sf-rwt-verdictbox h3 { font-size: clamp(20px, 3.4vw, 26px); font-weight: 700; margin-bottom: 10px; }
+.sf-rwt-verdictbox h3 strong { color: var(--sf-gold-deep); font-weight: 800; }
+.sf-rwt-verdictbox p { font-size: 14.5px; margin-bottom: 9px; }
+.sf-rwt-verdictbox p strong { color: var(--sf-dark-raw); }
+.sf-rwt-verdictbox p:last-child { margin-bottom: 0; }
+.sf-rwt-pattern {
+  display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.45);
+  color: var(--sf-gold-deep); border-radius: 999px; padding: 5px 14px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px;
 }
-.sf-rwt-monthverdict strong { color: var(--sf-dark-raw); }
+.sf-rwt-action { background: var(--sf-cream-mid); border: 1px solid var(--sf-border); border-radius: 14px; padding: 18px 18px 14px; margin-top: 14px; }
+.sf-rwt-action-title { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-gold-deep); margin-bottom: 3px; }
+.sf-rwt-action-note { font-size: 12.5px; color: var(--sf-taupe-light); margin-bottom: 10px; }
+.sf-rwt-action ol { list-style: none; counter-reset: sfrwta; }
+.sf-rwt-action li { counter-increment: sfrwta; position: relative; padding: 9px 0 9px 40px; border-bottom: 1px dashed var(--sf-cream-deep); font-size: 14.5px; }
+.sf-rwt-action li:last-child { border-bottom: none; padding-bottom: 2px; }
+.sf-rwt-action li::before {
+  content: counter(sfrwta); position: absolute; left: 0; top: 10px;
+  width: 26px; height: 26px; border-radius: 50%; background: var(--sf-gold-raw); color: var(--sf-dark-raw);
+  font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center;
+}
+.sf-rwt-action li strong { color: var(--sf-dark-raw); }
+.sf-rwt-whyline { display: block; font-size: 13px; color: var(--sf-taupe-light); margin-top: 3px; }
+.sf-rwt-planb { background: var(--sf-red-soft); border-left: 4px solid var(--sf-orange-raw); border-radius: 0 12px 12px 0; padding: 14px 18px; margin-top: 14px; }
+.sf-rwt-planb-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #a8702a; margin-bottom: 8px; }
+.sf-rwt-planb p { font-size: 13.5px; margin-bottom: 8px; }
+.sf-rwt-planb p:last-child { margin-bottom: 0; }
+.sf-rwt-planb strong { color: var(--sf-dark-raw); }
+.sf-rwt-expect { border: 1px solid var(--sf-border); border-radius: 14px; margin-top: 14px; overflow: hidden; }
+.sf-rwt-expect-title { background: var(--sf-cream-mid); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sf-taupe-light); padding: 11px 16px; }
+.sf-rwt-expect-title strong { color: var(--sf-gold-deep); }
+.sf-rwt-expect-row { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4px 12px; padding: 11px 16px; border-top: 1px dashed var(--sf-cream-deep); }
+.sf-rwt-expect-row:first-of-type { border-top: none; }
+.sf-rwt-expect-k { font-size: 13.5px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-rwt-expect-v { font-size: 13.5px; font-weight: 700; color: var(--sf-gold-deep); text-align: right; }
+.sf-rwt-expect-s { grid-column: 1 / -1; font-size: 12.5px; color: var(--sf-taupe-light); line-height: 1.5; }
+.sf-rwt-brandline { text-align: center; font-size: 12px; letter-spacing: 0.06em; color: var(--sf-taupe-light); border-top: 1px dashed var(--sf-cream-deep); margin-top: 16px; padding-top: 12px; }
+.sf-rwt-brandline strong { font-family: var(--sf-serif); font-size: 14px; color: var(--sf-taupe-raw); letter-spacing: 0.02em; }
 
 /* ===== Rules ===== */
 .sf-rwt-rules { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 26px 24px; }
@@ -195,6 +249,10 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-rwt-proof { grid-template-columns: repeat(2, 1fr); }
   .sf-rwt-week { padding: 18px 14px; }
   .sf-rwt-actions .sf-rwt-ghost { min-width: 100%; }
+  .sf-rwt-monthcard { padding: 12px 10px 12px; }
+  .sf-rwt-action { padding: 14px 12px 10px; }
+  .sf-rwt-expect-row { grid-template-columns: 1fr; }
+  .sf-rwt-expect-v { text-align: left; }
 }
 
 /* ===== Reduced motion ===== */
@@ -208,7 +266,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
 /* ===== Print (the log she can pin up) ===== */
 @media print {
-  .sf-rwt-hero, .sf-rwt-actions, .sf-rwt-cta, .sf-rwt-proof, .sf-rwt-monthchart-section { display: none !important; }
+  .sf-rwt-hero, .sf-rwt-actions, .sf-rwt-cta, .sf-rwt-proof, .sf-rwt-monthchart-section, .sf-rwt-flags, .sf-rwt-samplenote { display: none !important; }
   .sf-rwt { background: #fff; }
   .sf-rwt-printhead { display: block; text-align: center; font-family: var(--sf-serif); font-size: 22px; font-weight: 700; color: #2a2118; margin-bottom: 4px; }
   .sf-rwt-printhead small { display: block; font-family: var(--sf-sans); font-size: 11px; font-weight: 400; color: #4a3f35; margin-top: 2px; }
@@ -251,20 +309,24 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     <section class="sf-rwt-section">
       <div class="sf-rwt-eyebrow">Your month</div>
       <h2 class="sf-rwt-h2">Type it, and the math does itself</h2>
-      <p class="sf-rwt-leadline">Every entry saves to this device automatically. Three mornings in a week and your average appears. Two weeks in and the verdicts start.</p>
+      <p class="sf-rwt-leadline">Every entry saves to this device automatically. Three mornings in a week and your average appears. Flag a period week or a shift flip and the verdict reads that week the right way.</p>
+      <div class="sf-rwt-samplenote sf-rwt-hidden" id="sfRwtSampleNote"><strong>This is a worked example month</strong> so you can see how the verdicts read: a flip spike in Week 1, a 13-day flat stretch, then a whoosh. Type any morning and it becomes yours.</div>
       <div id="sfRwtWeeks"></div>
       <div class="sf-rwt-typo-note sf-rwt-hidden" id="sfRwtTypoNote">One or two entries look like typos (outlined in orange). I left them out of the math.</div>
     </section>
 
-    <!-- MONTH CHART -->
+    <!-- MONTH CARD -->
     <section class="sf-rwt-section sf-rwt-monthchart-section">
       <div class="sf-rwt-eyebrow">The payoff</div>
-      <h2 class="sf-rwt-h2">Your month at a glance</h2>
-      <p class="sf-rwt-leadline">Faint dots are your daily weigh-ins. The gold line is the only number with a vote.</p>
-      <div class="sf-rwt-chartwrap" id="sfRwtChart">
-        <div class="sf-rwt-empty">Your month chart draws itself as you add mornings.</div>
+      <h2 class="sf-rwt-h2">Your month, read like a chart</h2>
+      <p class="sf-rwt-leadline">Faint dots are your daily weigh-ins. The gold line is the only number with a vote. The card below is built to screenshot: your chart, your verdict, your one next move.</p>
+      <div class="sf-rwt-monthcard sf-rwt-reveal" id="sfRwtMonthCard">
+        <div class="sf-rwt-chartwrap" id="sfRwtChart">
+          <div class="sf-rwt-empty">Your month chart draws itself as you add mornings.</div>
+        </div>
+        <div class="sf-rwt-monthverdict" id="sfRwtMonthVerdict" aria-live="polite"></div>
+        <div class="sf-rwt-brandline"><strong>SmithFit</strong> · The Real Weigh-In · weigh daily, read weekly, judge never</div>
       </div>
-      <div class="sf-rwt-monthverdict sf-rwt-hidden" id="sfRwtMonthVerdict" aria-live="polite"></div>
     </section>
 
     <!-- RULES -->
@@ -277,7 +339,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           <li><strong>Never adjust off one week.</strong> One week is a single data point. It does not get a vote on your plan.</li>
           <li><strong>Trending down at all? Change nothing.</strong> Even 0.3 lbs a week is the right direction. Slow down is still down.</li>
           <li><strong>Flat means two straight weeks.</strong> Weekly averages within about half a pound of each other, twice in a row. That is the earliest moment an adjustment is earned.</li>
-          <li><strong>Change one thing, then wait two weeks.</strong> A little more protein, a shorter grazing window after shift, one more walk. One change, two weeks of data, then judge it.</li>
+          <li><strong>Change one thing, then wait two weeks.</strong> Add a 10-minute walk to every day, or subtract one daily extra (the drive-thru coffee, the station candy, the after-shift handful). One change, two weeks of data, then judge it.</li>
           <li><strong>Chaos weeks get an asterisk, not an adjustment.</strong> Sick kid, travel, period week, a stretch of nights. Read around them, the way you read around a vital taken mid-transfer.</li>
         </ol>
       </div>
@@ -355,24 +417,57 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
   }
 
-  /* ---- Storage ---- */
+  /* ---- Formatting + math helpers ---- */
+  function f1(x) { return (Math.round(x * 10) / 10).toFixed(1); }
+  function kcalStr(lbs) {
+    var k = Math.round(Math.abs(lbs) * 3500 / 100) * 100;
+    return String(k).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function fmtDate(offset) {
+    var dt = new Date(); dt.setDate(dt.getDate() + offset);
+    var wd = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var mo = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return wd[dt.getDay()] + ', ' + mo[dt.getMonth()] + ' ' + dt.getDate();
+  }
+  /* Healthy fat-loss lane: 0.5 to 1 percent of bodyweight per week */
+  function laneOf(mean) { return { lo: mean * 0.005, hi: mean * 0.01 }; }
+
+  /* ---- Storage (v2: 28 mornings + per-week context flags) ---- */
   var STORE_KEY = 'sf_rw_tracker';
   var WEEKS = 4, DAYS = 7, SLOTS = WEEKS * DAYS;
-  var data = [];
-  for (var z = 0; z < SLOTS; z++) { data.push(''); }
+  var data = { d: [], flags: [] };
+  function blankData() {
+    data.d = [];
+    data.flags = [];
+    for (var z = 0; z < SLOTS; z++) { data.d.push(''); }
+    for (var w = 0; w < WEEKS; w++) { data.flags.push({ f: false, p: false }); }
+  }
+  blankData();
 
   function load() {
     try {
+      blankData();
       var raw = window.localStorage.getItem(STORE_KEY);
       if (!raw) return;
       var arr = JSON.parse(raw);
-      if (arr && arr.length) {
-        for (var i = 0; i < SLOTS && i < arr.length; i++) { data[i] = String(arr[i] || ''); }
+      if (arr && Object.prototype.toString.call(arr) === '[object Array]') {
+        /* v1 format: a plain array of day strings. Migrate silently. */
+        for (var i = 0; i < SLOTS && i < arr.length; i++) { data.d[i] = String(arr[i] || ''); }
+        return;
+      }
+      if (arr && arr.d && arr.d.length) {
+        for (var j = 0; j < SLOTS && j < arr.d.length; j++) { data.d[j] = String(arr.d[j] || ''); }
+        if (arr.flags && arr.flags.length) {
+          for (var w = 0; w < WEEKS && w < arr.flags.length; w++) {
+            data.flags[w].f = !!arr.flags[w].f;
+            data.flags[w].p = !!arr.flags[w].p;
+          }
+        }
       }
     } catch (e) {}
   }
   function save() {
-    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch (e) {}
+    try { window.localStorage.setItem(STORE_KEY, JSON.stringify({ v: 2, d: data.d, flags: data.flags })); } catch (e) {}
   }
 
   /* ---- Build the tracker DOM ---- */
@@ -380,6 +475,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   var typoNote = document.getElementById('sfRwtTypoNote');
   var chartEl = document.getElementById('sfRwtChart');
   var monthVerdictEl = document.getElementById('sfRwtMonthVerdict');
+  var sampleNoteEl = document.getElementById('sfRwtSampleNote');
 
   function buildTracker() {
     var html = '';
@@ -389,16 +485,43 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       html += '<div class="sf-rwt-days">';
       for (var d = 0; d < DAYS; d++) {
         var idx = w * DAYS + d;
-        var val = data[idx] ? ' value="' + String(data[idx]).replace(/"/g, '') + '"' : '';
-        html += '<div class="sf-rwt-day"><label for="sfRwtI' + idx + '">Day ' + (d + 1) + '</label>' +
+        var val = data.d[idx] ? ' value="' + String(data.d[idx]).replace(/"/g, '') + '"' : '';
+        html += '<div class="sf-rwt-day"><label for="sfRwtI' + idx + '">Day ' + (idx + 1) + '</label>' +
           '<input type="number" id="sfRwtI' + idx + '" data-idx="' + idx + '" inputmode="decimal" step="0.1"' + val +
-          ' aria-label="Week ' + (w + 1) + ' Day ' + (d + 1) + ' weight in pounds"></div>';
+          ' aria-label="Week ' + (w + 1) + ', Day ' + (idx + 1) + ' weight in pounds"></div>';
       }
       html += '</div>';
+      html += '<div class="sf-rwt-flags" role="group" aria-label="Week ' + (w + 1) + ' context flags">' +
+        '<button type="button" class="sf-rwt-flag" data-w="' + w + '" data-flag="f" aria-pressed="false">🌙 Flipped shifts</button>' +
+        '<button type="button" class="sf-rwt-flag" data-w="' + w + '" data-flag="p" aria-pressed="false">🌸 Period week</button>' +
+        '</div>';
       html += '<div class="sf-rwt-week-verdict sf-muted" id="sfRwtV' + w + '"></div>';
       html += '</div>';
     }
     weeksEl.innerHTML = html;
+    var flagBtns = weeksEl.querySelectorAll('.sf-rwt-flag');
+    for (var b = 0; b < flagBtns.length; b++) { flagBtns[b].addEventListener('click', onFlagClick); }
+  }
+
+  function onFlagClick() {
+    var w = parseInt(this.getAttribute('data-w'), 10);
+    var key = this.getAttribute('data-flag');
+    if (isNaN(w) || w < 0 || w >= WEEKS || (key !== 'f' && key !== 'p')) return;
+    if (sampleMode) { exitSampleMode(-1); }
+    data.flags[w][key] = !data.flags[w][key];
+    save();
+    computeAll();
+  }
+
+  function syncFlagUI() {
+    var flagBtns = weeksEl.querySelectorAll('.sf-rwt-flag');
+    for (var b = 0; b < flagBtns.length; b++) {
+      var w = parseInt(flagBtns[b].getAttribute('data-w'), 10);
+      var key = flagBtns[b].getAttribute('data-flag');
+      var on = !!(data.flags[w] && data.flags[w][key]);
+      flagBtns[b].classList.toggle('sf-on', on);
+      flagBtns[b].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
   }
 
   /* ---- Math ---- */
@@ -410,7 +533,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       for (var d = 0; d < DAYS; d++) {
         var idx = w * DAYS + d;
         var input = document.getElementById('sfRwtI' + idx);
-        var raw = data[idx];
+        var raw = data.d[idx];
         if (input) input.classList.remove('sf-bad');
         if (raw === '' || raw == null) continue;
         var num = parseFloat(raw);
@@ -427,7 +550,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
         for (var i = 0; i < vals.length; i++) { s += vals[i].w; }
         avg = s / vals.length;
       }
-      out.push({ week: w, vals: vals, count: vals.length, avg: avg });
+      out.push({ week: w, vals: vals, count: vals.length, avg: avg, flip: data.flags[w].f, period: data.flags[w].p });
     }
     typoNote.classList.toggle('sf-rwt-hidden', !anyTypo);
     return out;
@@ -436,6 +559,24 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   function prevAvg(stats, w) {
     for (var k = w - 1; k >= 0; k--) { if (stats[k].avg !== null) return stats[k]; }
     return null;
+  }
+
+  function weekFlipJump(stats, w) {
+    /* A 1 to 3 lb upward day-to-day jump inside the flagged week,
+       including the step in from the last logged morning before it */
+    var series = [];
+    for (var k = 0; k < w; k++) {
+      var pv = stats[k].vals;
+      if (pv.length) { series = [pv[pv.length - 1]]; }
+    }
+    for (var i = 0; i < stats[w].vals.length; i++) { series.push(stats[w].vals[i]); }
+    var best = null;
+    for (var j = 1; j < series.length; j++) {
+      var jump = series[j].w - series[j - 1].w;
+      if (jump < 1 || jump > 3) continue;
+      if (!best || jump > best.jump) best = { jump: jump, toDay: series[j].dayAbs };
+    }
+    return best;
   }
 
   function weekVerdict(stats, w) {
@@ -452,7 +593,23 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
 
     pill.classList.add('sf-live');
-    pill.textContent = 'avg ' + st.avg.toFixed(1) + ' lbs';
+    pill.textContent = 'avg ' + f1(st.avg) + ' lbs';
+
+    if (st.period) {
+      el.className = 'sf-rwt-week-verdict sf-ctx';
+      el.textContent = 'Period week. Average ' + f1(st.avg) + ' lbs, and holding 2 to 5 lbs of water is standard issue. Compare this to your LAST cycle\'s period week, not to the week before. The water leaves 2 to 4 days after it ends.';
+      return;
+    }
+    if (st.flip) {
+      var fj = weekFlipJump(stats, w);
+      el.className = 'sf-rwt-week-verdict sf-ctx';
+      if (fj) {
+        el.textContent = 'Flip week. The +' + f1(fj.jump) + ' lbs into Day ' + fj.toDay + ' is water and glycogen printing the flip, not fat. Change nothing, reweigh after two normal sleeps. The average (' + f1(st.avg) + ' lbs) still counts.';
+      } else {
+        el.textContent = 'Flip week, and the chart barely printed it. Average ' + f1(st.avg) + ' lbs stands. Some weeks absorb the flip quietly.';
+      }
+      return;
+    }
 
     var prev = prevAvg(stats, w);
     if (!prev) {
@@ -462,15 +619,24 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
     var diff = st.avg - prev.avg;
     var pw = prev.week + 1;
-    if (diff <= -0.4) {
-      el.className = 'sf-rwt-week-verdict sf-down';
-      el.textContent = 'Down ' + Math.abs(diff).toFixed(1) + ' lbs from Week ' + pw + '. That is real movement, not water.';
-    } else if (diff >= 0.4) {
+    var L = laneOf(st.avg);
+    if (Math.abs(diff) < 0.5 && !prev.flip && !prev.period) {
       el.className = 'sf-rwt-week-verdict sf-up';
-      el.textContent = 'Up ' + diff.toFixed(1) + ' lbs from Week ' + pw + '. One week up is a watch, not a verdict. Hold steady and let next week vote.';
-    } else {
+      el.textContent = 'True plateau: Week ' + pw + ' (' + f1(prev.avg) + ') and this week (' + f1(st.avg) + ') sit ' + f1(Math.abs(diff)) + ' lbs apart with clean context. ONE change is earned: a 10-minute daily walk added, or one daily extra subtracted. Then two more weeks. Details on the month card below.';
+    } else if (Math.abs(diff) < 0.5) {
       el.className = 'sf-rwt-week-verdict';
-      el.textContent = 'Within half a pound of Week ' + pw + '. Flat. One flat week is information, two in a row is a signal (rules below).';
+      el.textContent = 'Within half a pound of Week ' + pw + ', but that week carried a flag, so this flat gets an asterisk, not a plateau call. The clock pauses. Your effort does not.';
+    } else if (diff < 0) {
+      el.className = 'sf-rwt-week-verdict sf-down';
+      var pace = Math.abs(diff);
+      var paceTxt;
+      if (pace > L.hi) paceTxt = ' Faster than your healthy lane of ' + f1(L.lo) + ' to ' + f1(L.hi) + ' lbs a week, so part of that speed is water. Let it settle. Do not chase it.';
+      else if (pace < L.lo) paceTxt = ' Under the lane and still down. Slow loss is the kind that stays gone.';
+      else paceTxt = ' Right inside your healthy lane of ' + f1(L.lo) + ' to ' + f1(L.hi) + ' lbs a week. This is the pace that holds.';
+      el.textContent = 'Down ' + f1(pace) + ' lbs from Week ' + pw + '.' + paceTxt + ' Change nothing.';
+    } else {
+      el.className = 'sf-rwt-week-verdict sf-up';
+      el.textContent = 'Up ' + f1(diff) + ' lbs from Week ' + pw + '. As fat, that would take about ' + kcalStr(diff) + ' extra calories. One week up is a watch, not a verdict. Scan for water: salt, new training, short sleep, an unflagged flip.';
     }
   }
 
@@ -539,39 +705,289 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     return avgs;
   }
 
-  /* ---- Month verdict ---- */
-  function monthVerdict(avgs) {
-    if (!avgs.length) {
-      monthVerdictEl.classList.add('sf-rwt-hidden');
-      return;
+  /* ---- Whoosh scan: 10+ flat days, then a sudden drop ---- */
+  function scanWhoosh(vals) {
+    var best = null;
+    for (var i = 0; i < vals.length; i++) {
+      var mn = Infinity, mx = -Infinity;
+      for (var j = i; j < vals.length; j++) {
+        if (vals[j].w < mn) mn = vals[j].w;
+        if (vals[j].w > mx) mx = vals[j].w;
+        if (mx - mn > 1.2) break;
+        var span = vals[j].dayAbs - vals[i].dayAbs + 1;
+        if (span >= 10 && (j - i + 1) >= 6) {
+          for (var k = j + 1; k < vals.length; k++) {
+            if (vals[k].dayAbs - vals[j].dayAbs > 2) break;
+            if (vals[k].w <= mn - 1.2) {
+              var cand = { startDay: vals[i].dayAbs, endDay: vals[j].dayAbs, span: span, band: mx - mn, drop: vals[j].w - vals[k].w, toDay: vals[k].dayAbs };
+              if (!best || cand.toDay > best.toDay || (cand.toDay === best.toDay && cand.span > best.span)) best = cand;
+            }
+          }
+        }
+      }
     }
-    monthVerdictEl.classList.remove('sf-rwt-hidden');
-    if (avgs.length === 1) {
-      monthVerdictEl.innerHTML = 'One weekly average logged: <strong>' + avgs[0].avg.toFixed(1) + ' lbs</strong>. One more week and the trend line starts talking.';
-      return;
-    }
-    var first = avgs[0], last = avgs[avgs.length - 1];
-    var overall = last.avg - first.avg;
-    var k = avgs.length;
-    var lastTwoFlat = Math.abs(last.avg - avgs[k - 2].avg) < 0.5;
+    return best;
+  }
 
-    if (overall <= -0.5) {
-      monthVerdictEl.innerHTML = 'Trend across your ' + k + ' logged weeks: <strong>down ' + Math.abs(overall).toFixed(1) + ' lbs</strong>. Whatever you are doing, it is working. Change nothing.';
-    } else if (overall >= 0.5) {
-      monthVerdictEl.innerHTML = 'Up <strong>' + overall.toFixed(1) + ' lbs</strong> across ' + k + ' weeks. Before you declare anything broken: one calm change (rule 4), then two more weeks of data.';
-    } else if (lastTwoFlat && k >= 2) {
-      monthVerdictEl.innerHTML = 'Your last two weekly averages sit within half a pound of each other. <strong>That is a true flat trend</strong>, and it is the first moment an adjustment is earned. The rules below are for exactly this.';
-    } else {
-      monthVerdictEl.innerHTML = 'Basically flat across ' + k + ' weeks (' + (overall >= 0 ? '+' : '') + overall.toFixed(1) + ' lbs). Read rule 3 before you change anything.';
+  /* ---- The expectation table, computed from HER weight ---- */
+  function expectHtml(mean) {
+    var L = laneOf(mean);
+    var rows = [
+      ['Healthy weekly lane', f1(L.lo) + ' to ' + f1(L.hi) + ' lbs per week', '0.5 to 1 percent of you per week. Faster than this is mostly water and some muscle, not extra fat.'],
+      ['Normal overnight noise', 'up to about ' + f1(mean * 0.02) + ' lbs', 'Water, sodium, glycogen, hormones. Roughly 2 percent of you, morning to morning. Zero votes.'],
+      ['A real month in the lane', f1(L.lo * 4) + ' to ' + f1(L.hi * 4) + ' lbs', 'Four weekly averages, each one earning the next.'],
+      ['Week 1 of any new plan', 'drops fastest, mostly water', 'Glycogen leaves first and takes its water with it. From Week 2 on, the lane above is the honest pace.']
+    ];
+    var h = '<div class="sf-rwt-expect"><div class="sf-rwt-expect-title">What the scale should do at <strong>your ' + f1(mean) + ' lbs</strong></div>';
+    for (var i = 0; i < rows.length; i++) {
+      h += '<div class="sf-rwt-expect-row"><span class="sf-rwt-expect-k">' + rows[i][0] + '</span><span class="sf-rwt-expect-v">' + rows[i][1] + '</span><span class="sf-rwt-expect-s">' + rows[i][2] + '</span></div>';
     }
+    return h + '</div>';
+  }
+
+  /* ---- The month verdict engine: pattern recognition on HER month ---- */
+  function monthModel(stats) {
+    var allVals = [], avgs = [];
+    for (var w = 0; w < WEEKS; w++) {
+      for (var i = 0; i < stats[w].vals.length; i++) { allVals.push(stats[w].vals[i]); }
+      if (stats[w].avg !== null) { avgs.push({ week: stats[w].week, avg: stats[w].avg, flip: stats[w].flip, period: stats[w].period }); }
+    }
+    if (!allVals.length) return null;
+
+    var sum = 0;
+    for (var a = 0; a < allVals.length; a++) { sum += allVals[a].w; }
+    var meanAll = sum / allVals.length;
+    var L = laneOf(meanAll);
+    var laneTxt = f1(L.lo) + ' to ' + f1(L.hi) + ' lbs a week';
+    var lastDayAbs = allVals[allVals.length - 1].dayAbs;
+    var wh = scanWhoosh(allVals);
+
+    var latest = null;
+    for (var lw = WEEKS - 1; lw >= 0; lw--) { if (stats[lw].count > 0) { latest = stats[lw]; break; } }
+
+    var k = avgs.length;
+    var overall = 0, perWeek = 0;
+    if (k >= 2) {
+      overall = avgs[k - 1].avg - avgs[0].avg;
+      var weeksSpan = avgs[k - 1].week - avgs[0].week;
+      perWeek = weeksSpan > 0 ? overall / weeksSpan : overall;
+    }
+    var trendTxt = k >= 2 ? ((overall <= -0.05 ? 'down ' + f1(Math.abs(overall)) : (overall >= 0.05 ? 'up ' + f1(overall) : 'flat, ' + f1(overall))) + ' lbs') : '';
+
+    var m = { pattern: '', pill: '', headline: '', reads: [], steps: [], planb: [], mean: meanAll, lastDayAbs: lastDayAbs };
+
+    /* 1. PERIOD WEEK (current week flagged): compare cycle to cycle */
+    if (latest && latest.period) {
+      m.pattern = 'period-week';
+      m.pill = '🌸 Period week';
+      m.headline = 'Week ' + (latest.week + 1) + ' is a period week. It compares to your LAST cycle\'s period week, not to the week before it.';
+      m.reads.push('Holding 2 to 5 lbs of water this week is standard issue, not a stall. It arrives on a schedule and leaves on a schedule, usually 2 to 4 days after your period ends.');
+      if (latest.avg !== null) m.reads.push('This week\'s average so far: ' + f1(latest.avg) + ' lbs. That number is real and worth keeping. Only the comparison changes.');
+      if (k >= 2) m.reads.push('Zoomed out, your logged month still reads ' + trendTxt + ' across ' + k + ' weekly averages (' + f1(avgs[0].avg) + ' to ' + f1(avgs[k - 1].avg) + '). The cycle wobble rides on top of that line. It does not erase it.');
+      m.steps = [
+        { d: 'Keep this week\'s flag on and let the average log itself.', y: 'Flagged weeks read as context. Your plateau clock pauses through them instead of restarting.' },
+        { d: 'Next cycle, flag that week too, then compare the two flagged weeks.', y: 'Period week against period week is the same-conditions comparison, the way you chart the same vital under the same circumstances.' },
+        { d: 'Read the next clean weekly average on ' + fmtDate(7) + '.', y: 'By then the water has usually cleared and the trend line is speaking plainly again.' }
+      ];
+      m.planb = [
+        '<strong>Still holding 5 or more days after it ends?</strong> Now it earns attention: compare that weekly average to your pre-period week and read the difference as real.',
+        '<strong>Period week and a flip in the same stretch?</strong> Both waters stack. Flag both, expect the high end of the swing, and judge nothing until both have passed.'
+      ];
+      return m;
+    }
+
+    /* 2. NIGHT-FLIP SPIKE (current week flagged, 1 to 3 lb jump found) */
+    if (latest && latest.flip) {
+      var fj = weekFlipJump(stats, latest.week);
+      if (fj) {
+        m.pattern = 'night-flip';
+        m.pill = '🌙 Night-flip spike';
+        m.headline = 'That <strong>+' + f1(fj.jump) + ' lbs into Day ' + fj.toDay + '</strong> is your flip printing on the scale, not fat.';
+        m.reads.push('A pound of fat is about 3,500 calories. For that jump to be fat, you would have needed about ' + kcalStr(fj.jump) + ' extra calories beyond everything you burned. A 1 to 3 lb wobble is the textbook signature of a flip: meal timing, sodium, and fluid all moving at once.');
+        if (k >= 2) m.reads.push('Zoomed out, your month reads ' + trendTxt + ' across ' + k + ' weekly averages. The flip wobble is a ripple on that line, not a turn in it.');
+        m.steps = [
+          { d: 'Change nothing. Do not cut food off this number.', y: 'The jump is water and glycogen finding a new level. Cutting into it punishes a body already juggling a schedule flip.' },
+          { d: 'Get two normal sleeps, then reweigh on ' + fmtDate(2) + ' morning.', y: 'Fluid rebalances across about 48 hours of steady sleep and normal eating. That morning is your honest recheck.' },
+          { d: 'Let the weekly average make any real call. The next one lands ' + fmtDate(7) + '.', y: 'One reassuring morning is as unreliable as one scary one. Seven mornings vote. One does not.' }
+        ];
+        m.planb = [
+          '<strong>Recheck still up 2+ lbs after two normal sleeps, AND the weekly average climbing too?</strong> That combination, and only that combination, earns a closer look.',
+          '<strong>Rotating all month?</strong> Keep flagging the flips. Rotating stretches read honestly at the month level, and that is exactly the chart you are building.'
+        ];
+        return m;
+      }
+    }
+
+    /* 3. WHOOSH (flat 10+ days, then a sudden recent drop) */
+    if (wh && wh.toDay >= lastDayAbs - 9) {
+      m.pattern = 'whoosh';
+      m.pill = 'Whoosh';
+      m.headline = 'Flat from Day ' + wh.startDay + ' to Day ' + wh.endDay + ' (' + wh.span + ' days inside a ' + f1(wh.band) + ' lb band), then <strong>' + f1(wh.drop) + ' lbs down</strong> into Day ' + wh.toDay + '. Textbook whoosh.';
+      m.reads.push('Fat loss is not a slide, it is a staircase. As fat leaves, water holds its place for days, so the scale flatlines while the real work happens. Then the water lets go at once. That flat stretch WAS the loss happening.');
+      if (k >= 2) m.reads.push('Across your ' + k + ' weekly averages you are ' + trendTxt + ' (' + f1(avgs[0].avg) + ' to ' + f1(avgs[k - 1].avg) + '), a pace of about ' + f1(Math.abs(perWeek)) + ' lbs a week against your healthy lane of ' + laneTxt + '.');
+      m.reads.push('Water moves this fast. Fat does not, in either direction. The flat days did not mean the plan failed, and the big drop does not mean it suddenly started working. It was working the whole time.');
+      m.steps = [
+        { d: 'Keep the exact plan that produced this. Change nothing.', y: 'The drop is the receipt for the flat stretch. A new variable now would muddy a clean, working read.' },
+        { d: 'Do not celebrate into a reward weekend.', y: 'One big celebration meal refills glycogen with roughly 3 lbs of water attached. The drop vanishes by Monday and takes morale with it.' },
+        { d: 'Read the next weekly average on ' + fmtDate(7) + '.', y: 'It confirms whether the staircase stepped down for good. It almost always has.' }
+      ];
+      m.planb = [
+        '<strong>Bounces up a pound within 2 days?</strong> Water finding its level after the release, not regain. Zero votes.',
+        '<strong>The next flat stretch arrives?</strong> That is the next stair. Only two clean, flat weekly averages in a row earn a change (rule 3).'
+      ];
+      return m;
+    }
+
+    /* 4. TRUE PLATEAU (two consecutive clean averages within half a pound) */
+    if (k >= 2) {
+      var a1 = avgs[k - 2], a2 = avgs[k - 1];
+      var gap = Math.abs(a2.avg - a1.avg);
+      if (gap < 0.5 && a2.week === a1.week + 1 && !a1.flip && !a1.period && !a2.flip && !a2.period) {
+        m.pattern = 'true-plateau';
+        m.pill = 'True plateau';
+        m.headline = 'Week ' + (a1.week + 1) + ' (' + f1(a1.avg) + ') and Week ' + (a2.week + 1) + ' (' + f1(a2.avg) + ') sit <strong>' + f1(gap) + ' lbs apart</strong>. Two clean flat weeks: a change is earned.';
+        m.reads.push('This is the only flat that counts: two consecutive weekly averages within about half a pound, no period week, no flip inside either one. Everything shorter is noise, and you waited it out correctly.');
+        m.reads.push('A plateau at ' + f1(a2.avg) + ' lbs means intake and burn have matched. It needs one small wedge, not an overhaul, and definitely not a punishment week.');
+        m.steps = [
+          { d: 'Pick ONE change: add a 10-minute walk to every day, or subtract one daily extra (the drive-thru coffee, the station candy, the after-shift handful).', y: 'One variable at a time is the only way to know what moved the line.' },
+          { d: 'Hold everything else steady for two full weeks. Judge on ' + fmtDate(14) + '.', y: 'A change needs two weekly averages to be judged. Anything sooner is reading noise.' },
+          { d: 'Keep the ritual identical: same scale, same floor, after the bathroom, before coffee.', y: 'Averages only compare cleanly when the inputs match. You know this from charting vitals.' }
+        ];
+        m.planb = [
+          '<strong>Period week or a flip lands inside the test?</strong> Flag it. That week is an asterisk and the test extends one week. It does not start over.',
+          '<strong>Drops half a pound in the first test week?</strong> Keep going anyway. Two weeks means two weeks.'
+        ];
+        return m;
+      }
+    }
+
+    /* 5. TRENDING DOWN: change nothing, know your lane */
+    if (k >= 2 && overall <= -0.5) {
+      m.pattern = 'trending-down';
+      m.pill = 'Trending down';
+      m.headline = 'Down <strong>' + f1(Math.abs(overall)) + ' lbs</strong> across ' + k + ' weekly averages (' + f1(avgs[0].avg) + ' to ' + f1(avgs[k - 1].avg) + '). Change nothing.';
+      var pace = Math.abs(perWeek);
+      if (pace > L.hi) m.reads.push('That pace (about ' + f1(pace) + ' lbs a week) runs faster than your healthy lane of ' + laneTxt + '. Early on, the extra speed is water leaving with glycogen, and past a point it starts costing muscle. Expect it to settle into the lane. Do not chase it.');
+      else if (pace < L.lo) m.reads.push('That pace (about ' + f1(pace) + ' lbs a week) sits under your healthy lane of ' + laneTxt + ', and it still counts. Slow loss is the kind that stays gone.');
+      else m.reads.push('That pace (about ' + f1(pace) + ' lbs a week) is inside your healthy lane of ' + laneTxt + '. This is exactly what sustainable fat loss looks like on a chart.');
+      if (wh) m.reads.push('Your month even printed a whoosh: flat from Day ' + wh.startDay + ' to Day ' + wh.endDay + ', then ' + f1(wh.drop) + ' lbs down at once. That staircase rhythm is the signature of real fat loss.');
+      m.steps = [
+        { d: 'Change nothing. Same food, same movement, same ritual.', y: 'The plan is paying. A new variable now would muddy the cleanest read you have had.' },
+        { d: 'Keep weighing daily, read only the weekly averages. The next one lands ' + fmtDate(7) + '.', y: 'Daily numbers keep the data honest. The weekly read keeps you honest.' },
+        { d: 'Expect flat stretches and sudden drops ahead. Both are the staircase.', y: 'Fat loss steps down, holds, then steps again. Knowing the stairs have landings is how you get through week 3.' }
+      ];
+      m.planb = [
+        '<strong>A +2 lb morning out of nowhere?</strong> At your size, up to about ' + f1(meanAll * 0.02) + ' lbs overnight is water math, not fat math. Zero votes.',
+        '<strong>Period week or a flip coming?</strong> Flag it on that week\'s card and the verdict reads it as context instead of failure.'
+      ];
+      return m;
+    }
+
+    /* 6. MONTH UP: a real trend, one calm change */
+    if (k >= 2 && overall >= 0.5) {
+      m.pattern = 'trending-up';
+      m.pill = 'Month up';
+      m.headline = 'Up <strong>' + f1(overall) + ' lbs</strong> across ' + k + ' weekly averages. Before anything gets declared broken: one calm change.';
+      m.reads.push('For all of that to be fat, you would have needed about ' + kcalStr(overall) + ' extra calories beyond burn across these weeks. Some of it may be intake creep. Some of it is water, sleep debt, and stress. The fix is one wedge, not a crash.');
+      m.reads.push('Two or more climbing weekly averages is a real trend, which is exactly what earns a response. You are not guessing anymore. That is the whole point of charting.');
+      m.steps = [
+        { d: 'Make ONE change: subtract one daily extra, or add a 10-minute walk to every day.', y: 'One variable, readable result. A crash-diet response burns morale and muscle, then rebounds.' },
+        { d: 'Hold it steady for two weeks. Judge on ' + fmtDate(14) + '.', y: 'A change needs two weekly averages before it gets graded.' },
+        { d: 'Scan the month for unflagged context: flips, period weeks, new training, five-hour sleeps.', y: 'Naming the water sources usually shrinks the number that actually needs solving.' }
+      ];
+      m.planb = [
+        '<strong>Next two averages hold or drop?</strong> The wedge is working. Keep it and change nothing else.',
+        '<strong>Still climbing after two clean weeks?</strong> That earns a bigger look, and it is exactly what the game-plan call below is for.'
+      ];
+      return m;
+    }
+
+    /* 7. FLAT WITH FLAGS: asterisk month, clock paused */
+    if (k >= 2) {
+      m.pattern = 'flat-flagged';
+      m.pill = 'Holding';
+      m.headline = 'Basically flat across ' + k + ' weekly averages (' + (overall >= 0 ? '+' : '') + f1(overall) + ' lbs), with context in the mix.';
+      m.reads.push('A flagged week inside a flat stretch is an asterisk, not a plateau. The clock pauses through period weeks and flips. It does not restart, and neither does your effort.');
+      m.reads.push('Two consecutive CLEAN weekly averages within about half a pound is the only flat that earns a change (rule 3). You are not there yet.');
+      m.steps = [
+        { d: 'Keep logging, keep flagging context honestly.', y: 'Honest asterisks are what make the clean weeks readable.' },
+        { d: 'Read the next weekly average on ' + fmtDate(7) + '.', y: 'One clean week against your last clean week restarts the real comparison.' },
+        { d: 'Change nothing until two clean flat weeks confirm.', y: 'Changing during a flagged stretch means you will never know whether it worked.' }
+      ];
+      m.planb = [
+        '<strong>Two clean flat weeks show up?</strong> Then it is a true plateau and ONE change is earned: a 10-minute daily walk added, or one daily extra subtracted.',
+        '<strong>Life goes sideways (sick kid, travel, three nights in a row)?</strong> Flag what you can, blank the missed days, keep the chart alive with what you have.'
+      ];
+      return m;
+    }
+
+    /* 8. BASELINE (one average logged) */
+    if (k === 1) {
+      m.pattern = 'baseline';
+      m.pill = 'Baseline set';
+      m.headline = 'First weekly average on the books: <strong>' + f1(avgs[0].avg) + ' lbs</strong>. The chart starts speaking next week.';
+      m.reads.push('This number is your baseline, not a grade. Daily swings up to about ' + f1(meanAll * 0.02) + ' lbs (roughly 2 percent of you) are water noise and get zero votes.');
+      m.reads.push('At your weight, real progress will look like ' + laneTxt + ' on the weekly averages. Anything faster early on is mostly water leaving with glycogen.');
+      m.steps = [
+        { d: 'One number every morning: after the bathroom, before coffee, same scale, same floor.', y: 'Averages only compare cleanly when the inputs match.' },
+        { d: 'Your first real comparison lands ' + fmtDate(7) + '.', y: 'Two weekly averages make a direction. One makes a starting point.' },
+        { d: 'Flag period weeks and shift flips as they happen.', y: 'Flagged context is the difference between reading your chart and being lied to by it.' }
+      ];
+      m.planb = [
+        '<strong>Miss a morning or two?</strong> Blanks are honest data. Three mornings still make a usable average.',
+        '<strong>A 2 to 3 lb jump mid-week?</strong> Salt, short sleep, hormones, or a heavy meal in transit. The average absorbs it. That is its whole job.'
+      ];
+      return m;
+    }
+
+    /* 9. FIRST MORNINGS (entries, but no full week yet) */
+    m.pattern = 'starting';
+    m.pill = 'Getting started';
+    m.headline = 'First mornings logged. Three in a week and your first average appears.';
+    m.reads.push('Daily numbers are allowed to bounce up to about ' + f1(meanAll * 0.02) + ' lbs (2 percent of you) on water alone. None of those mornings get a vote. The weekly average does.');
+    m.steps = [
+      { d: 'Keep the ritual: after the bathroom, before coffee, same scale, same floor.', y: 'Matching conditions is what makes the numbers comparable at all.' },
+      { d: 'Get to 3 mornings this week. The first average can land as soon as ' + fmtDate(2) + '.', y: 'Three matched mornings is the minimum for an honest weekly average.' },
+      { d: 'Flag a period week or a flip if one lands.', y: 'Context flags change how the verdict reads the week, and that is the whole trick.' }
+    ];
+    m.planb = [
+      '<strong>Scared of what the number will say?</strong> That is the morning-verdict habit talking. Here, no single morning is allowed to grade you. Ever.',
+      '<strong>Different scale some days?</strong> Skip it and blank the day. A blank beats a number that cannot be compared.'
+    ];
+    return m;
+  }
+
+  function renderMonth(stats) {
+    var m = monthModel(stats);
+    if (!m) {
+      monthVerdictEl.innerHTML = '';
+      return;
+    }
+    var h = '<div class="sf-rwt-verdictbox">';
+    h += '<div class="sf-rwt-pattern">' + m.pill + '</div>';
+    h += '<h3>' + m.headline + '</h3>';
+    for (var i = 0; i < m.reads.length; i++) { h += '<p>' + m.reads[i] + '</p>'; }
+    h += '</div>';
+    h += '<div class="sf-rwt-action"><div class="sf-rwt-action-title">Your one next move</div>';
+    h += '<div class="sf-rwt-action-note">Dates below count your last logged morning (Day ' + m.lastDayAbs + ') as this morning.</div><ol>';
+    for (var s = 0; s < m.steps.length; s++) {
+      h += '<li><strong>' + m.steps[s].d + '</strong><span class="sf-rwt-whyline">Why: ' + m.steps[s].y + '</span></li>';
+    }
+    h += '</ol></div>';
+    h += '<div class="sf-rwt-planb"><div class="sf-rwt-planb-title">When it breaks</div>';
+    for (var p = 0; p < m.planb.length; p++) { h += '<p>' + m.planb[p] + '</p>'; }
+    h += '</div>';
+    h += expectHtml(m.mean);
+    monthVerdictEl.innerHTML = h;
   }
 
   /* ---- Recompute everything ---- */
   function computeAll() {
     var stats = weekStats();
     for (var w = 0; w < WEEKS; w++) { weekVerdict(stats, w); }
-    var avgs = monthChart(stats);
-    monthVerdict(avgs);
+    monthChart(stats);
+    renderMonth(stats);
+    syncFlagUI();
   }
 
   /* ---- Input handling ---- */
@@ -581,7 +997,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     var idx = parseInt(input.getAttribute('data-idx'), 10);
     if (isNaN(idx) || idx < 0 || idx >= SLOTS) return;
     if (sampleMode) { exitSampleMode(idx); }
-    data[idx] = input.value.trim();
+    data.d[idx] = input.value.trim();
     save();
     computeAll();
   });
@@ -615,10 +1031,11 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       return;
     }
     for (var i = 0; i < SLOTS; i++) {
-      data[i] = '';
+      data.d[i] = '';
       var input = document.getElementById('sfRwtI' + i);
       if (input) { input.value = ''; input.classList.remove('sf-bad'); }
     }
+    for (var w = 0; w < WEEKS; w++) { data.flags[w].f = false; data.flags[w].p = false; }
     save();
     computeAll();
   });
@@ -627,9 +1044,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   function greet() {
     try {
       var params = new URLSearchParams(window.location.search);
-      var fromGate = params.get('unlocked') === '1';
+      var fromGate = params.get('full') === '1';
       var stored = '';
-      try { stored = window.localStorage.getItem('sf_rw_unlocked') || ''; } catch (e) {}
+      try { stored = window.localStorage.getItem('sf_rw_full') || ''; } catch (e) {}
       if (!fromGate && stored !== '1') return;
       var name = '';
       try { name = window.localStorage.getItem('sf_rw_first') || ''; } catch (e) {}
@@ -656,35 +1073,52 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
   }
 
-  /* ---- QA preview: ?sample=1 shows a filled example month, in memory only.
-     sampleMode guards save(): the moment she types (or erases), the sample is
-     swapped back out for her real saved month first, so it is never persisted. ---- */
+  /* ---- Worked example month: renders on load when the tracker is empty
+     (and on ?sample=1), in memory only. sampleMode guards save(): the moment
+     she types, toggles a flag, or erases, the sample is swapped back out for
+     her real saved month first, so it is never persisted.
+     The example is built to demonstrate the verdict engine: a flip spike in
+     Week 1, a 13-day flat band, then a 1.5 lb whoosh into Day 20. ---- */
   var sampleMode = false;
+  var SAMPLE = {
+    d: ['186.4', '187.9', '186.2', '186.8', '185.9', '186.6', '185.8',
+        '185.9', '185.6', '186.1', '185.7', '185.4', '185.9', '185.6',
+        '185.8', '185.5', '185.7', '185.3', '185.6', '184.1', '183.8',
+        '183.9', '183.6', '184.0', '', '', '', ''],
+    flags: [{ f: true, p: false }, { f: false, p: false }, { f: false, p: false }, { f: false, p: false }]
+  };
+  function enterSampleMode() {
+    sampleMode = true;
+    for (var i = 0; i < SLOTS; i++) {
+      data.d[i] = SAMPLE.d[i];
+      var input = document.getElementById('sfRwtI' + i);
+      if (input) input.value = SAMPLE.d[i];
+    }
+    for (var w = 0; w < WEEKS; w++) {
+      data.flags[w].f = SAMPLE.flags[w].f;
+      data.flags[w].p = SAMPLE.flags[w].p;
+    }
+    if (sampleNoteEl) sampleNoteEl.classList.remove('sf-rwt-hidden');
+  }
   function exitSampleMode(keepIdx) {
     sampleMode = false;
-    for (var r = 0; r < SLOTS; r++) data[r] = '';
     load();
     for (var i = 0; i < SLOTS; i++) {
       if (i === keepIdx) continue;
       var el = document.getElementById('sfRwtI' + i);
-      if (el) { el.value = data[i] || ''; el.classList.remove('sf-bad'); }
+      if (el) { el.value = data.d[i] || ''; el.classList.remove('sf-bad'); }
     }
+    if (sampleNoteEl) sampleNoteEl.classList.add('sf-rwt-hidden');
+  }
+  function dataIsEmpty() {
+    for (var i = 0; i < SLOTS; i++) { if (data.d[i]) return false; }
+    for (var w = 0; w < WEEKS; w++) { if (data.flags[w].f || data.flags[w].p) return false; }
+    return true;
   }
   function maybeSample() {
     try {
-      if (window.location.search.indexOf('sample=1') === -1) return;
-      var sample = [
-        '186.4', '187.9', '186.2', '186.8', '185.9', '186.6', '185.8',
-        '185.9', '185.2', '186.4', '185.5', '185.0', '185.7', '184.9',
-        '185.1', '184.6', '185.4', '184.8', '184.3', '', '184.5',
-        '184.7', '184.1', '', '', '', '', ''
-      ];
-      sampleMode = true;
-      for (var i = 0; i < SLOTS; i++) {
-        data[i] = sample[i];
-        var input = document.getElementById('sfRwtI' + i);
-        if (input) input.value = sample[i];
-      }
+      var forced = window.location.search.indexOf('sample=1') !== -1;
+      if (forced || dataIsEmpty()) { enterSampleMode(); }
     } catch (e) {}
   }
 

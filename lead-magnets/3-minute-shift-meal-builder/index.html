@@ -141,9 +141,18 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-lm-part:last-child { border-bottom: none; }
 .sf-lm-part-label { display: flex; align-items: center; gap: 9px; font-size: 15px; color: var(--sf-taupe-raw); }
 .sf-lm-part-emoji { font-size: 18px; }
-.sf-lm-part-role { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-raw); }
+.sf-lm-part-serve { display: block; font-size: 12px; color: var(--sf-taupe-light); }
+.sf-lm-part-role { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sf-gold-raw); white-space: nowrap; }
+.sf-lm-part-g { font-size: 14px; font-weight: 700; color: var(--sf-gold-raw); white-space: nowrap; }
 .sf-lm-protein { display: inline-flex; align-items: center; gap: 8px; background: var(--sf-green-soft); color: #2f6b41; border-radius: 999px; padding: 7px 15px; font-size: 14px; font-weight: 700; }
 .sf-lm-protein.sf-under { background: #fdf3e6; color: #a8702a; }
+.sf-lm-when { display: flex; align-items: flex-start; gap: 10px; background: var(--sf-gold-hover); border-radius: 10px; padding: 10px 13px; margin-bottom: 12px; }
+.sf-lm-when-t { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6a24; white-space: nowrap; padding-top: 2px; }
+.sf-lm-when-why { font-size: 13px; color: var(--sf-taupe-raw); line-height: 1.5; }
+.sf-lm-stackwhy { font-family: var(--sf-display); font-style: italic; font-size: 13.5px; color: var(--sf-taupe-raw); border-left: 3px solid var(--sf-gold-raw); padding: 3px 0 3px 11px; margin-top: 12px; }
+.sf-lm-order { background: var(--sf-gold-hover); border-radius: 10px; padding: 11px 13px; font-size: 13px; color: var(--sf-taupe-raw); margin-top: 12px; line-height: 1.55; }
+.sf-lm-order strong { color: var(--sf-dark-raw); }
+.sf-lm-fallback { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--sf-taupe-light); margin-top: 10px; line-height: 1.55; }
 
 @-webkit-keyframes sfLmPop { 0% { opacity: 0; -webkit-transform: translateY(14px) scale(.98); } 100% { opacity: 1; -webkit-transform: translateY(0) scale(1); } }
 @keyframes sfLmPop { 0% { opacity: 0; transform: translateY(14px) scale(.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
@@ -156,9 +165,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-lm-gate h3 { color: var(--sf-cream-raw); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; margin-bottom: 10px; }
 .sf-lm-gate h3 .sf-lm-em { color: var(--sf-gold-soft); }
 .sf-lm-gate p { color: rgba(250,246,243,0.82); font-size: 15px; max-width: 440px; margin: 0 auto 22px; }
-.sf-lm-unlock-list { list-style: none; max-width: 380px; margin: 0 auto 24px; text-align: left; }
-.sf-lm-unlock-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
-.sf-lm-unlock-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
+.sf-lm-gate-list { list-style: none; max-width: 380px; margin: 0 auto 24px; text-align: left; }
+.sf-lm-gate-list li { color: rgba(250,246,243,0.9); font-size: 15px; padding: 6px 0 6px 26px; position: relative; }
+.sf-lm-gate-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--sf-gold-soft); font-weight: 700; }
 .sf-lm-form { max-width: 400px; margin: 0 auto; }
 .sf-lm-field { margin-bottom: 12px; text-align: left; }
 .sf-lm-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(250,246,243,0.7); margin-bottom: 5px; }
@@ -274,12 +283,12 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
         <!-- EMAIL GATE (revealed after first plate) -->
         <div class="sf-lm-gate sf-lm-hidden" id="sfLmGate">
-          <h3>That is one plate. Unlock <span class="sf-lm-em">all 3, for every shift</span>.</h3>
-          <p>Get the full builder plus the extras that keep it working on your worst weeks:</p>
-          <ul class="sf-lm-unlock-list">
-            <li>3 grab-and-go combos for Day, Night, and Chaos</li>
-            <li>Your shift-proof restock list (the defaults to always keep)</li>
-            <li>A printable card for your fridge and your locker</li>
+          <h3>That is one plate. The full version maps <span class="sf-lm-em">your whole shift</span>.</h3>
+          <p>The full builder turns your picks into a complete shift-day eating map:</p>
+          <ul class="sf-lm-gate-list">
+            <li>Pre-shift, break plate, and the landing bite, each with portions and clock times</li>
+            <li>The no-break pocket protocol for the days lunch never happens</li>
+            <li>Night-before assembly steps, keep-it-safe rules, and your restock list</li>
           </ul>
           <form class="sf-lm-form" id="sfLmForm" novalidate>
             <div class="sf-lm-field">
@@ -290,7 +299,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
               <label for="sfLmEmail">Email</label>
               <input type="email" id="sfLmEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
             </div>
-            <button type="submit" class="sf-lm-submit" id="sfLmSubmit">Unlock the full builder</button>
+            <button type="submit" class="sf-lm-submit" id="sfLmSubmit">Get my full shift map</button>
             <div id="sfLmFormMsg" aria-live="polite"></div>
             <p class="sf-lm-formnote">No spam. Unsubscribe any time.</p>
           </form>
@@ -368,40 +377,55 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     for (var i = 0; i < links.length; i++) links[i].setAttribute('href', SF_CONFIG.callUrl);
   })();
 
-  /* ---- Food library (a curated subset for the preview) ---- */
+  /* ---- Food library (a curated subset for the preview) ----
+     p = grams of protein per stated serving (published ballparks, rounded).
+     pocket = survives a locker and eats standing up. */
   var FOODS = {
     protein: [
-      { id: 'rotisserie', label: 'Rotisserie chicken', emoji: '🍗', p: 30 },
-      { id: 'shake', label: 'Protein shake', emoji: '🥤', p: 25 },
-      { id: 'tuna', label: 'Tuna pouch', emoji: '🐟', p: 20 },
-      { id: 'turkey', label: 'Deli turkey', emoji: '🦃', p: 18 },
-      { id: 'greekyog', label: 'Greek yogurt', emoji: '🥛', p: 17 },
-      { id: 'string', label: 'String cheese (2)', emoji: '🧀', p: 14 },
-      { id: 'eggs', label: 'Hard-boiled eggs (2)', emoji: '🥚', p: 12 }
+      { id: 'rotisserie', label: 'Rotisserie chicken', emoji: '🍗', p: 35, serve: '1 cup shredded', pocket: false },
+      { id: 'shake', label: 'Protein shake', emoji: '🥤', p: 25, serve: '1 scoop', pocket: true },
+      { id: 'tuna', label: 'Tuna pouch', emoji: '🐟', p: 18, serve: '2.6 oz pouch', pocket: true },
+      { id: 'turkey', label: 'Deli turkey', emoji: '🦃', p: 18, serve: '4 oz, about 6 to 8 slices', pocket: false },
+      { id: 'greekyog', label: 'Greek yogurt', emoji: '🥛', p: 15, serve: 'single 5.3 oz cup', pocket: false },
+      { id: 'string', label: 'String cheese', emoji: '🧀', p: 14, serve: '2 sticks', pocket: false },
+      { id: 'eggs', label: 'Hard-boiled eggs', emoji: '🥚', p: 12, serve: '2 eggs', pocket: false }
     ],
     anchor: [
-      { id: 'ricepouch', label: 'Microwave rice', emoji: '🍚', p: 4 },
-      { id: 'wrap', label: 'Whole-grain wrap', emoji: '🌯', p: 4 },
-      { id: 'crackers', label: 'Whole-grain crackers', emoji: '🍘', p: 3 },
-      { id: 'fruit', label: 'Fruit', emoji: '🍎', p: 1 }
+      { id: 'ricepouch', label: 'Microwave rice', emoji: '🍚', serve: 'half a pouch' },
+      { id: 'wrap', label: 'Whole-grain wrap', emoji: '🌯', serve: '1 wrap' },
+      { id: 'crackers', label: 'Whole-grain crackers', emoji: '🍘', serve: '1 handful' },
+      { id: 'fruit', label: 'Fruit', emoji: '🍎', serve: '1 piece' }
     ],
     veg: [
-      { id: 'salad', label: 'Bagged salad', emoji: '🥗', p: 2 },
-      { id: 'carrots', label: 'Baby carrots', emoji: '🥕', p: 1 },
-      { id: 'tomatoes', label: 'Cherry tomatoes', emoji: '🍅', p: 1 }
+      { id: 'salad', label: 'Bagged salad', emoji: '🥗', serve: '2 big handfuls' },
+      { id: 'carrots', label: 'Baby carrots', emoji: '🥕', serve: '1 handful' },
+      { id: 'tomatoes', label: 'Cherry tomatoes', emoji: '🍅', serve: '1 handful' }
     ],
     fat: [
-      { id: 'cheese', label: 'Cheese cubes', emoji: '🧀', p: 6 },
-      { id: 'nuts', label: 'Almonds', emoji: '🥜', p: 6 },
-      { id: 'avocado', label: 'Avocado', emoji: '🥑', p: 2 },
-      { id: 'hummus', label: 'Hummus', emoji: '🧆', p: 2 }
+      { id: 'cheese', label: 'Cheese cubes', emoji: '🧀', serve: 'small handful' },
+      { id: 'nuts', label: 'Almonds', emoji: '🥜', serve: '1 small handful, about 1 oz' },
+      { id: 'avocado', label: 'Avocado', emoji: '🥑', serve: 'half' },
+      { id: 'hummus', label: 'Hummus', emoji: '🧆', serve: '1 single-serve cup' }
     ]
   };
   var ROLE_LABEL = { protein: 'Protein', anchor: 'Anchor', veg: 'Veg', fat: 'Flavor' };
+  var BAND_LOW = 25, BAND_HIGH = 40, BAND_MID = 30;
   var SHIFT_CFG = {
-    day: { target: 35, includeVeg: true, name: 'The Pre-Shift Plate' },
-    night: { target: 28, includeVeg: true, name: 'The Pre-Clock-In Plate' },
-    chaos: { target: 22, includeVeg: false, name: 'The Grab-and-Dash' }
+    day: {
+      name: 'The Hour-4 Break Plate', tag: 'Day shift',
+      when: 'Eat at 11:00 AM',
+      whenWhy: 'Hour 4 of a 7:00 AM start. If you wait for a natural pause, it becomes 3:00 PM and you are shaky and mean. Put lunch on the clock.'
+    },
+    night: {
+      name: 'The Hour-4 Break Plate', tag: 'Night shift',
+      when: 'Eat at 11:00 PM',
+      whenWhy: 'Hour 4 of a 7:00 PM start, on purpose before the 3 AM slump. The real plate lands at 11 so the deep-night hours run on a fed brain.'
+    },
+    chaos: {
+      name: 'The Hour-4 Break Plate', tag: 'Chaos shift',
+      when: 'Eat at hour 4',
+      whenWhy: 'No fixed clock on a swap week, so set a phone alarm for 4 hours after clock-in the second you park the car. The alarm is you protecting your own break.'
+    }
   };
 
   var state = { shift: null, selected: [] };
@@ -494,33 +518,68 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   function renderPlate(byCat) {
     var cfg = SHIFT_CFG[state.shift];
     var parts = [];
-    var total = 0;
-    var used = {};
+    var stackWhy = '';
 
-    parts.push({ role: 'protein', f: byCat.protein[0] }); used[byCat.protein[0].id] = 1; total += byCat.protein[0].p;
-    if (byCat.anchor.length) { parts.push({ role: 'anchor', f: byCat.anchor[0] }); total += byCat.anchor[0].p; }
-    if (cfg.includeVeg && byCat.veg.length) { parts.push({ role: 'veg', f: byCat.veg[0] }); total += byCat.veg[0].p; }
-    if (byCat.fat.length) { parts.push({ role: 'fat', f: byCat.fat[0] }); total += byCat.fat[0].p; }
-    if (total < cfg.target && byCat.protein.length > 1 && !used[byCat.protein[1].id]) {
-      parts.push({ role: 'protein', f: byCat.protein[1] }); total += byCat.protein[1].p;
+    /* Lead protein, then stack a second one when a single serving is
+       under the 25g floor. The why line is the teaching, not decoration. */
+    var lead = byCat.protein[0];
+    parts.push({ role: 'protein', f: lead });
+    var total = lead.p;
+    if (total < BAND_LOW) {
+      var best = null, bestScore = -Infinity;
+      for (var i = 1; i < byCat.protein.length; i++) {
+        var cand = byCat.protein[i];
+        var t = total + cand.p;
+        var score = (t >= BAND_LOW && t <= BAND_HIGH ? 100 : 0) - Math.abs(BAND_MID - t);
+        if (score > bestScore) { bestScore = score; best = cand; }
+      }
+      if (best) {
+        parts.push({ role: 'protein', f: best });
+        stackWhy = lead.label + ' alone is ' + lead.p + 'g, under the 25g floor where a meal actually holds you through a shift. So I stacked ' + best.label.toLowerCase() + ' (' + best.serve + ') on top: ' + lead.p + ' + ' + best.p + ' = ' + (total + best.p) + 'g.';
+        total += best.p;
+      } else {
+        stackWhy = lead.label + ' is ' + lead.p + 'g on its own, under the 25g floor. You only tapped one protein, so the fix is one more protein pick, not more willpower.';
+      }
     }
+    if (byCat.anchor.length) parts.push({ role: 'anchor', f: byCat.anchor[0] });
+    if (byCat.veg.length) parts.push({ role: 'veg', f: byCat.veg[0] });
+    if (byCat.fat.length) parts.push({ role: 'fat', f: byCat.fat[0] });
 
     var partsHtml = '';
     parts.forEach(function (part) {
-      partsHtml += '<li class="sf-lm-part"><span class="sf-lm-part-label"><span class="sf-lm-part-emoji" aria-hidden="true">' + part.f.emoji + '</span>' + part.f.label + '</span><span class="sf-lm-part-role">' + ROLE_LABEL[part.role] + '</span></li>';
+      var isPro = part.role === 'protein';
+      var right = isPro
+        ? '<span class="sf-lm-part-g">' + part.f.p + 'g</span>'
+        : '<span class="sf-lm-part-role">' + ROLE_LABEL[part.role] + '</span>';
+      partsHtml += '<li class="sf-lm-part"><span class="sf-lm-part-label"><span class="sf-lm-part-emoji" aria-hidden="true">' + part.f.emoji + '</span><span>' + part.f.label +
+        '<span class="sf-lm-part-serve">' + part.f.serve + (isPro ? ' = ' + part.f.p + 'g' : '') + '</span></span></span>' + right + '</li>';
     });
-    var hit = total >= cfg.target;
-    var pClass = hit ? 'sf-lm-protein' : 'sf-lm-protein sf-under';
-    var pText = hit ? total + 'g protein, target hit' : total + 'g protein, add one more protein to top it off';
+
+    var badge;
+    if (total >= BAND_LOW && total <= BAND_HIGH) {
+      badge = '<span class="sf-lm-protein">' + total + 'g protein: inside the 25 to 40g per-meal sweet spot</span>';
+    } else if (total < BAND_LOW) {
+      badge = '<span class="sf-lm-protein sf-under">' + total + 'g protein: under the 25g floor</span>';
+    } else {
+      badge = '<span class="sf-lm-protein">' + total + 'g protein: a touch over the sweet spot, fine on a heavy day</span>';
+    }
+
+    /* Contingency: use her own locker-safe pick when she tapped one */
+    var pocketPick = null;
+    for (var pk = 0; pk < byCat.protein.length; pk++) { if (byCat.protein[pk].pocket) { pocketPick = byCat.protein[pk]; break; } }
+    var fallback = pocketPick
+      ? 'If the break never comes: the ' + pocketPick.label.toLowerCase() + ' (' + pocketPick.serve + ' = ' + pocketPick.p + 'g) eats in 90 seconds standing at the counter. Not lunch. It holds the line.'
+      : 'If the break never comes: keep a 1 oz bag of jerky (10g) in your work bag. 90 seconds standing up beats hour 7 on empty.';
 
     plateEl.innerHTML = '' +
       '<div class="sf-lm-plate sf-lm-pop">' +
-        '<div class="sf-lm-plate-top"><span class="sf-lm-plate-name">' + cfg.name + '</span><span class="sf-lm-plate-time">3 min, no cook</span></div>' +
+        '<div class="sf-lm-plate-top"><span class="sf-lm-plate-name">' + cfg.name + '</span><span class="sf-lm-plate-time">' + cfg.tag + '</span></div>' +
+        '<div class="sf-lm-when"><span class="sf-lm-when-t">' + cfg.when + '</span><span class="sf-lm-when-why">' + cfg.whenWhy + '</span></div>' +
         '<ul class="sf-lm-parts">' + partsHtml + '</ul>' +
-        '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">' +
-          '<span class="' + pClass + '">' + pText + '</span>' +
-          '<span style="font-family:var(--sf-display);font-style:italic;font-size:14px;color:var(--sf-taupe-light);">Throw it in a bag. Done.</span>' +
-        '</div>' +
+        '<div style="display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap;">' + badge + '</div>' +
+        (stackWhy ? '<div class="sf-lm-stackwhy">' + stackWhy + '</div>' : '') +
+        '<div class="sf-lm-order"><strong>Eat the protein first.</strong> It flips the fullness switch fastest and steadies the next 3 hours, so if a call bell cuts lunch short, the part that matters is already in.</div>' +
+        '<div class="sf-lm-fallback"><span aria-hidden="true">🧷</span><span>' + fallback + '</span></div>' +
       '</div>';
 
     gateEl.classList.remove('sf-lm-hidden');
@@ -535,9 +594,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   function goToResource(first) {
     try {
       if (first) window.localStorage.setItem('sf_mb_first', first);
-      window.localStorage.setItem('sf_mb_unlocked', '1');
+      window.localStorage.setItem('sf_mb_full', '1');
     } catch (e) {}
-    var url = SF_CONFIG.resourceUrl + '?unlocked=1';
+    var url = SF_CONFIG.resourceUrl + '?full=1';
     window.location.href = url;
   }
 
@@ -552,7 +611,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Unlocking...';
+    submitBtn.textContent = 'Building your map...';
     formMsg.innerHTML = '';
 
     var payload = {
@@ -567,7 +626,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
     /* Not yet wired: still deliver value so the form is never a dead end */
     if (!isConfigured(SF_CONFIG.webhookUrl)) {
-      formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full builder...</div>';
+      formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full shift map...</div>';
       fireLeadPixel();
       setTimeout(function () { goToResource(first); }, 700);
       return;
@@ -577,7 +636,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     var timer = setTimeout(function () {
       if (done) return; done = true;
       /* Slow network: do not trap her, let her through */
-      formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full builder...</div>';
+      formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full shift map...</div>';
       fireLeadPixel();
       setTimeout(function () { goToResource(first); }, 500);
     }, 8000);
@@ -589,7 +648,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }).then(function (res) {
       if (done) return; done = true; clearTimeout(timer);
       if (res && (res.ok || res.status === 0 || res.type === 'opaque')) {
-        formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full builder...</div>';
+        formMsg.innerHTML = '<div class="sf-lm-msg sf-ok">You are in. Opening your full shift map...</div>';
         fireLeadPixel();
         setTimeout(function () { goToResource(first); }, 700);
       } else {
@@ -598,8 +657,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     }).catch(function () {
       if (done) return; done = true; clearTimeout(timer);
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Unlock the full builder';
-      formMsg.innerHTML = '<div class="sf-lm-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?unlocked=1">open the builder now</a> and I will catch your email next time.</div>';
+      submitBtn.textContent = 'Get my full shift map';
+      formMsg.innerHTML = '<div class="sf-lm-msg sf-err">Something hiccuped on our end. Try once more, or <a href="' + SF_CONFIG.resourceUrl + '?full=1">open the full builder now</a> and I will catch your email next time.</div>';
     });
   });
 

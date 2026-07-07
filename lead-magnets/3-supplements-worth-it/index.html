@@ -155,6 +155,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 
 /* ===== The Cabinet Audit tool ===== */
 .sf-sup-tool { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 20px; padding: 30px 26px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-sup-sublabel { font-size: 12px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sf-taupe-light); margin-bottom: 10px; }
 .sf-sup-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 10px; margin-bottom: 22px; }
 .sf-sup-item {
   display: flex; align-items: center; gap: 10px; text-align: left; width: 100%; min-height: 54px;
@@ -173,6 +174,29 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-sup-tick { flex: 0 0 20px; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--sf-border); position: relative; -webkit-transition: background .18s ease, border-color .18s ease; transition: background .18s ease, border-color .18s ease; }
 .sf-sup-item.sf-on .sf-sup-tick { background: var(--sf-gold-raw); border-color: var(--sf-gold-raw); }
 .sf-sup-item.sf-on .sf-sup-tick::after { content: "\2713"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--sf-dark-raw); }
+
+/* Shift + goal-weight inputs */
+.sf-sup-shiftrow { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.sf-sup-shift {
+  flex: 1 1 130px; text-align: center; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border);
+  border-radius: 12px; padding: 12px 10px; font-family: var(--sf-sans); cursor: pointer;
+  -webkit-transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.sf-sup-shift:hover { border-color: var(--sf-gold-soft); }
+.sf-sup-shift:focus-visible { outline: 3px solid var(--sf-gold-glow); outline-offset: 2px; }
+.sf-sup-shift.sf-on { border-color: var(--sf-gold-raw); background: var(--sf-gold-hover); box-shadow: 0 6px 18px var(--sf-gold-glow); }
+.sf-sup-shift-name { display: block; font-size: 14px; font-weight: 700; color: var(--sf-dark-raw); }
+.sf-sup-shift-sub { display: block; font-size: 12px; color: var(--sf-taupe-light); margin-top: 1px; }
+.sf-sup-gwrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+.sf-sup-gwrow label { font-size: 13px; font-weight: 600; color: var(--sf-taupe-raw); }
+.sf-sup-gwrow input {
+  width: 110px; padding: 11px 13px; background: var(--sf-cream-raw); border: 1.5px solid var(--sf-border);
+  border-radius: 10px; color: var(--sf-dark-raw); font-family: var(--sf-sans); font-size: 16px;
+  -webkit-transition: border-color .2s ease, box-shadow .2s ease; transition: border-color .2s ease, box-shadow .2s ease;
+}
+.sf-sup-gwrow input:focus { outline: none; border-color: var(--sf-gold-raw); box-shadow: 0 0 0 3px var(--sf-gold-glow); }
+.sf-sup-gwunit { font-size: 13px; color: var(--sf-taupe-light); }
 
 .sf-sup-btn {
   display: block; width: 100%; background: var(--sf-gold-raw); color: var(--sf-dark-raw); border: none; border-radius: 12px;
@@ -208,6 +232,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-sup-vrow-right { display: inline-flex; align-items: center; gap: 10px; }
 .sf-sup-vrow-cost { font-size: 12px; color: var(--sf-taupe-light); }
 .sf-sup-vrow-line { font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 4px; max-width: 560px; }
+.sf-sup-vrow-ev { font-size: 12.5px; color: var(--sf-taupe-light); margin-top: 6px; padding-left: 10px; border-left: 2px solid var(--sf-cream-deep); max-width: 560px; }
+.sf-sup-vrow-ev strong { display: inline-block; color: var(--sf-gold-deep); font-size: 10px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; margin-right: 6px; }
 
 /* Tally */
 .sf-sup-tally {
@@ -222,16 +248,78 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
 .sf-sup-tally-year { font-family: var(--sf-display); font-style: italic; font-size: 16px; color: var(--sf-gold-soft); margin-top: 8px; }
 .sf-sup-tally-note { font-size: 13.5px; color: rgba(250,246,243,0.78); margin-top: 12px; max-width: 480px; }
 
-/* The three */
+/* Result block heads */
 .sf-sup-three-head { margin-top: 40px; margin-bottom: 18px; }
+
+/* Cancel-first order */
+.sf-sup-order { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 10px 22px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); font-variant-numeric: tabular-nums; }
+.sf-sup-orow { display: flex; align-items: flex-start; gap: 14px; padding: 14px 2px; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-sup-orow:last-child { border-bottom: none; }
+.sf-sup-onum { flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%; background: var(--sf-red-soft); border: 1.5px solid var(--sf-red-raw); color: var(--sf-red-deep); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.sf-sup-orow-main { flex: 1; }
+.sf-sup-orow-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.sf-sup-orow-name { font-size: 15px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-sup-orow-cost { font-size: 12px; color: var(--sf-taupe-light); white-space: nowrap; }
+.sf-sup-orow-line { font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 2px; }
+.sf-sup-order-foot { font-family: var(--sf-display); font-style: italic; font-size: 13.5px; color: var(--sf-taupe-light); margin-top: 14px; }
+
+/* Reallocation */
+.sf-sup-realloc { background: var(--sf-green-soft); border: 1px solid rgba(74,140,92,0.35); border-radius: 16px; padding: 22px 22px 16px; font-variant-numeric: tabular-nums; }
+.sf-sup-food { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed rgba(74,140,92,0.3); }
+.sf-sup-food:last-of-type { border-bottom: none; }
+.sf-sup-food-name { flex: 1; font-size: 14px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-sup-food-sub { display: block; font-size: 12.5px; font-weight: 400; color: var(--sf-taupe-raw); }
+.sf-sup-food-g { white-space: nowrap; font-weight: 700; font-size: 14px; color: var(--sf-green-deep); }
+.sf-sup-realloc-total { border-top: 1.5px dashed rgba(74,140,92,0.4); margin-top: 6px; padding-top: 12px; font-family: var(--sf-serif); font-weight: 700; font-size: 20px; color: var(--sf-green-deep); }
+.sf-sup-realloc-delta { font-family: var(--sf-display); font-style: italic; font-size: 13.5px; color: var(--sf-taupe-raw); margin-top: 6px; padding-bottom: 4px; }
+
+/* When the plan breaks */
+.sf-sup-breaks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.sf-sup-break { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-left: 3px solid var(--sf-gold-raw); border-radius: 12px; padding: 16px 16px; }
+.sf-sup-break-q { font-size: 14px; font-weight: 600; color: var(--sf-dark-raw); margin-bottom: 6px; }
+.sf-sup-break-a { font-size: 13.5px; color: var(--sf-taupe-raw); }
+
+/* The clock (when-to-take) */
+.sf-sup-sched { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-radius: 16px; padding: 6px 20px; box-shadow: 0 2px 16px rgba(42,33,24,0.06); }
+.sf-sup-srow { display: flex; align-items: flex-start; gap: 14px; padding: 13px 2px; border-bottom: 1px dashed var(--sf-cream-deep); }
+.sf-sup-srow:last-child { border-bottom: none; }
+.sf-sup-stime { flex: 0 0 96px; font-family: var(--sf-serif); font-weight: 700; font-size: 17px; color: var(--sf-gold-deep); line-height: 1.25; }
+.sf-sup-swhat { flex: 1; }
+.sf-sup-swhat-name { display: block; font-size: 14px; font-weight: 600; color: var(--sf-dark-raw); }
+.sf-sup-swhat-why { display: block; font-size: 13px; color: var(--sf-taupe-raw); margin-top: 2px; }
+.sf-sup-sched-note { font-size: 12.5px; color: var(--sf-taupe-light); margin-top: 10px; }
+
+/* The three */
 .sf-sup-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .sf-sup-keeper { background: var(--sf-bg-card); border: 1px solid var(--sf-border); border-top: 3px solid var(--sf-green-raw); border-radius: 14px; padding: 20px 18px; }
 .sf-sup-keeper-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
 .sf-sup-keeper-name { font-family: var(--sf-serif); font-weight: 700; font-size: 19px; color: var(--sf-dark-raw); }
 .sf-sup-keeper-dose { display: inline-block; background: var(--sf-gold-hover); border: 1px solid rgba(200,160,78,0.4); color: var(--sf-gold-deep); border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 10px; }
 .sf-sup-keeper p { font-size: 13.5px; color: var(--sf-taupe-raw); margin-bottom: 8px; }
-.sf-sup-keeper-cost { font-size: 12px; color: var(--sf-taupe-light); }
+.sf-sup-keeper-buy { font-size: 12.5px; color: var(--sf-taupe-light); }
+.sf-sup-keeper-buy strong { color: var(--sf-gold-deep); font-weight: 700; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-right: 5px; }
+.sf-sup-keeper-cost { display: block; font-size: 12px; color: var(--sf-taupe-light); margin-top: 8px; }
 .sf-sup-smallprint { font-family: var(--sf-display); font-style: italic; font-size: 13.5px; color: var(--sf-taupe-light); margin-top: 18px; }
+
+/* Screenshot card */
+.sf-sup-shot {
+  background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%);
+  border: 1px solid rgba(200,160,78,0.45); border-radius: 18px; padding: 26px 24px;
+  max-width: 440px; margin: 0 auto; position: relative; overflow: hidden; font-variant-numeric: tabular-nums;
+}
+.sf-sup-shot::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(200,160,78,0.2) 0%, transparent 60%); pointer-events: none; }
+.sf-sup-shot > * { position: relative; z-index: 1; }
+.sf-sup-shot-brand { text-align: center; font-family: var(--sf-serif); font-weight: 700; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-soft); }
+.sf-sup-shot-title { text-align: center; font-family: var(--sf-serif); font-weight: 700; font-size: 24px; color: var(--sf-cream-raw); margin-top: 2px; }
+.sf-sup-shot-date { text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,246,243,0.5); margin-top: 3px; }
+.sf-sup-shot-sec { border-top: 1px dashed rgba(250,246,243,0.2); margin-top: 14px; padding-top: 11px; }
+.sf-sup-shot-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sf-gold-soft); margin-bottom: 6px; }
+.sf-sup-shot-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 13px; color: rgba(250,246,243,0.88); padding: 2.5px 0; }
+.sf-sup-shot-row span:last-child { white-space: nowrap; color: rgba(250,246,243,0.65); }
+.sf-sup-shot-big { font-family: var(--sf-serif); font-weight: 700; font-size: 32px; color: var(--sf-cream-raw); line-height: 1.1; }
+.sf-sup-shot-big small { font-family: var(--sf-sans); font-size: 13px; font-weight: 600; color: rgba(250,246,243,0.65); margin-left: 5px; }
+.sf-sup-shot-year { font-family: var(--sf-display); font-style: italic; font-size: 13.5px; color: var(--sf-gold-soft); margin-top: 3px; }
+.sf-sup-shot-hint { text-align: center; font-size: 12.5px; color: var(--sf-taupe-light); margin-top: 12px; }
 
 /* ===== Email gate ===== */
 .sf-sup-gate { background: linear-gradient(135deg, #2a2118 0%, #3a2e22 55%, #2a2118 100%); border-radius: 20px; padding: 36px 26px; margin-top: 34px; text-align: center; position: relative; overflow: hidden; }
@@ -297,9 +385,14 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   .sf-sup-tool { padding: 24px 16px; }
   .sf-sup-items { grid-template-columns: 1fr; }
   .sf-sup-three { grid-template-columns: 1fr; }
+  .sf-sup-breaks { grid-template-columns: 1fr; }
   .sf-sup-proof { grid-template-columns: repeat(2, 1fr); }
   .sf-sup-audit { padding: 20px 16px 10px; }
   .sf-sup-tally { padding: 24px 20px; }
+  .sf-sup-order { padding: 8px 14px; }
+  .sf-sup-sched { padding: 4px 14px; }
+  .sf-sup-stime { flex: 0 0 84px; font-size: 16px; }
+  .sf-sup-shot { padding: 22px 18px; }
 }
 
 /* ===== Reduced motion ===== */
@@ -368,7 +461,22 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       <p class="sf-sup-lead">Tap everything you currently buy or subscribe to. Prices are honest ballpark figures for a typical month, close enough for the math to sting.</p>
 
       <div class="sf-sup-tool sf-sup-reveal">
+        <p class="sf-sup-sublabel">Your shelf</p>
         <div class="sf-sup-items" id="sfSupItems" role="group" aria-label="Tap the supplements you currently buy"></div>
+
+        <p class="sf-sup-sublabel">Your shift (it times the plan to your clock)</p>
+        <div class="sf-sup-shiftrow" id="sfSupShifts" role="group" aria-label="Pick your usual shift">
+          <button type="button" class="sf-sup-shift sf-on" data-shift="nights" aria-pressed="true"><span class="sf-sup-shift-name">Nights</span><span class="sf-sup-shift-sub">7p to 7a</span></button>
+          <button type="button" class="sf-sup-shift" data-shift="days" aria-pressed="false"><span class="sf-sup-shift-name">Days</span><span class="sf-sup-shift-sub">7a to 7p</span></button>
+          <button type="button" class="sf-sup-shift" data-shift="rotating" aria-pressed="false"><span class="sf-sup-shift-name">Rotating</span><span class="sf-sup-shift-sub">a bit of both</span></button>
+        </div>
+
+        <div class="sf-sup-gwrow">
+          <label for="sfSupGw">Goal weight, optional. It personalizes your protein target.</label>
+          <input type="number" id="sfSupGw" inputmode="numeric" min="80" max="400" placeholder="e.g. 160">
+          <span class="sf-sup-gwunit">lbs</span>
+        </div>
+
         <button type="button" class="sf-sup-btn" id="sfSupRun">Run my audit</button>
         <p class="sf-sup-hint" id="sfSupHint"></p>
         <div id="sfSupNudge"></div>
@@ -380,9 +488,9 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
           <h3>That is the audit. Take the <span class="sf-sup-em">full kit</span> with you.</h3>
           <p>The audit stays free. Your email opens the full version, built to survive an actual store run:</p>
           <ul class="sf-sup-gate-list">
-            <li>The printable dosing card for the three (fridge door and locker sized)</li>
-            <li>The label-reading checklist: third-party seals, plain monohydrate, no proprietary blends</li>
-            <li>The cancel-first order, so the worst offender comes off your card this week</li>
+            <li>The printable keeper card: doses, prices per day, and the seals to look for</li>
+            <li>The full 14-item board: every verdict, every half-used-tub call, live money math</li>
+            <li>The label checklist plus the when-to-take clock for every shift pattern</li>
           </ul>
           <form class="sf-sup-form" id="sfSupForm" novalidate>
             <div class="sf-sup-field">
@@ -448,46 +556,103 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
   };
   function isConfigured(v) { return v && v.indexOf("[") !== 0; }
 
-  /* ---- The cabinet (verdicts: keep / dep / drop) ---- */
+  /* ---- The cabinet ----
+     Each item carries: the verdict, the WHY, the evidence status in plain
+     language, the half-used-tub call, a cancel note, and a uselessness
+     weight (junk) so the cancel-first list can rank by cost x uselessness. */
   var ITEMS = [
-    { id: "fatburner", label: "Fat burner", emoji: "🔥", cost: 45, verdict: "drop",
-      line: "Mostly caffeine in a costume. No fat burner on the shelf outperforms a slightly longer walk, and you already run on caffeine." },
-    { id: "detox", label: "Detox tea", emoji: "🍵", cost: 30, verdict: "drop",
-      line: "Detox is an organ function. You chart liver panels for a living, and no tea is doing that work. This one is a laxative with branding." },
-    { id: "adrenal", label: "Adrenal cocktail mix", emoji: "🍊", cost: 40, verdict: "drop",
-      line: "Orange juice, salt, and a story. 'Adrenal fatigue' is not a diagnosis in any chart you have ever opened." },
-    { id: "ashwagandha", label: "Ashwagandha", emoji: "🌿", cost: 25, verdict: "drop",
-      line: "A handful of small trials on stress, and most gummies are dosed below even those. Not worth a standing monthly charge." },
-    { id: "greens", label: "Greens powder", emoji: "🥬", cost: 50, verdict: "drop",
-      line: "Dehydrated produce at a luxury markup. A bag of frozen vegetables covers it for a tenth of the price." },
-    { id: "bcaa", label: "BCAAs", emoji: "🧪", cost: 30, verdict: "drop",
-      line: "If you eat protein, you already own these. They are amino acids that come inside the food." },
-    { id: "collagen", label: "Collagen (weight-loss)", emoji: "☕", cost: 35, verdict: "drop",
-      line: "Fine as a coffee flavor. As a weight-loss product it is a weak protein with strong marketing." },
-    { id: "acv", label: "ACV gummies", emoji: "🍬", cost: 20, verdict: "drop",
-      line: "The vinegar studies were tiny, and the gummy version is mostly sugar. Candy with a health label." },
-    { id: "magspray", label: "Magnesium spray", emoji: "💦", cost: 15, verdict: "dep",
-      line: "Magnesium itself has a case if you run low, especially at night. The spray is the wrong vehicle. If you keep it, switch to an oral form like glycinate." },
-    { id: "multi", label: "Multivitamin", emoji: "💊", cost: 15, verdict: "drop",
-      line: "Insurance at best. If you eat protein and produce most weeks, a lot of it becomes expensive urine. Put the $15 toward the produce." },
-    { id: "melatonin", label: "Melatonin", emoji: "😴", cost: 10, verdict: "dep",
-      line: "A short reset tool after a run of nights, at a low dose, before your target sleep window. As an every-night habit it stops being a tool." },
-    { id: "protein", label: "Protein powder", emoji: "🥤", cost: 35, verdict: "keep",
-      line: "Not magic, convenient food. One scoop is 25 to 30 grams of protein with zero cooking at hour 11 of a 12." },
-    { id: "creatine", label: "Creatine", emoji: "💪", cost: 12, verdict: "keep",
-      line: "One of the most studied supplements in existence. Muscle and strength, plus early signals for a sleep-deprived brain. Pennies a day." },
-    { id: "vitd", label: "Vitamin D", emoji: "☀️", cost: 10, verdict: "keep",
-      line: "You clock in before sunrise and drive home after dark. Shift workers barely see sun, and this is the cheapest fix on the shelf." }
+    { id: "fatburner", label: "Fat burner", emoji: "🔥", cost: 45, verdict: "drop", junk: 1.0,
+      line: "Caffeine in a costume. A serving is usually 150 to 200mg of caffeine, about one 16oz coffee (190mg), sold at supplement prices.",
+      ev: "No controlled trial has shown a fat burner beats a placebo cup of coffee.",
+      tubTag: "Toss it",
+      tub: "Keep it around and some rough morning you will stack it on your coffee and sail past the FDA's 400mg-a-day line without noticing.",
+      cancel: "Biggest charge, least return, and it stacks caffeine on the caffeine you already drink. The unsubscribe takes 90 seconds." },
+    { id: "detox", label: "Detox tea", emoji: "🍵", cost: 30, verdict: "drop", junk: 1.0,
+      line: "Detox is an organ function. You chart liver panels for a living, and no tea does that work.",
+      ev: "The weight it moves is water plus a laxative effect, and it is back by the weekend.",
+      tubTag: "Toss it",
+      tub: "A laxative you did not order is not a wellness ritual. If you love the evening tea part, chamomile does the cozy work for $4.",
+      cancel: "Your liver never knew the tea existed. Cancel it and nothing changes but your card statement." },
+    { id: "adrenal", label: "Adrenal cocktail mix", emoji: "🍊", cost: 40, verdict: "drop", junk: 0.95,
+      line: "Orange juice, salt, and a story. 'Adrenal fatigue' is not a diagnosis in any chart you have ever opened.",
+      ev: "There are no trials behind the blend. The ingredients are juice-aisle items with a 10x markup.",
+      tubTag: "Repurpose it",
+      tub: "It is an expensive electrolyte drink. Finish it on sweaty shifts, then replace it with orange juice and a salt shaker, about $6 a month.",
+      cancel: "Forty dollars a month for juice with branding. Cancel it and build the same glass at home for pocket change." },
+    { id: "ashwagandha", label: "Ashwagandha", emoji: "🌿", cost: 25, verdict: "drop", junk: 0.7,
+      line: "The calm you are buying is sleep you have not had, and a root in a gummy cannot pay that debt.",
+      ev: "A few small, short trials on stress scores, and most gummies are dosed below even those.",
+      tubTag: "Finish it, do not rebuy",
+      tub: "It will not hurt you at label doses. Finish the bottle, then put the $25 toward blackout curtains, which carry better sleep evidence.",
+      cancel: "Last of the herbals to go, because it at least aims at stress. The dose in most bottles could not hit what the studies used." },
+    { id: "greens", label: "Greens powder", emoji: "🥬", cost: 50, verdict: "drop", junk: 0.85,
+      line: "Dehydrated produce at a luxury markup. A $2 bag of frozen vegetables covers more ground for a tenth of the price.",
+      ev: "No trial shows a greens scoop moving fat loss, energy, or labs the way eating produce does.",
+      tubTag: "Repurpose it",
+      tub: "Treat the rest of the tub as expensive seasoning: stir it into smoothies until it runs out, and do not rebuy it.",
+      cancel: "The second-biggest charge on most shelves. Finish the tub as smoothie seasoning and cancel the auto-ship today." },
+    { id: "bcaa", label: "BCAAs", emoji: "🧪", cost: 30, verdict: "drop", junk: 0.9,
+      line: "If you eat protein, you already own these. They arrive inside the food.",
+      ev: "Trials that add BCAAs on top of adequate protein keep finding nothing to add.",
+      tubTag: "Repurpose it",
+      tub: "Finish it as flavor for your shift water if you like the taste. It is doing hydration work, not muscle work.",
+      cancel: "Your chicken ships these for free. Cancel without a second thought." },
+    { id: "collagen", label: "Collagen (weight-loss)", emoji: "☕", cost: 35, verdict: "drop", junk: 0.8,
+      line: "Fine as a coffee flavor. As a weight-loss product it is a weak protein with strong marketing.",
+      ev: "Collagen is missing the amino acids that trigger muscle repair. Whey beats it gram for gram in head-to-head work.",
+      tubTag: "Repurpose it",
+      tub: "It is coffee creamer with about 10g of second-string protein. Finish it in your coffee, count it as 10g, do not rebuy.",
+      cancel: "Cancel the auto-ship, keep using the bag you have. When it runs out, a whey tub costs the same and actually counts." },
+    { id: "acv", label: "ACV gummies", emoji: "🍬", cost: 20, verdict: "drop", junk: 0.95,
+      line: "Candy with a health label. The gummy form is mostly sugar.",
+      ev: "The vinegar studies were tiny, short, and used liquid vinegar, never the candy.",
+      tubTag: "Toss it",
+      tub: "Or finish it as what it is: a gummy treat. It belongs in the candy budget, not the health budget.",
+      cancel: "If you want the vinegar experiment, the $4 bottle is the version the studies used. The gummies never were." },
+    { id: "magspray", label: "Magnesium spray", emoji: "💦", cost: 15, verdict: "dep", junk: 0.5,
+      line: "Magnesium has a real case for sleep quality if you run low. The spray is the wrong vehicle: skin absorbs almost none of it.",
+      ev: "Oral magnesium carries evidence for sleep in people who run low. Sprays carry next to none.",
+      tubTag: "Keep the mineral, switch the form",
+      tub: "Finish the spray as a nice-smelling lotion, then buy magnesium glycinate capsules and take them 30 to 45 minutes before your sleep window." },
+    { id: "multi", label: "Multivitamin", emoji: "💊", cost: 15, verdict: "drop", junk: 0.6,
+      line: "Insurance at best. If you eat protein and produce most weeks, much of it becomes expensive urine.",
+      ev: "Large trials in people who already eat food keep coming back flat on multivitamins.",
+      tubTag: "Finish it, do not rebuy",
+      tub: "It is not hurting you. Finish the bottle, then move the $15 to the produce aisle, where the same molecules come with fiber.",
+      cancel: "Cancel last. It is the cheapest, most harmless thing on the drop list. It is simply not earning a monthly charge." },
+    { id: "melatonin", label: "Melatonin", emoji: "😴", cost: 10, verdict: "dep", junk: 0.4,
+      line: "A flip-day tool, not a nightly habit. Small doses shift your body clock. Big doses mostly buy weird dreams.",
+      ev: "The sleep-timing evidence uses 0.5 to 1mg. The 10mg bottles are 10 to 20 times that.",
+      tubTag: "Keep it, fix the dose",
+      tub: "Keep it for flip days only, 0.5 to 1mg, 30 to 60 minutes before the sleep you are moving to. If your bottle says 10mg, quarter the tablets and buy 1mg next time." },
+    { id: "protein", label: "Protein powder", emoji: "🥤", cost: 35, verdict: "keep", junk: 0,
+      line: "Not magic, food in a faster container. One scoop is about 25g of protein with zero cooking at hour 11 of a 12.",
+      ev: "Protein is the one thing here with deep evidence for fullness, muscle, and keeping weight off. The powder is a delivery method.",
+      tubTag: "Keep it",
+      tub: "Aim it at your daily target and lean on it hardest the shifts where lunch never happens." },
+    { id: "creatine", label: "Creatine", emoji: "💪", cost: 12, verdict: "keep", junk: 0,
+      line: "The most studied supplement in existence: strength, muscle, and early signals for the sleep-deprived brain.",
+      ev: "Hundreds of trials on 3 to 5g of plain monohydrate. It runs about $0.10 a day.",
+      tubTag: "Keep it",
+      tub: "If yours is a gummy or a 'performance blend', finish it and replace it with plain monohydrate, one ingredient on the label." },
+    { id: "vitd", label: "Vitamin D", emoji: "☀️", cost: 10, verdict: "keep", junk: 0,
+      line: "You clock in before sunrise and drive home after dark. Shift workers barely see sun, and this is the cheapest fix on the shelf.",
+      ev: "One of the few things here you can verify with a blood draw: a 25-OH-D level tells you exactly whether it is working.",
+      tubTag: "Keep it",
+      tub: "Take it with a meal that has fat in it. And you draw labs for a living: get a 25-OH-D drawn before going above 2000 IU." }
   ];
   var VERDICT_META = {
     drop: { stamp: "Drop", cls: "sf-drop", group: "Drop these", groupCls: "sf-vg-drop" },
     dep:  { stamp: "Depends", cls: "sf-dep", group: "Your call", groupCls: "sf-vg-dep" },
     keep: { stamp: "Keep", cls: "sf-keep", group: "Keep these", groupCls: "sf-vg-keep" }
   };
+  var SHIFT_LABEL = { nights: "nights (7p to 7a)", days: "days (7a to 7p)", rotating: "a rotating schedule" };
 
-  var state = { selected: [], lastBack: 0, audited: false };
+  var state = { selected: [], shift: "nights", goalWeight: 0, lastBack: 0, audited: false };
 
   var itemsEl = document.getElementById("sfSupItems");
+  var shiftsEl = document.getElementById("sfSupShifts");
+  var gwEl = document.getElementById("sfSupGw");
   var runBtn = document.getElementById("sfSupRun");
   var hintEl = document.getElementById("sfSupHint");
   var nudgeEl = document.getElementById("sfSupNudge");
@@ -502,6 +667,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     return null;
   }
   function money(n) { return "$" + n.toLocaleString("en-US"); }
+  function num(n) { return n.toLocaleString("en-US"); }
+  function isSel(id) { return state.selected.indexOf(id) !== -1; }
 
   /* ---- Render the shelf ---- */
   function renderItems() {
@@ -535,17 +702,278 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
     else { state.selected.splice(idx, 1); btn.classList.remove("sf-on"); btn.setAttribute("aria-pressed", "false"); }
     nudgeEl.innerHTML = "";
     updateHint();
+    if (state.audited) runAudit(false);
   });
 
-  /* ---- The audit ---- */
+  shiftsEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sf-sup-shift");
+    if (!btn) return;
+    var chips = shiftsEl.querySelectorAll(".sf-sup-shift");
+    for (var i = 0; i < chips.length; i++) { chips[i].classList.remove("sf-on"); chips[i].setAttribute("aria-pressed", "false"); }
+    btn.classList.add("sf-on");
+    btn.setAttribute("aria-pressed", "true");
+    state.shift = btn.getAttribute("data-shift") || "nights";
+    if (state.audited) runAudit(false);
+  });
+
+  gwEl.addEventListener("change", function () {
+    var v = parseInt(gwEl.value, 10);
+    state.goalWeight = (v >= 80 && v <= 400) ? v : 0;
+    if (state.audited) runAudit(false);
+  });
+
+  /* ---- Piece renderers (the taught layer) ---- */
   function stampHtml(verdict, delayMs) {
     var m = VERDICT_META[verdict];
     return '<span class="sf-sup-stamp sf-sup-stamped ' + m.cls + '" style="-webkit-animation-delay:' + delayMs + 'ms;animation-delay:' + delayMs + 'ms;">' + m.stamp + '</span>';
   }
 
-  function runAudit() {
+  function blockHead(kicker, title, lead) {
+    return '<div class="sf-sup-three-head">' +
+      '<div class="sf-sup-kicker">' + kicker + '</div>' +
+      '<h3 class="sf-sup-h2" style="font-size:clamp(22px,3.6vw,30px);">' + title + '</h3>' +
+      (lead ? '<p class="sf-sup-lead" style="margin-bottom:16px;">' + lead + '</p>' : '') +
+    '</div>';
+  }
+
+  /* Cancel-first: her drops, ranked by cost x uselessness */
+  function renderOrder(drops) {
+    if (!drops.length) return "";
+    var sorted = drops.slice().sort(function (a, b) { return (b.cost * b.junk) - (a.cost * a.junk); });
+    var html = blockHead("Cancel in this order", "Stop buying these first",
+      "Ranked by what each one costs times how little it does. Start at the top: one cancellation tonight, before the next auto-ship fires.");
+    html += '<div class="sf-sup-order">';
+    for (var i = 0; i < sorted.length; i++) {
+      var it = sorted[i];
+      html += '<div class="sf-sup-orow">' +
+        '<span class="sf-sup-onum">' + (i + 1) + '</span>' +
+        '<div class="sf-sup-orow-main">' +
+          '<div class="sf-sup-orow-top"><span class="sf-sup-orow-name">' + it.label + '</span><span class="sf-sup-orow-cost">' + money(it.cost) + '/mo back</span></div>' +
+          '<p class="sf-sup-orow-line">' + (it.cancel || it.line) + '</p>' +
+        '</div>' +
+      '</div>';
+    }
+    html += '</div>';
+    html += '<p class="sf-sup-order-foot">Why this order: the top of the list is where the most money buys the least result, so each cancellation up there hurts the least and refunds the most.</p>';
+    return html;
+  }
+
+  /* Reallocation: her refund converted to the working shelf + real food */
+  function renderRealloc(back) {
+    if (back <= 0) return "";
+    var html = blockHead("The reallocation", "Where " + money(back) + " a month goes instead",
+      "Same card, same monthly spend, pointed at things with evidence behind them. Grocery ballpark prices.");
+    html += '<div class="sf-sup-realloc">';
+    var grams = 0;
+    if (back >= 57) {
+      var rem = back - 57;
+      html += '<div class="sf-sup-food"><span class="sf-sup-food-name">All three keepers, fully funded' +
+        '<span class="sf-sup-food-sub">protein $35 + creatine $12 + vitamin D $10</span></span>' +
+        '<span class="sf-sup-food-g">$57</span></div>';
+      var birds = Math.min(4, Math.floor((rem * 0.5) / 8));
+      var yog = Math.floor((rem - birds * 8) / 1.5);
+      if (birds > 0) {
+        html += '<div class="sf-sup-food"><span class="sf-sup-food-name">' + birds + ' rotisserie chicken' + (birds === 1 ? "" : "s") +
+          '<span class="sf-sup-food-sub">about 4 cups shredded per bird, 35g protein per cup, about $8 each</span></span>' +
+          '<span class="sf-sup-food-g">' + num(birds * 140) + 'g protein</span></div>';
+        grams += birds * 140;
+      }
+      if (yog > 0) {
+        html += '<div class="sf-sup-food"><span class="sf-sup-food-name">' + yog + ' Greek yogurt cups' +
+          '<span class="sf-sup-food-sub">5.3oz singles, 15g protein each, about $1.50</span></span>' +
+          '<span class="sf-sup-food-g">' + num(yog * 15) + 'g protein</span></div>';
+        grams += yog * 15;
+      }
+      if (grams > 0) {
+        html += '<div class="sf-sup-realloc-total">Roughly ' + num(grams) + 'g of protein a month you were paying to not get.</div>';
+      } else {
+        html += '<div class="sf-sup-realloc-total">The working shelf now pays for itself.</div>';
+      }
+    } else if (back >= 22) {
+      html += '<div class="sf-sup-food"><span class="sf-sup-food-name">Creatine + vitamin D, fully funded' +
+        '<span class="sf-sup-food-sub">$12 + $10, the two cheapest things that actually work</span></span>' +
+        '<span class="sf-sup-food-g">$22</span></div>' +
+        '<div class="sf-sup-food"><span class="sf-sup-food-name">' + money(back - 22) + ' toward the protein tub' +
+        '<span class="sf-sup-food-sub">about $35 a month when you are ready</span></span>' +
+        '<span class="sf-sup-food-g">head start</span></div>' +
+        '<div class="sf-sup-realloc-total">Your refund covers the two keepers with change left over.</div>';
+    } else if (back >= 12) {
+      html += '<div class="sf-sup-food"><span class="sf-sup-food-name">Creatine, fully funded' +
+        '<span class="sf-sup-food-sub">3 to 5g a day of plain monohydrate, about $12 a month</span></span>' +
+        '<span class="sf-sup-food-g">$12</span></div>' +
+        '<div class="sf-sup-realloc-total">Your refund covers the single best value on the shelf.</div>';
+    } else {
+      html += '<div class="sf-sup-food"><span class="sf-sup-food-name">Most of a month of vitamin D' +
+        '<span class="sf-sup-food-sub">about $10 a month, and you can verify it with a blood draw</span></span>' +
+        '<span class="sf-sup-food-g">' + money(back) + '</span></div>' +
+        '<div class="sf-sup-realloc-total">Small refund, real destination.</div>';
+    }
+    html += '<div class="sf-sup-realloc-delta">The jars you dropped delivered 0g of any of this.</div>';
+    html += '</div>';
+    return html;
+  }
+
+  /* The three keepers: real buying guide, target personalized if she gave a goal weight */
+  function proteinTargetLine(gw) {
+    if (gw) {
+      var lo = Math.round(gw * 0.7);
+      var hi = Math.round(gw * 1.0);
+      return "Your daily target at a " + gw + " lb goal: <strong>" + lo + " to " + hi + "g of protein a day</strong> (0.7 to 1.0g per pound of goal weight; over 45, live near the top). One scoop covers about 25g, so the powder's job is one gap a day, not the whole number.";
+    }
+    return "The math: 0.7 to 1.0g of protein per pound of goal weight, so a 160 lb goal means 112 to 160g a day. Over 45, live near the top. Add your goal weight above and I will run your exact number.";
+  }
+  function renderKeepers(gw) {
+    return blockHead("The keepers", "The three that earn their spot",
+      "Whatever the audit said, these are the only three I tell my nurses to buy. Doses, prices per day, and what the label has to prove:") +
+    '<div class="sf-sup-three">' +
+      '<div class="sf-sup-keeper">' +
+        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">🥤 Protein</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
+        '<span class="sf-sup-keeper-dose">1 scoop = about 25g protein</span>' +
+        '<p>It is food, not a fat burner. Whey or plant both work.</p>' +
+        '<p>' + proteinTargetLine(gw) + '</p>' +
+        '<p class="sf-sup-keeper-buy"><strong>Buy</strong>20g or more per scoop, protein first on the ingredient list, a label short enough to read on a break.</p>' +
+        '<span class="sf-sup-keeper-cost">about $35 a month</span>' +
+      '</div>' +
+      '<div class="sf-sup-keeper">' +
+        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">💪 Creatine</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
+        '<span class="sf-sup-keeper-dose">3 to 5g daily, any time, about $0.10 a day</span>' +
+        '<p>Timing is irrelevant, the daily streak is everything. Plain monohydrate, and the cheapest tub is the right tub.</p>' +
+        '<p>Why a nurse specifically: your brain runs on the same energy stores creatine tops off. Small trials show it blunts the mental fog of short sleep, and short sleep is the job.</p>' +
+        '<p class="sf-sup-keeper-buy"><strong>Buy</strong>Creatine monohydrate, one ingredient, NSF or Informed Sport seal. Skip gummy forms: the dose rarely survives the candy-making.</p>' +
+        '<span class="sf-sup-keeper-cost">about $12 a month</span>' +
+      '</div>' +
+      '<div class="sf-sup-keeper">' +
+        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">☀️ Vitamin D</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
+        '<span class="sf-sup-keeper-dose">1000 to 2000 IU, with a fat-containing meal</span>' +
+        '<p>It absorbs with fat, so it rides with eggs, peanut butter, or your pre-shift plate. Not with black coffee.</p>' +
+        '<p>The nurse move: you draw labs for a living. Get a 25-OH-D drawn before going above 2000 IU, then dose to your number instead of the marketing.</p>' +
+        '<p class="sf-sup-keeper-buy"><strong>Buy</strong>The D3 form. The $8 bottle is the same molecule as the $30 one.</p>' +
+        '<span class="sf-sup-keeper-cost">about $10 a month</span>' +
+      '</div>' +
+    '</div>' +
+    '<p class="sf-sup-smallprint">Educational resource, not medical advice. You know the drill: run new supplements past your provider, especially with prescriptions, kidney concerns, or pregnancy.</p>';
+  }
+
+  /* The clock: when to take what, computed for her shift */
+  function scheduleRows(shift) {
+    var rows = [];
+    if (shift === "days") {
+      rows.push({ t: "5:30 am", n: "Vitamin D3, 1000 to 2000 IU, with breakfast", w: "It only absorbs with fat, so eggs or peanut butter toast count and black coffee does not." });
+      rows.push({ t: "5:30 am", n: "Creatine, 3 to 5g, same sitting", w: "Timing is irrelevant, the streak is everything. Tie it to breakfast so it survives the week." });
+      rows.push({ t: "6:00 am", n: "First coffee, not at 4:45", w: "Caffeine lands better 60 to 90 minutes after waking, once your own wake-up chemistry has cleared. Same cup, more effect." });
+      rows.push({ t: "1:00 pm", n: "Last caffeine of the day", w: "Half-life is 5 to 6 hours, so a 1pm cutoff means most of it is gone by a 9:30pm lights-out." });
+      rows.push({ t: "7:30 pm", n: "Protein, 1 scoop (25g), on the drive home", w: "Day shift's gap is the post-shift crash. A shake in the car beats the drive-thru stop by about 25g of protein." });
+      if (isSel("magspray")) rows.push({ t: "8:45 pm", n: "Magnesium glycinate, your keeper form", w: "The one form with sleep evidence, 30 to 45 minutes ahead of your window." });
+      if (isSel("melatonin")) rows.push({ t: "9:00 pm", n: "Melatonin 0.5 to 1mg, only when your clock is off", w: "Small doses nudge sleep timing. On a steady day schedule, most nights need none at all." });
+    } else if (shift === "nights") {
+      rows.push({ t: "5:00 pm", n: "Vitamin D3, 1000 to 2000 IU, with the pre-shift meal", w: "That meal is your breakfast and the one with fat in it. D needs the fat to absorb." });
+      rows.push({ t: "5:00 pm", n: "Creatine, 3 to 5g, same plate", w: "Timing is irrelevant, the streak is everything. Tie it to this meal and it survives chaos weeks." });
+      rows.push({ t: "8:00 pm", n: "First coffee, one hour into the shift", w: "Caffeine lands better 60 to 90 minutes after you are up and moving. The 6pm gulp on the drive in is mostly wasted." });
+      rows.push({ t: "2:00 am", n: "Last caffeine of the night", w: "Half-life is 5 to 6 hours. A 2am cutoff protects the 8:30am sleep you are about to fight for." });
+      rows.push({ t: "3:00 am", n: "Protein at the break, 25 to 35g", w: "The 3am gap is where the vending machine wins. A shake (25g) or a Greek yogurt cup (15g) from your bag holds the line." });
+      if (isSel("magspray")) rows.push({ t: "8:00 am", n: "Magnesium glycinate, once you are home", w: "30 to 45 minutes before your day sleep. Glycinate is the form with actual sleep evidence." });
+      if (isSel("melatonin")) rows.push({ t: "Flip day", n: "Melatonin 0.5 to 1mg at 8:30 am, flip days only", w: "Use it to move your clock on the morning you switch back to days, blackout curtains drawn. Never a nightly habit." });
+    } else {
+      rows.push({ t: "Anchor meal", n: "Vitamin D3 + creatine, together", w: "Pick the one meal you eat at home no matter the schedule. D needs the fat on that plate. Creatine needs the routine." });
+      rows.push({ t: "Waking + 90 min", n: "First caffeine, wherever waking lands", w: "Give yourself 60 to 90 minutes awake before cup one. The same cup works harder." });
+      rows.push({ t: "Sleep minus 8 hrs", n: "Caffeine cutoff", w: "Half-life is 5 to 6 hours. Count back 8 from whichever sleep window is next and stop there." });
+      rows.push({ t: "Days 7:30 pm, nights 3:00 am", n: "Protein, 1 scoop where the gap is", w: "On day stretches the gap is the drive home. On night stretches it is the 3am break." });
+      if (isSel("magspray")) rows.push({ t: "Sleep minus 30 min", n: "Magnesium glycinate", w: "Whatever clock sleep lands on, glycinate goes 30 to 45 minutes ahead of it." });
+      if (isSel("melatonin")) rows.push({ t: "Flip days only", n: "Melatonin 0.5 to 1mg", w: "30 to 60 minutes before the sleep window you are moving TO, on switch days only. Never nightly." });
+    }
+    return rows;
+  }
+  function renderSchedule(shift) {
+    var rows = scheduleRows(shift);
+    var html = blockHead("The clock", "Timed to your " + SHIFT_LABEL[shift],
+      "Doses only work if they survive your schedule. Here is where each one lives on your actual clock.");
+    html += '<div class="sf-sup-sched">';
+    for (var i = 0; i < rows.length; i++) {
+      html += '<div class="sf-sup-srow">' +
+        '<span class="sf-sup-stime">' + rows[i].t + '</span>' +
+        '<span class="sf-sup-swhat"><span class="sf-sup-swhat-name">' + rows[i].n + '</span>' +
+        '<span class="sf-sup-swhat-why">' + rows[i].w + '</span></span>' +
+      '</div>';
+    }
+    html += '</div>';
+    html += '<p class="sf-sup-sched-note">Times assume the standard 7-to-7. Start earlier or later? Slide the whole table with you.</p>';
+    return html;
+  }
+
+  /* Contingency: what to do when the plan breaks */
+  function renderBreaks() {
+    return blockHead("When the plan breaks", "Because it will, and that is fine", "") +
+    '<div class="sf-sup-breaks">' +
+      '<div class="sf-sup-break"><p class="sf-sup-break-q">You missed creatine three days in a row</p><p class="sf-sup-break-a">Resume at 3 to 5g and move on. Your stores drain over weeks, not days, and there is no catching up to do. Never double the dose.</p></div>' +
+      '<div class="sf-sup-break"><p class="sf-sup-break-q">Money is tight this month</p><p class="sf-sup-break-a">Keep vitamin D and creatine, $22 a month combined, and let the protein powder lapse. It is the one keeper food replaces: 2 eggs (12g) plus a Greek yogurt cup (15g) covers a scoop.</p></div>' +
+      '<div class="sf-sup-break"><p class="sf-sup-break-q">Three nights deep and wrecked</p><p class="sf-sup-break-a">That is not a supplement problem, so do not buy anything. Protein at the 3am break, water, blackout curtains at 8:30am. Melatonin only if this is your flip day, 0.5 to 1mg.</p></div>' +
+      '<div class="sf-sup-break"><p class="sf-sup-break-q">You bought a gummy version again</p><p class="sf-sup-break-a">No shame, they are engineered to be bought. Finish it as candy, count it as candy, and rebuy the capsule or powder with a seal on the label.</p></div>' +
+    '</div>';
+  }
+
+  /* Screenshot card: her numbers, her plan, one frame */
+  function shotTimingLines(shift) {
+    var lines = [];
+    if (shift === "nights") {
+      lines.push(["D + creatine", "5:00 pm pre-shift meal"]);
+      lines.push(["Protein", "3:00 am break, 25 to 35g"]);
+      lines.push(["Caffeine cutoff", "2:00 am"]);
+      if (isSel("melatonin")) lines.push(["Melatonin", "flip days only, 0.5 to 1mg"]);
+    } else if (shift === "days") {
+      lines.push(["D + creatine", "5:30 am with breakfast"]);
+      lines.push(["Protein", "7:30 pm drive home, 1 scoop"]);
+      lines.push(["Caffeine cutoff", "1:00 pm"]);
+      if (isSel("melatonin")) lines.push(["Melatonin", "0.5 to 1mg, flip days only"]);
+    } else {
+      lines.push(["D + creatine", "your anchor meal, daily"]);
+      lines.push(["Protein", "days 7:30 pm, nights 3:00 am"]);
+      lines.push(["Caffeine cutoff", "sleep minus 8 hours"]);
+      if (isSel("melatonin")) lines.push(["Melatonin", "flip days only, 0.5 to 1mg"]);
+    }
+    return lines;
+  }
+  function renderShot(drops, back, shift, dateStr) {
+    var html = blockHead("Save this", "The one-frame version", "Screenshot this card. It is the whole plan, with your numbers on it.");
+    html += '<div class="sf-sup-shot">' +
+      '<div class="sf-sup-shot-brand">SmithFit</div>' +
+      '<div class="sf-sup-shot-title">The Cabinet Audit</div>' +
+      '<div class="sf-sup-shot-date">' + dateStr + '</div>';
+    html += '<div class="sf-sup-shot-sec"><div class="sf-sup-shot-label">Dropping</div>';
+    if (drops.length) {
+      for (var i = 0; i < drops.length; i++) {
+        html += '<div class="sf-sup-shot-row"><span>' + drops[i].label + '</span><span>' + money(drops[i].cost) + '/mo</span></div>';
+      }
+    } else {
+      html += '<div class="sf-sup-shot-row"><span>Nothing. Clean shelf.</span><span></span></div>';
+    }
+    html += '</div>';
+    if (back > 0) {
+      html += '<div class="sf-sup-shot-sec"><div class="sf-sup-shot-label">Back in your pocket</div>' +
+        '<div class="sf-sup-shot-big">' + money(back) + '<small>a month</small></div>' +
+        '<div class="sf-sup-shot-year">' + money(back * 12) + ' a year</div></div>';
+    }
+    html += '<div class="sf-sup-shot-sec"><div class="sf-sup-shot-label">Keeping (the only three)</div>' +
+      '<div class="sf-sup-shot-row"><span>Protein powder</span><span>1 scoop = 25g, at the gap</span></div>' +
+      '<div class="sf-sup-shot-row"><span>Creatine monohydrate</span><span>3 to 5g daily, any time</span></div>' +
+      '<div class="sf-sup-shot-row"><span>Vitamin D3</span><span>1000 to 2000 IU, with food</span></div></div>';
+    var lines = shotTimingLines(shift);
+    html += '<div class="sf-sup-shot-sec"><div class="sf-sup-shot-label">Timed to ' + (shift === "rotating" ? "rotating" : shift) + '</div>';
+    for (var j = 0; j < lines.length; j++) {
+      html += '<div class="sf-sup-shot-row"><span>' + lines[j][0] + '</span><span>' + lines[j][1] + '</span></div>';
+    }
+    html += '</div>';
+    html += '<div class="sf-sup-shot-sec" style="text-align:center;"><div class="sf-sup-shot-date" style="margin-top:0;">Built by a nurse, for nurses</div></div>';
+    html += '</div>';
+    html += '<p class="sf-sup-shot-hint">Send it to the coworker who is still paying for the fat burner.</p>';
+    return html;
+  }
+
+  /* ---- The audit ---- */
+  function runAudit(scroll) {
     if (!state.selected.length) {
       nudgeEl.innerHTML = '<div class="sf-sup-nudge">Tap what is actually on your shelf first. No judgment, we have all bought at least one of these after a rough stretch of nights.</div>';
+      resultsEl.innerHTML = "";
+      gateEl.classList.add("sf-sup-hidden");
       return;
     }
     nudgeEl.innerHTML = "";
@@ -581,6 +1009,8 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
             '<span class="sf-sup-vrow-right"><span class="sf-sup-vrow-cost">$' + it2.cost + '/mo</span>' + stampHtml(it2.verdict, delay) + '</span>' +
           '</div>' +
           '<p class="sf-sup-vrow-line">' + it2.line + '</p>' +
+          '<p class="sf-sup-vrow-ev"><strong>Evidence</strong>' + it2.ev + '</p>' +
+          '<p class="sf-sup-vrow-ev"><strong>' + it2.tubTag + '</strong>' + it2.tub + '</p>' +
         '</div>';
         delay = Math.min(delay + 70, 680);
       }
@@ -609,46 +1039,26 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
       '</div>';
     }
 
-    var threeHtml = '<div class="sf-sup-three-head">' +
-      '<div class="sf-sup-kicker">The keepers</div>' +
-      '<h3 class="sf-sup-h2" style="font-size:clamp(22px,3.6vw,30px);">The three that earn their spot</h3>' +
-      '<p class="sf-sup-lead" style="margin-bottom:16px;">Whatever the audit said, these are the only three I tell my nurses to buy. Practical doses, no mystery:</p>' +
-    '</div>' +
-    '<div class="sf-sup-three">' +
-      '<div class="sf-sup-keeper">' +
-        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">🥤 Protein</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
-        '<span class="sf-sup-keeper-dose">1 scoop when real food will not happen</span>' +
-        '<p>A scoop is convenient food, not a magic shake. Aim it at your daily protein target, especially the shifts where lunch never happens.</p>' +
-        '<span class="sf-sup-keeper-cost">about $35 a month</span>' +
-      '</div>' +
-      '<div class="sf-sup-keeper">' +
-        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">💪 Creatine</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
-        '<span class="sf-sup-keeper-dose">3 to 5g every day, any time</span>' +
-        '<p>Timing does not matter, the daily streak does. Plain creatine monohydrate, the cheapest tub on the shelf, is exactly the right one.</p>' +
-        '<span class="sf-sup-keeper-cost">about $12 a month</span>' +
-      '</div>' +
-      '<div class="sf-sup-keeper">' +
-        '<div class="sf-sup-keeper-top"><span class="sf-sup-keeper-name">☀️ Vitamin D</span><span class="sf-sup-stamp sf-keep">Keep</span></div>' +
-        '<span class="sf-sup-keeper-dose">1000 to 2000 IU, with food</span>' +
-        '<p>Shift workers barely see sun. Take it with a meal that has some fat, and you know the move: get a level drawn before going higher.</p>' +
-        '<span class="sf-sup-keeper-cost">about $10 a month</span>' +
-      '</div>' +
-    '</div>' +
-    '<p class="sf-sup-smallprint">Educational resource, not medical advice. You know the drill: run new supplements past your provider, especially with prescriptions, kidney concerns, or pregnancy.</p>';
-
     resultsEl.innerHTML = '<div class="sf-sup-audit sf-sup-pop">' +
       '<div class="sf-sup-audit-head">' +
         '<span class="sf-sup-audit-title">Your shelf, audited</span>' +
         '<span class="sf-sup-audit-date">' + dateStr + '</span>' +
       '</div>' +
       groupsHtml +
-    '</div>' + tallyHtml + threeHtml;
+    '</div>' +
+    tallyHtml +
+    renderOrder(groups.drop) +
+    renderRealloc(dropTotal) +
+    renderKeepers(state.goalWeight) +
+    renderSchedule(state.shift) +
+    renderBreaks() +
+    renderShot(groups.drop, dropTotal, state.shift, dateStr);
 
     gateEl.classList.remove("sf-sup-hidden");
-    resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (scroll !== false) resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  runBtn.addEventListener("click", runAudit);
+  runBtn.addEventListener("click", function () { runAudit(true); });
 
   /* ---- Meta pixel ---- */
   function initPixel() {
@@ -787,7 +1197,7 @@ html, body { margin: 0; padding: 0; background: #faf6f3; }
         if (btn) { state.selected.push(pick[i]); btn.classList.add("sf-on"); btn.setAttribute("aria-pressed", "true"); }
       }
       updateHint();
-      runAudit();
+      runAudit(false);
     } catch (e) {}
   }
 
