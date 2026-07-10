@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmithFit Weekly Check-in</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+:root{--bg:#0D0D0D;--panel:#1A1518;--field:#120f12;--gold:#C9A84C;--champ:#E2C97E;--champ-lt:#F0DFA0;--ivory:#FAF6EE;--cream:#EDE8DF;--muted:rgba(237,232,223,.55);--line:rgba(201,168,76,.22)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--cream);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(120% 60% at 50% -10%,rgba(201,168,76,.10),transparent 60%),var(--bg)}
+.wrap{max-width:600px;margin:0 auto;padding:30px 20px 96px}
+.brand{text-align:center;margin:6px 0 24px}
+.mark{font-family:'League Spartan',sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em;color:var(--ivory);text-transform:uppercase}
+.mark b{color:var(--gold)}
+.tag{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--champ);margin-top:6px}
+.progress{height:5px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin-bottom:8px}
+.bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--champ-lt));border-radius:99px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.count{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.card{background:linear-gradient(180deg,var(--panel),#150f13);border:1px solid var(--line);border-radius:22px;padding:32px 28px;box-shadow:0 30px 70px -40px rgba(0,0,0,.9)}
+.step{display:none;-webkit-animation:fade .45s ease both;animation:fade .45s ease both}
+.step.on{display:block}
+@-webkit-keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.q{font-family:'League Spartan',sans-serif;font-weight:600;font-size:clamp(24px,4.6vw,34px);color:var(--ivory);line-height:1.1;margin-bottom:8px}
+.help{font-size:14.5px;color:var(--muted);margin-bottom:22px}
+.field{margin-bottom:17px}
+.label{display:block;font-size:13px;font-weight:600;color:var(--cream);margin-bottom:7px}
+.sub{font-weight:400;color:var(--muted)}
+.req{color:var(--gold)}
+.input,.select,.textarea{width:100%;font-family:'Inter',sans-serif;font-size:15px;color:var(--ivory);background:var(--field);border:1.5px solid rgba(255,255,255,.09);border-radius:12px;padding:13px 14px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.input::placeholder,.textarea::placeholder{color:rgba(237,232,223,.32)}
+.input:focus,.select:focus,.textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.18)}
+.textarea{min-height:86px;resize:vertical}
+.select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C9A84C' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:36px}
+.select option{background:#1A1518;color:var(--ivory)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choices{display:flex;flex-wrap:wrap;gap:9px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{display:inline-block;padding:10px 15px;font-size:14px;font-weight:500;color:var(--cream);background:var(--field);border:1.5px solid rgba(255,255,255,.09);border-radius:99px;transition:all .18s}
+.chip input:checked+span{color:#120f12;background:linear-gradient(180deg,var(--champ),var(--gold));border-color:var(--gold);font-weight:600}
+.chip:hover span{border-color:var(--gold)}
+.feel{margin-bottom:16px}
+.feel .flabel{font-size:13px;font-weight:600;color:var(--cream);margin-bottom:6px;display:flex;justify-content:space-between}
+.scale{display:flex;gap:8px}.scale .chip{flex:1}.scale .chip span{width:100%;text-align:center;padding:11px 0}
+.cond{display:none;margin-top:8px;padding-left:14px;border-left:2px solid rgba(201,168,76,.4)}
+.cond.open{display:block}
+.err{font-size:13px;color:#e08a6f;margin-top:8px;display:none}
+.err.show{display:block}
+.file input{color:var(--muted);font-size:13px}
+.nav{display:flex;gap:12px;margin-top:28px}
+.btn{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.02em;border-radius:12px;padding:14px 22px;cursor:pointer;border:1.5px solid transparent;transition:transform .15s,box-shadow .25s,background .2s}
+.btn:active{transform:translateY(1px)}
+.next{flex:1;background:linear-gradient(180deg,var(--champ),var(--gold));color:#120f12;box-shadow:0 12px 26px -12px rgba(201,168,76,.7)}
+.next:hover{box-shadow:0 16px 30px -12px rgba(201,168,76,.9)}
+.back{background:transparent;color:var(--cream);border-color:rgba(255,255,255,.14)}
+.back:hover{border-color:var(--gold)}
+.back.hide{visibility:hidden}
+.done{display:none;text-align:center;padding:18px 6px}
+.done.on{display:block;-webkit-animation:fade .5s ease both;animation:fade .5s ease both}
+.tick{width:66px;height:66px;border-radius:50%;background:rgba(201,168,76,.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:6px auto 20px;color:var(--gold);font-size:30px}
+.done h2{font-family:'League Spartan',sans-serif;font-weight:600;font-size:30px;color:var(--ivory);margin-bottom:12px}
+.done p{font-size:15px;color:var(--muted);max-width:420px;margin:0 auto 8px}
+.done .sig{color:var(--champ);margin-top:16px}
+.foot{text-align:center;font-size:11.5px;color:var(--muted);opacity:.7;margin-top:22px}
+@media (max-width:600px){.card{padding:26px 18px;border-radius:18px}.row{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;-webkit-animation:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="mark">Smith<b>Fit</b></div><div class="tag">Weekly Check-in</div></div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="count" id="count">Step 1 of 6</div>
+  <div class="card">
+    <form id="form" novalidate>
+
+      <!-- 1 NUMBERS -->
+      <div class="step on" data-step="1">
+        <div class="eyebrow">This week's numbers</div>
+        <div class="q">Quick check-in.</div>
+        <div class="help">Takes about two minutes. Be honest, this is how I keep tuning your plan.</div>
+        <div class="field" id="emailField"><label class="label">Email <span class="req">*</span></label><input class="input" name="email" type="email" required></div>
+        <div class="row"><div class="field"><label class="label">Current weight <span class="req">*</span></label><input class="input" name="weight" type="number" inputmode="decimal" required></div>
+        <div class="field"><label class="label">Measurements <span class="sub">(optional)</span></label><input class="input" name="measurements"></div></div>
+        <div class="field"><label class="label">Progress photos <span class="sub">(optional)</span></label><div class="file"><input type="file" name="photos" accept="image/*" multiple></div></div>
+        <div class="err" data-err>Please add your email so I know it's you.</div>
+      </div>
+
+      <!-- 2 HOW YOU DID -->
+      <div class="step" data-step="2">
+        <div class="eyebrow">How you did</div>
+        <div class="q">How'd the week go?</div>
+        <div class="help">No perfect weeks required. Just tell me the truth.</div>
+        <div class="field"><label class="label">Nutrition this week</label>
+          <div class="choices" data-single="nutrition">
+            <label class="chip"><input type="radio" name="nutrition" value="Excellent"><span>Excellent</span></label>
+            <label class="chip"><input type="radio" name="nutrition" value="Good"><span>Good</span></label>
+            <label class="chip"><input type="radio" name="nutrition" value="OK"><span>OK</span></label>
+            <label class="chip"><input type="radio" name="nutrition" value="Rough"><span>Rough</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">Training this week</label>
+          <div class="choices" data-single="training">
+            <label class="chip"><input type="radio" name="training" value="Excellent"><span>Excellent</span></label>
+            <label class="chip"><input type="radio" name="training" value="Good"><span>Good</span></label>
+            <label class="chip"><input type="radio" name="training" value="OK"><span>OK</span></label>
+            <label class="chip"><input type="radio" name="training" value="Rough"><span>Rough</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">Steps or cardio completed</label><input class="input" name="stepsCardio" placeholder="e.g. 8k avg, 2 walks"></div>
+      </div>
+
+      <!-- 3 HOW YOU FEEL -->
+      <div class="step" data-step="3">
+        <div class="eyebrow">How you feel</div>
+        <div class="q">Where's your body at?</div>
+        <div class="help">1 is low, 5 is great. Go with your gut.</div>
+        <div class="feel"><div class="flabel"><span>Sleep</span></div><div class="scale" data-single="sleep"><label class="chip"><input type="radio" name="sleep" value="1"><span>1</span></label><label class="chip"><input type="radio" name="sleep" value="2"><span>2</span></label><label class="chip"><input type="radio" name="sleep" value="3"><span>3</span></label><label class="chip"><input type="radio" name="sleep" value="4"><span>4</span></label><label class="chip"><input type="radio" name="sleep" value="5"><span>5</span></label></div></div>
+        <div class="feel"><div class="flabel"><span>Energy</span></div><div class="scale" data-single="energy"><label class="chip"><input type="radio" name="energy" value="1"><span>1</span></label><label class="chip"><input type="radio" name="energy" value="2"><span>2</span></label><label class="chip"><input type="radio" name="energy" value="3"><span>3</span></label><label class="chip"><input type="radio" name="energy" value="4"><span>4</span></label><label class="chip"><input type="radio" name="energy" value="5"><span>5</span></label></div></div>
+        <div class="feel"><div class="flabel"><span>Stress</span></div><div class="scale" data-single="stress"><label class="chip"><input type="radio" name="stress" value="1"><span>1</span></label><label class="chip"><input type="radio" name="stress" value="2"><span>2</span></label><label class="chip"><input type="radio" name="stress" value="3"><span>3</span></label><label class="chip"><input type="radio" name="stress" value="4"><span>4</span></label><label class="chip"><input type="radio" name="stress" value="5"><span>5</span></label></div></div>
+        <div class="feel"><div class="flabel"><span>Mood</span></div><div class="scale" data-single="mood"><label class="chip"><input type="radio" name="mood" value="1"><span>1</span></label><label class="chip"><input type="radio" name="mood" value="2"><span>2</span></label><label class="chip"><input type="radio" name="mood" value="3"><span>3</span></label><label class="chip"><input type="radio" name="mood" value="4"><span>4</span></label><label class="chip"><input type="radio" name="mood" value="5"><span>5</span></label></div></div>
+        <div class="feel"><div class="flabel"><span>Digestion</span></div><div class="scale" data-single="digestion"><label class="chip"><input type="radio" name="digestion" value="1"><span>1</span></label><label class="chip"><input type="radio" name="digestion" value="2"><span>2</span></label><label class="chip"><input type="radio" name="digestion" value="3"><span>3</span></label><label class="chip"><input type="radio" name="digestion" value="4"><span>4</span></label><label class="chip"><input type="radio" name="digestion" value="5"><span>5</span></label></div></div>
+        <div class="feel"><div class="flabel"><span>Hunger</span></div><div class="scale" data-single="hunger"><label class="chip"><input type="radio" name="hunger" value="1"><span>1</span></label><label class="chip"><input type="radio" name="hunger" value="2"><span>2</span></label><label class="chip"><input type="radio" name="hunger" value="3"><span>3</span></label><label class="chip"><input type="radio" name="hunger" value="4"><span>4</span></label><label class="chip"><input type="radio" name="hunger" value="5"><span>5</span></label></div></div>
+      </div>
+
+      <!-- 4 ANYTHING GOING ON -->
+      <div class="step" data-step="4">
+        <div class="eyebrow">Anything going on</div>
+        <div class="q">This week, honestly.</div>
+        <div class="help">Check all that apply. Chaos days happen, that's what I'm here for.</div>
+        <div class="field"><div class="choices" data-multi="flags" id="flags">
+          <label class="chip"><input type="checkbox" name="flags" value="On my period or cycle"><span>On my cycle</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Injured or in pain" data-cond="pain"><span>Injured or in pain</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Sick"><span>Sick</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Traveling or on vacation" data-cond="travel"><span>Traveling</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Big life stress this week"><span>Big life stress</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Struggling or low motivation"><span>Struggling</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Scale stuck or plateau"><span>Plateau</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Appetite changes"><span>Appetite changes</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="All good"><span>All good</span></label>
+          <label class="chip"><input type="checkbox" name="flags" value="Other"><span>Other</span></label>
+        </div></div>
+        <div class="cond" id="condPain"><div class="field"><label class="label">Where is the pain?</label><input class="input" name="painLocation" placeholder="e.g. right knee, lower back"></div></div>
+        <div class="cond" id="condTravel"><div class="field"><label class="label">Travel dates</label><input class="input" name="travelDates" placeholder="e.g. Fri to Tues"></div></div>
+      </div>
+
+      <!-- 5 MEALS -->
+      <div class="step" data-step="5">
+        <div class="eyebrow">Your meals</div>
+        <div class="q">Want any changes?</div>
+        <div class="help">Your allergies and dislikes are already locked in. I only touch what you ask.</div>
+        <div class="field"><div class="choices" data-single="mealChange" id="mealChange">
+          <label class="chip"><input type="radio" name="mealChange" value="No, I'm good"><span>No, I'm good</span></label>
+          <label class="chip"><input type="radio" name="mealChange" value="Yes"><span>Yes, change something</span></label>
+        </div></div>
+        <div class="cond" id="condMeal">
+          <div class="field" style="margin-top:12px"><label class="label">How much of a change?</label>
+            <div class="choices" data-single="changeAmount" id="changeAmount">
+              <label class="chip"><input type="radio" name="changeAmount" value="Swap my whole plan"><span>Whole plan</span></label>
+              <label class="chip"><input type="radio" name="changeAmount" value="Swap a few meals"><span>A few meals</span></label>
+              <label class="chip"><input type="radio" name="changeAmount" value="Swap just one meal"><span>One meal</span></label>
+            </div>
+          </div>
+          <div class="cond" id="condWhich"><div class="field"><label class="label">Which meals?</label><input class="input" name="whichMeals" placeholder="e.g. breakfast and lunch"></div></div>
+          <div class="field"><label class="label">Anything specific to include or leave out?</label><textarea class="textarea" name="mealSpecifics" placeholder="Your allergies are already saved."></textarea></div>
+        </div>
+      </div>
+
+      <!-- 6 WINS & COACH -->
+      <div class="step" data-step="6">
+        <div class="eyebrow">Your wins & your coach</div>
+        <div class="q">End on a win.</div>
+        <div class="help">Two wins from this week, big or small. Then anything you want me to know.</div>
+        <div class="field"><label class="label">Win one <span class="req">*</span></label><input class="input" name="win1" required placeholder="e.g. walked every shift"></div>
+        <div class="field"><label class="label">Win two <span class="req">*</span></label><input class="input" name="win2" required placeholder="e.g. hit protein 5 days"></div>
+        <div class="field"><label class="label">Biggest struggle this week</label><textarea class="textarea" name="struggle"></textarea></div>
+        <div class="field"><label class="label">Any questions for your coach?</label><textarea class="textarea" name="questions"></textarea></div>
+        <div class="field"><label class="label">What do you want more of, or less of?</label><textarea class="textarea" name="moreLess"></textarea></div>
+        <div class="err" data-err>Give me your two wins to finish.</div>
+      </div>
+
+      <div class="done" id="done">
+        <div class="tick">&#10003;</div>
+        <h2>Got it. Proud of you.</h2>
+        <p>Your check-in is in. I'll read every word and tune your week from here.</p>
+        <p class="sig">Talk soon.</p>
+      </div>
+
+      <div class="err" id="genErr" style="text-align:center">Please fill in the required fields to continue.</div>
+      <div class="nav" id="nav">
+        <button type="button" class="btn back hide" id="back">Back</button>
+        <button type="button" class="btn next" id="next">Continue</button>
+      </div>
+    </form>
+  </div>
+  <div class="foot">Under three minutes. Your answers go straight to your coach.</div>
+</div>
+<script>
+(function(){
+  // ===== CONFIG: n8n check-in webhook (n8n matches by email -> Airtable Check-ins) =====
+  var WEBHOOK_URL='https://primary-production-74e8.up.railway.app/webhook/smithfit-os-checkin';
+  var form=document.getElementById('form');
+  var steps=Array.prototype.slice.call(form.querySelectorAll('.step'));
+  var TOTAL=steps.length,cur=0;
+  var bar=document.getElementById('bar'),count=document.getElementById('count');
+  var back=document.getElementById('back'),next=document.getElementById('next');
+  var nav=document.getElementById('nav'),done=document.getElementById('done');
+
+  // prefill + hide email if a personal link carries it (?email= or ?client_id=)
+  (function(){
+    var p=new URLSearchParams(window.location.search);
+    var em=p.get('email'); var cid=p.get('client_id');
+    if(em){ var f=form.querySelector('[name="email"]'); f.value=em; document.getElementById('emailField').style.display='none'; }
+    if(cid){ var h=document.createElement('input'); h.type='hidden'; h.name='client_id'; h.value=cid; form.appendChild(h); }
+  })();
+
+  // conditional fields
+  form.addEventListener('change',function(){
+    var inj=form.querySelector('input[value="Injured or in pain"]');
+    var trav=form.querySelector('input[value="Traveling or on vacation"]');
+    document.getElementById('condPain').classList.toggle('open', inj&&inj.checked);
+    document.getElementById('condTravel').classList.toggle('open', trav&&trav.checked);
+    var mc=form.querySelector('input[name="mealChange"]:checked');
+    document.getElementById('condMeal').classList.toggle('open', mc&&mc.value==='Yes');
+    var ca=form.querySelector('input[name="changeAmount"]:checked');
+    document.getElementById('condWhich').classList.toggle('open', ca&&(ca.value==='Swap a few meals'||ca.value==='Swap just one meal'));
+  });
+
+  function render(){
+    steps.forEach(function(s,i){s.classList.toggle('on',i===cur);});
+    bar.style.width=(cur/TOTAL)*100+'%';
+    count.textContent='Step '+(cur+1)+' of '+TOTAL;
+    back.classList.toggle('hide',cur===0);
+    next.textContent=cur===TOTAL-1?'Submit':'Continue';
+    document.getElementById('genErr').classList.remove('show');
+  }
+  // Everything required EXCEPT these (and files + hidden/conditional fields).
+  var OPTIONAL=['measurements','photos','stepsCardio','flags','painLocation','travelDates','changeAmount','whichMeals','mealSpecifics','struggle','questions','moreLess','client_id'];
+  function validate(){
+    var s=steps[cur],seen={},els=s.querySelectorAll('input,select,textarea');
+    for(var i=0;i<els.length;i++){var el=els[i];
+      if(el.type==='file'||!el.name||OPTIONAL.indexOf(el.name)>-1)continue;
+      if(el.offsetParent===null)continue;
+      if(el.type==='radio'||el.type==='checkbox'){ if(seen[el.name])continue;seen[el.name]=1; if(!s.querySelector('input[name="'+el.name+'"]:checked'))return false; }
+      else if(el.type==='email'){ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()))return false; }
+      else if(!el.value.trim())return false;
+    }
+    return true;
+  }
+  next.addEventListener('click',function(){
+    if(!validate()){document.getElementById('genErr').classList.add('show');window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});return;}
+    if(cur<TOTAL-1){cur++;render();window.scrollTo({top:0,behavior:'smooth'});}else submit();
+  });
+  back.addEventListener('click',function(){if(cur>0){cur--;render();window.scrollTo({top:0,behavior:'smooth'});}});
+  function collect(){var d={},fd=new FormData(form);fd.forEach(function(v,k){if(v instanceof File)return;if(d[k]!==undefined){d[k]=[].concat(d[k],v);}else{d[k]=v;}});d.submittedAt=new Date().toISOString();d.source='smithfit-weekly-checkin';return d;}
+  function submit(){
+    next.disabled=true;next.textContent='Sending...';
+    var payload=collect();
+    var ok=function(){nav.style.display='none';steps.forEach(function(s){s.classList.remove('on');});done.classList.add('on');bar.style.width='100%';count.textContent='Complete';window.scrollTo({top:0,behavior:'smooth'});};
+    if(!WEBHOOK_URL||WEBHOOK_URL.indexOf('REPLACE')===0){console.warn('Check-in webhook not set. Payload:',payload);ok();return;}
+    fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(ok).catch(function(){console.error('Check-in POST failed',payload);ok();});
+  }
+  render();
+})();
+</script>
+</body>
+</html>
