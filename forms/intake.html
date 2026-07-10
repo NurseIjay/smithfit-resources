@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmithFit Deep Intake</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+:root{--bg:#0D0D0D;--panel:#1A1518;--field:#120f12;--gold:#C9A84C;--champ:#E2C97E;--champ-lt:#F0DFA0;--ivory:#FAF6EE;--cream:#EDE8DF;--muted:rgba(237,232,223,.55);--line:rgba(201,168,76,.22)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--cream);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(120% 60% at 50% -10%,rgba(201,168,76,.10),transparent 60%),var(--bg)}
+.wrap{max-width:660px;margin:0 auto;padding:30px 20px 96px}
+.brand{text-align:center;margin:6px 0 24px}
+.mark{font-family:'League Spartan',sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em;color:var(--ivory);text-transform:uppercase}
+.mark b{color:var(--gold)}
+.tag{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--champ);margin-top:6px}
+.saved{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);height:14px;text-align:center;margin-bottom:8px;transition:opacity .3s;opacity:0}
+.saved.on{opacity:1}
+.progress{height:5px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin-bottom:8px}
+.bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--champ-lt));border-radius:99px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.count{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.card{background:linear-gradient(180deg,var(--panel),#150f13);border:1px solid var(--line);border-radius:22px;padding:32px 28px;box-shadow:0 30px 70px -40px rgba(0,0,0,.9)}
+.step{display:none;-webkit-animation:fade .45s ease both;animation:fade .45s ease both}
+.step.on{display:block}
+@-webkit-keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.q{font-family:'League Spartan',sans-serif;font-weight:600;font-size:clamp(24px,4.6vw,34px);color:var(--ivory);line-height:1.1;margin-bottom:8px;letter-spacing:.01em}
+.help{font-size:14.5px;color:var(--muted);margin-bottom:22px}
+.field{margin-bottom:17px}
+.label{display:block;font-size:13px;font-weight:600;letter-spacing:.01em;color:var(--cream);margin-bottom:7px}
+.sub{font-weight:400;color:var(--muted)}
+.req{color:var(--gold)}
+.input,.select,.textarea{width:100%;font-family:'Inter',sans-serif;font-size:15px;color:var(--ivory);background:var(--field);border:1.5px solid rgba(255,255,255,.09);border-radius:12px;padding:13px 14px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.input::placeholder,.textarea::placeholder{color:rgba(237,232,223,.32)}
+.input:focus,.select:focus,.textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.18)}
+.textarea{min-height:92px;resize:vertical}
+.select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C9A84C' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:36px}
+.select option{background:#1A1518;color:var(--ivory)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.wu{display:grid;grid-template-columns:1fr 84px;gap:8px}
+.choices{display:flex;flex-wrap:wrap;gap:9px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{display:inline-block;padding:10px 15px;font-size:14px;font-weight:500;color:var(--cream);background:var(--field);border:1.5px solid rgba(255,255,255,.09);border-radius:99px;transition:all .18s}
+.chip input:checked+span{color:#120f12;background:linear-gradient(180deg,var(--champ),var(--gold));border-color:var(--gold);font-weight:600}
+.chip:hover span{border-color:var(--gold)}
+.scale{display:flex;gap:8px}.scale .chip{flex:1}.scale .chip span{width:100%;text-align:center;padding:12px 0}
+.scale-ends{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:5px;letter-spacing:.04em}
+.consent{display:flex;gap:11px;align-items:flex-start;padding:14px;background:var(--field);border:1.5px solid var(--line);border-radius:12px}
+.consent input{margin-top:3px;width:18px;height:18px;accent-color:var(--gold);flex-shrink:0}
+.consent label{font-size:14px;color:var(--cream)}
+.cond{display:none;margin-top:8px;padding-left:14px;border-left:2px solid rgba(201,168,76,.4)}
+.cond.open{display:block}
+.gate{display:none;margin-top:8px;font-size:13px;color:var(--champ-lt);background:rgba(201,168,76,.08);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.gate.on{display:block}
+.err{font-size:13px;color:#e08a6f;margin-top:8px;display:none}
+.err.show{display:block}
+.file{font-size:13px;color:var(--muted)}
+.file input{color:var(--muted);font-size:13px}
+.nav{display:flex;gap:12px;margin-top:28px}
+.btn{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.02em;border-radius:12px;padding:14px 22px;cursor:pointer;border:1.5px solid transparent;transition:transform .15s,box-shadow .25s,background .2s}
+.btn:active{transform:translateY(1px)}
+.next{flex:1;background:linear-gradient(180deg,var(--champ),var(--gold));color:#120f12;box-shadow:0 12px 26px -12px rgba(201,168,76,.7)}
+.next:hover{box-shadow:0 16px 30px -12px rgba(201,168,76,.9)}
+.back{background:transparent;color:var(--cream);border-color:rgba(255,255,255,.14)}
+.back:hover{border-color:var(--gold)}
+.back.hide{visibility:hidden}
+.done{display:none;text-align:center;padding:18px 6px}
+.done.on{display:block;-webkit-animation:fade .5s ease both;animation:fade .5s ease both}
+.tick{width:66px;height:66px;border-radius:50%;background:rgba(201,168,76,.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:6px auto 20px;color:var(--gold);font-size:30px}
+.done h2{font-family:'League Spartan',sans-serif;font-weight:600;font-size:30px;color:var(--ivory);margin-bottom:12px}
+.done p{font-size:15px;color:var(--muted);max-width:440px;margin:0 auto 8px}
+.done .sig{color:var(--champ);font-style:normal;margin-top:16px;letter-spacing:.02em}
+.foot{text-align:center;font-size:11.5px;color:var(--muted);opacity:.7;margin-top:22px;letter-spacing:.03em}
+@media (max-width:600px){.card{padding:26px 18px;border-radius:18px}.row,.row3{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;-webkit-animation:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="mark">Smith<b>Fit</b></div><div class="tag">New Client Deep Intake</div></div>
+  <div class="saved" id="saved">Progress saved</div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="count" id="count">Step 1 of 10</div>
+  <div class="card">
+    <form id="form" novalidate>
+
+      <!-- 1 ABOUT YOU -->
+      <div class="step on" data-step="1">
+        <div class="eyebrow">About you</div>
+        <div class="q">Let's get to know you.</div>
+        <div class="help">Nurse to nurse. The more real you are, the better I build this around your life.</div>
+        <div class="field"><label class="label">Full name <span class="req">*</span></label><input class="input" name="fullName" required></div>
+        <div class="row"><div class="field"><label class="label">Email <span class="req">*</span></label><input class="input" name="email" type="email" required></div>
+        <div class="field"><label class="label">Phone <span class="req">*</span></label><input class="input" name="phone" type="tel" required></div></div>
+        <div class="row3"><div class="field"><label class="label">Age <span class="req">*</span></label><input class="input" name="age" type="number" inputmode="numeric" required></div>
+        <div class="field"><label class="label">Sex</label><select class="select" name="sex"><option value="">Choose</option><option>Female</option><option>Male</option><option>Prefer not to say</option></select></div>
+        <div class="field"><label class="label">City & state</label><input class="input" name="cityState"></div></div>
+        <div class="row3"><div class="field"><label class="label">Time zone</label><select class="select" name="timezone"><option value="">Choose</option><option>Pacific</option><option>Mountain</option><option>Central</option><option>Eastern</option><option>Other</option></select></div>
+        <div class="field"><label class="label">Check-in day</label><select class="select" name="checkinDay"><option value="">Choose</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></div>
+        <div class="field"><label class="label">Reach you via</label><select class="select" name="contactMethod"><option value="">Choose</option><option>Trainerize app</option><option>Text</option><option>Email</option></select></div></div>
+        <div class="err" data-err>Please add your name, a valid email, phone, and age.</div>
+      </div>
+
+      <!-- 2 YOUR GOAL -->
+      <div class="step" data-step="2">
+        <div class="eyebrow">Your goal</div>
+        <div class="q">What are we chasing?</div>
+        <div class="help">Pick the one that matters most. We build everything around it.</div>
+        <div class="field"><label class="label">Primary goal <span class="req">*</span></label>
+          <div class="choices" data-single="primaryGoal">
+            <label class="chip"><input type="radio" name="primaryGoal" value="Fat loss"><span>Fat loss</span></label>
+            <label class="chip"><input type="radio" name="primaryGoal" value="Lean muscle and toning"><span>Lean muscle & toning</span></label>
+            <label class="chip"><input type="radio" name="primaryGoal" value="Body recomposition"><span>Body recomp</span></label>
+            <label class="chip"><input type="radio" name="primaryGoal" value="Performance and strength"><span>Performance & strength</span></label>
+            <label class="chip"><input type="radio" name="primaryGoal" value="General health and energy"><span>Health & energy</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">Target timeline</label><select class="select" name="targetTimeline"><option value="">Choose</option><option>6 weeks</option><option>3 months</option><option>6 months</option><option>12 months</option><option>No set deadline</option></select></div>
+        <div class="field"><label class="label">What made you reach out today? <span class="req">*</span></label><textarea class="textarea" name="whyNow" required></textarea></div>
+        <div class="field"><label class="label">What does success look like for you?</label><textarea class="textarea" name="successVision" placeholder="Picture a few months out. What's different?"></textarea></div>
+        <div class="err" data-err>Pick your goal and tell me what made you reach out.</div>
+      </div>
+
+      <!-- 3 WORK & SCHEDULE -->
+      <div class="step" data-step="3">
+        <div class="eyebrow">Your work & schedule</div>
+        <div class="q">How do you work?</div>
+        <div class="help">This is everything. We build shift-proof, around your real week.</div>
+        <div class="field"><label class="label">What best describes you? <span class="req">*</span></label><select class="select" name="role" required><option value="">Choose</option><option>RN or nurse</option><option>Other healthcare worker</option><option>Working mom</option><option>Other</option></select></div>
+        <div class="row"><div class="field"><label class="label">Shift type <span class="req">*</span></label><select class="select" name="shiftType" required><option value="">Choose</option><option>Day shifts</option><option>Night shifts</option><option>Rotating</option><option>PRN or irregular</option><option>Standard daytime hours</option><option>Not currently working</option></select></div>
+        <div class="field"><label class="label">Typical shift length</label><select class="select" name="shiftLength"><option value="">Choose</option><option>8 hours</option><option>10 hours</option><option>12 hours</option><option>Varies</option></select></div></div>
+        <div class="field"><label class="label">Shifts or days worked per week</label><input class="input" name="shiftsPerWeek" type="number" inputmode="numeric" min="0" max="7"></div>
+        <div class="field"><label class="label">What does eating during a shift actually look like?</label><textarea class="textarea" name="onShiftEating" placeholder="Breaks? Grab what's around? Skip meals?"></textarea></div>
+        <div class="err" data-err>Let me know your role and shift type so I can build around it.</div>
+      </div>
+
+      <!-- 4 YOUR BODY -->
+      <div class="step" data-step="4">
+        <div class="eyebrow">Your body</div>
+        <div class="q">Your starting point.</div>
+        <div class="help">No judgment on any number. This is just our before.</div>
+        <div class="field"><label class="label">Current weight <span class="req">*</span></label>
+          <div class="wu"><input class="input" name="currentWeight" type="number" inputmode="decimal" required><select class="select" name="weightUnit"><option>lb</option><option>kg</option></select></div></div>
+        <div class="row"><div class="field"><label class="label">Height <span class="req">*</span></label><input class="input" name="height" placeholder="e.g. 5'6&quot;" required></div>
+        <div class="field"><label class="label">Goal weight <span class="sub">(optional)</span></label><input class="input" name="goalWeight" type="number" inputmode="decimal"></div></div>
+        <div class="field"><label class="label">Waist, hip, or other measurements</label><input class="input" name="measurements" placeholder="optional"></div>
+        <div class="field"><label class="label">Starting photos <span class="sub">(optional)</span></label><div class="file"><input type="file" name="startingPhotos" accept="image/*" multiple></div></div>
+        <div class="err" data-err>Add your current weight and height.</div>
+      </div>
+
+      <!-- 5 HEALTH / MEDS / HORMONES -->
+      <div class="step" data-step="5">
+        <div class="eyebrow">Health, medications & hormones</div>
+        <div class="q">Your health picture.</div>
+        <div class="help">I'm an RN. This stays between us and it keeps you safe.</div>
+        <div class="field"><label class="label">Are you cleared by a physician to exercise? <span class="req">*</span></label>
+          <div class="choices" data-single="clearedToExercise">
+            <label class="chip"><input type="radio" name="clearedToExercise" value="Yes"><span>Yes</span></label>
+            <label class="chip"><input type="radio" name="clearedToExercise" value="No"><span>No</span></label>
+            <label class="chip"><input type="radio" name="clearedToExercise" value="Unsure"><span>Unsure</span></label>
+          </div>
+          <div class="gate" id="clearGate">No problem. Your coach will do a quick safety review before building anything. Nothing changes for you right now.</div>
+        </div>
+        <div class="field"><label class="label">Current medications</label><textarea class="textarea" name="medications" placeholder="List anything, or write none."></textarea></div>
+        <div class="field"><label class="label">Diagnosed medical conditions</label><textarea class="textarea" name="conditions" placeholder="or write none"></textarea></div>
+        <div class="field"><label class="label">Hormonal status (select all)</label>
+          <div class="choices" data-multi="hormonalStatus">
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="Hormonal birth control"><span>Hormonal BC</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="PCOS"><span>PCOS</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="Thyroid condition"><span>Thyroid</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="Perimenopause or menopause"><span>Peri/menopause</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="TRT or HRT"><span>TRT / HRT</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="Pregnant"><span>Pregnant</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="Postpartum"><span>Postpartum</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="Breastfeeding"><span>Breastfeeding</span></label>
+            <label class="chip"><input type="checkbox" name="hormonalStatus" value="None of these"><span>None</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">Autoimmune conditions (select all)</label>
+          <div class="choices" data-multi="autoimmune">
+            <label class="chip"><input type="checkbox" name="autoimmune" value="Hashimoto's"><span>Hashimoto's</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="Rheumatoid arthritis"><span>Rheumatoid arthritis</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="Lupus"><span>Lupus</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="Celiac"><span>Celiac</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="IBD"><span>IBD</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="Crohn's or colitis"><span>Crohn's / colitis</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="Multiple sclerosis"><span>MS</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="Other"><span>Other</span></label>
+            <label class="chip"><input type="checkbox" name="autoimmune" value="None"><span>None</span></label>
+          </div>
+          <div class="field" style="margin-top:10px"><input class="input" name="autoimmuneDetails" placeholder="Details, if any"></div>
+        </div>
+        <div class="field"><label class="label">Current injuries or physical limitations</label><textarea class="textarea" name="injuries" placeholder="Where, and what makes it worse? Write none if none."></textarea></div>
+        <div class="err" data-err>Please answer the cleared-to-exercise question so I can keep you safe.</div>
+      </div>
+
+      <!-- 6 YOUR CYCLE (shown if not male) -->
+      <div class="step" data-step="6" data-optional-if-male="1">
+        <div class="eyebrow">Your cycle</div>
+        <div class="q">A few quick questions.</div>
+        <div class="help">This helps me coach around your hormones, not against them.</div>
+        <div class="field"><label class="label">Is your cycle regular?</label><select class="select" name="cycleRegular"><option value="">Choose</option><option>Regular</option><option>Irregular</option><option>Not applicable</option></select></div>
+        <div class="field"><label class="label">Symptoms that affect training or appetite</label><textarea class="textarea" name="cycleSymptoms" placeholder="e.g. cramps, cravings, fatigue, mood"></textarea></div>
+        <div class="field"><label class="label">Do you track your cycle?</label>
+          <div class="choices" data-single="cycleTracked">
+            <label class="chip"><input type="radio" name="cycleTracked" value="Yes"><span>Yes</span></label>
+            <label class="chip"><input type="radio" name="cycleTracked" value="No"><span>No</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 NUTRITION -->
+      <div class="step" data-step="7">
+        <div class="eyebrow">Nutrition</div>
+        <div class="q">How's your eating right now?</div>
+        <div class="help">Living off coffee and vibes is a real answer. Tell me the truth so I can meet you there.</div>
+        <div class="field"><label class="label">How would you describe your current eating?</label><textarea class="textarea" name="eatingDescription"></textarea></div>
+        <div class="field"><label class="label">Dietary style or restrictions (select all)</label>
+          <div class="choices" data-multi="dietaryStyle">
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="None"><span>None</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Gluten-free"><span>Gluten-free</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Dairy-free"><span>Dairy-free</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Vegetarian"><span>Vegetarian</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Vegan"><span>Vegan</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Pescatarian"><span>Pescatarian</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Low-fiber"><span>Low-fiber</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Low-FODMAP"><span>Low-FODMAP</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Keto or low-carb"><span>Keto / low-carb</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Halal"><span>Halal</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Kosher"><span>Kosher</span></label>
+            <label class="chip"><input type="checkbox" name="dietaryStyle" value="Other"><span>Other</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">Food allergies or intolerances <span class="sub">(locked, never in your plan)</span></label><textarea class="textarea" name="allergies" placeholder="or write none"></textarea></div>
+        <div class="field"><label class="label">Foods you dislike or refuse to eat <span class="sub">(locked)</span></label><textarea class="textarea" name="dislikes" placeholder="e.g. no mushrooms, hate cottage cheese"></textarea></div>
+        <div class="field"><label class="label">Cooking ability & time</label><select class="select" name="cooking"><option value="">Choose</option><option>Love to cook and have time</option><option>Can cook simple with limited time</option><option>Barely cook and need grab-and-go</option><option>Depends on the day</option></select></div>
+        <div class="field"><label class="label">When do you realistically eat on a shift day?</label><textarea class="textarea" name="shiftEatingWindows"></textarea></div>
+        <div class="row3"><div class="field"><label class="label">Water</label><select class="select" name="water"><option value="">Choose</option><option>Little</option><option>Some</option><option>A lot</option><option>Not sure</option></select></div>
+        <div class="field"><label class="label">Caffeine</label><select class="select" name="caffeine"><option value="">Choose</option><option>None</option><option>1 to 2</option><option>3 to 4</option><option>5 or more</option></select></div>
+        <div class="field"><label class="label">Alcohol</label><select class="select" name="alcohol"><option value="">Choose</option><option>None</option><option>Rarely</option><option>Weekly</option><option>Most days</option></select></div></div>
+      </div>
+
+      <!-- 8 TRAINING & EQUIPMENT -->
+      <div class="step" data-step="8">
+        <div class="eyebrow">Training & equipment</div>
+        <div class="q">How you move.</div>
+        <div class="help">We match the plan to what you actually have. No gym required.</div>
+        <div class="field"><label class="label">Experience level <span class="req">*</span></label>
+          <div class="choices" data-single="experience">
+            <label class="chip"><input type="radio" name="experience" value="Beginner"><span>Beginner</span></label>
+            <label class="chip"><input type="radio" name="experience" value="Intermediate"><span>Intermediate</span></label>
+            <label class="chip"><input type="radio" name="experience" value="Advanced"><span>Advanced</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">What are you currently doing for exercise?</label><textarea class="textarea" name="currentExercise"></textarea></div>
+        <div class="field"><label class="label">Where will you train? <span class="req">*</span></label>
+          <div class="choices" data-single="trainLocation">
+            <label class="chip"><input type="radio" name="trainLocation" value="Home"><span>Home</span></label>
+            <label class="chip"><input type="radio" name="trainLocation" value="Commercial gym"><span>Commercial gym</span></label>
+            <label class="chip"><input type="radio" name="trainLocation" value="Both"><span>Both</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">Equipment available (select all)</label>
+          <div class="choices" data-multi="equipment">
+            <label class="chip"><input type="checkbox" name="equipment" value="Dumbbells"><span>Dumbbells</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Barbell and plates"><span>Barbell & plates</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Kettlebells"><span>Kettlebells</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Resistance bands"><span>Bands</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Cable machine"><span>Cable machine</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Full gym machines"><span>Full gym machines</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Cardio equipment"><span>Cardio equipment</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Bodyweight only"><span>Bodyweight only</span></label>
+            <label class="chip"><input type="checkbox" name="equipment" value="Other"><span>Other</span></label>
+          </div>
+          <div class="field" style="margin-top:10px"><input class="input" name="equipmentOther" placeholder="Anything else?"></div>
+        </div>
+        <div class="row"><div class="field"><label class="label">Preferred workout length</label><select class="select" name="workoutLength"><option value="">Choose</option><option>20 to 30 min</option><option>30 to 45 min</option><option>45 to 60 min</option><option>60+ min</option></select></div>
+        <div class="field"><label class="label">Days per week you can train <span class="req">*</span></label><input class="input" name="daysPerWeek" type="number" inputmode="numeric" min="1" max="7" required></div></div>
+        <div class="field"><label class="label">Cardio preference</label>
+          <div class="choices" data-single="cardioPref">
+            <label class="chip"><input type="radio" name="cardioPref" value="LISS and steady walks"><span>Steady walks (LISS)</span></label>
+            <label class="chip"><input type="radio" name="cardioPref" value="HIIT and intervals"><span>Intervals (HIIT)</span></label>
+            <label class="chip"><input type="radio" name="cardioPref" value="Both"><span>Both</span></label>
+            <label class="chip"><input type="radio" name="cardioPref" value="Not a fan of cardio"><span>Not a fan</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="label">Anything you love or hate in the gym?</label><textarea class="textarea" name="lovesHates"></textarea></div>
+        <div class="err" data-err>Tell me your experience, where you train, and how many days.</div>
+      </div>
+
+      <!-- 9 RECOVERY & LIFESTYLE -->
+      <div class="step" data-step="9">
+        <div class="eyebrow">Recovery & lifestyle</div>
+        <div class="q">How you recover.</div>
+        <div class="help">Sleep and stress drive everything, especially on shift work.</div>
+        <div class="row"><div class="field"><label class="label">Average sleep per night</label><select class="select" name="sleepAvg"><option value="">Choose</option><option>Under 5</option><option>5 to 6</option><option>6 to 7</option><option>7 to 8</option><option>8+</option></select></div>
+        <div class="field"><label class="label">Sleep quality</label><select class="select" name="sleepQuality"><option value="">Choose</option><option>Poor</option><option>Fair</option><option>Good</option><option>Great</option></select></div></div>
+        <div class="field"><label class="label">How do your shifts affect your sleep?</label><textarea class="textarea" name="shiftsSleep"></textarea></div>
+        <div class="field"><label class="label">Current stress level</label>
+          <div class="scale" data-single="stress">
+            <label class="chip"><input type="radio" name="stress" value="1"><span>1</span></label><label class="chip"><input type="radio" name="stress" value="2"><span>2</span></label><label class="chip"><input type="radio" name="stress" value="3"><span>3</span></label><label class="chip"><input type="radio" name="stress" value="4"><span>4</span></label><label class="chip"><input type="radio" name="stress" value="5"><span>5</span></label>
+          </div><div class="scale-ends"><span>Low</span><span>High</span></div>
+        </div>
+        <div class="field"><label class="label">Energy through the day</label>
+          <div class="scale" data-single="energy">
+            <label class="chip"><input type="radio" name="energy" value="1"><span>1</span></label><label class="chip"><input type="radio" name="energy" value="2"><span>2</span></label><label class="chip"><input type="radio" name="energy" value="3"><span>3</span></label><label class="chip"><input type="radio" name="energy" value="4"><span>4</span></label><label class="chip"><input type="radio" name="energy" value="5"><span>5</span></label>
+          </div><div class="scale-ends"><span>Drained</span><span>Great</span></div>
+        </div>
+        <div class="field"><label class="label">Digestion or gut issues</label><textarea class="textarea" name="digestion"></textarea></div>
+      </div>
+
+      <!-- 10 STORY & MINDSET -->
+      <div class="step" data-step="10">
+        <div class="eyebrow">Your story & mindset</div>
+        <div class="q">Your story.</div>
+        <div class="help">What's worked, what hasn't, and what you're really carrying.</div>
+        <div class="field"><label class="label">What have you tried before?</label><textarea class="textarea" name="triedBefore"></textarea></div>
+        <div class="field"><label class="label">What worked and what did not?</label><textarea class="textarea" name="workedDidnt"></textarea></div>
+        <div class="field"><label class="label">Biggest struggle right now <span class="req">*</span></label><textarea class="textarea" name="biggestStruggle" required></textarea></div>
+        <div class="field"><label class="label">Support system at home</label><textarea class="textarea" name="supportSystem"></textarea></div>
+        <div class="field"><label class="label">Anything else you want your coach to know?</label><textarea class="textarea" name="anythingElse" style="min-height:110px"></textarea></div>
+        <div class="err" data-err>Tell me your biggest struggle so I know where to start.</div>
+      </div>
+
+      <div class="done" id="done">
+        <div class="tick">&#10003;</div>
+        <h2>Welcome to SmithFit.</h2>
+        <p>I've got everything I need to start building your plan around your real life. You'll hear from me soon.</p>
+        <p class="sig">Built by a nurse, for nurses.</p>
+      </div>
+
+      <div class="err" id="genErr" style="text-align:center">Please fill in the required fields to continue.</div>
+      <div class="nav" id="nav">
+        <button type="button" class="btn back hide" id="back">Back</button>
+        <button type="button" class="btn next" id="next">Continue</button>
+      </div>
+    </form>
+  </div>
+  <div class="foot">Your answers are private, saved as you go, and used only to coach you.</div>
+</div>
+<script>
+(function(){
+  // ===== CONFIG: n8n intake webhook (n8n dedupes by email -> Airtable Intake + Clients link) =====
+  var WEBHOOK_URL='https://primary-production-74e8.up.railway.app/webhook/smithfit-os-intake';
+  var LS='sf_intake_v1';
+  var form=document.getElementById('form');
+  var steps=Array.prototype.slice.call(form.querySelectorAll('.step'));
+  var TOTAL=steps.length,cur=0;
+  var bar=document.getElementById('bar'),count=document.getElementById('count');
+  var back=document.getElementById('back'),next=document.getElementById('next');
+  var nav=document.getElementById('nav'),done=document.getElementById('done'),savedEl=document.getElementById('saved');
+  var clearGate=document.getElementById('clearGate');
+
+  // ---- save & resume (localStorage) ----
+  var savedTimer;
+  function persist(){
+    try{
+      var d={},fd=new FormData(form);
+      fd.forEach(function(v,k){ if(v instanceof File)return; if(d[k]!==undefined){d[k]=[].concat(d[k],v);}else{d[k]=v;} });
+      localStorage.setItem(LS,JSON.stringify({step:cur,data:d}));
+      savedEl.classList.add('on');clearTimeout(savedTimer);savedTimer=setTimeout(function(){savedEl.classList.remove('on');},1400);
+    }catch(e){}
+  }
+  function restore(){
+    try{
+      var raw=localStorage.getItem(LS);if(!raw)return;
+      var st=JSON.parse(raw),d=st.data||{};
+      Object.keys(d).forEach(function(k){
+        var vals=[].concat(d[k]);
+        var els=form.querySelectorAll('[name="'+k+'"]');
+        els.forEach(function(el){
+          if(el.type==='checkbox'||el.type==='radio'){ if(vals.indexOf(el.value)>-1)el.checked=true; }
+          else{ el.value=vals[0]; }
+        });
+      });
+      if(typeof st.step==='number')cur=st.step;
+    }catch(e){}
+  }
+
+  form.addEventListener('input',persist);
+  form.addEventListener('change',function(e){ persist(); syncGates(); });
+
+  function syncGates(){
+    var cl=form.querySelector('input[name="clearedToExercise"]:checked');
+    clearGate.classList.toggle('on', !!cl && cl.value!=='Yes');
+  }
+  function maleHide(){
+    var sex=form.querySelector('[name="sex"]');
+    return sex && sex.value==='Male';
+  }
+
+  function visibleSteps(){ return steps.filter(function(s){ return !(s.getAttribute('data-optional-if-male') && maleHide()); }); }
+
+  function render(){
+    // clamp cur to visible range
+    var vis=visibleSteps();
+    if(cur>vis.length-1)cur=vis.length-1;
+    steps.forEach(function(s){s.classList.remove('on');});
+    vis[cur].classList.add('on');
+    var total=vis.length;
+    bar.style.width=(cur/total)*100+'%';
+    count.textContent='Step '+(cur+1)+' of '+total;
+    back.classList.toggle('hide',cur===0);
+    next.textContent=cur===total-1?'Submit':'Continue';
+    document.getElementById('genErr').classList.remove('show');
+    syncGates();
+  }
+  function curStep(){ return visibleSteps()[cur]; }
+
+  // Everything is required EXCEPT these (and file uploads + hidden/conditional fields).
+  var OPTIONAL=['sex','goalWeight','measurements','startingPhotos','autoimmuneDetails','equipmentOther','anythingElse'];
+  function validate(){
+    var s=curStep(),seen={},els=s.querySelectorAll('input,select,textarea');
+    for(var i=0;i<els.length;i++){var el=els[i];
+      if(el.type==='file'||!el.name||OPTIONAL.indexOf(el.name)>-1)continue;
+      if(el.offsetParent===null)continue; // hidden (conditional closed / male-hidden)
+      if(el.type==='radio'||el.type==='checkbox'){ if(seen[el.name])continue;seen[el.name]=1; if(!s.querySelector('input[name="'+el.name+'"]:checked'))return false; }
+      else if(el.type==='email'){ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()))return false; }
+      else if(!el.value.trim())return false;
+    }
+    return true;
+  }
+
+  next.addEventListener('click',function(){
+    if(!validate()){document.getElementById('genErr').classList.add('show');window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});return;}
+    var total=visibleSteps().length;
+    if(cur<total-1){cur++;render();persist();window.scrollTo({top:0,behavior:'smooth'});}else submit();
+  });
+  back.addEventListener('click',function(){if(cur>0){cur--;render();persist();window.scrollTo({top:0,behavior:'smooth'});}});
+
+  function collect(){var d={},fd=new FormData(form);fd.forEach(function(v,k){if(v instanceof File){return;}if(d[k]!==undefined){d[k]=[].concat(d[k],v);}else{d[k]=v;}});d.submittedAt=new Date().toISOString();d.source='smithfit-deep-intake';var cl=d.clearedToExercise;d.coachReviewFlag=(cl==='No'||cl==='Unsure');return d;}
+  function submit(){
+    next.disabled=true;next.textContent='Sending...';
+    var payload=collect();
+    var ok=function(){ localStorage.removeItem(LS); nav.style.display='none';steps.forEach(function(s){s.classList.remove('on');});done.classList.add('on');bar.style.width='100%';count.textContent='Complete';window.scrollTo({top:0,behavior:'smooth'}); };
+    if(!WEBHOOK_URL||WEBHOOK_URL.indexOf('REPLACE')===0){console.warn('Intake webhook not set. Payload:',payload);ok();return;}
+    fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(ok).catch(function(){console.error('Intake POST failed',payload);ok();});
+  }
+
+  restore();
+  render();
+})();
+</script>
+</body>
+</html>
