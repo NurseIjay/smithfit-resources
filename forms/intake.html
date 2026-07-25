@@ -334,6 +334,7 @@ body{background:radial-gradient(120% 60% at 50% -10%,rgba(201,168,76,.10),transp
       </div>
 
       <div class="err" id="genErr" style="text-align:center">Please fill in the required fields to continue.</div>
+      <div class="err" id="sendErr" style="text-align:center">That didn't save. Your answers are still here, nothing is lost. Tap Try again. If it keeps failing, text IJ and he'll sort it out.</div>
       <div class="nav" id="nav">
         <button type="button" class="btn back hide" id="back">Back</button>
         <button type="button" class="btn next" id="next">Continue</button>
@@ -438,7 +439,15 @@ body{background:radial-gradient(120% 60% at 50% -10%,rgba(201,168,76,.10),transp
     var payload=collect();
     var ok=function(){ localStorage.removeItem(LS); nav.style.display='none';steps.forEach(function(s){s.classList.remove('on');});done.classList.add('on');bar.style.width='100%';count.textContent='Complete';window.scrollTo({top:0,behavior:'smooth'}); };
     if(!WEBHOOK_URL||WEBHOOK_URL.indexOf('REPLACE')===0){console.warn('Intake webhook not set. Payload:',payload);ok();return;}
-    fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(ok).catch(function(){console.error('Intake POST failed',payload);ok();});
+    var fail=function(err){
+      console.error('Intake POST failed',err,payload);
+      next.disabled=false;next.textContent='Try again';
+      document.getElementById('sendErr').classList.add('show');
+      window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+    };
+    fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(res){if(!res.ok)throw new Error('HTTP '+res.status);document.getElementById('sendErr').classList.remove('show');ok();})
+      .catch(fail);
   }
 
   restore();
