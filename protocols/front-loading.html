@@ -538,15 +538,27 @@
     var saved={}; try{ saved=JSON.parse(localStorage.getItem(cfg.storeKey)||'{}')||{}; }catch(e){}
     function paint(){
       var vals={};
-      sels.forEach(function(s){ vals[s.getAttribute('data-k')]=s.value; });
-      var line=cfg.template.replace(/{(w+)}/g,function(_,k){ return vals[k]||''; });
+      sels.forEach(function(sel){
+        var k=sel.getAttribute('data-k');
+        var fd=null;
+        for(var i=0;i<cfg.fields.length;i++){ if(cfg.fields[i].key===k) fd=cfg.fields[i]; }
+        var opt=fd&&fd.options?fd.options[parseInt(sel.value,10)]:null;
+        if(opt&&typeof opt==='object'){
+          vals[k]=opt.label;
+          if(opt.set){ for(var kk in opt.set){ if(Object.prototype.hasOwnProperty.call(opt.set,kk)) vals[kk]=opt.set[kk]; } }
+        } else {
+          vals[k]=sel.value;
+        }
+      });
+      var line=cfg.template.replace(/\{(\w+)\}/g,function(_,k){ return vals[k]||''; });
       cg.querySelector('.p-cg-line').textContent=line;
-      try{ localStorage.setItem(cfg.storeKey,JSON.stringify(vals)); }catch(e){}
+      var raw={}; sels.forEach(function(sel){ raw[sel.getAttribute('data-k')]=sel.value; });
+      try{ localStorage.setItem(cfg.storeKey,JSON.stringify(raw)); }catch(e){}
     }
-    sels.forEach(function(s){
-      var k=s.getAttribute('data-k');
-      if(saved[k]) s.value=saved[k];
-      s.addEventListener('change',paint);
+    sels.forEach(function(sel){
+      var k=sel.getAttribute('data-k');
+      if(saved[k]!==undefined && saved[k]!==null) sel.value=saved[k];
+      sel.addEventListener('change',paint);
     });
     paint();
   });
