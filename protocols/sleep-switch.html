@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#faf6f3">
+<title>The Sleep Switch | SmithFit</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.p-body{
+  --gold:#c8a04e;--gold-soft:rgba(200,160,78,.13);--gold-line:rgba(200,160,78,.34);
+  --cream:#faf6f3;--cream-mid:#f1ebe3;--line:#e8e0d4;
+  --ink:#2c2416;--body:#5b5041;--mute:#8a7d6c;
+  --card:#fff;--red:#c0504d;--red-soft:#fdf1ee;--green:#4a8c5c;--green-soft:#eef6f0;
+  --sans:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--cream);color:var(--body);font-family:var(--sans);
+  font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased;min-height:100vh;
+}
+.p-wrap{max-width:640px;margin:0 auto;padding:0 18px 80px}
+@media (max-width:600px){.p-hero{margin:0 -14px}}
+.p-hero{background:linear-gradient(135deg,#2a2118 0%,#3a2e22 50%,#2a2118 100%);
+  margin:0 -18px 0;padding:44px 24px 40px;text-align:center;position:relative;overflow:hidden}
+.p-hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(200,160,78,.26) 0%,transparent 58%)}
+.p-hero>*{position:relative}
+.p-eyebrow{display:block;font-size:10.5px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.p-pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-line);
+  border-radius:999px;padding:7px 16px;margin-bottom:14px}
+.p-h1{font-family:var(--sans);font-weight:700;font-size:clamp(29px,7.2vw,40px);
+  line-height:1.06;letter-spacing:-.025em;color:var(--cream);margin-bottom:11px}
+.p-h1 em{font-style:normal;color:var(--gold)}
+.p-promise{font-size:15.5px;color:rgba(250,246,243,.8);max-width:34ch;margin:0 auto}
+.p-glance{display:flex;gap:8px;margin:18px 0 4px}
+.p-glance div{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:12px 10px;text-align:center}
+.p-glance b{display:block;font-size:19px;font-weight:700;color:var(--gold);line-height:1.1}
+.p-glance span{display:block;font-size:10.5px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--mute);margin-top:4px}
+.p-tabs{position:sticky;top:0;margin-top:18px;z-index:9;background:var(--cream);display:flex;gap:2px;
+  overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:26px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none}
+.p-tabs::-webkit-scrollbar{display:none}
+.p-tab{background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;
+  font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--mute);
+  padding:14px 14px;white-space:nowrap;
+  -webkit-transition:color .25s ease,border-color .25s ease;transition:color .25s ease,border-color .25s ease}
+.p-tab:hover{color:var(--ink)}
+.p-tab[aria-selected="true"]{color:var(--gold);border-bottom-color:var(--gold)}
+.p-panel[hidden]{display:none}
+.p-panel{-webkit-animation:pFade .35s ease both;animation:pFade .35s ease both}
+@-webkit-keyframes pFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.p-sec{margin-bottom:28px}
+.p-sec:last-child{margin-bottom:0}
+.p-sec-h{font-family:var(--sans);font-weight:700;font-size:21px;letter-spacing:-.015em;
+  line-height:1.2;color:var(--ink);margin-bottom:6px}
+.p-sec-note{color:var(--mute);font-size:14.5px;margin-bottom:16px}
+.p-p{margin-bottom:13px}.p-p:last-child{margin-bottom:0}
+.p-steps{list-style:none;display:flex;flex-direction:column;gap:10px}
+.p-step{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px 16px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-step-n{flex:none;width:26px;height:26px;border-radius:8px;background:var(--gold);
+  color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;margin-top:1px}
+.p-step-label{display:block;font-weight:700;color:var(--ink);margin-bottom:2px}
+.p-step-detail{display:block;color:var(--body);font-size:14.5px}
+.p-step-row{display:flex;gap:14px;align-items:flex-start}
+.p-shot{margin:14px 0 2px;display:flex;justify-content:center}
+.p-shot img{width:100%;max-width:250px;height:auto;border-radius:12px;
+  border:1px solid var(--line);background:#fff;
+  box-shadow:0 4px 18px rgba(0,0,0,.13)}
+.p-cards{display:flex;flex-direction:column;gap:10px}
+.p-card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px 16px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-card-top{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}
+.p-card-h{font-family:var(--sans);font-weight:700;font-size:16.5px;line-height:1.25;
+  color:var(--ink);flex:1}
+.p-tag{flex:none;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:4px 9px}
+.p-card-p{color:var(--body);font-size:14.5px}
+.p-tree{display:flex;flex-direction:column;gap:8px}
+.p-branch{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-branch-btn{width:100%;display:flex;align-items:center;gap:12px;background:none;
+  border:none;cursor:pointer;text-align:left;padding:15px 16px;font-family:var(--sans)}
+.p-branch-if{flex:1;font-size:15px;font-weight:600;color:var(--ink);line-height:1.4}
+.p-branch-chev{flex:none;width:11px;height:11px;border-right:2.5px solid var(--gold);
+  border-bottom:2.5px solid var(--gold);-webkit-transform:rotate(45deg);transform:rotate(45deg);
+  margin-top:-4px;-webkit-transition:transform .28s ease;transition:transform .28s ease}
+.p-branch-btn[aria-expanded="true"] .p-branch-chev{-webkit-transform:rotate(-135deg);
+  transform:rotate(-135deg);margin-top:2px}
+.p-branch-body{padding:0 16px 16px}
+.p-branch-then{color:var(--ink);font-size:14.5px;padding-top:2px;
+  border-top:1px solid var(--cream-mid);padding-top:13px}
+.p-branch-why{margin-top:9px;font-size:13.5px;color:var(--mute)}
+.p-foods{display:flex;flex-direction:column;gap:7px}
+.p-food{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-food-btn{width:100%;display:flex;align-items:center;gap:10px;background:none;border:none;
+  cursor:pointer;text-align:left;padding:13px 15px;font-family:var(--sans)}
+.p-food-main{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.p-food-label{font-size:15px;font-weight:700;color:var(--ink);line-height:1.3}
+.p-food-macro{font-size:12.5px;font-weight:600;color:var(--gold);letter-spacing:.01em;
+  font-variant-numeric:tabular-nums}
+.p-food-tag{flex:none;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mute);background:var(--cream-mid);border-radius:999px;padding:4px 8px}
+.p-food-body{padding:0 15px 14px}
+.p-bullets{list-style:none;border-top:1px solid var(--cream-mid);padding-top:12px;
+  display:flex;flex-direction:column;gap:6px}
+.p-bullets li{position:relative;padding-left:16px;font-size:14.5px;color:var(--ink)}
+.p-bullets li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;
+  border-radius:50%;background:var(--gold)}
+.p-food-why{margin-top:11px;font-size:13.5px;color:var(--mute);line-height:1.6}
+.p-food-why span{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.p-pk{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 18px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-pk-ask{font-size:16.5px;font-weight:700;color:var(--ink);margin-bottom:13px;line-height:1.35}
+.p-pk-opts{display:flex;flex-direction:column;gap:8px}
+.p-pk-opt{width:100%;text-align:left;background:var(--cream);border:1.5px solid var(--line);
+  border-radius:10px;padding:13px 15px;font-family:var(--sans);font-size:15px;font-weight:600;
+  color:var(--ink);cursor:pointer;
+  -webkit-transition:border-color .2s ease,background .2s ease;transition:border-color .2s ease,background .2s ease}
+.p-pk-opt:hover{border-color:var(--gold);background:var(--gold-soft)}
+.p-pk-out-label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.p-pk-out-h{font-family:var(--sans);font-weight:700;font-size:19px;line-height:1.25;
+  color:var(--ink);margin-bottom:6px}
+.p-pk-out-p{font-size:14.5px;color:var(--body)}
+.p-pk-again{margin-top:16px;background:none;border:1.5px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--mute);cursor:pointer}
+.p-pk-again:hover{border-color:var(--gold);color:var(--ink)}
+.p-ck{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 16px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-ck-bar{height:6px;background:var(--cream-mid);border-radius:3px;overflow:hidden}
+.p-ck-fill{display:block;height:100%;width:0;background:var(--gold);border-radius:3px;
+  -webkit-transition:width .4s ease;transition:width .4s ease}
+.p-ck-count{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--mute);margin:8px 0 12px}
+.p-ck-item{display:flex;align-items:flex-start;gap:11px;padding:9px 0;cursor:pointer;
+  border-top:1px solid var(--cream-mid)}
+.p-ck-item input{position:absolute;opacity:0;width:0;height:0}
+.p-ck-box{flex:none;width:21px;height:21px;border-radius:6px;border:1.5px solid var(--line);
+  background:var(--cream);margin-top:1px;position:relative;
+  -webkit-transition:all .2s ease;transition:all .2s ease}
+.p-ck-item input:checked+.p-ck-box{background:var(--gold);border-color:var(--gold)}
+.p-ck-item input:checked+.p-ck-box::after{content:"";position:absolute;left:6px;top:2px;
+  width:5px;height:10px;border-right:2.5px solid #fff;border-bottom:2.5px solid #fff;
+  -webkit-transform:rotate(45deg);transform:rotate(45deg)}
+.p-ck-item input:focus-visible+.p-ck-box{outline:2px solid var(--gold);outline-offset:2px}
+.p-ck-text{font-size:14.5px;color:var(--ink)}
+.p-ck-item input:checked~.p-ck-text{color:var(--mute);text-decoration:line-through}
+.p-ck-reset{margin-top:14px;background:none;border:none;font-family:var(--sans);font-size:12.5px;
+  font-weight:600;color:var(--mute);cursor:pointer;text-decoration:underline;padding:4px 0}
+.p-ck-reset:hover{color:var(--ink)}
+.p-tl{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 16px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-tl-controls{display:flex;flex-direction:column;gap:12px;padding-bottom:15px;
+  border-bottom:1px solid var(--cream-mid)}
+.p-tl-field{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.p-tl-field span{font-size:13.5px;font-weight:700;color:var(--ink)}
+.p-tl-time{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--ink);
+  background:var(--cream);border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;
+  -webkit-appearance:none}
+.p-tl-time:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.p-tl-modes{display:flex;gap:6px;flex-wrap:wrap}
+.p-tl-mode{flex:1;min-width:90px;background:var(--cream);border:1.5px solid var(--line);
+  border-radius:9px;padding:10px 8px;font-family:var(--sans);font-size:13px;font-weight:600;
+  color:var(--body);cursor:pointer;
+  -webkit-transition:all .2s ease;transition:all .2s ease}
+.p-tl-mode[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#fff}
+.p-tl-note{font-size:13.5px;color:var(--mute);margin:14px 0 0}
+.p-tl-rows{list-style:none;margin-top:6px}
+.p-tl-row{display:flex;gap:13px;align-items:flex-start;padding:13px 0;
+  border-top:1px solid var(--cream-mid)}
+.p-tl-row:first-child{border-top:none}
+.p-tl-when{flex:none;width:66px;font-size:14px;font-weight:700;color:var(--gold);
+  font-variant-numeric:tabular-nums;padding-top:1px}
+.p-tl-what{flex:1}
+.p-tl-what b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.p-tl-what span{display:block;font-size:13.5px;color:var(--body)}
+.p-cg{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 16px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-cg-field{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:11px 0;border-bottom:1px solid var(--cream-mid)}
+.p-cg-field>span{font-size:14px;font-weight:600;color:var(--ink);flex:1}
+.p-cg-sel{font-family:var(--sans);font-size:14.5px;font-weight:600;color:var(--ink);
+  background:var(--cream);border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;
+  max-width:56%;-webkit-appearance:none;appearance:none}
+.p-cg-sel:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.p-cg-out{margin-top:16px;background:var(--gold-soft);border:1px solid var(--gold-line);
+  border-radius:12px;padding:16px}
+.p-cg-out-label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.p-cg-line{font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.5}
+.p-cg-after{font-size:13.5px;color:var(--mute);margin-top:12px}
+.p-callout{border-left:3px solid var(--gold);background:var(--gold-soft);
+  border-radius:0 12px 12px 0;padding:16px 18px;font-size:14.5px}
+.p-callout-warn{border-left-color:var(--red);background:var(--red-soft)}
+.p-callout-win{border-left-color:var(--green);background:var(--green-soft)}
+.p-callout-h{font-family:var(--sans);font-weight:700;font-size:16px;color:var(--ink);
+  margin-bottom:4px}
+.p-shift{display:flex;flex-direction:column;gap:10px}
+.p-shift-v{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px;font-size:14.5px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-shift-label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.p-close{margin-top:34px;background:var(--card);border:1px solid var(--gold-line);
+  border-radius:14px;padding:24px 20px;text-align:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.p-close-h{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.015em;
+  color:var(--ink);margin-bottom:8px}
+.p-close p{font-size:14.5px;color:var(--body);max-width:40ch;margin:0 auto}
+.p-close-do{display:inline-block;margin-top:16px;background:var(--gold-soft);
+  border:1px solid var(--gold-line);border-radius:999px;padding:10px 20px;font-size:13px;
+  font-weight:700;letter-spacing:.05em;color:var(--ink)}
+.p-foot{margin-top:26px;text-align:center;font-size:11.5px;color:var(--mute);letter-spacing:.05em}
+@media (max-width:600px){
+  .p-wrap{padding:0 14px 64px}
+  .p-glance b{font-size:17px}
+  .p-tab{padding:13px 11px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{-webkit-animation-duration:.01ms !important;animation-duration:.01ms !important;
+    -webkit-transition-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body class="p-body">
+<div class="p-wrap">
+<div class="p-hero">
+  <span class="p-eyebrow">Shift-Proof Metabolism Reset</span>
+  <span class="p-pill">Member protocol</span>
+  <h1 class="p-h1">The Sleep <em>Switch</em></h1>
+  <p class="p-promise">The same cues in the same order, so your body stops needing to be convinced. Set the hour you want to be asleep.</p>
+</div>
+<div class="p-glance"><div><b>90m</b><span>the runway</span></div><div><b>6-8h</b><span>the target</span></div><div><b>2</b><span>versions</span></div></div>
+<div class="p-tabs" role="tablist">
+      <button class="p-tab" type="button" role="tab" aria-selected="true" aria-controls="pan0" id="tab0">The switch</button>
+      <button class="p-tab" type="button" role="tab" aria-selected="false" aria-controls="pan1" id="tab1">Not your fault</button>
+      <button class="p-tab" type="button" role="tab" aria-selected="false" aria-controls="pan2" id="tab2">When it fails</button></div>
+<div class="p-panel" role="tabpanel" id="pan0" aria-labelledby="tab0">
+      <section class="p-sec">
+      <h3 class="p-sec-h">Set your sleep time</h3>
+      <p class="p-sec-note">Same order every time. The order is what does the work, not any single item on the list.</p>
+      <div class="p-tl" data-tl='{&quot;anchorLabel&quot;:&quot;I want to be asleep by&quot;,&quot;modes&quot;:[{&quot;label&quot;:&quot;Sleeping at night&quot;,&quot;note&quot;:&quot;The standard version. Ninety minutes of runway, and most of it costs you nothing you were not already doing.&quot;,&quot;rows&quot;:[{&quot;offset&quot;:-240,&quot;label&quot;:&quot;Last caffeine was four hours ago at the latest&quot;,&quot;detail&quot;:&quot;If it was not, tonight is going to be harder and that is information, not a failure. Move it earlier tomorrow.&quot;},{&quot;offset&quot;:-180,&quot;label&quot;:&quot;Last real meal&quot;,&quot;detail&quot;:&quot;A full stomach at bedtime means lighter sleep and more waking. A gap here is worth more than any supplement.&quot;},{&quot;offset&quot;:-90,&quot;label&quot;:&quot;Lights down, screens dimmed&quot;,&quot;detail&quot;:&quot;Not off, down. Overhead lights off, lamps on. Your body reads bright overhead light as midday no matter what the clock says.&quot;},{&quot;offset&quot;:-60,&quot;label&quot;:&quot;Hot shower or bath&quot;,&quot;detail&quot;:&quot;The drop in body temperature afterwards is the actual sleep signal. This is the highest-value ten minutes on the list.&quot;},{&quot;offset&quot;:-45,&quot;label&quot;:&quot;The room gets cold and dark&quot;,&quot;detail&quot;:&quot;Cold and properly dark. If you can see your hand clearly, it is not dark enough.&quot;},{&quot;offset&quot;:-20,&quot;label&quot;:&quot;Box breathing, one Full Reset&quot;,&quot;detail&quot;:&quot;Eight cycles, about two minutes. In 4, hold 4, out 4, hold 4. This is the switch itself.&quot;},{&quot;offset&quot;:-10,&quot;label&quot;:&quot;Phone out of reach, not on the pillow&quot;,&quot;detail&quot;:&quot;Across the room. The scroll is not the problem so much as the reaching for it at 3am when you half wake.&quot;},{&quot;offset&quot;:0,&quot;label&quot;:&quot;Lights out&quot;,&quot;detail&quot;:&quot;If you are not asleep in twenty minutes, get up, keep it dim, and come back in thirty. Lying there awake teaches your body that bed is where you are anxious.&quot;}]},{&quot;label&quot;:&quot;Sleeping in daylight&quot;,&quot;note&quot;:&quot;Not the night version moved later. Daylight sleep is a different fight and it needs more front-loading.&quot;,&quot;rows&quot;:[{&quot;offset&quot;:-420,&quot;label&quot;:&quot;Caffeine cutoff, and it is earlier than feels fair&quot;,&quot;detail&quot;:&quot;Seven hours before you want to sleep. On a night shift that usually means the first half of the shift only.&quot;},{&quot;offset&quot;:-90,&quot;label&quot;:&quot;Sunglasses on before you leave the building&quot;,&quot;detail&quot;:&quot;The drive home in daylight is what undoes everything else. This is not optional and it is the whole ballgame.&quot;},{&quot;offset&quot;:-60,&quot;label&quot;:&quot;A real meal, not a snack&quot;,&quot;detail&quot;:&quot;Protein and a carb. Going to bed hungry after a night shift means waking at hour two, and that is the sleep that never comes back.&quot;},{&quot;offset&quot;:-40,&quot;label&quot;:&quot;Blackout everything, then cold&quot;,&quot;detail&quot;:&quot;Tape, blackout curtains, a proper mask. Daylight through a gap in the curtain is enough to keep you in light sleep for hours.&quot;},{&quot;offset&quot;:-25,&quot;label&quot;:&quot;White noise or earplugs on&quot;,&quot;detail&quot;:&quot;The world is awake and you are not. Daytime noise wakes you far more than night noise ever does, and you cannot control the neighbours.&quot;},{&quot;offset&quot;:-15,&quot;label&quot;:&quot;Box breathing, one Full Reset&quot;,&quot;detail&quot;:&quot;Eight cycles. Coming off a shift your nervous system is still running, and this is what tells it the shift is over.&quot;},{&quot;offset&quot;:0,&quot;label&quot;:&quot;Sleep, and take what you get&quot;,&quot;detail&quot;:&quot;Six hours of daylight sleep in two chunks still counts. If you wake after four and cannot get back down, get up and take a nap before your next shift instead.&quot;}]}],&quot;defaultTime&quot;:&quot;23:00&quot;}'>
+      <div class="p-tl-controls">
+        <label class="p-tl-field">
+          <span>I want to be asleep by</span>
+          <input type="time" class="p-tl-time" value="23:00">
+        </label>
+        <div class="p-tl-modes" role="group">
+          <button class="p-tl-mode" type="button" data-m="0" aria-pressed="true">Sleeping at night</button>
+          <button class="p-tl-mode" type="button" data-m="1" aria-pressed="false">Sleeping in daylight</button></div>
+      </div>
+      <p class="p-tl-note"></p>
+      <ol class="p-tl-rows"></ol>
+    </div>
+    </section><section class="p-sec">
+      
+      
+      <div class="p-callout p-callout-gold">
+      <h4 class="p-callout-h">Start with two, not eight</h4>
+      <p>Nobody adopts this whole list in one night. <strong>Pick the shower and the box breathing.</strong> Those two carry most of the effect, they are hard to forget, and once they are automatic the rest attaches to them by itself.</p>
+    </div>
+    </section>
+    </div><div class="p-panel" role="tabpanel" id="pan1" aria-labelledby="tab1" hidden>
+      <section class="p-sec">
+      <h3 class="p-sec-h">Before you judge yourself on this</h3>
+      
+      <p class="p-p">Sleep is the habit most likely to make you feel like you are failing, and it should not be. I do not expect you to be checking that box in your first month.</p><p class="p-p">If you are dealing with a thyroid issue, PCOS, perimenopause, an autoimmune thing, or just years of nights, your sleep system is one of the broken pieces we are here to repair. It is not a test you are supposed to pass in week two. We work from the inside out, and sleep is downstream of almost everything else we are fixing.</p><p class="p-p">On the weeks it does not happen, your check-in still tells me. Water retention, cravings, mood, a flat scale with a rough week behind it. That is your body talking, and I can coach from it whether or not the box got ticked.</p>
+    </section><section class="p-sec">
+      
+      
+      <div class="p-callout p-callout-win">
+      <h4 class="p-callout-h">What actually improves first</h4>
+      <p>Not the hours. <strong>The falling asleep gets faster, and the 3am wake-ups get shorter.</strong> Most people notice those two weeks before the total ever moves, and both of them are worth more than an hour of extra broken sleep.</p>
+    </div>
+    </section>
+    </div><div class="p-panel" role="tabpanel" id="pan2" aria-labelledby="tab2" hidden>
+      <section class="p-sec">
+      <h3 class="p-sec-h">The nights it does not work</h3>
+      <p class="p-sec-note">Find yours. Do the one thing.</p>
+      <div class="p-tree">
+      <div class="p-branch">
+        <button class="p-branch-btn" type="button" aria-expanded="false" aria-controls="br1">
+          <span class="p-branch-if">You are exhausted but completely wired</span>
+          <span class="p-branch-chev" aria-hidden="true"></span>
+        </button>
+        <div class="p-branch-body" id="br1" hidden>
+          <p class="p-branch-then">Get up. Dim light, no screen, eight cycles of box breathing, and back to bed in twenty minutes.</p>
+          <p class="p-branch-why">Wired and tired is cortisol still running the show. You cannot force your way past it, but you can downshift out of it, and lying there just deepens the association between bed and frustration.</p>
+        </div>
+      </div>
+      <div class="p-branch">
+        <button class="p-branch-btn" type="button" aria-expanded="false" aria-controls="br2">
+          <span class="p-branch-if">You fall asleep fine and wake at 3am every night</span>
+          <span class="p-branch-chev" aria-hidden="true"></span>
+        </button>
+        <div class="p-branch-body" id="br2" hidden>
+          <p class="p-branch-then">Look at your last meal and your alcohol, not your bedtime.</p>
+          <p class="p-branch-why">A 3am wake is usually blood sugar or alcohol clearing, and both are fixable in the evening rather than at 3am. Eating a bit more at dinner, especially protein, is the first thing to try.</p>
+        </div>
+      </div>
+      <div class="p-branch">
+        <button class="p-branch-btn" type="button" aria-expanded="false" aria-controls="br3">
+          <span class="p-branch-if">You get home from a night and cannot sleep at all</span>
+          <span class="p-branch-chev" aria-hidden="true"></span>
+        </button>
+        <div class="p-branch-body" id="br3" hidden>
+          <p class="p-branch-then">Sunglasses tomorrow, from the moment you leave the building.</p>
+          <p class="p-branch-why">Nine times out of ten it is the drive home. Light on the drive tells your brain the day started, and no amount of blackout curtain undoes a signal it already received.</p>
+        </div>
+      </div>
+      <div class="p-branch">
+        <button class="p-branch-btn" type="button" aria-expanded="false" aria-controls="br4">
+          <span class="p-branch-if">Your kids or your household make a routine impossible</span>
+          <span class="p-branch-chev" aria-hidden="true"></span>
+        </button>
+        <div class="p-branch-body" id="br4" hidden>
+          <p class="p-branch-then">Keep two items and drop the rest. The shower and the breathing, wherever they fit.</p>
+          <p class="p-branch-why">A short routine you do every night beats a perfect one you do twice. Consistency is the mechanism, the length never was.</p>
+        </div>
+      </div>
+      <div class="p-branch">
+        <button class="p-branch-btn" type="button" aria-expanded="false" aria-controls="br5">
+          <span class="p-branch-if">You use your phone to fall asleep and you are not giving that up</span>
+          <span class="p-branch-chev" aria-hidden="true"></span>
+        </button>
+        <div class="p-branch-body" id="br5" hidden>
+          <p class="p-branch-then">Keep it, but put it across the room and turn the brightness to the lowest setting.</p>
+          <p class="p-branch-why">I would rather you keep something that works for you than fail a rule. The distance matters more than the screen, because it is the 3am reach that costs you the second half of the night.</p>
+        </div>
+      </div>
+      <div class="p-branch">
+        <button class="p-branch-btn" type="button" aria-expanded="false" aria-controls="br6">
+          <span class="p-branch-if">You have tried all of this and nothing moves</span>
+          <span class="p-branch-chev" aria-hidden="true"></span>
+        </button>
+        <div class="p-branch-body" id="br6" hidden>
+          <p class="p-branch-then">Tell me, and bring your last two check-ins.</p>
+          <p class="p-branch-why">Sometimes sleep is not a routine problem. Thyroid, iron, perimenopause and sleep apnoea all live here, and that is a conversation, not a page.</p>
+        </div>
+      </div></div>
+    </section>
+    </div>
+<div class="p-close">
+      <h3 class="p-close-h">Two items, seven nights</h3>
+      <p>Pick two off the list, run them for a week, and tell me what happened. Not the hours you slept, how long it took you to fall asleep. That is the number that moves first.</p>
+      <span class="p-close-do">Hit reply on my message in the app</span>
+    </div>
+<p class="p-foot">SmithFit &middot; built by a nurse, for nurses</p>
+</div>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.p-tab'));
+  var panels=[].slice.call(document.querySelectorAll('.p-panel'));
+  function show(i){
+    for(var j=0;j<tabs.length;j++){
+      var on=(j===i);
+      tabs[j].setAttribute('aria-selected',on?'true':'false');
+      tabs[j].tabIndex=on?0:-1;
+      if(panels[j])panels[j].hidden=!on;
+    }
+    if(window.scrollY>window.innerHeight)window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(i);});
+    t.addEventListener('keydown',function(e){
+      var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:-1;
+      if(n<0||n>=tabs.length)return;
+      show(n);tabs[n].focus();
+    });
+  });
+  if(tabs.length)show(0);
+
+
+  [].slice.call(document.querySelectorAll('.p-pk')).forEach(function(pk){
+    var cfg; try{ cfg=JSON.parse(pk.getAttribute('data-pk')); }catch(e){ return; }
+    var answers=[];
+    function reset(){
+      answers=[];
+      [].slice.call(pk.querySelectorAll('.p-pk-q')).forEach(function(q,i){ q.hidden = i!==0; });
+      pk.querySelector('.p-pk-out').hidden=true;
+    }
+    function match(){
+      for(var i=0;i<cfg.rules.length;i++){
+        var r=cfg.rules[i], ok=true;
+        for(var k=0;k<r.when.length;k++){
+          if(r.when[k]!=='*' && r.when[k]!==answers[k]){ ok=false; break; }
+        }
+        if(ok) return r;
+      }
+      return cfg.fallback;
+    }
+    function finish(){
+      var r=match()||cfg.fallback;
+      [].slice.call(pk.querySelectorAll('.p-pk-q')).forEach(function(q){ q.hidden=true; });
+      var out=pk.querySelector('.p-pk-out');
+      out.querySelector('.p-pk-out-h').textContent=r.answer;
+      out.querySelector('.p-pk-out-p').textContent=r.detail||'';
+      out.hidden=false;
+    }
+    pk.addEventListener('click',function(e){
+      var b=e.target.closest('.p-pk-opt');
+      if(b){
+        var qi=parseInt(b.getAttribute('data-q'),10);
+        answers[qi]=b.getAttribute('data-v');
+        var next=pk.querySelector('.p-pk-q[data-q="'+(qi+1)+'"]');
+        pk.querySelector('.p-pk-q[data-q="'+qi+'"]').hidden=true;
+        if(next){ next.hidden=false; } else { finish(); }
+        return;
+      }
+      if(e.target.closest('.p-pk-again')) reset();
+    });
+  });
+
+  [].slice.call(document.querySelectorAll('.p-ck')).forEach(function(ck){
+    var key=ck.getAttribute('data-key');
+    var boxes=[].slice.call(ck.querySelectorAll('input[type=checkbox]'));
+    var saved=[];
+    try{ saved=JSON.parse(localStorage.getItem(key)||'[]')||[]; }catch(e){ saved=[]; }
+    function paint(){
+      var n=boxes.filter(function(b){return b.checked;}).length;
+      ck.querySelector('.p-ck-fill').style.width=(boxes.length?Math.round(n/boxes.length*100):0)+'%';
+      ck.querySelector('.p-ck-count').textContent=n+' of '+boxes.length+' on your shelf';
+    }
+    function save(){
+      try{ localStorage.setItem(key,JSON.stringify(boxes.map(function(b){return b.checked;}))); }catch(e){}
+    }
+    boxes.forEach(function(b,i){
+      b.checked=saved[i]===true;
+      b.addEventListener('change',function(){ paint(); save(); });
+    });
+    ck.querySelector('.p-ck-reset').addEventListener('click',function(){
+      boxes.forEach(function(b){ b.checked=false; }); paint(); save();
+    });
+    paint();
+  });
+
+
+  function fmt(mins){
+    mins=((mins%1440)+1440)%1440;
+    var h=Math.floor(mins/60), m=mins%60, ap=h<12?'am':'pm', hh=h%12; if(hh===0)hh=12;
+    return hh+':'+(m<10?'0':'')+m+ap;
+  }
+  [].slice.call(document.querySelectorAll('.p-tl')).forEach(function(tl){
+    var cfg; try{ cfg=JSON.parse(tl.getAttribute('data-tl')); }catch(e){ return; }
+    var mode=0;
+    var timeEl=tl.querySelector('.p-tl-time');
+    function paint(){
+      var parts=(timeEl.value||cfg.defaultTime).split(':');
+      var anchor=parseInt(parts[0],10)*60+parseInt(parts[1],10);
+      if(isNaN(anchor))anchor=0;
+      var m=cfg.modes[mode]||{rows:[]};
+      tl.querySelector('.p-tl-note').textContent=m.note||'';
+      tl.querySelector('.p-tl-rows').innerHTML=(m.rows||[]).map(function(r){
+        var when=r.offset===null||r.offset===undefined?(r.when||''):fmt(anchor+r.offset);
+        return '<li class="p-tl-row"><span class="p-tl-when">'+when+'</span>'+
+          '<span class="p-tl-what"><b></b><span></span></span></li>';
+      }).join('');
+      [].slice.call(tl.querySelectorAll('.p-tl-row')).forEach(function(li,i){
+        var r=(m.rows||[])[i]||{};
+        li.querySelector('b').textContent=r.label||'';
+        li.querySelector('.p-tl-what span').textContent=r.detail||'';
+      });
+    }
+    timeEl.addEventListener('input',paint);
+    [].slice.call(tl.querySelectorAll('.p-tl-mode')).forEach(function(b,i){
+      b.addEventListener('click',function(){
+        mode=i;
+        [].slice.call(tl.querySelectorAll('.p-tl-mode')).forEach(function(x,j){
+          x.setAttribute('aria-pressed',j===i?'true':'false');
+        });
+        paint();
+      });
+    });
+    paint();
+  });
+
+  [].slice.call(document.querySelectorAll('.p-cg')).forEach(function(cg){
+    var cfg; try{ cfg=JSON.parse(cg.getAttribute('data-cg')); }catch(e){ return; }
+    var sels=[].slice.call(cg.querySelectorAll('.p-cg-sel'));
+    var saved={}; try{ saved=JSON.parse(localStorage.getItem(cfg.storeKey)||'{}')||{}; }catch(e){}
+    function paint(){
+      var vals={};
+      sels.forEach(function(s){ vals[s.getAttribute('data-k')]=s.value; });
+      var line=cfg.template.replace(/{(w+)}/g,function(_,k){ return vals[k]||''; });
+      cg.querySelector('.p-cg-line').textContent=line;
+      try{ localStorage.setItem(cfg.storeKey,JSON.stringify(vals)); }catch(e){}
+    }
+    sels.forEach(function(s){
+      var k=s.getAttribute('data-k');
+      if(saved[k]) s.value=saved[k];
+      s.addEventListener('change',paint);
+    });
+    paint();
+  });
+
+  [].slice.call(document.querySelectorAll('.p-branch-btn,.p-food-btn')).forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.getAttribute('aria-expanded')==='true';
+      b.setAttribute('aria-expanded',open?'false':'true');
+      var body=document.getElementById(b.getAttribute('aria-controls'));
+      if(body)body.hidden=open;
+    });
+  });
+})();
+</script>
+</body>
+</html>
